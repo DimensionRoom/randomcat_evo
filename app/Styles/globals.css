@@ -1,0 +1,115 @@
+:root {
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  body {
+    color: #ffffff;
+    background: #13072d;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .align-center {
+    align-items: center;
+  }
+
+  .layout-header {
+    display: flex;
+    position: sticky;
+    align-items: center;
+    height: 80px;
+    padding: 1rem 2rem;
+    background: #ffffff0d;
+  }
+
+  .brand-container {
+    flex: 1;
+    height: inherit;
+  }
+
+  .tool-container {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    gap: 5px;
+  }
+
+  .flag-container {
+    overflow: hidden;
+    /* height: inherit; */
+    cursor: pointer;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: 2px solid transparent;
+  }
+  .flag-container:hover,.flag-container.active {
+    border: 2px solid #e7ddff;
+  }
+
+  .brand-container .logo-container {
+    display: flex;
+    height: inherit;
+    align-items: center;
+  }
+
+  .brand-container .brand-text {
+    font-weight: bold;
+  }
+
+  .top-navigation {
+    flex: 3;
+    justify-content: flex-end;
+    height: inherit;
+  }
+
+  .top-navigation a {
+    height: inherit;
+  }
+
+  .top-navigation .top-navigation-menu {
+    padding: 0 1rem;
+    height: inherit;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .top-navigation .top-navigation-menu:hover {
+    background-color: #ffffff29;
+  }
+
+  .layout-footer {
+    display: flex;
+    /* flex: 1; */
+
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 1rem 2rem;
+    background: #ffffff0d;
+  }
+
+}
