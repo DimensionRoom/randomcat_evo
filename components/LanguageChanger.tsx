@@ -4,7 +4,8 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import i18nConfig from '@/i18nConfig';
-import { ChangeEvent } from 'react';
+import THFlag from '@/public/svgs/thFlag'
+import ENFlag from '@/public/svgs/enFlag'
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
@@ -12,8 +13,8 @@ export default function LanguageChanger() {
   const router = useRouter();
   const currentPathname = usePathname();
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = e.target.value;
+  const handleChangeLanguage = (e: string) => {
+    const newLocale = e;
 
     // set cookie for next-i18n-router
     const days = 30;
@@ -37,9 +38,17 @@ export default function LanguageChanger() {
   };
 
   return (
-    <select onChange={handleChange} value={currentLocale}>
-      <option value="en">English</option>
-      <option value="th">ไทย</option>
-    </select>
+    // <select onChange={handleChange} value={currentLocale}>
+    //   <option value="en">English</option>
+    //   <option value="th">ไทย</option>
+    // </select>
+    <div style={{display:'flex',flexDirection:'row'}}>
+      <div onClick={() => handleChangeLanguage('th')} className={`flag-container ${currentLocale == 'th' ? 'active' : ''}`}>
+        <THFlag />
+      </div>
+      <div onClick={() => handleChangeLanguage('en')} className={`flag-container ${currentLocale == 'en' ? 'active' : ''}`}>
+        <ENFlag />
+      </div>
+    </div>
   );
 }
