@@ -5,6 +5,7 @@ yarn.lock
 # Build artifacts
 /.next/
 /out/
+/dist/
 
 # Environment variables
 .env.
