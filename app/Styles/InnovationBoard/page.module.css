@@ -27,9 +27,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 250px;
   gap: 10px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 30px;
   background: #362375;
   background-image: linear-gradient(
     320deg,
