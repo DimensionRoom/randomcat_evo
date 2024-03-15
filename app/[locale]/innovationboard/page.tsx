@@ -16,13 +16,38 @@ export default async function InnovationBoard({ params: { locale } }: { params: 
           <h1>Gamification card set</h1>
           <button className={styles.RandomAllBtn}>
             <span className={styles.RandomAllBtnText}>Random all</span>
-            <div style={{ height: "2em",padding:7, backgroundColor: "#10092b", borderRadius: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ height: "2em", padding: 7, backgroundColor: "#10092b", borderRadius: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <svg viewBox="0 0 256 256" height="100%">
-              <path fill="#fff" d="M245.3,124.3l-2.1-3.2l-59-59c-3.8-3.8-10.1-3.8-13.9,0c-3.8,3.8-3.8,10.1,0,13.9l42.2,42.2H19.8c-5.4,0-9.8,4.4-9.8,9.8c0,5.4,4.4,9.8,9.8,9.8h192.6l-42.2,42.2c-3.8,3.8-3.8,10.1,0,13.9c3.8,3.8,10.1,3.8,13.9,0l59-59l2.1-3.2l0.7-3.7v0L245.3,124.3z"/>
+                <path fill="#fff" d="M245.3,124.3l-2.1-3.2l-59-59c-3.8-3.8-10.1-3.8-13.9,0c-3.8,3.8-3.8,10.1,0,13.9l42.2,42.2H19.8c-5.4,0-9.8,4.4-9.8,9.8c0,5.4,4.4,9.8,9.8,9.8h192.6l-42.2,42.2c-3.8,3.8-3.8,10.1,0,13.9c3.8,3.8,10.1,3.8,13.9,0l59-59l2.1-3.2l0.7-3.7v0L245.3,124.3z" />
               </svg>
             </div>
-    
           </button>
+        </div>
+        <div className={styles.CardItemsContainer}>
+          <div className={styles.CardItem}>
+            <div className='CardItemTitle'>
+              <h2>Card Title</h2>
+            </div>
+            <div className='CardItemContent'>
+              <p>Card Content</p>
+            </div>
+          </div>
+          <div className={styles.CardItem}>
+            <div className='CardItemTitle'>
+              <h2>Card Title</h2>
+            </div>
+            <div className='CardItemContent'>
+              <p>Card Content</p>
+            </div>
+          </div>
+          <div className={styles.CardItem}>
+            <div className='CardItemTitle'>
+              <h2>Card Title</h2>
+            </div>
+            <div className='CardItemContent'>
+              <p>Card Content</p>
+            </div>
+          </div>
         </div>
       </main>
     </TranslationsProvider>

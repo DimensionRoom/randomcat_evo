@@ -16,6 +16,30 @@
   gap: 15px;
 }
 
+.CardItemsContainer {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  grid-gap: 20px; /* Gap between grid items */
+}
+
+.CardItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #362375;
+  background-image: linear-gradient(
+    320deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  cursor: pointer;
+
+}
+
 .RandomAllBtn{
   --btn-animation-duration: 1.2s;
   --btn-transition: .3s;
