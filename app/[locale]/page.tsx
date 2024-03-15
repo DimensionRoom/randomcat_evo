@@ -11,14 +11,13 @@ export default function Home() {
     const timer = setTimeout(() => {
       router.push('/innovationboard');
       setLoading(false);
-    }, 3000);
+    }, 0);
 
     return () => clearTimeout(timer);
   }, [router]);
   return (
     <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      {loading ? (
-        // <div>Loading...</div>
+      {/* {loading ? (
         <Player
           autoplay
           loop
@@ -26,7 +25,7 @@ export default function Home() {
           style={{ width: '30vh' }}
         >
         </Player>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }
