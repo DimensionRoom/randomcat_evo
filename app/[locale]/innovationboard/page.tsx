@@ -65,7 +65,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       resources={resources}>
       <main className={styles.main}>
         <div className={styles.HeaderCatContainer}>
-          <h1>Gamification card set</h1>
+          <p className={styles.HeaderCatContainerText}>Gamification card set</p>
           <IconBtn />
         </div>
         <div className={styles.CardItemsContainer}>

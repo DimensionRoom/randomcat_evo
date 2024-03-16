@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sarabun } from "next/font/google";
+import { Prompt } from "next/font/google";
 import { dir } from 'i18next';
 import { ChangeEvent } from 'react';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -8,9 +8,9 @@ import i18nConfig from '@/i18nConfig';
 import "../Styles/globals.css";
 import style from "../Styles/MovingBackground.module.css"
 
-const sarabun = Sarabun({
+const promt = Prompt({
   subsets: ["thai"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={sarabun.className}>
+      <body className={promt.className}>
         <div className={style.moveBackground}></div>
         <MainNavigationTopBar locale={locale} logo={<SiteLogo height={45}/>}/>
         {children}

@@ -28,11 +28,11 @@ const ExpandCard = ({
         <Tag text={title} />
       </div>
       <div className={styles.CardItemHeaderContent}>
-        <div className={styles.CardItemHeaderContentIcon}>
+        <div className={styles.HeaderIconContainer}>
           <KeyLockIcon width={20} height={20}/>
         </div>
-        <div className={styles.CardItemHeaderContentText}>
-          <h2>{headingContent}</h2>
+        <div className={styles.HeaderTextContainer}>
+          <p className={styles.HeaderText}>{headingContent}</p>
         </div>
       </div>
     </div>

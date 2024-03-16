@@ -29,23 +29,26 @@
     /* flex: 1; */
   }
 
-  .CardItemHeaderContentIcon{
+  .HeaderIconContainer{
     display: flex;
-    flex:2;
+    flex:1;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
   }
 
-  .CardItemHeaderContentText{
+  .HeaderTextContainer{
     display: flex;
-    flex:10;
+    flex:9;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
   }
 
-  .CardItemHeaderContentText h2{
+  .HeaderTextContainer p{
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.2;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
