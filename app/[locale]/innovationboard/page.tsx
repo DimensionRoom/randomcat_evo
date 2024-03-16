@@ -4,7 +4,7 @@ import initTranslations from '../i18n';
 import styles from "../../Styles/InnovationBoard/page.module.css";
 import TranslationsProvider from '@/components/TranslationsProvider';
 import IconBtn from '@/components/Botton/IconBtn/IconBtn';
-import ExpandCard from '@/components/ExpandCard/ExpandCard';
+import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import mainLoad from './../../../public/json/mainload.json';
 
@@ -29,16 +29,19 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
 
   const [cardItems, setCardItems] = useState([
     {
-      title: 'Card Title',
+      title: 'Profession',
+      headingContent: 'Museum owner',
       content: 'Card Content'
     },
     {
-      title: 'Card Title2',
-      content: 'Card Content2'
+      title: 'Random tool',
+      headingContent: 'Physical Reward',
+      content: 'Card Content'
     },
     {
-      title: 'Card Title3',
-      content: 'Card Content3'
+      title: 'Outcome/Situation',
+      headingContent: 'Increase Customer Satisfaction',
+      content: 'Card Content'
     }
   ]);
 
@@ -67,7 +70,11 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
         </div>
         <div className={styles.CardItemsContainer}>
           {cardItems.map((cardItem, index) => (
-            <ExpandCard key={index} title={cardItem.title} content={cardItem.content} />
+            <ExpandCard 
+              key={index} 
+              title={cardItem.title} 
+              headingContent={cardItem.headingContent}
+              content={cardItem.content} />
           ))}
         </div>
       </main>

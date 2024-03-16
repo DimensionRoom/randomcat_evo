@@ -1,0 +1,22 @@
+.TagContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding:4px 12px;
+  border-radius: 20px;
+  background-color: #b2abfb;
+}
+
+.TagContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.TagContent span{
+  color: #1d1757;
+  font-size: 0.8em;
+}

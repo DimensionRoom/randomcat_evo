@@ -6,6 +6,7 @@ import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBa
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
 import "../Styles/globals.css";
+import style from "../Styles/MovingBackground.module.css"
 
 const sarabun = Sarabun({
   subsets: ["thai"],
@@ -31,9 +32,10 @@ export default function RootLayout({
   return (
     <html lang={locale} dir={dir(locale)}>
       <body className={sarabun.className}>
+        <div className={style.moveBackground}></div>
         <MainNavigationTopBar locale={locale} logo={<SiteLogo height={45}/>}/>
         {children}
-        <footer className="layout-footer">footer</footer>
+        {/* <footer className="layout-footer">footer</footer> */}
       </body>
     </html>
   );
