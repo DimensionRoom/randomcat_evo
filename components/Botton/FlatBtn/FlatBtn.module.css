@@ -1,0 +1,19 @@
+.FlatBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding:8px 15px;
+    /* height: 30px; */
+    border-radius: 50px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.FlatBtn span {
+    box-sizing: border-box;
+    position: relative;
+}
+

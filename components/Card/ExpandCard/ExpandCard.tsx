@@ -3,6 +3,7 @@ import React from 'react'
 import Tag from '@/components/Tag/Tag';
 import styles from './ExpandCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
+import FlatBtn from '@/components/Botton/FlatBtn/FlatBtn';
 
 
 export type Props = {
@@ -29,11 +30,17 @@ const ExpandCard = ({
       </div>
       <div className={styles.CardItemHeaderContent}>
         <div className={styles.HeaderIconContainer}>
-          <KeyLockIcon width={20} height={20}/>
+          <KeyLockIcon width={20} height={20} />
         </div>
         <div className={styles.HeaderTextContainer}>
           <p className={styles.HeaderText}>{headingContent}</p>
         </div>
+      </div>
+      <div className={styles.CardItemBodyContent}>
+        <p>{content ? content : '-'}</p>
+      </div>
+      <div className={styles.CardItemFooterContent}>
+        <FlatBtn style={{width:100,position:'absolute'}} text="Random" />
       </div>
     </div>
   )
