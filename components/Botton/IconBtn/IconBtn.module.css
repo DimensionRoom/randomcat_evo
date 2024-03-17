@@ -23,7 +23,7 @@
     transition: var(--btn-transition);
     box-sizing: border-box;
     position: relative;
-    /* background: inherit; */
+    background: inherit;
 }
 
 .IconBtn:hover {
