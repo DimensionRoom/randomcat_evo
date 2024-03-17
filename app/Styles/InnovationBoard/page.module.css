@@ -24,8 +24,8 @@
 .CardItemsContainer {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-  grid-gap: 20px; /* Gap between grid items */
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; 
 }
 
 .CardItem{

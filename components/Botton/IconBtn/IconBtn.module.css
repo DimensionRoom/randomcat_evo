@@ -27,7 +27,6 @@
 }
 
 .IconBtn:hover {
-    /* box-shadow: 0px 0px 20px #563275; */
     background-position: right center;
     background-size: 200% auto;
     -webkit-animation: pulse 2s infinite;
