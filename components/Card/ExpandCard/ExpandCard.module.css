@@ -67,6 +67,7 @@
   justify-content: center;
   padding: 5px 0px 15px 0px;
 }
+
 .CardItemActionContent.Expand svg{
   transform: rotate(180deg);
   transition: transform 0.5s;

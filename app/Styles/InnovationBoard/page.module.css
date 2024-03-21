@@ -14,6 +14,8 @@
   flex-direction: row;
   align-items: center;
   gap: 15px;
+  /* position: sticky;
+  top:0px; */
 }
 
 .HeaderCatContainerText{
@@ -26,6 +28,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px; 
+}
+
+@media (max-width: 960px) {
+  .CardItemsContainer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 40px; 
+  }
 }
 
 .CardItem{
