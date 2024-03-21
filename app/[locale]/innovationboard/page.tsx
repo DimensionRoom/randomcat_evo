@@ -40,7 +40,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
     },
     {
       title: 'Outcome/Situation',
-      headingContent: 'IncreCard Content',
+      headingContent: 'Increase Customer Satisfaction',
       content: ''
     }
   ]);

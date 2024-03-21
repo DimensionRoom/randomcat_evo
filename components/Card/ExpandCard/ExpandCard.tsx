@@ -4,6 +4,7 @@ import Tag from '@/components/Tag/Tag';
 import styles from './ExpandCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import FlatBtn from '@/components/Botton/FlatBtn/FlatBtn';
+import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 
 
 export type Props = {
@@ -39,8 +40,11 @@ const ExpandCard = ({
       <div className={styles.CardItemBodyContent}>
         <p>{content ? content : '-'}</p>
       </div>
+      <div className={`${styles.CardItemActionContent} ${content?styles.Expand:styles.NonExpand}`}>
+        <ExpandArrowIcon width={30} height={30}/>
+      </div>
       <div className={styles.CardItemFooterContent}>
-        <FlatBtn style={{width:100,position:'absolute'}} text="Random" />
+        <FlatBtn style={{width:100}} text="Random" />
       </div>
     </div>
   )

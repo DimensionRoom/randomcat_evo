@@ -1,70 +1,80 @@
-.CardItem{
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    /* min-height: 200px; */
-    height: fit-content;
-    padding: 10px 10px 20px 10px;
-    border-radius: 30px;
-    background: #362375;
-    background-image: linear-gradient(
-      320deg,
+.CardItem {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* min-height: 200px; */
+  height: fit-content;
+  padding: 10px 10px 0px 10px;
+  border-radius: 30px;
+  background: #362375;
+  background-image: linear-gradient(320deg,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
-  }
+      rgba(0, 0, 0, 0.5) 100%);
+}
 
-  .CardItemTitle{
-    display: flex;
-    flex-direction: row;
-  }
+.CardItemTitle {
+  display: flex;
+  flex-direction: row;
+}
 
-  .CardItemHeaderContent{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    padding: 20px 10px 10px 10px;
-    /* height: inherit; */
-  }
+.CardItemHeaderContent {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 30px 25px 12px 25px;
+  /* height: inherit; */
+}
 
-  .HeaderIconContainer{
-    display: flex;
-    flex:1;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    cursor: pointer;
-  }
+.HeaderIconContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+}
 
-  .HeaderTextContainer{
-    display: flex;
-    flex:9;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
+.HeaderTextContainer {
+  display: flex;
+  flex: 9;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
-  .HeaderTextContainer p{
-    font-size: 1.5em;
-    font-weight: 600;
-    line-height: 1.2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-  }
+.HeaderTextContainer p {
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
 
-  .CardItemBodyContent{
-    display: flex;
-    flex-direction: row;
-    padding: 0px 10px 10px 10px;
-    max-height: 250px;
-    overflow-y: auto;
-    /* height: inherit; */
-  }
+.CardItemBodyContent {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 30px 10px 30px;
+  max-height: 250px;
+  overflow-y: auto;
+  /* height: inherit; */
+}
 
-  .CardItemFooterContent{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
+.CardItemActionContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px 0px 15px 0px;
+}
+.CardItemActionContent.Expand svg{
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+}
+
+.CardItemFooterContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: -20px;
+}
