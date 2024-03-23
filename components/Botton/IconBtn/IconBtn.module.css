@@ -24,6 +24,8 @@
     box-sizing: border-box;
     position: relative;
     background: inherit;
+    border-radius: inherit;
+    white-space: nowrap;
 }
 
 .IconBtn:hover {

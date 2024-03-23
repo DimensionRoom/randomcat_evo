@@ -1,0 +1,146 @@
+.LayoutHeader {
+  display: flex;
+  position: sticky;
+  align-items: center;
+  height: 80px;
+  padding: 1rem 2rem !important;
+  /* background: #ffffff0d; */
+}
+
+.BrandContainer {
+  flex: 1;
+  height: inherit;
+}
+
+.ToolContainer {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  gap: 5px;
+}
+
+.FlagContainer {
+  overflow: hidden;
+  /* height: inherit; */
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: 2px solid transparent;
+}
+
+.FlagContainer:hover,.FlagContainer.active {
+  border: 2px solid #e7ddff;
+}
+
+.BrandContainer .LogoContainer {
+  display: flex;
+  height: inherit;
+  align-items: center;
+}
+
+.BrandContainer .BrandText {
+  font-weight: bold;
+}
+
+.TopNavigation {
+  flex: 3;
+  justify-content: flex-end;
+  height: inherit;
+}
+.TopNavigationExpand {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .TopNavigation {
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .TopNavigationExpand {
+    display: flex !important;
+    flex: 3;
+    justify-content: flex-end;
+    height: inherit;
+  }
+}
+
+.TopNavigation a {
+  height: inherit;
+}
+
+.TopNavigation .TopNavigationMenu {
+  padding: 0 1rem;
+  height: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.TopNavigation .TopNavigationMenu:hover {
+  background-color: #ffffff29;
+}
+
+.ExpandMenuIcon {
+  --line-gap: 8px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--line-gap);
+  cursor: pointer;
+  position: relative;
+}
+
+.bar {
+  position: relative;
+  height: var(--height-bar);
+  width: 100%;
+  border-radius: .5rem;
+  background-color: #fff;
+}
+
+.bar1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.ExpandMenu:checked + .ExpandMenuIcon > .bar1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.ExpandMenu:checked + .ExpandMenuIcon > .bar3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.ExpandMenu:checked + .ExpandMenuIcon {
+  --pos-y-bar-one: calc(var(--line-gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--line-gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+/* FIN ExpandMenuIcon */
+
+
