@@ -56,10 +56,21 @@
   display: flex;
   flex-direction: row;
   padding: 0px 30px 10px 30px;
-  max-height: 250px;
+  max-height: 200px;
   overflow-y: auto;
   /* height: inherit; */
 }
+
+.CardItemBodyContent::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.CardItemBodyContent::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba(0,0,0,.5);
+}
+
 
 .CardItemActionContent {
   display: flex;

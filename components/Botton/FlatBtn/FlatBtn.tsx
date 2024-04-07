@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
-import styles from './FlatBtn.module.css';
 import { Prompt } from "next/font/google";
+import styles from './FlatBtn.module.css';
 
 const promt = Prompt({
   subsets: ["thai"],

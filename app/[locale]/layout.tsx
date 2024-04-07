@@ -5,8 +5,8 @@ import { ChangeEvent } from 'react';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
-import "../Styles/globals.css";
 import style from "../Styles/MovingBackground.module.css"
+import "../Styles/globals.css";
 
 const promt = Prompt({
   subsets: ["thai"],

@@ -38,7 +38,7 @@ const ExpandCard = ({
         </div>
       </div>
       <div className={styles.CardItemBodyContent}>
-        <p>{content ? content : '-'}</p>
+        {content ? <p>{content}</p> : null}
       </div>
       <div className={`${styles.CardItemActionContent} ${content?styles.Expand:styles.NonExpand}`}>
         <ExpandArrowIcon width={30} height={30}/>
