@@ -1,8 +1,9 @@
 'use client';
-import React from 'react'
+import React, { useState } from 'react'
 import Tag from '@/components/Tag/Tag';
 import styles from './ExpandCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
+import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Botton/FlatBtn/FlatBtn';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 
@@ -11,17 +12,23 @@ export type Props = {
   title: string;
   headingContent: string;
   content: string;
+  expand?: boolean;
 }
 
 const ExpandCard = ({
   title = '-',
   headingContent = '-',
   content = '-',
+  expand = false,
   ...props
 }: Props): JSX.Element => {
 
+  const [expanded, setExpanded] = useState<boolean>(expand);
+
   const handleClick = async () => {
-    console.log('click')
+    if (!content) return;
+    console.log(expanded)
+    setExpanded((prev) => !prev);
   };
 
   return (
@@ -31,7 +38,7 @@ const ExpandCard = ({
       </div>
       <div className={styles.CardItemHeaderContent}>
         <div className={styles.HeaderIconContainer}>
-          <KeyLockIcon width={20} height={20} />
+          <KeyUnlockIcon width={20} height={20} />
         </div>
         <div className={styles.HeaderTextContainer}>
           <p className={styles.HeaderText}>{headingContent}</p>
@@ -40,11 +47,14 @@ const ExpandCard = ({
       <div className={styles.CardItemBodyContent}>
         {content ? <p>{content}</p> : null}
       </div>
-      <div className={`${styles.CardItemActionContent} ${content?styles.Expand:styles.NonExpand}`}>
-        <ExpandArrowIcon width={30} height={30}/>
+      <div onClick={handleClick} className={`
+        ${styles.CardItemActionContent} 
+        ${expanded ? styles.Expanded : styles.NonExpanded} 
+        ${content ? styles.HaveContent : styles.NonContent}`}>
+        <ExpandArrowIcon width={30} height={30} disabled={!content ? true : false} />
       </div>
       <div className={styles.CardItemFooterContent}>
-        <FlatBtn style={{width:100}} text="Random" />
+        <FlatBtn style={{ width: 100 }} text="Random" />
       </div>
     </div>
   )

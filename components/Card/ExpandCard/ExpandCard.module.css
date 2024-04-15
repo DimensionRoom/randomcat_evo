@@ -68,7 +68,7 @@
 
 .CardItemBodyContent::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 
@@ -79,10 +79,39 @@
   padding: 5px 0px 15px 0px;
 }
 
-.CardItemActionContent.Expand svg{
+.CardItemActionContent.HaveContent.NonExpanded svg:hover {
+  animation: pulsate-fwd 1s ease-in-out infinite both;
+  cursor: pointer;
+}
+
+
+
+.CardItemActionContent.Expanded svg {
   transform: rotate(180deg);
   transition: transform 0.5s;
+  cursor: pointer;
+  /* animation: moveRotateUpDown 1.5s infinite; */
 }
+
+.CardItemActionContent.HaveContent+.CardItemActionContent.Expanded svg {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+  cursor: pointer;
+  /* animation: moveRotateUpDown 1.5s infinite; */
+}
+
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 
 .CardItemFooterContent {
   display: flex;
