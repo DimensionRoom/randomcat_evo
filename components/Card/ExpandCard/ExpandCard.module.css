@@ -40,8 +40,8 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  height: 50px;
-  align-items: center;
+  height: 60px; /* can remove if not work let ple decide */
+  align-items: center; /* can remove if not work let ple decide */
 }
 
 .HeaderTextContainer p {
