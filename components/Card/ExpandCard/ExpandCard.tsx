@@ -44,8 +44,8 @@ const ExpandCard = ({
           <p className={styles.HeaderText}>{headingContent}</p>
         </div>
       </div>
-      <div className={styles.CardItemBodyContent}>
-        {content ? <p>{content}</p> : null}
+      <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
+        <p>{content}</p>
       </div>
       <div onClick={handleClick} className={`
         ${styles.CardItemActionContent} 
