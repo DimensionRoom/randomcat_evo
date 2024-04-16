@@ -13,6 +13,7 @@ export type Props = {
   headingContent: string;
   content: string;
   expand?: boolean;
+  lock?: boolean;
 }
 
 const ExpandCard = ({
@@ -20,12 +21,18 @@ const ExpandCard = ({
   headingContent = '-',
   content = '-',
   expand = false,
+  lock = false,
   ...props
 }: Props): JSX.Element => {
 
   const [expanded, setExpanded] = useState<boolean>(expand);
+  const [lockContent, setLockContent] = useState<boolean>(lock);
 
-  const handleClick = async () => {
+  const handleLockClick = async () => {
+    setLockContent((prev) => !prev);
+  }
+
+  const handleExpandClick = async () => {
     if (!content) return;
     console.log(expanded)
     setExpanded((prev) => !prev);
@@ -37,8 +44,9 @@ const ExpandCard = ({
         <Tag text={title} />
       </div>
       <div className={styles.CardItemHeaderContent}>
-        <div className={styles.HeaderIconContainer}>
-          <KeyUnlockIcon width={20} height={20} />
+        <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
+          {lockContent ? <KeyLockIcon color='#5b5879' width={20} height={20} />
+            : <KeyUnlockIcon width={20} height={20} />}
         </div>
         <div className={styles.HeaderTextContainer}>
           <p className={styles.HeaderText}>{headingContent}</p>
@@ -47,7 +55,7 @@ const ExpandCard = ({
       <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
         <p>{content}</p>
       </div>
-      <div onClick={handleClick} className={`
+      <div onClick={handleExpandClick} className={`
         ${styles.CardItemActionContent} 
         ${expanded ? styles.Expanded : styles.NonExpanded} 
         ${content ? styles.HaveContent : styles.NonContent}`}>
