@@ -45,8 +45,8 @@ const ExpandCard = ({
       </div>
       <div className={styles.CardItemHeaderContent}>
         <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
-          {lockContent ? <KeyLockIcon color='#5b5879' width={20} height={20} />
-            : <KeyUnlockIcon width={20} height={20} />}
+          {lockContent ? <KeyLockIcon width={20} height={20} />
+            : <KeyUnlockIcon color='#5b5879' width={20} height={20} />}
         </div>
         <div className={styles.HeaderTextContainer}>
           <p className={styles.HeaderText}>{headingContent}</p>

@@ -33,7 +33,10 @@ export default function RootLayout({
     <html lang={locale} dir={dir(locale)}>
       <body className={promt.className}>
         <div className={style.moveBackground}></div>
-        <MainNavigationTopBar locale={locale} logo={<SiteLogo height={45}/>}/>
+        <div className={style.wave}></div>
+        <div className={style.wave}></div>
+        <div className={style.wave}></div>
+        <MainNavigationTopBar locale={locale} logo={<SiteLogo height={45} />} />
         {children}
         {/* <footer className="layout-footer">footer</footer> */}
       </body>

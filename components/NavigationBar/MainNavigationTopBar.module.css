@@ -68,7 +68,8 @@
 }
 
 .TopNavigation a {
-  height: inherit;
+  /* height: inherit; */ /* This line is for full height */
+  height: 50px;
 }
 
 .TopNavigation .TopNavigationMenu {
@@ -79,10 +80,11 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
+  border-radius: 30px;
 }
 
 .TopNavigation .TopNavigationMenu:hover {
-  background-color: #ffffff29;
+  background-color: #ffffff45;
 }
 
 .ExpandMenuIcon {

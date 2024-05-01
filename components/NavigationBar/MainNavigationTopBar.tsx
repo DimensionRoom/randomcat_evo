@@ -55,21 +55,29 @@ const MainNavigationTopBar = ({
         </div>
       </Link>
       <div className={`flex align-center ${styles.TopNavigationExpand}`}>
-        <input className={`d-none ${styles.ExpandMenu}`} id="ExpandMenu" name="ExpandMenu" type="checkbox"/>
-          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
-            <div className={`${styles.bar} ${styles.bar1}`}></div>
-            <div className={`${styles.bar} ${styles.bar2}`}></div>
-            <div className={`${styles.bar} ${styles.bar3}`}></div>
-          </label>
+        <input className={`d-none ${styles.ExpandMenu}`} id="ExpandMenu" name="ExpandMenu" type="checkbox" />
+        <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
+          <div className={`${styles.bar} ${styles.bar1}`}></div>
+          <div className={`${styles.bar} ${styles.bar2}`}></div>
+          <div className={`${styles.bar} ${styles.bar3}`}></div>
+        </label>
       </div>
       <div className={`flex align-center ${styles.TopNavigation}`}>
         <Link href="/innovationboard">
           <div className={styles.TopNavigationMenu}>Creativity</div>
         </Link>
-        <div className={styles.TopNavigationMenu}>Education Canvas</div>
-        <div className={styles.TopNavigationMenu}>Gamification</div>
-        <div className={styles.TopNavigationMenu}>Innovation</div>
-        <div className={styles.TopNavigationMenu}>Contact us</div>
+        <Link href="/">
+          <div className={styles.TopNavigationMenu}>Education Canvas</div>
+        </Link>
+        <Link href="/">
+          <div className={styles.TopNavigationMenu}>Gamification</div>
+        </Link>
+        <Link href="/">
+          <div className={styles.TopNavigationMenu}>Innovation</div>
+        </Link>
+        <Link href="/">
+          <div className={styles.TopNavigationMenu}>Contact us</div>
+        </Link>
         <div className={styles.ToolContainer}>
           <div onClick={() => handleChangeLanguage('th')} className={`${styles.FlagContainer} ${locale == 'th' ? styles.active : ''}`}>
             <THFlag />
