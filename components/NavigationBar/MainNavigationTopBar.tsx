@@ -124,6 +124,7 @@ const MainNavigationTopBar = ({
           id="ExpandMenu"
           name="ExpandMenu"
           type="checkbox"
+          checked={isExpandMenu}
           onChange={(e) => handleExpandMenu(e.target.checked)}
         />
         <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
@@ -141,6 +142,7 @@ const MainNavigationTopBar = ({
                   <Link
                     key={index}
                     href={menu.url}
+                    onClick={() => handleExpandMenu(false)}
                   >
                     <div className={styles.ExpandMenuContentItem}>
                       <p className={styles.MenuText}>
