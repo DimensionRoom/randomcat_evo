@@ -110,7 +110,7 @@
 .TopNavigation a {
   /* height: inherit; */
   /* This line is for full height */
-  height: 50px;
+  height: 44px;
 }
 
 .TopNavigation .TopNavigationMenu {
@@ -192,6 +192,10 @@
   --scale-bar: 0;
   --rotate-bar-one: 45deg;
   --rotate-bar-three: -45deg;
+}
+
+.MenuActive {
+  background-color: #ffffff45;
 }
 
 /* FIN ExpandMenuIcon */

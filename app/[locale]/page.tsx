@@ -9,7 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push('/innovationboard');
+      router.push('/innovationandbusiness');
       setLoading(false);
     }, 0);
 

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react'
+import React, { use, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import i18nConfig from '@/i18nConfig';
@@ -20,23 +20,24 @@ const MainNavigationTopBar = ({
 }: Props): JSX.Element => {
   const router = useRouter();
   const currentPathname = usePathname();
+  const popCurrentPathname = currentPathname.split('/').slice(2) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
   const mainMenu = [
     {
       name: 'Innovation & Business',
-      url: '/innovationboard'
+      url: '/innovationandbusiness'
     },
     {
       name: 'Education',
-      url: '/'
+      url: '/education'
     },
     {
       name: 'Music',
-      url: '/'
+      url: '/music'
     },
     {
-      name: 'Creativity & problem solving',
-      url: '/'
+      name: 'Creativity & Problem solving',
+      url: '/creactivityandproblemsolving'
     }
   ];
 
@@ -63,7 +64,6 @@ const MainNavigationTopBar = ({
         currentPathname.replace(`/${locale}`, `/${newLocale}`)
       );
     }
-
     router.refresh();
   };
 
@@ -75,7 +75,7 @@ const MainNavigationTopBar = ({
             <div className={styles.LogoContainer}>
               {logo}
             </div>
-            <p className={styles.BrandText}>Tool Kit</p>
+            <p className={styles.BrandText}>ThinkTool</p>
           </div>
         </Link>
         <div className={`flex align-center ${styles.TopNavigation}`}>
@@ -85,7 +85,7 @@ const MainNavigationTopBar = ({
                 <Link
                   href={menu.url}
                 >
-                  <div className={styles.TopNavigationMenu}>
+                  <div className={`${popCurrentPathname.some(item=> item === menu.url.replace('/','')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
                     <p className={styles.MenuText}>
                       {menu.name}
                     </p>
