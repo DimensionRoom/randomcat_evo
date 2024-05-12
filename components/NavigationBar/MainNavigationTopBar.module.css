@@ -29,7 +29,8 @@
   border: 2px solid transparent;
 }
 
-.FlagContainer:hover,.FlagContainer.active {
+.FlagContainer:hover,
+.FlagContainer.active {
   border: 2px solid #e7ddff;
 }
 
@@ -48,8 +49,14 @@
   justify-content: flex-end;
   height: inherit;
 }
+
 .TopNavigationExpand {
   display: none !important;
+  /* flex:1; */
+  z-index: 2;
+  padding: 28px 25px !important;
+  position: absolute;
+  right: 0;
 }
 
 @media (max-width: 960px) {
@@ -61,19 +68,53 @@
 @media (max-width: 960px) {
   .TopNavigationExpand {
     display: flex !important;
-    flex: 3;
+    flex-direction: row;
     justify-content: flex-end;
-    height: inherit;
   }
 }
 
+.ExpandMenuContainer {
+  position: absolute;
+  display: none !important;
+  background-color: #0e0e0eed;
+  flex: 1;
+  flex-direction: column;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+}
+
+.ExpandMenuContent{
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ExpandMenuContent .ExpandMenuContentItem .MenuText {
+  color: #ffffff;
+  font-size: 1.5rem;
+  
+}
+
+@media (max-width: 960px) {
+  .ExpandMenuContainer {
+    display: flex !important;
+  
+  }
+}
+
+
 .TopNavigation a {
-  /* height: inherit; */ /* This line is for full height */
+  /* height: inherit; */
+  /* This line is for full height */
   height: 50px;
 }
 
 .TopNavigation .TopNavigationMenu {
-  padding: 0 1rem;
+  margin: 0 5px;
   height: inherit;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -81,6 +122,15 @@
   display: flex;
   align-items: center;
   border-radius: 30px;
+}
+
+.TopNavigation .TopNavigationMenu .MenuText {
+  padding: 0 12px;
+}
+
+.TopNavigation .MenuDivider {
+  height: 25px;
+  border-right: 1px solid #ffffff;
 }
 
 .TopNavigation .TopNavigationMenu:hover {
@@ -128,21 +178,20 @@
   transition: bottom 200ms 100ms, transform 100ms;
 }
 
-.ExpandMenu:checked + .ExpandMenuIcon > .bar1 {
+.ExpandMenu:checked+.ExpandMenuIcon>.bar1 {
   transition: top 200ms, transform 200ms 100ms;
 }
 
-.ExpandMenu:checked + .ExpandMenuIcon > .bar3 {
+.ExpandMenu:checked+.ExpandMenuIcon>.bar3 {
   transition: bottom 200ms, transform 200ms 100ms;
 }
 
-.ExpandMenu:checked + .ExpandMenuIcon {
+.ExpandMenu:checked+.ExpandMenuIcon {
   --pos-y-bar-one: calc(var(--line-gap) + var(--height-bar));
   --pos-y-bar-three: calc(var(--line-gap) + var(--height-bar));
   --scale-bar: 0;
   --rotate-bar-one: 45deg;
   --rotate-bar-three: -45deg;
 }
+
 /* FIN ExpandMenuIcon */
-
-

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import i18nConfig from '@/i18nConfig';
@@ -20,6 +20,29 @@ const MainNavigationTopBar = ({
 }: Props): JSX.Element => {
   const router = useRouter();
   const currentPathname = usePathname();
+  const [isExpandMenu, setIsExpandMenu] = useState(false);
+  const mainMenu = [
+    {
+      name: 'Innovation & Business',
+      url: '/innovationboard'
+    },
+    {
+      name: 'Education',
+      url: '/'
+    },
+    {
+      name: 'Music',
+      url: '/'
+    },
+    {
+      name: 'Creativity & problem solving',
+      url: '/'
+    }
+  ];
+
+  const handleExpandMenu = (value: boolean) => {
+    setIsExpandMenu(value);
+  }
 
   const handleChangeLanguage = async (lang: string) => {
     const newLocale = lang;
@@ -45,49 +68,94 @@ const MainNavigationTopBar = ({
   };
 
   return (
-    <header className={styles.LayoutHeader}>
-      <Link href="/">
-        <div className={`flex align-center ${styles.BrandContainer}`}>
-          <div className={styles.LogoContainer}>
-            {logo}
+    <>
+      <header className={styles.LayoutHeader}>
+        <Link href="/">
+          <div className={`flex align-center ${styles.BrandContainer}`}>
+            <div className={styles.LogoContainer}>
+              {logo}
+            </div>
+            <p className={styles.BrandText}>Tool Kit</p>
           </div>
-          <p className={styles.BrandText}>Tool Kit</p>
+        </Link>
+        <div className={`flex align-center ${styles.TopNavigation}`}>
+          {mainMenu.map((menu, index) => {
+            return (
+              <React.Fragment key={index}>
+                <Link
+                  href={menu.url}
+                >
+                  <div className={styles.TopNavigationMenu}>
+                    <p className={styles.MenuText}>
+                      {menu.name}
+                    </p>
+                  </div>
+                </Link>
+                {index < mainMenu.length - 1 && <div className={styles.MenuDivider}></div>}
+              </React.Fragment>
+            );
+          }
+          )}
+          <div className={styles.ToolContainer}>
+            <div onClick={() => handleChangeLanguage('th')} className={`${styles.FlagContainer} ${locale == 'th' ? styles.active : ''}`}>
+              <THFlag />
+            </div>
+            <div onClick={() => handleChangeLanguage('en')} className={`${styles.FlagContainer} ${locale == 'en' ? styles.active : ''}`}>
+              <ENFlag />
+            </div>
+          </div>
         </div>
-      </Link>
-      <div className={`flex align-center ${styles.TopNavigationExpand}`}>
-        <input className={`d-none ${styles.ExpandMenu}`} id="ExpandMenu" name="ExpandMenu" type="checkbox" />
+        {/* <div className={`flex ${styles.TopNavigationExpand}`}>
+          <input className={`d-none ${styles.ExpandMenu}`} 
+            id="ExpandMenu" 
+            name="ExpandMenu" 
+            type="checkbox" 
+            onChange={(e) => handleExpandMenu(e.target.checked)}
+          />
+          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
+            <div className={`${styles.bar} ${styles.bar1}`}></div>
+            <div className={`${styles.bar} ${styles.bar2}`}></div>
+            <div className={`${styles.bar} ${styles.bar3}`}></div>
+          </label>
+        </div> */}
+      </header>
+      <div className={`flex ${styles.TopNavigationExpand}`}>
+        <input className={`d-none ${styles.ExpandMenu}`}
+          id="ExpandMenu"
+          name="ExpandMenu"
+          type="checkbox"
+          onChange={(e) => handleExpandMenu(e.target.checked)}
+        />
         <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
           <div className={`${styles.bar} ${styles.bar1}`}></div>
           <div className={`${styles.bar} ${styles.bar2}`}></div>
           <div className={`${styles.bar} ${styles.bar3}`}></div>
         </label>
       </div>
-      <div className={`flex align-center ${styles.TopNavigation}`}>
-        <Link href="/innovationboard">
-          <div className={styles.TopNavigationMenu}>Creativity</div>
-        </Link>
-        <Link href="/">
-          <div className={styles.TopNavigationMenu}>Education Canvas</div>
-        </Link>
-        <Link href="/">
-          <div className={styles.TopNavigationMenu}>Gamification</div>
-        </Link>
-        <Link href="/">
-          <div className={styles.TopNavigationMenu}>Innovation</div>
-        </Link>
-        <Link href="/">
-          <div className={styles.TopNavigationMenu}>Contact us</div>
-        </Link>
-        <div className={styles.ToolContainer}>
-          <div onClick={() => handleChangeLanguage('th')} className={`${styles.FlagContainer} ${locale == 'th' ? styles.active : ''}`}>
-            <THFlag />
+      {
+        isExpandMenu && (
+          <div className={`flex ${styles.ExpandMenuContainer}`}>
+            <div className={`${styles.ExpandMenuContent}`}>
+              {mainMenu.map((menu, index) => {
+                return (
+                  <Link
+                    key={index}
+                    href={menu.url}
+                  >
+                    <div className={styles.ExpandMenuContentItem}>
+                      <p className={styles.MenuText}>
+                        {menu.name}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              }
+              )}
+            </div>
           </div>
-          <div onClick={() => handleChangeLanguage('en')} className={`${styles.FlagContainer} ${locale == 'en' ? styles.active : ''}`}>
-            <ENFlag />
-          </div>
-        </div>
-      </div>
-    </header>
+        )
+      }
+    </>
   )
 }
 
