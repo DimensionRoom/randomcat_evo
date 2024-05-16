@@ -20,6 +20,7 @@ const i18nNamespaces = ['innovationboard'];
 export default function InnovationBoard({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const searchParams = useSearchParams()
+  const searchParamsInfo = searchParams.get('info')
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
@@ -116,7 +117,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
         <div className={styles.HeaderCatContainer}>
           <p className={styles.HeaderCatContainerText}>
             {subCategory.map((subCat, index) => (
-              searchParams.get('info') === subCat.catItemId ? subCat.name : ''
+              searchParamsInfo === subCat.catItemId ? subCat.name : ''
             ))}
           </p>
           <IconBtn />
