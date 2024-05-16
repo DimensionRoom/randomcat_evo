@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import initTranslations from '../../i18n';
@@ -109,30 +109,32 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
-      locale={locale}
-      resources={resources}>
-      <main className={styles.main}>
-        <div className={styles.HeaderCatContainer}>
-          <p className={styles.HeaderCatContainerText}>
-            {subCategory.map((subCat, index) => (
-              searchParamsInfo === subCat.catItemId ? subCat.name : ''
+    <Suspense>
+      <TranslationsProvider
+        namespaces={i18nNamespaces}
+        locale={locale}
+        resources={resources}>
+        <main className={styles.main}>
+          <div className={styles.HeaderCatContainer}>
+            <p className={styles.HeaderCatContainerText}>
+              {subCategory.map((subCat, index) => (
+                searchParamsInfo === subCat.catItemId ? subCat.name : ''
+              ))}
+            </p>
+            <IconBtn />
+          </div>
+          <TagFilter defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+          <div className={styles.CardItemsContainer}>
+            {cardItems.map((cardItem, index) => (
+              <ExpandCard
+                key={index}
+                title={cardItem.title}
+                headingContent={cardItem.headingContent}
+                content={cardItem.content} />
             ))}
-          </p>
-          <IconBtn />
-        </div>
-        <TagFilter defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
-        <div className={styles.CardItemsContainer}>
-          {cardItems.map((cardItem, index) => (
-            <ExpandCard
-              key={index}
-              title={cardItem.title}
-              headingContent={cardItem.headingContent}
-              content={cardItem.content} />
-          ))}
-        </div>
-      </main>
-    </TranslationsProvider>
+          </div>
+        </main>
+      </TranslationsProvider>
+    </Suspense>
   );
 }
