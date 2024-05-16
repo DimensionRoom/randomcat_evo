@@ -109,7 +109,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   }
 
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <TranslationsProvider
         namespaces={i18nNamespaces}
         locale={locale}
