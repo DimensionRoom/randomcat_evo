@@ -5,6 +5,9 @@ const nextConfig = {
   // distDir: 'dist',
   // basePath: '/randomcat_evo',
   // assetPrefix: '/randomcat_evo/',
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  }
 }
   
   export default nextConfig;
