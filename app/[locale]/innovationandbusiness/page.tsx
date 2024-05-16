@@ -30,39 +30,6 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
     fetchTranslations();
   }, [locale]);
 
-  const [cardItems, setCardItems] = useState([
-    {
-      title: 'Profession',
-      headingContent: 'Museum owner',
-      content: ''
-    },
-    {
-      title: 'Random tool',
-      headingContent: 'Physical Reward',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged., but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged'
-    },
-    {
-      title: 'Outcome/Situation',
-      headingContent: 'Increase Customer Satisfaction',
-      content: ''
-    },
-    {
-      title: 'Random tool',
-      headingContent: 'Physical Reward',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged., but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged'
-    },
-    {
-      title: 'Random tool',
-      headingContent: 'Physical Reward',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-    },
-    {
-      title: 'Random tool',
-      headingContent: 'Physical Reward',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-    }
-  ]);
-
   if (loading) {
     return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Player
@@ -107,13 +74,13 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               </div>
             </Link>
             <Link href={{ pathname: `${currentPathname}/innovationboard`, query: { info: 'gamification' } }}>
-            <div className={`${styles.CategoryItem}`}>
-              <GameficationIcon />
-            </div>
-          </Link>
+              <div className={`${styles.CategoryItem}`}>
+                <GameficationIcon />
+              </div>
+            </Link>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
     </TranslationsProvider >
   );
 }

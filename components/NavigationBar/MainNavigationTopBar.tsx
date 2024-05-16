@@ -81,7 +81,7 @@ const MainNavigationTopBar = ({
         <div className={`flex align-center ${styles.TopNavigation}`}>
           {mainMenu.map((menu, index) => {
             return (
-              <React.Fragment key={index}>
+              <React.Fragment key={`menuItem${index}`}>
                 <Link
                   href={menu.url}
                 >
