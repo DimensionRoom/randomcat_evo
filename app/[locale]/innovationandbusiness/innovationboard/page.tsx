@@ -6,7 +6,7 @@ import initTranslations from '../../i18n';
 import styles from "../../../Styles/InnovationBoard/page.module.css";
 
 import TranslationsProvider from '@/components/TranslationsProvider';
-import IconBtn from '@/components/Botton/IconBtn/IconBtn';
+import IconBtn from '@/components/Button/IconBtn/IconBtn';
 import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';

@@ -4,7 +4,7 @@ import Tag from '@/components/Tag/Tag';
 import styles from './ExpandCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
-import FlatBtn from '@/components/Botton/FlatBtn/FlatBtn';
+import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 
 
