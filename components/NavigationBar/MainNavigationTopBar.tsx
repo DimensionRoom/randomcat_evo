@@ -1,7 +1,6 @@
 'use client';
 import React, { use, useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation';
-import { usePathname } from 'next/navigation';
+import { useRouter ,usePathname,useSearchParams} from 'next/navigation';
 import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'
@@ -20,6 +19,7 @@ const MainNavigationTopBar = ({
 }: Props): JSX.Element => {
   const router = useRouter();
   const currentPathname = usePathname();
+  const searchParamsString = useSearchParams().toString()
   const popCurrentPathname = currentPathname.split('/').slice(2) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
   const mainMenu = [
@@ -58,14 +58,21 @@ const MainNavigationTopBar = ({
     if (
       locale === i18nConfig.defaultLocale
     ) {
-      router.push('/' + newLocale + currentPathname);
+      searchParamsString ? router.push('/' + newLocale + currentPathname+'?'+searchParamsString) : router.push('/' + newLocale + currentPathname);
+      // router.push('/' + newLocale + currentPathname+'?'+searchParamsString);
     } else {
       router.push(
-        currentPathname.replace(`/${locale}`, `/${newLocale}`)
+        searchParamsString ? currentPathname.replace(`/${locale}`, `/${newLocale}`)+'?'+searchParamsString : currentPathname.replace(`/${locale}`, `/${newLocale}`)
+        // currentPathname.replace(`/${locale}`, `/${newLocale}`)+'?'+searchParamsString
       );
     }
     router.refresh();
   };
+
+  // useEffect(() => {
+  //   console.log('searchParams',searchParamsString)
+  // }
+  //   , []);
 
   return (
     <>
