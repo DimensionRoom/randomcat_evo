@@ -35,7 +35,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   ]);
   const [filterCategory, setFilterCategory] = useState<string[]>(['What', 'Why', 'Who', 'How', 'When', 'Where']);
   const [defaultSelectedCategories, setDefaultSelectedCategories] = useState<string[]>(['What', 'Why', 'Who', 'How', 'When', 'Where'])
-  const [filteredCategories, setFilteredCategories] = useState<string[]>([]);
+  const [filteredCategories, setFilteredCategories] = useState<string[]>(['What', 'Why', 'Who', 'How', 'When', 'Where']);
 
   const [cardItems, setCardItems] = useState([
     {
@@ -77,6 +77,9 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   ]);
 
   const handleFilterChange = (selectedCategories: string[]) => {
+    // console.log('Selected:', selectedCategories.length);
+
+    // if (selectedCategories.length === 0)return
     setFilteredCategories(selectedCategories);
     console.log('Selected Categories:', selectedCategories);
   };
@@ -122,9 +125,11 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
           </p>
           <IconBtn />
         </div>
-        <TagFilter defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+        <TagFilter noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
         <div className={styles.CardItemsContainer}>
-          {cardItems.map((cardItem, index) => (
+          {cardItems
+          .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
+          .map((cardItem, index) => (
             <ExpandCard
               key={index}
               title={cardItem.title}

@@ -36,7 +36,7 @@ export default function RootLayout({
         <div className={style.wave}></div>
         <div className={style.wave}></div>
         <div className={style.wave}></div>
-        <MainNavigationTopBar locale={locale} logo={<SiteLogo height={45} />} />
+        <MainNavigationTopBar locale={locale} logo={<SiteLogo width={45} height={45} />} />
         {children}
         {/* <footer className="layout-footer">footer</footer> */}
       </body>

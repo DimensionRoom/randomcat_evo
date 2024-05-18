@@ -1,6 +1,6 @@
 'use client';
 import React, { use, useState, useEffect } from 'react'
-import { useRouter ,usePathname,useSearchParams} from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'
@@ -58,11 +58,11 @@ const MainNavigationTopBar = ({
     if (
       locale === i18nConfig.defaultLocale
     ) {
-      searchParamsString ? router.push('/' + newLocale + currentPathname+'?'+searchParamsString) : router.push('/' + newLocale + currentPathname);
+      searchParamsString ? router.push('/' + newLocale + currentPathname + '?' + searchParamsString) : router.push('/' + newLocale + currentPathname);
       // router.push('/' + newLocale + currentPathname+'?'+searchParamsString);
     } else {
       router.push(
-        searchParamsString ? currentPathname.replace(`/${locale}`, `/${newLocale}`)+'?'+searchParamsString : currentPathname.replace(`/${locale}`, `/${newLocale}`)
+        searchParamsString ? currentPathname.replace(`/${locale}`, `/${newLocale}`) + '?' + searchParamsString : currentPathname.replace(`/${locale}`, `/${newLocale}`)
         // currentPathname.replace(`/${locale}`, `/${newLocale}`)+'?'+searchParamsString
       );
     }
@@ -92,7 +92,7 @@ const MainNavigationTopBar = ({
                 <Link
                   href={menu.url}
                 >
-                  <div className={`${popCurrentPathname.some(item=> item === menu.url.replace('/','')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
+                  <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
                     <p className={styles.MenuText}>
                       {menu.name}
                     </p>

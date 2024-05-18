@@ -34,7 +34,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  background: #b2abfb;
+  background: #fff;
+  border-color: #fff;
   transition: .5s ease;
   display: block;
   z-index: -1;
@@ -42,6 +43,7 @@
 
 .Chip:hover {
   color: #111;
+  border-color: #fff;
 }
 
 .Chip:hover:before {
@@ -49,7 +51,8 @@
 }
 
 .ChipSelected {
-  background: #b2abfb;
+  background: #d7c1ff;
+  border-color: #d7c1ff;
   color: #1d1757;
   transition: background 0s;
 }
