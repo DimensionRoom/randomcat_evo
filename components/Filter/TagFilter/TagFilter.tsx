@@ -36,7 +36,7 @@ const TagFilter = ({
             {categories.map((category) => (
                 <div
                     key={category}
-                    className={`${styles.Chip} ${selectedCategories.includes(category) ? styles.ChipSelected : ''}`}
+                    className={`${styles.Chip} ${selectedCategories.includes(category) ? '' : styles.ChipSelected}`}
                     onClick={() => handleToggleCategory(category)}
                 >
                     {category}

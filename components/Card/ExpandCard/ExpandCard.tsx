@@ -42,12 +42,16 @@ const ExpandCard = ({
     <div className={styles.CardItem}>
       <div className={styles.CardItemTitle}>
         <Tag text={title} />
-      </div>
-      <div className={styles.CardItemHeaderContent}>
         <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
           {lockContent ? <KeyLockIcon width={20} height={20} />
             : <KeyUnlockIcon color='#5b5879' width={20} height={20} />}
         </div>
+      </div>
+      <div className={styles.CardItemHeaderContent}>
+        {/* <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
+          {lockContent ? <KeyLockIcon width={20} height={20} />
+            : <KeyUnlockIcon color='#5b5879' width={20} height={20} />}
+        </div> */}
         <div className={styles.HeaderTextContainer}>
           <p className={styles.HeaderText}>{headingContent}</p>
         </div>

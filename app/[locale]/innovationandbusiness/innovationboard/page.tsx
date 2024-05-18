@@ -48,7 +48,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       title: 'Why - (Purpose)',
       catItemId: 'Why',
       headingContent: 'ที่ทำให้รู้สึกปลอดภัย',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged., but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged'
+      content: ''
     },
     {
       title: 'Who - (User)',
@@ -60,19 +60,19 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       title: 'How - (Material)',
       catItemId: 'How',
       headingContent: 'โดยใช้วัสดุที่เป็นกระดาษ',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged., but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged, but also the leap into electronic typesetting, remaining essentially unchanged'
+      content: ''
     },
     {
       title: 'When - (Situation)',
       catItemId: 'When',
       headingContent: 'เมื่อเหนื่อย',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+      content: ''
     },
     {
       title: 'Where - (Place)',
       catItemId: 'Where',
       headingContent: 'ใช้ในอนาคต',
-      content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+      content: ''
     }
   ]);
 
