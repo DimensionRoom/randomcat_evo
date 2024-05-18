@@ -43,7 +43,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: 'Inno design',
+      name: 'INNO DESIGN',
       catItemId: 'innodesign'
     },
     {
@@ -61,47 +61,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [defaultSelectedCategories, setDefaultSelectedCategories] = useState<string[]>(mainKeys)
   const [filteredCategories, setFilteredCategories] = useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
-  const [lockContent, setLockContent] = useState<boolean>(false);
   const [lockItem, setLockItem] = useState<string[]>([]);
-  const [cardItems, setCardItems] = useState([
-    {
-      title: 'What-Outcome',
-      catItemId: 'What',
-      topic: 'แฟชั่น',
-      content: ''
-    },
-    {
-      title: 'Who-User',
-      catItemId: 'Who',
-      topic: 'สำหรับคนจน',
-      content: ''
-    },
-    {
-      title: 'Why-Purpose',
-      catItemId: 'Why',
-      topic: 'ที่ทำให้รู้สึกปลอดภัย',
-      content: ''
-    },
-    {
-      title: 'When-Situation',
-      catItemId: 'When',
-      topic: 'เมื่อเหนื่อย',
-      content: ''
-    },
-    {
-      title: 'Where-Place',
-      catItemId: 'Where',
-      topic: 'ใช้ในอนาคต',
-      content: ''
-    },
-    {
-      title: 'How-Material',
-      catItemId: 'How',
-      topic: 'โดยใช้วัสดุที่เป็นกระดาษ',
-      content: ''
-    }
-  ]);
-
+  
   const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
     if (newLockContent) {
       setLockItem([...lockItem, catItemId]);
