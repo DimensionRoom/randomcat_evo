@@ -12,11 +12,15 @@ const promt = Prompt({
 export type Props = {
   text: string
   style: React.CSSProperties
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 const FlatBtn = ({
   text,
   style,
+  onClick,
+  disabled = false,
   ...props
 }: Props): JSX.Element => {
 
@@ -25,7 +29,7 @@ const FlatBtn = ({
   };
 
   return (
-    <button className={styles.FlatBtn} style={{...promt.style,...style}}>
+    <button disabled={disabled} className={styles.FlatBtn} style={{...promt.style,...style}} onClick={onClick}>
       <span className={styles.FlatBtnText}>{text}</span>
     </button>
   )

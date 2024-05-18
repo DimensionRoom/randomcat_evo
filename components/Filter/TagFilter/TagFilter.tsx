@@ -21,7 +21,6 @@ const TagFilter = ({
     const handleToggleCategory = (category: string) => {
         let updatedSelectedCategories;
         if (selectedCategories.includes(category)) {
-            // Prevent deselecting the last remaining category
             if (selectedCategories.length === 2) return;
             updatedSelectedCategories = selectedCategories.filter((cat) => cat !== category);
         } else {

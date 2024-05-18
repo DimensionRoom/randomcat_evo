@@ -10,18 +10,24 @@ import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 
 export type Props = {
   title: string;
+  itemKey: string;
   headingContent: string;
   content: string;
   expand?: boolean;
   lock?: boolean;
+  onLockContentChange: (key:string,lockContent: boolean) => void;
+  onClick?: () => void;
 }
 
 const ExpandCard = ({
   title = '-',
+  itemKey,
   headingContent = '-',
   content = '-',
   expand = false,
   lock = false,
+  onLockContentChange,
+  onClick,
   ...props
 }: Props): JSX.Element => {
 
@@ -30,6 +36,7 @@ const ExpandCard = ({
 
   const handleLockClick = async () => {
     setLockContent((prev) => !prev);
+    onLockContentChange(itemKey,!lockContent);
   }
 
   const handleExpandClick = async () => {
@@ -66,7 +73,7 @@ const ExpandCard = ({
         <ExpandArrowIcon width={30} height={30} disabled={!content ? true : false} />
       </div>
       <div className={styles.CardItemFooterContent}>
-        <FlatBtn style={{ width: 100 }} text="Random" />
+        <FlatBtn disabled={lockContent} style={{ width: 100 }} text="Random" onClick={onClick}/>
       </div>
     </div>
   )

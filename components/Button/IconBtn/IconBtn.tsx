@@ -11,10 +11,11 @@ const promt = Prompt({
 
 
 export type Props = {
-
+    onClick?: () => void;
 }
 
 const IconBtn = ({
+  onClick,
   ...props
 }: Props): JSX.Element => {
 
@@ -23,7 +24,7 @@ const IconBtn = ({
   };
 
   return (
-    <button className={styles.IconBtn} style={promt.style}>
+    <button className={styles.IconBtn} style={promt.style} onClick={onClick}>
       <span className={styles.IconBtnText}>Random all</span>
       <div style={{ height: "2em", padding: 7, backgroundColor: "#10092b", borderRadius: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <ForwardArrowIcon />
