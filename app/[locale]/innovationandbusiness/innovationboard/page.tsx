@@ -102,10 +102,12 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
     }
   ]);
 
-  const handleLockContentChange = (catItemId: string,newLockContent: boolean) => {
-    console.log('catItemId',catItemId)
-    setLockContent(newLockContent);
-    setLockItem([...lockItem, catItemId]);
+  const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
+    if (newLockContent) {
+      setLockItem([...lockItem, catItemId]);
+    } else {
+      setLockItem(lockItem.filter(item => item !== catItemId));
+    }
   };
 
   const handleFilterChange = (selectedCategories: string[]) => {
@@ -141,17 +143,16 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       } else {
         return item;
       }
-    });
+    }).filter(item => item !== undefined) as Item[];
     setRandomItems(newRandomItems);
   };
-
-  const generateRandomEachItem = (key:string) => {
+  
+  const generateRandomEachItem = (key: string) => {
     const category = cardData[key];
     const item = getRandomItem(category);
     const newRandomItems = randomItems.map((randomItem) => {
       if (randomItem.catItemId === key) {
-        const newItem = lockItem.includes(key) ? randomItem : item;
-        return newItem ? newItem : randomItem;
+        return lockItem.includes(key) ? randomItem : item;
       }
       return randomItem;
     });
@@ -224,8 +225,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                 headingContent={cardItem.topic}
                 content={cardItem.content} 
                 onClick={() => generateRandomEachItem(cardItem.catItemId)}
-                lock={lockContent} // Pass lockContent as prop to ExpandCard
-                onLockContentChange={handleLockContentChange} // Pass the function to update lockContent
+                lock={lockItem.includes(cardItem.catItemId)}
+                onLockContentChange={(key,newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
             ))}
         </div>
