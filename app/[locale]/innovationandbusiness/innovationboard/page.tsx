@@ -77,9 +77,6 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   ]);
 
   const handleFilterChange = (selectedCategories: string[]) => {
-    // console.log('Selected:', selectedCategories.length);
-
-    // if (selectedCategories.length === 0)return
     setFilteredCategories(selectedCategories);
     console.log('Selected Categories:', selectedCategories);
   };
