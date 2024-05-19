@@ -8,10 +8,11 @@ import styles from "../../Styles/InnovationAndBusiness/page.module.css";
 import TranslationsProvider from '@/components/TranslationsProvider';
 import GameficationIcon from '@/public/svgs/category/gamefication';
 import InnovationIcon from '@/public/svgs/category/innobu';
+import ComingSoonIcon from '@/public/svgs/category/comingsoon';
 import mainLoad from './../../../public/json/mainload.json';
 import Link from 'next/link'
 
-const i18nNamespaces = ['innovationboard'];
+const i18nNamespaces = ['subCategory'];
 export default function InnovationAndBusiness({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
@@ -21,7 +22,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
   useEffect(() => {
     async function fetchTranslations() {
       const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(t);
+      setT(() => t);
       setResources(resources);
       setTimeout(() => {
         setLoading(false);
@@ -49,12 +50,10 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
       locale={locale}
       resources={resources}>
       <main className={styles.main}>
-        <div className={`flex column`} style={{ flex: 1 }}>
+        <div className={`flex column`} style={{ flex: 1, gap: 20 }}>
           <div className={`flex row align-center justify-center`}>
             <div className='header-tag'>
-              <p>
-                Innovation & Business
-              </p>
+              <p>{t('screen.innovationAndBusiness.title')}</p>
             </div>
           </div>
           {/* <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1rem', width: '100%' }}>
@@ -68,16 +67,32 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               <div style={{width:300,height:300,borderRadius:50,display:'flex',flexGrow:1,flexBasis:300,backgroundColor:'white'}}></div> 
           </div> */}
           <div className={`${styles.CategoryContainer}`}>
-            <Link href={{ pathname: `${currentPathname}/innovationboard`, query: { info: 'innodesign' } }}>
-              <div className={`${styles.CategoryItem}`}>
-                <InnovationIcon />
+            <div className={`${styles.CategorySection}`}>
+              <Link href={{ pathname: `${currentPathname}/innovationboard`, query: { info: 'innodesign' } }}>
+                <div className={`${styles.CategoryItem}`}>
+                  <InnovationIcon />
+                </div>
+              </Link>
+              <div className={`${styles.CategoryDesc}`}>
+                <p>{t('screen.innovationAndBusiness.subCategory.innoDesign.title')}</p>
+                <p>{t('screen.innovationAndBusiness.subCategory.innoDesign.content')}</p>
               </div>
-            </Link>
-            <Link href={{ pathname: `${currentPathname}/innovationboard`, query: { info: 'gamification' } }}>
-              <div className={`${styles.CategoryItem}`}>
-                <GameficationIcon />
+            </div>
+            <div className={`${styles.CategorySection}`}>
+              <Link className={`${styles.LinkDisabled}`} href={{ pathname: `${currentPathname}/innovationboard`, query: { info: 'gamification' } }}>
+                <div className={`${styles.CategoryItem} ${styles.disabled}`}>
+                  <ComingSoonIcon width={'70%'} height={'70%'} />
+                  {/* <GameficationIcon /> */}
+                  {/* <div className={`${styles.comingsoon}`}>
+                    <p>COMING SOON</p>
+                  </div> */}
+                </div>
+              </Link>
+              <div className={`${styles.CategoryDesc}`}>
+                <p>{t('screen.innovationAndBusiness.subCategory.gamificationBiz.title')}</p>
+                <p>{t('screen.innovationAndBusiness.subCategory.gamificationBiz.content')}</p>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </main>

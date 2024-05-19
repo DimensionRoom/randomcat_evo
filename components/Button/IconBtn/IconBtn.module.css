@@ -35,6 +35,10 @@
     animation: pulse 1.5s infinite;
 }
 
+.IconBtn:active {
+    transform: scale(0.8);
+}
+
 .IconBtn span::before {
     box-sizing: border-box;
     position: absolute;

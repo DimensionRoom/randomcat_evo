@@ -20,7 +20,7 @@ const MainNavigationTopBar = ({
   const router = useRouter();
   const currentPathname = usePathname();
   const searchParamsString = useSearchParams().toString()
-  const popCurrentPathname = currentPathname.split('/').slice(2) || [];
+  const popCurrentPathname = currentPathname.split('/').slice(1) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
   const mainMenu = [
     {
@@ -36,7 +36,7 @@ const MainNavigationTopBar = ({
       url: '/music'
     },
     {
-      name: 'Creativity & Problem solving',
+      name: 'Creativity & Problem Solving',
       url: '/creactivityandproblemsolving'
     }
   ];
@@ -70,7 +70,8 @@ const MainNavigationTopBar = ({
   };
 
   // useEffect(() => {
-  //   console.log('searchParams',searchParamsString)
+  //   console.log('x',currentPathname.split('/').slice(1))
+  //   console.log('xx',currentPathname.split('/').slice(2))
   // }
   //   , []);
 

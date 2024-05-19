@@ -59,6 +59,13 @@
   text-align: center;
 }
 
+@media screen and (max-width: 690px) {
+  .HeaderTextContainer p {
+    -webkit-line-clamp: 3;
+  }
+  
+}
+
 .CardItemBodyContent {
   display: flex;
   flex-direction: row;

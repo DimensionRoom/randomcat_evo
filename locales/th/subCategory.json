@@ -1,0 +1,17 @@
+{
+   "screen":{
+    "innovationAndBusiness":{
+      "title":"Innovation & Business",
+      "subCategory":{
+        "innoDesign":{
+          "title":"Inno design",
+          "content":"สนุกกับโจทย์ด้านนวัตกรรมผ่าน WH-Questios ทั้ง 6 หมวด พร้อมพัฒนาความคิดสร้างสรรค์ด้วยเครื่องมือนี้เลย"
+        },
+        "gamificationBiz":{
+          "title":"Gamification Biz",
+          "content":"เครื่องมือสร้างสถานการณ์จำลอง ที่มาจากปัญหาในอาชีพต่าง ๆ พร้อมทั้งเลือกวิธีแก้ปัญหาโดยใช้เกมมิฟิเคชั่น"
+        }
+      }
+    }
+   }
+}

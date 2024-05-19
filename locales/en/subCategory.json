@@ -1,0 +1,17 @@
+{
+    "screen":{
+     "innovationAndBusiness":{
+       "title":"Innovation & Business",
+       "subCategory":{
+         "innoDesign":{
+           "title":"Inno design",
+           "content":"Enjoy innovation challenges with WH-Questions in 6 categories and enhance creativity with this tool."
+         },
+         "gamificationBiz":{
+           "title":"Gamification Biz",
+           "content":"A simulation tool derived from career problems, offering solutions through gamification idea."
+         }
+       }
+     }
+    }
+ }
