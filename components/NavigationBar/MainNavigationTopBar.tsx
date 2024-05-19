@@ -1,11 +1,17 @@
 'use client';
 import React, { use, useState, useEffect } from 'react'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'
 import ENFlag from '@/public/svgs/enFlag'
 import styles from './MainNavigationTopBar.module.css';
+import mainLoad from '@/public/json/mainload.json';
+import initTranslations from '@/app/[locale]/i18n';
+import TranslationsProvider from '@/components/TranslationsProvider';
+
+const i18nNamespaces = ['common'];
 
 export type Props = {
   logo?: React.ReactNode
@@ -17,6 +23,9 @@ const MainNavigationTopBar = ({
   locale = 'en',
   ...props
 }: Props): JSX.Element => {
+  const [resources, setResources] = useState<any>(null);
+  const [t, setT] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
   const currentPathname = usePathname();
   const searchParamsString = useSearchParams().toString()
@@ -75,8 +84,21 @@ const MainNavigationTopBar = ({
   // }
   //   , []);
 
+  useEffect(() => {
+    async function fetchTranslations() {
+      const { t, resources } = await initTranslations(locale, i18nNamespaces);
+      setT(() => t);
+      setResources(resources);
+    }
+    fetchTranslations();
+  }, [locale]);
+
+
   return (
-    <>
+    <TranslationsProvider
+      namespaces={i18nNamespaces}
+      locale={locale}
+      resources={resources}>
       <header className={styles.LayoutHeader}>
         <Link href="/">
           <div className={`flex align-center ${styles.BrandContainer}`}>
@@ -161,11 +183,16 @@ const MainNavigationTopBar = ({
                 );
               }
               )}
+              <div className={styles.ExpandMenuContentItem}>
+                <p className={styles.MenuText} onClick={()=>handleChangeLanguage(locale=='en'?'th':'en')}>
+                  {t('component.mainNavigationTopBar.items.changeLanguage')} : {locale == 'th' ? 'ไทย' : 'English'}
+                </p>
+              </div>
             </div>
           </div>
         )
       }
-    </>
+    </TranslationsProvider >
   )
 }
 

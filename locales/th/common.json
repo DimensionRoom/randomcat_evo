@@ -1,0 +1,9 @@
+{
+    "component":{
+     "mainNavigationTopBar": {
+        "items": {
+                "changeLanguage": "เปลี่ยนภาษา"        
+     }
+    }
+ }
+}
