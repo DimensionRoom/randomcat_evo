@@ -185,7 +185,8 @@ const MainNavigationTopBar = ({
               )}
               <div className={styles.ExpandMenuContentItem}>
                 <p className={styles.MenuText} onClick={()=>handleChangeLanguage(locale=='en'?'th':'en')}>
-                  {t('component.mainNavigationTopBar.items.changeLanguage')} : {locale == 'th' ? 'ไทย' : 'English'}
+                  {/* {t('component.mainNavigationTopBar.items.changeLanguage')} : {locale == 'th' ? 'ไทย' : 'English'} */}
+                  {t('component.mainNavigationTopBar.items.changeLanguage')} : <span className={`${styles.spanButton} ${locale=='th'?styles.active:null}`}>{t(`texts.language.thai`)}</span>|<span className={`${styles.spanButton} ${locale=='en'?styles.active:null}`}>{t(`texts.language.english`)}</span>
                 </p>
               </div>
             </div>

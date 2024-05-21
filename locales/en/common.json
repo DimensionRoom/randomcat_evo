@@ -2,8 +2,14 @@
     "component":{
      "mainNavigationTopBar": {
         "items": {
-                "changeLanguage": "Change Language"        
+                "changeLanguage": "Language"        
      }
     }
+ },
+ "texts":{
+      "language": {
+         "english": "English",
+         "thai": "Thai"
+      }
  }
 }
