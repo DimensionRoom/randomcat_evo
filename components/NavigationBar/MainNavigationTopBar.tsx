@@ -193,7 +193,7 @@ const MainNavigationTopBar = ({
           </div>
         )
       }
-    </TranslationsProvider>
+    </TranslationsProvider >
   )
 }
 
