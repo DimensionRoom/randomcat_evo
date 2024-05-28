@@ -127,11 +127,11 @@ const MainNavigationTopBar = ({
           }
           )}
           <div className={styles.ToolContainer}>
+          <div onClick={() => handleChangeLanguage('en')} className={`${styles.FlagContainer} ${locale == 'en' ? styles.active : ''}`}>
+              <ENFlag />
+            </div>
             <div onClick={() => handleChangeLanguage('th')} className={`${styles.FlagContainer} ${locale == 'th' ? styles.active : ''}`}>
               <THFlag />
-            </div>
-            <div onClick={() => handleChangeLanguage('en')} className={`${styles.FlagContainer} ${locale == 'en' ? styles.active : ''}`}>
-              <ENFlag />
             </div>
           </div>
         </div>
@@ -158,9 +158,9 @@ const MainNavigationTopBar = ({
           onChange={(e) => handleExpandMenu(e.target.checked)}
         />
         <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
-          <div className={`${styles.bar} ${styles.bar1}`}></div>
-          <div className={`${styles.bar} ${styles.bar2}`}></div>
-          <div className={`${styles.bar} ${styles.bar3}`}></div>
+          <div className={`${isExpandMenu?styles.barActive:null} ${styles.bar} ${styles.bar1}`}></div>
+          <div className={`${isExpandMenu?styles.barActive:null} ${styles.bar} ${styles.bar2}`}></div>
+          <div className={`${isExpandMenu?styles.barActive:null} ${styles.bar} ${styles.bar3}`}></div>
         </label>
       </div>
       {
@@ -175,7 +175,7 @@ const MainNavigationTopBar = ({
                     onClick={() => handleExpandMenu(false)}
                   >
                     <div className={styles.ExpandMenuContentItem}>
-                      <p className={styles.MenuText}>
+                      <p className={`${styles.MenuText} ${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuTextActive : ''}`}>
                         {menu.name}
                       </p>
                     </div>
@@ -184,8 +184,7 @@ const MainNavigationTopBar = ({
               }
               )}
               <div className={styles.ExpandMenuContentItem}>
-                <p className={styles.MenuText} onClick={()=>handleChangeLanguage(locale=='en'?'th':'en')}>
-                  {/* {t('component.mainNavigationTopBar.items.changeLanguage')} : {locale == 'th' ? 'ไทย' : 'English'} */}
+                <p className={`${styles.MenuText} ${styles.MenuTextActive}`} onClick={()=>handleChangeLanguage(locale=='en'?'th':'en')}>
                   {t('component.mainNavigationTopBar.items.changeLanguage')} : <span className={`${styles.spanButton} ${locale=='th'?styles.active:null}`}>{t(`texts.language.thai`)}</span>|<span className={`${styles.spanButton} ${locale=='en'?styles.active:null}`}>{t(`texts.language.english`)}</span>
                 </p>
               </div>

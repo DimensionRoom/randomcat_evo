@@ -2,16 +2,18 @@
 import React from 'react'
 import ForwardArrowIcon from '@/public/svgs/components/Button/forwardArrow';
 import styles from './IconBtn.module.css';
-import { Prompt } from "next/font/google";
+import { Quicksand } from "next/font/google";
 
-const promt = Prompt({
-  subsets: ["thai"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+const quicksand = Quicksand({
+  // subsets: ["thai"],
+  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
 });
 
 
 export type Props = {
-    onClick?: () => void;
+  onClick?: () => void;
 }
 
 const IconBtn = ({
@@ -24,7 +26,7 @@ const IconBtn = ({
   };
 
   return (
-    <button className={styles.IconBtn} style={promt.style} onClick={onClick}>
+    <button className={styles.IconBtn} style={quicksand.style} onClick={onClick}>
       <span className={styles.IconBtnText}>Random all</span>
       <div style={{ height: "2em", padding: 7, backgroundColor: "#10092b", borderRadius: 50, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <ForwardArrowIcon />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Prompt } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import { dir } from 'i18next';
 import { ChangeEvent } from 'react';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -8,9 +8,11 @@ import i18nConfig from '@/i18nConfig';
 import style from "../Styles/MovingBackground.module.css"
 import "../Styles/globals.css";
 
-const promt = Prompt({
-  subsets: ["thai"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+const quicksand = Quicksand({
+  // subsets: ["thai"],
+  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {
@@ -31,11 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={promt.className}>
-        <div className={style.moveBackground}></div>
+      <body className={quicksand.className}>
+        {/* <div className={style.moveBackground}></div>
         <div className={style.wave}></div>
         <div className={style.wave}></div>
-        <div className={style.wave}></div>
+        <div className={style.wave}></div> */}
         <MainNavigationTopBar locale={locale} logo={<SiteLogo width={45} height={45} />} />
         {children}
         {/* <footer className="layout-footer">footer</footer> */}

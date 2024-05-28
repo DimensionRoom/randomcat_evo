@@ -1,11 +1,18 @@
 'use client';
 import React from 'react'
-import { Prompt } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import styles from './FlatBtn.module.css';
 
-const promt = Prompt({
-  subsets: ["thai"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+// const promt = Prompt({
+//   subsets: ["thai"],
+//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+// });
+
+const quicksand = Quicksand({
+  // subsets: ["thai"],
+  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
 });
 
 
@@ -29,7 +36,7 @@ const FlatBtn = ({
   };
 
   return (
-    <button disabled={disabled} className={styles.FlatBtn} style={{...promt.style,...style}} onClick={onClick}>
+    <button disabled={disabled} className={styles.FlatBtn} style={{ ...quicksand.style, ...style }} onClick={onClick}>
       <span className={styles.FlatBtnText}>{text}</span>
     </button>
   )

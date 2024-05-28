@@ -4,11 +4,12 @@
   align-items: center;
   height: 80px;
   padding: 1rem 2rem !important;
-  /* background: #ffffff0d; */
+  background: #ffffff;
 }
 
 .BrandContainer {
   flex: 1;
+  gap: 10px;
   height: inherit;
 }
 
@@ -31,7 +32,8 @@
 
 .FlagContainer:hover,
 .FlagContainer.active {
-  border: 2px solid #e7ddff;
+  padding: 2%;
+  border: 2px solid #a765b2;
 }
 
 .BrandContainer .LogoContainer {
@@ -41,7 +43,13 @@
 }
 
 .BrandContainer .BrandText {
+  /* background: linear-gradient(90deg, #a765b2 0%, #411692 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #7e188b;
   font-weight: bold;
+  font-size: 2em;
 }
 
 .TopNavigation {
@@ -94,13 +102,18 @@
 }
 
 .ExpandMenuContent .ExpandMenuContentItem .MenuText {
-  color: #ffffff;
+  color: #a1a1a1;
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
+.ExpandMenuContent .ExpandMenuContentItem .MenuText.MenuTextActive {
+  color: #ffffff;
+}
+
 
 @media (max-width: 960px) {
   .ExpandMenuContainer {
@@ -113,7 +126,7 @@
 .TopNavigation a {
   /* height: inherit; */
   /* This line is for full height */
-  height: 44px;
+  height: 40px;
 }
 
 .TopNavigation .TopNavigationMenu {
@@ -124,20 +137,33 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
 .TopNavigation .TopNavigationMenu .MenuText {
+  color: #411692;
   padding: 0 12px;
 }
 
 .TopNavigation .MenuDivider {
   height: 25px;
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid #a765b2;
 }
 
 .TopNavigation .TopNavigationMenu:hover {
-  background-color: #ffffff45;
+  background-color: #a765b2;
+}
+
+.TopNavigation .TopNavigationMenu:hover .MenuText {
+  color: #ffffff;
+}
+
+.MenuActive {
+  background-color: #a765b2;
+}
+
+.MenuActive .MenuText {
+  color: #ffffff !important;
 }
 
 .ExpandMenuIcon {
@@ -161,7 +187,11 @@
   height: var(--height-bar);
   width: 100%;
   border-radius: .5rem;
-  background-color: #fff;
+  background-color: #741f92;
+}
+
+.barActive {
+  background-color: #ffffff;
 }
 
 .bar1 {
@@ -197,10 +227,6 @@
   --rotate-bar-three: -45deg;
 }
 
-.MenuActive {
-  background-color: #ffffff45;
-}
-
 .spanButton.active {
   padding: 2px 6px !important;
   border: 1px solid #fff;
@@ -208,5 +234,3 @@
   cursor: pointer;
   background-color: #ffffff50;
 }
-
-/* FIN ExpandMenuIcon */
