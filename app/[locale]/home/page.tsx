@@ -212,10 +212,10 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               </div>
               <div className={styles.itemHeader}>
                 <p className={styles.itemHeaderText}>Workshop</p>
-                <p className={styles.itemHeaderDetail}>"Stuck for ideas? Can't</p>
-                <p className={styles.itemHeaderDetail}>think creatively? Try</p>
-                <p className={styles.itemHeaderDetail}>these tools to discover</p>
-                <p className={styles.itemHeaderDetail}>your new potential."</p>
+                <p className={styles.itemHeaderDetail}>"Unlock new skills for</p>
+                <p className={styles.itemHeaderDetail}>your team with a</p>
+                <p className={styles.itemHeaderDetail}>powerful tool for both</p>
+                <p className={styles.itemHeaderDetail}>small and large groups."</p>
               </div>
             </div>
             <div className={styles.item}>
@@ -224,10 +224,10 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               </div>
               <div className={styles.itemHeader}>
                 <p className={styles.itemHeaderText}>Classroom</p>
-                <p className={styles.itemHeaderDetail}>"Stuck for ideas? Can't</p>
-                <p className={styles.itemHeaderDetail}>think creatively? Try</p>
-                <p className={styles.itemHeaderDetail}>these tools to discover</p>
-                <p className={styles.itemHeaderDetail}>your new potential."</p>
+                <p className={styles.itemHeaderDetail}>"No more boring</p>
+                <p className={styles.itemHeaderDetail}>classes; motivate your</p>
+                <p className={styles.itemHeaderDetail}>students with 5,000</p>
+                <p className={styles.itemHeaderDetail}>challenges for kids."</p>
               </div>
             </div>
           </div>
