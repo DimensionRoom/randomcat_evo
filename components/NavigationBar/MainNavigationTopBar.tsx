@@ -33,20 +33,16 @@ const MainNavigationTopBar = ({
   const [isExpandMenu, setIsExpandMenu] = useState(false);
   const mainMenu = [
     {
-      name: 'Innovation & Business',
+      name: 'Inno Design',
       url: '/innovationandbusiness'
     },
     {
-      name: 'Education',
+      name: 'Story Design',
+      url: '/storytelling'
+    },
+    {
+      name: 'Edu Design',
       url: '/education'
-    },
-    {
-      name: 'Music',
-      url: '/music'
-    },
-    {
-      name: 'Creativity & Problem Solving',
-      url: '/creactivityandproblemsolving'
     }
   ];
 

@@ -130,7 +130,7 @@
 }
 
 .TopNavigation .TopNavigationMenu {
-  margin: 0 5px;
+  margin: 0 10px;
   height: inherit;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -143,6 +143,7 @@
 .TopNavigation .TopNavigationMenu .MenuText {
   color: #411692;
   padding: 0 12px;
+  font-size: 1.1em;
 }
 
 .TopNavigation .MenuDivider {

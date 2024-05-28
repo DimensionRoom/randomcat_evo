@@ -252,18 +252,6 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
             </div>
             <div className={styles.item}>
               <div className={styles.itemImage}>
-                <Image className={styles.image} src="/image/educard.png" width={300} height={300} alt='' />
-              </div>
-              <div className={styles.itemData}>
-                <p className={styles.itemTitle}>Edu Design</p>
-                <p className={styles.itemDetail}>"Ignite your idea of</p>
-                <p className={styles.itemDetail}>designing teaching</p>
-                <p className={styles.itemDetail}>materials by thinking</p>
-                <p className={styles.itemDetail}>through this card set."</p>
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.itemImage}>
                 <Image className={styles.image} src="/image/storycard.png" width={300} height={300} alt='' />
               </div>
               <div className={styles.itemData}>
@@ -272,6 +260,18 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 <p className={styles.itemDetail}>writing stories with six</p>
                 <p className={styles.itemDetail}>combinations that you</p>
                 <p className={styles.itemDetail}>can practice every day."</p>
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.itemImage}>
+                <Image className={styles.image} src="/image/educard.png" width={300} height={300} alt='' />
+              </div>
+              <div className={styles.itemData}>
+                <p className={styles.itemTitle}>Edu Design</p>
+                <p className={styles.itemDetail}>"Ignite your idea of</p>
+                <p className={styles.itemDetail}>designing teaching</p>
+                <p className={styles.itemDetail}>materials by thinking</p>
+                <p className={styles.itemDetail}>through this card set."</p>
               </div>
             </div>
           </div>
