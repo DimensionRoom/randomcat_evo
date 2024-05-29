@@ -1,6 +1,5 @@
 .main {
   display: flex;
-  flex: auto;
   max-height: calc(100dvh - 80px);
   flex-direction: column;
   /* padding: 20px 50px; */

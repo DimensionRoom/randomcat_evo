@@ -20,7 +20,11 @@
     background: #ffffff;
   }
 
-  a {
+  a,
+  a:visited,
+  a:active,
+  a:hover,
+  a:link {
     color: inherit;
     text-decoration: none;
   }
@@ -78,7 +82,8 @@
     overflow: hidden;
     white-space: nowrap;
   }
-  .header-tag p{
+
+  .header-tag p {
     text-overflow: ellipsis;
     overflow: hidden;
   }

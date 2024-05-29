@@ -38,7 +38,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
   }, [locale]);
 
   if (loading) {
-    return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 160px)', justifyContent: 'center', alignItems: 'center' }}>
       <Player
         autoplay
         loop
@@ -87,7 +87,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <PotionIcon className={styles.icon}/>
+                <PotionIcon className={styles.icon} />
               </div>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>Creative Thinking</p>
@@ -99,7 +99,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon} style={{ transform: 'translate(-10%, -10%) rotate(50deg)' }}>
-                <BookIcon className={styles.icon}/>
+                <BookIcon className={styles.icon} />
               </div>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>Problem Solving</p>
@@ -186,7 +186,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               </p>
             </div>
             <div className={styles.itemImage}>
-              <div className={styles.itemFrame} style={{ transform: 'translate(0%, 0%) rotate(5deg)'}}>
+              <div className={styles.itemFrame} style={{ transform: 'translate(0%, 0%) rotate(5deg)' }}>
                 <Image className={styles.image} src="/image/product1.jpg" width={200} height={200} alt='' />
               </div>
             </div>
