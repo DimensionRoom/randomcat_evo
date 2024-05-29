@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex: auto;
-  /* max-height: calc(100dvh - 80px); */
+  max-height: calc(100dvh - 80px);
   flex-direction: column;
   /* padding: 20px 50px; */
   overflow-y: scroll;
@@ -132,7 +132,7 @@
 @media (max-width: 690px) {
   .parallaxSection {
     display: block;
-    min-height: auto;
+    /* min-height: auto; */
     padding: 20px 0px;
   }
 
