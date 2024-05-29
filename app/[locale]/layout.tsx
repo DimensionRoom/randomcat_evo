@@ -16,7 +16,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Education Innovation Board",
+  title: "Think Tool",
   description: "Generated innovative education ideas",
 };
 

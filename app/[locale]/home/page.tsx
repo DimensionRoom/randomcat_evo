@@ -87,7 +87,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <PotionIcon />
+                <PotionIcon className={styles.icon}/>
               </div>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>Creative Thinking</p>
@@ -99,7 +99,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon} style={{ transform: 'translate(-10%, -10%) rotate(50deg)' }}>
-                <BookIcon />
+                <BookIcon className={styles.icon}/>
               </div>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>Problem Solving</p>
@@ -112,7 +112,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <GiftBoxIcon width={'80%'} height={'80%'} />
+                <GiftBoxIcon className={styles.icon} width={'80%'} height={'80%'} />
               </div>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>Analytical thinking</p>
@@ -167,7 +167,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               <div className={styles.itemHeader}>
                 <p className={styles.itemHeaderText}>Step 3</p>
                 <p className={styles.itemHeaderDetail}>Create a prototype/story</p>
-                <p className={styles.itemHeaderDetail} style={{ fontSize: '1.4em' }}>Rely on a theme related to cards.</p>
+                <p className={styles.itemHeaderDetail}>Rely on a theme related to cards.</p>
               </div>
               <div className={styles.itemContent}>
                 <Image className={styles.image} src="/image/step3.png" width={300} height={300} alt='' />
@@ -186,7 +186,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               </p>
             </div>
             <div className={styles.itemImage}>
-              <div className={styles.itemFrame} style={{ transform: 'translate(0%, 0%) rotate(5deg)', width: 300 }}>
+              <div className={styles.itemFrame} style={{ transform: 'translate(0%, 0%) rotate(5deg)'}}>
                 <Image className={styles.image} src="/image/product1.jpg" width={200} height={200} alt='' />
               </div>
             </div>
@@ -324,7 +324,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
           <div className={styles.brandContainer}>
             <div className={styles.brand}>
               <p className={styles.brandName}>ThinkTool</p>
-              <SiteLogo width={50} height={50} />
+              <SiteLogo className={styles.brandIcon} width={50} height={50} />
             </div>
           </div>
         </div>
