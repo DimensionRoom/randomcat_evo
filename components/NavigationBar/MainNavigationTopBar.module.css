@@ -1,5 +1,6 @@
 .LayoutHeader {
   display: flex;
+  display: -webkit-flex;
   position: sticky;
   align-items: center;
   height: 80px;
@@ -10,6 +11,7 @@
 .BrandContainer {
   flex: 1;
   display: flex;
+  display: -webkit-flex;
   gap: 10px;
   height: inherit;
   align-items: center;
@@ -17,6 +19,7 @@
 
 .ToolContainer {
   display: flex;
+  display: -webkit-flex;
   align-items: center;
   height: inherit;
   gap: 5px;
@@ -40,6 +43,7 @@
 
 .BrandContainer .LogoContainer {
   display: flex;
+  display: -webkit-flex;
   height: inherit;
   align-items: center;
 }
@@ -57,8 +61,10 @@
 
 .TopNavigation {
   display: flex;
+  display: -webkit-flex;
   flex: 3;
   display: flex;
+  display: -webkit-flex;
   justify-content: flex-end;
   align-items: center;
   height: inherit;
@@ -85,6 +91,7 @@
 
 .ExpandMenuContent {
   display: flex;
+  display: -webkit-flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
@@ -97,6 +104,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
+  display: -webkit-flex;
   align-items: center;
   gap: 10px;
   transition: color 0.3s;
@@ -117,6 +125,7 @@
   overflow: hidden;
   white-space: nowrap;
   display: flex;
+  display: -webkit-flex;
   align-items: center;
   border-radius: 10px;
 }
@@ -158,6 +167,7 @@
   --rotate-bar-three: 0;
   width: 30px;
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
   gap: var(--line-gap);
   cursor: pointer;
