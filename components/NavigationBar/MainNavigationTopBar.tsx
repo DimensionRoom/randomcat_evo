@@ -97,14 +97,14 @@ const MainNavigationTopBar = ({
       resources={resources}>
       <header className={styles.LayoutHeader}>
         <Link href="/">
-          <div className={`flex align-center ${styles.BrandContainer}`}>
+          <div className={styles.BrandContainer}>
             <div className={styles.LogoContainer}>
               {logo}
             </div>
             <p className={styles.BrandText}>ThinkTool</p>
           </div>
         </Link>
-        <div className={`flex align-center ${styles.TopNavigation}`}>
+        <div className={styles.TopNavigation}>
           {mainMenu.map((menu, index) => {
             return (
               <React.Fragment key={`menuItem${index}`}>
@@ -145,8 +145,8 @@ const MainNavigationTopBar = ({
           </label>
         </div> */}
       </header>
-      <div className={`flex ${styles.TopNavigationExpand}`}>
-        <input className={`d-none ${styles.ExpandMenu}`}
+      <div className={styles.TopNavigationExpand}>
+        <input className={styles.ExpandMenu}
           id="ExpandMenu"
           name="ExpandMenu"
           type="checkbox"

@@ -56,9 +56,11 @@
 }
 
 .TopNavigation {
+  display: flex;
   flex: 3;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   height: inherit;
 }
 
@@ -191,6 +193,10 @@
   bottom: var(--pos-y-bar-three);
   transform: rotate(var(--rotate-bar-three));
   transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.ExpandMenu{
+  display: none;
 }
 
 .ExpandMenu:checked+.ExpandMenuIcon>.bar1 {
