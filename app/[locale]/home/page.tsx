@@ -200,9 +200,9 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
               </div>
               <div className={styles.itemHeader}>
                 <p className={styles.itemHeaderText}>Individual</p>
-                <p className={styles.itemHeaderDetail}>"Stuck for ideas? Can't</p>
-                <p className={styles.itemHeaderDetail}>think creatively? Try</p>
-                <p className={styles.itemHeaderDetail}>these tools to discover</p>
+                <p className={styles.itemHeaderDetail}>"Stuck for ideas?</p>
+                <p className={styles.itemHeaderDetail}>Can't think creatively?</p>
+                <p className={styles.itemHeaderDetail}>Try these tools to discover</p>
                 <p className={styles.itemHeaderDetail}>your new potential."</p>
               </div>
             </div>
