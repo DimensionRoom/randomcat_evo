@@ -491,7 +491,7 @@
   padding: 20px;
   background-color: white;
   border: 5px solid white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 14px 19px rgba(0, 0, 0, .2);
   perspective: 1000px;
   border-radius: 5px;
   transition: transform 0.2s;
@@ -682,6 +682,12 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.toolsSection .itemsContainer .item .itemImage:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
 
 .toolsSection .itemsContainer .item .itemImage .image {
   width: 70%;

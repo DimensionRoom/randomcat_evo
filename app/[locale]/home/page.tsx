@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
+import Link from 'next/link'
 import initTranslations from '../i18n';
 import Image from 'next/image'
 import TranslationsProvider from '@/components/TranslationsProvider';
@@ -285,10 +286,16 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.toolsSection.subtitle')}</p>
           </div>
           <div className={styles.itemsContainer}>
+
             <div className={styles.item}>
-              <div className={styles.itemImage}>
-                <Image className={styles.image} src="/image/innocard.png" width={300} height={300} alt='' />
-              </div>
+              <Link
+                href="/innovationandbusiness"
+              >
+                <div className={styles.itemImage}>
+                  <Image className={styles.image} src="/image/innocard.png" width={300} height={300} alt='' />
+                </div>
+              </Link>
+
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>{t('section.toolsSection.item.item1.title')}</p>
                 <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.toolsSection.item.item1.description1')}</p>
