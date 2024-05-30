@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Quicksand, Mitr } from "next/font/google";
 import { dir } from 'i18next';
 import { ChangeEvent } from 'react';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -9,10 +9,13 @@ import style from "../Styles/MovingBackground.module.css"
 import "../Styles/globals.css";
 
 const quicksand = Quicksand({
-  // subsets: ["thai"],
-  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"]
+});
+
+const mitr = Mitr({
+  subsets: ["thai"],
+  weight: [ "200", "300", "400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {

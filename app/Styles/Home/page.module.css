@@ -6,6 +6,14 @@
   overflow-y: scroll;
 }
 
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
 .parallaxSection {
   display: flex;
   /* flex: 1; */
@@ -21,7 +29,7 @@
   background-image: url('../../../public/svgs/svg/pallaraxBg1.svg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom;
+  /* background-position: bottom; */
 }
 
 .parallaxSection .textContainer {
@@ -233,14 +241,15 @@
   flex: 8;
 }
 
-.gradientSection .itemsContainer .item .itemData p {
+.gradientSection .itemsContainer .item .itemData .itemTitle {
   font-size: 1.6em;
   font-weight: 700;
   color: #ffffff;
   text-align: left;
+  margin-bottom: 5px;
 }
 
-.gradientSection .itemsContainer .item .itemData p+p {
+.gradientSection .itemsContainer .item .itemData .itemDetail {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
@@ -272,7 +281,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .gradientSection .itemsContainer .item .itemData p+p {
+  .gradientSection .itemsContainer .item .itemData .itemDetail {
     font-size: 0.8em;
 
   }
@@ -411,8 +420,10 @@
   color: #691392;
 }
 
-.stepSection .itemsContainer .item .itemHeader .itemHeaderDetail+.itemHeaderDetail {
+.stepSection .itemsContainer .item .itemHeader .itemHeaderDetailSm {
   font-size: 1.4em;
+  font-weight: 400;
+  color: #691392;
 }
 
 .stepSection .itemsContainer .item .itemContent .image {
@@ -448,7 +459,7 @@
     text-align: center;
   }
 
-  .stepSection .itemsContainer .item .itemHeader .itemHeaderDetail+.itemHeaderDetail {
+  .stepSection .itemsContainer .item .itemHeader .itemHeaderDetailSm {
     font-size: 1.2em;
   }
 }
@@ -520,7 +531,7 @@
   margin-top: 30px;
   font-size: 1.6em;
   font-weight: 400;
-  color: #691392;
+  color: #821dbf;
   text-align: left;
 }
 
@@ -909,12 +920,15 @@
   .footerSection .itemsContainer .title {
     font-size: 2em;
   }
+
   .footerSection .itemsContainer .contact {
     font-size: 1em;
   }
+
   .footerSection .brandContainer .brand .brandName {
     font-size: 1.2em;
   }
+
   .footerSection .brandContainer .brand .brandIcon {
     width: 35px;
     height: 35px;

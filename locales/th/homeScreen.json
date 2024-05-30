@@ -1,0 +1,128 @@
+{
+   "section": {
+      "parallaxSection": {
+         "subtitle": "ชุดการ์ดพัฒนาทักษะทางสมอง"
+      },
+      "gradientSection": {
+         "subtitle": "ThinkTool เครื่องมือที่ช่วยพัฒนาทักษะของคุณ",
+         "item": {
+            "item1": {
+               "title": "Creative Thinking",
+               "description1": "ชุดการ์ดออนไลน์ ที่ช่วยทำให้คุณได้",
+               "description2": "ใช้ความคิดสร้างสรรค์ในการสร้าง",
+               "description3": "สิ่งใหม่จากโจทย์กว่า 5,000 ข้อ",
+               "description4": ""
+            },
+            "item2": {
+               "title": "Problem Solving",
+               "description1": "ในแต่ละโจทย์ ถูกกำหนดด้วยข้อจำกัด",
+               "description2": "ที่ทำให้คุณได้ใช้ทักษะในการแก้ปัญหา",
+               "description3": "ได้เป็นอย่างดี",
+               "description4": ""
+            },
+            "item3": {
+               "title": "Analytical thinking",
+               "description1": "ทุกๆ การสุ่มโจทย์ที่ได้จาก ThinkTool",
+               "description2": "จะทำให้คุณได้คิดวิเคราะห์และเชื่อมโยง",
+               "description3": "ความรู้ที่มีเพื่อนำมาสร้างสิ่งใหม่ๆ ",
+               "description4": ""
+            }
+         }
+      },
+      "whiteSection": {
+         "subtitle": "ที่มาของการ์ดออนไลน์",
+         "specialText": {
+            "the": "The",
+            "thinkTool": "Think Tool"
+         },
+         "itemDetail1": "\"As a professor and speaker, teaching tools play a crucial role in making workshops enjoyable and memorable. However, sometimes we are limited by the availability and cost of physical tools, especially when we need to provide multiple sets.",
+         "itemDetail2": "is designed for online accessibility by everyone. Utilizing a random mechanism, this versatile and engaging tool can generate more than 5,000 results. Below, we outline 3 steps to utilize it.\""
+      },
+      "stepSection": {
+         "step1": {
+            "title": "Step 1",
+            "description1": "เลือกหมวดที่ชอบ",
+            "description2": "จากนั้นกดสุ่ม"
+         },
+         "step2": {
+            "title": "Step 2",
+            "description1": "นำโจทย์ที่ได้ออกมา",
+            "description2": "ระดมความคิด"
+         },
+         "step3": {
+            "title": "Step 3",
+            "description1": "นำไอเดียมาสร้างเป็น",
+            "description2": "แบบร่าง, ต้นแบบ หรือเรื่องเล่า"
+         }
+      },
+      "outcomeSection": {
+         "subtitle": "ตู้เตี๋ยวเหิน X ป.ประทีป",
+         "subtitle2": "",
+         "detail": "\"ตู้กดก๋วยเตี๋ยวที่สามารถเลือกส่วนผสม, ปริมาณของเส้น, ลูกชิ้นตามงบที่ต้องการ เริ่มต้นที่ 30 บาท. ทำสดใหม่ทุกชาม\""
+      },
+      "colorSection": {
+         "item1": {
+            "title": "Individual",
+            "description1": "\"ปลดล็อกสกิลใหม่ๆ",
+            "description2": "ให้กับตัวเองเลือกหมวดที่",
+            "description3": "ต้องการและเริ่มได้เลย\"",
+            "description4": ""
+         },
+         "item2": {
+            "title": "Workshop",
+            "description1": "\"ถูกใจผู้สอนได้ใจผู้อบรม",
+            "description2": "ด้วยชุดการ์ดออนไลน์",
+            "description3": "ที่ช่วยพัฒนาทักษะได้จริง\"",
+            "description4": ""
+         },
+         "item3": {
+            "title": "Classroom",
+            "description1": "\"สร้างโจทย์ที่ท้าทาย",
+            "description2": "ให้กับเด็กๆ ด้วยกิจกรรม",
+            "description3": "บนเว็บไซต์ ThinkTool.\"",
+            "description4": ""
+         }
+      },
+      "toolsSection": {
+         "subtitle": "เลือกหมวดที่ต้องการได้เลย",
+         "item": {
+            "item1": {
+               "title": "Inno Design",
+               "description1": "\"พัฒนาความคิดสร้างสรรค์",
+               "description2": "และการคิดวิเคราะห์ด้วย",
+               "description3": "ชุดการ์ด Inno Design\"",
+               "description4": ""
+            },
+            "item2": {
+               "title": "Story Design",
+               "description1": "\"ทักษะการเล่าเรื่องที่",
+               "description2": "ฝึกได้ทุกวัน โดยไม่จำเป็น",
+               "description3": "ต้องมีพื้นฐานมาก่อน\"",
+               "description4": ""
+            },
+            "item3": {
+               "title": "Edu Design",
+               "description1": "\"สนุกกับการสุ่มโจทย์",
+               "description2": "เพื่อนำมาออกแบบสื่อการสอน",
+               "description3": "ที่แปลกใหม่และทันสมัย\"",
+               "description4": ""
+            }
+         }
+      },
+      "teamSection": {
+         "item": {
+            "item1": {
+               "title": "ธาดา สามงามทอง",
+               "description1": "นักพัฒนาและ",
+               "description2": "ผู้ร่วมออกแบบเว็บไซต์"
+            },
+            "item2": {
+               "title": "ณัฐชยา นรารัตน์",
+               "description1": "อาจารย์พิเศษมหาลัยและ",
+               "description2": "นักออกแบบการเรียนรู้ผู้ร่วม",
+               "description3": "ออกแบบเว็บไซต์"
+            }
+         }
+      }
+   }
+}

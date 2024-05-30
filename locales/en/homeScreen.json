@@ -1,0 +1,128 @@
+{
+    "section": {
+        "parallaxSection": {
+            "subtitle": "\"Creativity begins here.\""
+        },
+        "gradientSection": {
+            "subtitle": "How Think Tool develop your skills?",
+            "item": {
+                "item1": {
+                    "title": "Creative Thinking",
+                    "description1": "With over 5,000+ combinations",
+                    "description2": "that challenge you to think flexibly",
+                    "description3": "and creatively, develop your skills",
+                    "description4": "every day with this tool."
+                },
+                "item2": {
+                    "title": "Problem Solving",
+                    "description1": "Occasionally, a random tool",
+                    "description2": "might present you with unrelated",
+                    "description3": "prompts to challenge you. Use",
+                    "description4": "your skills to solve them wisely."
+                },
+                "item3": {
+                    "title": "Analytical thinking",
+                    "description1": "While you enjoy some bizarre",
+                    "description2": "ideas, you still need something",
+                    "description3": "concrete to make everything",
+                    "description4": "make sense."
+                }
+            }
+        },
+        "whiteSection": {
+            "subtitle": "How it works ?",
+            "specialText": {
+                "the": "The",
+                "thinkTool": "Think Tool"
+            },
+            "itemDetail1": "\"As a professor and speaker, teaching tools play a crucial role in making workshops enjoyable and memorable. However, sometimes we are limited by the availability and cost of physical tools, especially when we need to provide multiple sets.",
+            "itemDetail2": "is designed for online accessibility by everyone. Utilizing a random mechanism, this versatile and engaging tool can generate more than 5,000 results. Below, we outline 3 steps to utilize it.\""
+        },
+        "stepSection": {
+            "step1": {
+                "title": "Step 1",
+                "description1": "Choose categories &",
+                "description2": "click random bottom."
+            },
+            "step2": {
+                "title": "Step 2",
+                "description1": "Get prompts and",
+                "description2": "brainstorm."
+            },
+            "step3": {
+                "title": "Step 3",
+                "description1": "Create a prototype/story",
+                "description2": "Rely on a theme related to cards."
+            }
+        },
+        "outcomeSection": {
+            "subtitle": "Customize the Noodle",
+            "subtitle2": "Vendor machine.",
+            "detail": "\"Customers have the option to select their desired ingredients and quantities, allowing them to estimate the price. Our meals are freshly prepared, with no use of frozen ingredients.\""
+        },
+        "colorSection": {
+            "item1": {
+                "title": "Individual",
+                "description1": "\"Stuck for ideas?",
+                "description2": "Can't think creatively?",
+                "description3": "Try these tools to discover",
+                "description4": "your new potential.\""
+            },
+            "item2": {
+                "title": "Workshop",
+                "description1": "\"Unlock new skills for",
+                "description2": "your team with a",
+                "description3": "powerful tool for both",
+                "description4": "small and large groups.\""
+            },
+            "item3": {
+                "title": "Classroom",
+                "description1": "\"No more boring",
+                "description2": "classes; motivate your",
+                "description3": "students with 5,000",
+                "description4": "challenges for kids.\""
+            }
+        },
+        "toolsSection": {
+            "subtitle": "Click the card to start.",
+            "item": {
+                "item1": {
+                    "title": "Inno Design",
+                    "description1": "\"Explore your new",
+                    "description2": "potential to deal with",
+                    "description3": "unrelated prompts that",
+                    "description4": "develop your creativity.\""
+                },
+                "item2": {
+                    "title": "Story Design",
+                    "description1": "\"Inspire new ideas for",
+                    "description2": "writing stories with six",
+                    "description3": "combinations that you",
+                    "description4": "can practice every day.\""
+                },
+                "item3": {
+                    "title": "Edu Design",
+                    "description1": "\"Ignite your idea of",
+                    "description2": "designing teaching",
+                    "description3": "materials by thinking",
+                    "description4": "through this card set.\""
+                }
+            }
+        },
+        "teamSection": {
+           "item": {
+              "item1": {
+                 "title": "Mr. Tada Samngamthong",
+                 "description1": "A Front-End Developer with",
+                 "description2": "10 years experiences."
+              },
+              "item2": {
+                 "title": "Miss Natchaya Nararat",
+                 "description1": "A passionate educator who",
+                 "description2": "designed a game mechanism",
+                 "description3": "and a website interface."
+              }
+           }
+        }
+    }
+}
