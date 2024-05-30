@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
-import { Mitr } from "next/font/google";
+import { Quicksand, Mitr } from "next/font/google";
 import initTranslations from '../i18n';
 import Image from 'next/image'
 import TranslationsProvider from '@/components/TranslationsProvider';
@@ -21,11 +21,15 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import styles from "../../Styles/Home/page.module.css";
 
 const i18nNamespaces = ['homeScreen'];
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
+});
 const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"]
 });
-export default function InnovationAndBusiness({ params: { locale } }: { params: { locale: string } }) {
+export default function Home({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -154,19 +158,33 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 autoplay
                 loop
                 src={teamwork}
-                // style={{ width: '30vh' }}
               >
               </Player>
             </div>
             <div className={styles.itemData}>
               <p className={styles.itemTitle}>Think-throughs cards</p>
               <p className={`${styles.itemSubTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.whiteSection.subtitle')}</p>
-              <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>
-                {t('section.whiteSection.itemDetail1')}
-              </p>
-              <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>
-                {t('section.whiteSection.specialText.the')} <b>{t('section.whiteSection.specialText.thinkTool')}</b> {t('section.whiteSection.itemDetail2')}
-              </p>
+
+              {
+                locale && locale == 'en' ? (<>
+                  <p className={`${styles.itemDetail}`}>
+                    {t('section.whiteSection.itemDetail1')}
+                  </p>
+                  <p className={`${styles.itemDetail}`}>
+                    {t('section.whiteSection.specialText.the')} <b>{t('section.whiteSection.specialText.thinkTool')}</b> {t('section.whiteSection.itemDetail2')}
+                  </p>
+                </>) : (
+                  <>
+                    <p className={`${styles.itemDetail} ${mitr.className} ${styles.thfontlight}`}>
+                      {t('section.whiteSection.specialText.the')} <b className={`${quicksand.className}`}>{t('section.whiteSection.specialText.thinkTool')}</b> {t('section.whiteSection.itemDetail1')}
+                    </p>
+                    <p className={`${styles.itemDetail} ${mitr.className} ${styles.thfontlight}`}>
+                      {t('section.whiteSection.itemDetail2')}
+                    </p>
+                  </>
+                )
+              }
+
             </div>
           </div>
         </div>
@@ -179,7 +197,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.stepSection.step1.description2')}</p>
               </div>
               <div className={styles.itemContent}>
-                <Image className={styles.image} src="/image/step1.png" width={300} height={300} alt='' />
+                <Image className={styles.image} src={`/image/step1${locale}.png`} width={300} height={300} alt='' />
               </div>
             </div>
             <div className={styles.item}>
@@ -189,7 +207,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.stepSection.step2.description2')}</p>
               </div>
               <div className={styles.itemContent}>
-                <Image className={styles.image} src="/image/step2.png" width={300} height={300} alt='' />
+                <Image className={styles.image} src={`/image/step2${locale}.png`} width={300} height={300} alt='' />
               </div>
             </div>
             <div className={styles.item}>
@@ -199,7 +217,7 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 <p className={`${styles.itemHeaderDetailSm} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.stepSection.step3.description2')}</p>
               </div>
               <div className={styles.itemContent}>
-                <Image className={styles.image} src="/image/step3.png" width={300} height={300} alt='' />
+                <Image className={styles.image} src={`/image/step3${locale}.png`} width={300} height={300} alt='' />
               </div>
             </div>
           </div>

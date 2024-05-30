@@ -686,6 +686,8 @@
 .toolsSection .itemsContainer .item .itemImage .image {
   width: 70%;
   height: auto;
+  box-shadow: 0px 8px 12px 1px rgb(0 0 0 / 20%);
+  border-radius: 20px;
 }
 
 .toolsSection .itemsContainer .itemData {

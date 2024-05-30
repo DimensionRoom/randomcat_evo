@@ -32,11 +32,11 @@
       "whiteSection": {
          "subtitle": "ที่มาของการ์ดออนไลน์",
          "specialText": {
-            "the": "The",
+            "the": "แพลตฟอร์ม",
             "thinkTool": "Think Tool"
          },
-         "itemDetail1": "\"As a professor and speaker, teaching tools play a crucial role in making workshops enjoyable and memorable. However, sometimes we are limited by the availability and cost of physical tools, especially when we need to provide multiple sets.",
-         "itemDetail2": "is designed for online accessibility by everyone. Utilizing a random mechanism, this versatile and engaging tool can generate more than 5,000 results. Below, we outline 3 steps to utilize it.\""
+         "itemDetail1": "ถือกำเนิดขึ้นมาจากไอเดียที่อยากสร้างเครื่องมือ ที่ใช้ในการอบรม ทั้งในรูปแบบ Printed Card และรูปแบบออนไลน์ เพื่อให้เกิดความหลากหลายและตอบโจทย์การใช้งานของคนหลายกลุ่มผ่านการสุ่มข้อมูลชุดคำเพื่อมาสร้างเป็นโจทย์ที่ท้าทายความสามารถ ในการออกแบบผลลัพธ์ที่ออกมานั้น สามารถเป็นได้ทั้งแบบร่างนวัตกรรม, สื่อการสอนสุดล้ำ, หรือแม้แต่บทภาพยนต์",
+         "itemDetail2": "ไม่ว่าคุณจะเป็นอาจารย์, วิทยากร, หรือผู้เรียน ThinkTool เป็นเครื่องมือที่จะช่วยพัฒนาทักษะด้านความคิดสร้างสรรค์ ของคุณได้อย่างดีเยี่ยม"
       },
       "stepSection": {
          "step1": {

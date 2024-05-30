@@ -38,11 +38,11 @@ const MainNavigationTopBar = ({
     },
     {
       name: 'Story Design',
-      url: '/storytelling'
+      url: '/'
     },
     {
       name: 'Edu Design',
-      url: '/education'
+      url: '/'
     }
   ];
 
