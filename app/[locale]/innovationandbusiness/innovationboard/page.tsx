@@ -12,6 +12,9 @@ import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';
+import PointerIcon from '@/public/svgs/innovationboard/pointer';
+import LightbulbIcon from '@/public/svgs/innovationboard/lightbulb';
+import RocketIcon from '@/public/svgs/innovationboard/rocket';
 
 import innodesisgnData from '../../../../public/json/innodesignCat.json';
 
@@ -197,6 +200,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                 <ExpandCard
                   key={index}
                   itemKey={cardItem.catItemId}
+                  locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
@@ -211,30 +215,30 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                {/* <TargetArrowIcon width={65} height={65} /> */}
+                <PointerIcon width={65} height={65} />
               </div>
               <div className={styles.itemHeader}>
-                <p className={`${styles.itemHeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.stepSection.item1.title')}</p>
+                <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item1.title')}</p>
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item1.description1')}</p>
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item1.description2')}</p>
               </div>
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                {/* <TargetArrowIcon width={65} height={65} /> */}
+                <LightbulbIcon width={65} height={65} />
               </div>
               <div className={styles.itemHeader}>
-              <p className={`${styles.itemHeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.stepSection.item2.title')}</p>
+                <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item2.title')}</p>
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item2.description1')}</p>
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item2.description2')}</p>
               </div>
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                {/* <TargetArrowIcon width={65} height={65} /> */}
+                <RocketIcon width={65} height={65} />
               </div>
               <div className={styles.itemHeader}>
-              <p className={`${styles.itemHeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.stepSection.item3.title')}</p>
+                <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item3.title')}</p>
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item3.description1')}</p>
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item3.description2')}</p>
               </div>

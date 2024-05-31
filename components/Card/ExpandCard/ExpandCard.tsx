@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react'
+import { Quicksand, Mitr } from "next/font/google";
 import Tag from '@/components/Tag/Tag';
 import styles from './ExpandCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
@@ -7,8 +8,18 @@ import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
+});
+const mitr = Mitr({
+  subsets: ["thai"],
+  weight: ["200", "300", "400", "500", "600", "700"]
+});
+
 
 export type Props = {
+  locale?: string;
   title: string;
   itemKey: string;
   headingContent: string;
@@ -20,6 +31,7 @@ export type Props = {
 }
 
 const ExpandCard = ({
+  locale = 'en',
   title = '-',
   itemKey,
   headingContent = '-',
@@ -60,7 +72,7 @@ const ExpandCard = ({
             : <KeyUnlockIcon color='#5b5879' width={20} height={20} />}
         </div> */}
         <div className={styles.HeaderTextContainer}>
-          <p className={styles.HeaderText}>{headingContent}</p>
+          <p className={`${styles.HeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
         </div>
       </div>
       <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>

@@ -22,6 +22,8 @@
   /* padding: 20px 50px; */
   overflow-y: scroll;
 }
+
+
 .randomSection {
   display: flex;
   min-height: calc(100vh - 80px);
@@ -146,6 +148,10 @@
   color: var(--step-text-color-content);
 }
 
+.stepSection .itemsContainer .item .itemIcon svg path{
+  fill: var(--step-text-color-content);
+}
+
 @media (max-width: 1250px) {
   .randomSection {
     min-height: auto;
@@ -166,6 +172,10 @@
   .stepSection .itemsContainer .item .itemHeader .itemHeaderDetail {
     font-size: 1.4em;
   }
+  .stepSection .itemsContainer .item .itemIcon svg {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media (max-width: 690px) {
@@ -182,5 +192,9 @@
   
   .stepSection .itemsContainer .item .itemHeader .itemHeaderDetail {
     font-size: 0.8em;
+  }
+  .stepSection .itemsContainer .item .itemIcon svg {
+    width: 35px;
+    height: 35px;
   }
 }

@@ -15,6 +15,14 @@
   /* min-height: 200px; */
 }
 
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
 .CardItemTitle {
   display: flex;
   align-items: center;
