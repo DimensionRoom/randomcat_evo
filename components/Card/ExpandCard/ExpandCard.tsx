@@ -51,7 +51,7 @@ const ExpandCard = ({
         <Tag text={title} />
         <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
           {lockContent ? <KeyLockIcon width={20} height={20} />
-            : <KeyUnlockIcon color='#5b5879' width={20} height={20} />}
+            : <KeyUnlockIcon color='#9b9b9b' width={20} height={20} />}
         </div>
       </div>
       <div className={styles.CardItemHeaderContent}>
@@ -73,7 +73,7 @@ const ExpandCard = ({
         <ExpandArrowIcon width={30} height={30} disabled={!content ? true : false} />
       </div>
       <div className={styles.CardItemFooterContent}>
-        <FlatBtn disabled={lockContent} style={{ width: 100 }} text="Random" onClick={onClick}/>
+        <FlatBtn className={styles.randomBtn} disabled={lockContent} style={{ width: 100 }} text="Random" onClick={onClick}/>
       </div>
     </div>
   )

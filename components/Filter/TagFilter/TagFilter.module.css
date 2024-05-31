@@ -1,4 +1,8 @@
 .ChipContainer {
+  --border-color: #7d198a;
+  --border-color-active:#d7c1ff;
+  --border-radius: 10px;
+  --text-color: #620986;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -14,8 +18,11 @@
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  padding: 0.2em 1em;
-  border: 2px solid #b2abfb;
+  padding: 0.3em 1em;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  font-weight: 600;
   position: relative;
   overflow: hidden;
   background-color: transparent;
@@ -25,7 +32,6 @@
   transition: .3s;
   z-index: 1;
   font-family: inherit;
-  color: #b2abfb;
 }
 
 .Chip:before {
@@ -36,7 +42,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  background: #fff;
+  background: #d7c1ff;
   border-color: #fff;
   transition: .5s ease;
   display: block;
@@ -44,8 +50,8 @@
 }
 
 .Chip:hover {
-  color: #111;
-  border-color: #fff;
+  color: var(--text-color);
+  border-color: var(--border-color-active);
 }
 
 .Chip:hover:before {
@@ -53,8 +59,8 @@
 }
 
 .ChipSelected {
-  background: #d7c1ff;
-  border-color: #d7c1ff;
-  color: #1d1757;
+  background: var(--border-color-active);
+  border-color: var(--border-color-active);
+  color: var(--text-color);
   transition: background 0s;
 }

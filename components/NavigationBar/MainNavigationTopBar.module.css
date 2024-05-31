@@ -3,10 +3,6 @@
   --secondary-color: #411692;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
-  --menu-text-color: #a1a1a1;
-  --menu-text-active-color: #ffffff;
-  --bar-color: #741f92;
-  --bar-active-color: #ffffff;
   display: flex;
   position: sticky;
   align-items: center;
@@ -15,7 +11,7 @@
   background: var(--background-color);
 }
 
-.yellowTheme {
+/* .yellowTheme {
   --primary-color: #FFBD4D;
   --secondary-color: #E6AC3D;  
   --highlight-color: #FFD700; 
@@ -24,7 +20,7 @@
   --menu-text-active-color: #ffffff; 
   --bar-color: #E6AC3D;  
   --bar-active-color: #ffffff; 
-}
+} */
 
 .BrandContainer {
   flex: 1;
@@ -103,6 +99,8 @@
 }
 
 .ExpandMenuContent {
+  --menu-text-color: #a1a1a1;
+  --menu-text-active-color: #ffffff;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -189,6 +187,8 @@
 }
 
 .bar {
+  --bar-color: #741f92;
+  --bar-active-color: #ffffff;
   position: relative;
   height: var(--height-bar);
   width: 100%;

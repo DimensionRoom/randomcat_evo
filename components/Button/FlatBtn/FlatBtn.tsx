@@ -18,7 +18,8 @@ const quicksand = Quicksand({
 
 export type Props = {
   text: string
-  style: React.CSSProperties
+  style?: React.CSSProperties
+  className?: string
   onClick?: () => void;
   disabled?: boolean;
 }
@@ -26,6 +27,7 @@ export type Props = {
 const FlatBtn = ({
   text,
   style,
+  className,
   onClick,
   disabled = false,
   ...props
@@ -36,7 +38,7 @@ const FlatBtn = ({
   };
 
   return (
-    <button disabled={disabled} className={styles.FlatBtn} style={{ ...quicksand.style, ...style }} onClick={onClick}>
+    <button disabled={disabled} className={`${styles.FlatBtn} ${className}`} style={{ ...quicksand.style, ...style }} onClick={onClick}>
       <span className={styles.FlatBtnText}>{text}</span>
     </button>
   )

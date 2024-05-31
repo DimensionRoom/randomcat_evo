@@ -82,7 +82,7 @@
 
 .cardsContainer {
   display: flex;
-  flex: 2;
+  flex: 3;
   justify-content: center;
 }
 

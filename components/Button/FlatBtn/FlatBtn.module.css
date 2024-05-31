@@ -1,15 +1,18 @@
 .FlatBtn {
+    --border-color:#ffffff;
+    --background-effect-color: #ccbbff;
+    --border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 8px 15px;
-    /* height: 30px; */
-    border-radius: 50px;
-    background: #fff;
-    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
     cursor: pointer;
+    /* height: 30px; */
+    /* background: #fff; */
 }
 
 .FlatBtn span {
@@ -19,11 +22,11 @@
 
 .FlatBtn:not(:disabled):hover {
     transform: scale(1.1);
-    color: #9272fb;
+    color: var(--background-effect-color);
 }
 
 
 .FlatBtn:not(:disabled):active {
     transform: scale(0.9);
-    color: #9272fb;
+    color:  var(--background-effect-color);
 }

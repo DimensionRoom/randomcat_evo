@@ -2,13 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-import { Kanit, Quicksand, Mitr } from "next/font/google";
 import initTranslations from '../../i18n';
 import styles from "../../../Styles/InnovationBoard/page.module.css";
 
 import TranslationsProvider from '@/components/TranslationsProvider';
 import IconBtn from '@/components/Button/IconBtn/IconBtn';
-import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';
@@ -37,18 +35,6 @@ interface Category {
 }
 
 const i18nNamespaces = ['innovationboard'];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"]
-});
 export default function InnovationBoard({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const searchParams = useSearchParams()
@@ -76,7 +62,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [filteredCategories, setFilteredCategories] = useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
-
+  
   const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
     if (newLockContent) {
       setLockItem([...lockItem, catItemId]);
@@ -121,7 +107,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
     }).filter(item => item !== undefined) as Item[];
     setRandomItems(newRandomItems);
   };
-
+  
   const generateRandomEachItem = (key: string) => {
     const category = cardData[key];
     const item = getRandomItem(category);
@@ -134,12 +120,12 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
     setRandomItems(newRandomItems);
   };
 
-
+  
 
   useEffect(() => {
     async function fetchTranslations() {
       const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
+      setT(t);
       setResources(resources);
       setTimeout(() => {
         setLoading(false);
@@ -180,66 +166,30 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       locale={locale}
       resources={resources}>
       <main className={styles.main}>
-        <div className={styles.randomSection}>
-          <div className={styles.HeaderCatContainer}>
-            <p className={`${styles.HeaderCatContainerText} ${kanit.className}`}>
-              {subCategory.map((subCat, index) => (
-                searchParamsInfo === subCat.catItemId ? subCat.name : ''
-              ))}
-            </p>
-            <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
-          </div>
-          <TagFilter noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
-          <div className={styles.CardItemsContainer}>
-            {randomItems
-              .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
-              .map((cardItem, index) => (
-                <ExpandCard
-                  key={index}
-                  itemKey={cardItem.catItemId}
-                  title={cardItem.title}
-                  headingContent={cardItem.topic}
-                  content={cardItem.content}
-                  onClick={() => generateRandomEachItem(cardItem.catItemId)}
-                  lock={lockItem.includes(cardItem.catItemId)}
-                  onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
-                />
-              ))}
-          </div>
+        <div className={styles.HeaderCatContainer}>
+          <p className={styles.HeaderCatContainerText}>
+            {subCategory.map((subCat, index) => (
+              searchParamsInfo === subCat.catItemId ? subCat.name : ''
+            ))}
+          </p>
+          <IconBtn onClick={()=>generateRandomItems()}/>
         </div>
-        <div className={styles.stepSection}>
-          <div className={styles.itemsContainer}>
-            <div className={styles.item}>
-              <div className={styles.itemIcon}>
-                {/* <TargetArrowIcon width={65} height={65} /> */}
-              </div>
-              <div className={styles.itemHeader}>
-                <p className={`${styles.itemHeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.stepSection.item1.title')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item1.description1')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item1.description2')}</p>
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.itemIcon}>
-                {/* <TargetArrowIcon width={65} height={65} /> */}
-              </div>
-              <div className={styles.itemHeader}>
-              <p className={`${styles.itemHeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.stepSection.item2.title')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item2.description1')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item2.description2')}</p>
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.itemIcon}>
-                {/* <TargetArrowIcon width={65} height={65} /> */}
-              </div>
-              <div className={styles.itemHeader}>
-              <p className={`${styles.itemHeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.stepSection.item3.title')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item3.description1')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item3.description2')}</p>
-              </div>
-            </div>
-          </div>
+        <TagFilter noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+        <div className={styles.CardItemsContainer}>
+          {randomItems
+            .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
+            .map((cardItem, index) => (
+              <ExpandCard
+                key={index}
+                itemKey={cardItem.catItemId}
+                title={cardItem.title}
+                headingContent={cardItem.topic}
+                content={cardItem.content} 
+                onClick={() => generateRandomEachItem(cardItem.catItemId)}
+                lock={lockItem.includes(cardItem.catItemId)}
+                onLockContentChange={(key,newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
+                />
+            ))}
         </div>
       </main>
     </TranslationsProvider>

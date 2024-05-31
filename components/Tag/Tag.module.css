@@ -1,13 +1,17 @@
 .TagContainer {
+  --background-color: #9F1CDD;
+  --border-color: #ffffff;
+  --text-color:#ffffff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px;
-  padding:5px 15px;
-  border-radius: 20px;
-  background-color: #b2abfb;
+  padding: 6px 15px;
+  border-radius: 10px;
+  border: 2px solid var(--border-color);
+  background-color: var(--background-color);
 }
 
 .TagContent {
@@ -16,7 +20,8 @@
   align-items: center;
 }
 
-.TagContent span{
-  color: #1d1757;
-  font-size: 0.8em;
+.TagContent span {
+  color: var(--text-color);
+  font-size: 1em;
+  font-weight: 600;
 }
