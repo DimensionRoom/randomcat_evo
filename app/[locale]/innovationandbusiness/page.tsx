@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
+import { Quicksand, Mitr } from "next/font/google";
 import initTranslations from '../i18n';
 import styles from "../../Styles/InnovationAndBusiness/page.module.css";
 
@@ -13,6 +14,14 @@ import mainLoad from './../../../public/json/mainload.json';
 import Link from 'next/link'
 
 const i18nNamespaces = ['subCategory'];
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
+});
+const mitr = Mitr({
+  subsets: ["thai"],
+  weight: ["200", "300", "400", "500", "600", "700"]
+});
 export default function InnovationAndBusiness({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
@@ -50,10 +59,10 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
       locale={locale}
       resources={resources}>
       <main className={styles.main}>
-        <div className={`flex column`} style={{ flex: 1, gap: 20 }}>
+        <div className={styles.MainContainer}>
           <div className={`flex row align-center justify-center`}>
-            <div className='header-tag'>
-              <p>{t('screen.innovationAndBusiness.title')}</p>
+            <div className={styles.PageHeaderTextContainer}>
+              <p className={styles.PageHeaderText}>{t('screen.innovationAndBusiness.title')}</p>
             </div>
           </div>
           {/* <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1rem', width: '100%' }}>
@@ -74,8 +83,8 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 </div>
               </Link>
               <div className={`${styles.CategoryDesc}`}>
-                <p>{t('screen.innovationAndBusiness.subCategory.innoDesign.title')}</p>
-                <p>{t('screen.innovationAndBusiness.subCategory.innoDesign.content')}</p>
+                <p className={`${styles.CategoryDescTitle}`}>{t('screen.innovationAndBusiness.subCategory.innoDesign.title')}</p>
+                <p className={`${styles.CategoryDescContent} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('screen.innovationAndBusiness.subCategory.innoDesign.content')}</p>
               </div>
             </div>
             <div className={`${styles.CategorySection}`}>
@@ -89,8 +98,8 @@ export default function InnovationAndBusiness({ params: { locale } }: { params: 
                 </div>
               </Link>
               <div className={`${styles.CategoryDesc}`}>
-                <p>{t('screen.innovationAndBusiness.subCategory.gamificationBiz.title')}</p>
-                <p>{t('screen.innovationAndBusiness.subCategory.gamificationBiz.content')}</p>
+                <p className={`${styles.CategoryDescTitle}`}>{t('screen.innovationAndBusiness.subCategory.gamificationBiz.title')}</p>
+                <p className={`${styles.CategoryDescContent} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('screen.innovationAndBusiness.subCategory.gamificationBiz.content')}</p>
               </div>
             </div>
           </div>

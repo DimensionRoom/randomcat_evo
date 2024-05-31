@@ -1,10 +1,29 @@
 .LayoutHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --menu-text-color: #a1a1a1;
+  --menu-text-active-color: #ffffff;
+  --bar-color: #741f92;
+  --bar-active-color: #ffffff;
   display: flex;
   position: sticky;
   align-items: center;
   height: 80px;
   padding: 1rem 2rem !important;
-  background: #ffffff;
+  background: var(--background-color);
+}
+
+.yellowTheme {
+  --primary-color: #FFBD4D;
+  --secondary-color: #E6AC3D;  
+  --highlight-color: #FFD700; 
+  --background-color: #ffffff; 
+  --menu-text-color: #996B1F; 
+  --menu-text-active-color: #ffffff; 
+  --bar-color: #E6AC3D;  
+  --bar-active-color: #ffffff; 
 }
 
 .BrandContainer {
@@ -28,14 +47,13 @@
   width: 32px;
   height: 32px;
   border: 2px solid transparent;
-  /* Add transition for smooth effect */
   transition: padding 0.3s;
 }
 
 .FlagContainer:hover,
 .FlagContainer.active {
   padding: 2%;
-  border: 2px solid #a765b2;
+  border: 2px solid var(--primary-color);
 }
 
 .BrandContainer .LogoContainer {
@@ -45,12 +63,7 @@
 }
 
 .BrandContainer .BrandText {
-  /* Commented gradient for color fill */
-  /* background: linear-gradient(90deg, #a765b2 0%, #411692 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  color: #7e188b;
+  color: var(--highlight-color);
   font-weight: bold;
   font-size: 2em;
 }
@@ -58,7 +71,6 @@
 .TopNavigation {
   display: flex;
   flex: 3;
-  display: flex;
   justify-content: flex-end;
   align-items: center;
   height: inherit;
@@ -100,7 +112,7 @@
 }
 
 .ExpandMenuContent .ExpandMenuContentItem .MenuText {
-  color: #a1a1a1;
+  color: var(--menu-text-color);
   font-size: 1.5rem;
   cursor: pointer;
   display: flex;
@@ -110,12 +122,11 @@
 }
 
 .ExpandMenuContent .ExpandMenuContentItem .MenuText.MenuTextActive {
-  color: #ffffff;
+  color: var(--menu-text-active-color);
 }
 
 .TopNavigation a {
   height: 40px;
-  /* This line is for full height */
   text-decoration: none;
 }
 
@@ -135,30 +146,30 @@
 }
 
 .TopNavigation .TopNavigationMenu .MenuText {
-  color: #411692;
+  color: var(--secondary-color);
   padding: 0 12px;
   font-size: 1.1em;
 }
 
 .TopNavigation .MenuDivider {
   height: 25px;
-  border-right: 1px solid #a765b2;
+  border-right: 1px solid var(--primary-color);
 }
 
 .TopNavigation .TopNavigationMenu:hover {
-  background-color: #a765b2;
+  background-color: var(--primary-color);
 }
 
 .TopNavigation .TopNavigationMenu:hover .MenuText {
-  color: #ffffff;
+  color: var(--menu-text-active-color);
 }
 
 .MenuActive {
-  background-color: #a765b2;
+  background-color: var(--primary-color);
 }
 
 .MenuActive .MenuText {
-  color: #ffffff !important;
+  color: var(--menu-text-active-color) !important;
 }
 
 .ExpandMenuIcon {
@@ -182,13 +193,12 @@
   height: var(--height-bar);
   width: 100%;
   border-radius: 0.5rem;
-  background-color: #741f92;
-  /* Add transition for smooth background color change */
+  background-color: var(--bar-color);
   transition: background-color 0.3s;
 }
 
 .barActive {
-  background-color: #ffffff;
+  background-color: var(--bar-active-color);
 }
 
 .bar1 {

@@ -13,11 +13,6 @@ const quicksand = Quicksand({
   weight: ["300", "400", "500", "600", "700"]
 });
 
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: [ "200", "300", "400", "500", "600", "700"]
-});
-
 export const metadata: Metadata = {
   title: "Think Tool",
   description: "Generated innovative education ideas",

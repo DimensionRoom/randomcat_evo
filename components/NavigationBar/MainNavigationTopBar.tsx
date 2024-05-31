@@ -34,15 +34,18 @@ const MainNavigationTopBar = ({
   const mainMenu = [
     {
       name: 'Inno Design',
-      url: '/innovationandbusiness'
+      url: '/innovationandbusiness',
+      theme: 'default'
     },
     {
       name: 'Story Design',
-      url: '/'
+      url: '/',
+      theme: 'yellow'
     },
     {
       name: 'Edu Design',
-      url: '/'
+      url: '/',
+      theme: 'red'
     }
   ];
 
@@ -95,7 +98,7 @@ const MainNavigationTopBar = ({
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-      <header className={styles.LayoutHeader}>
+      <header className={`${styles.LayoutHeader}`}>
         <Link href="/" className={styles.textLink}>
           <div className={styles.BrandContainer}>
             <div className={styles.LogoContainer}>
