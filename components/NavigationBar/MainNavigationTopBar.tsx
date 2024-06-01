@@ -20,6 +20,7 @@ export type Props = {
 
 type MenuItem = {
   name: string;
+  key: string;
   url: string;
   theme: string;
 };
@@ -40,17 +41,20 @@ const MainNavigationTopBar = ({
   const mainMenu :MenuItem[] = [
     {
       name: 'Inno Design',
+      key: 'innovation',
       url: '/innovationandbusiness',
       theme: 'ThemeBlue'
     },
     {
       name: 'Story Design',
-      url: '/',
+      key: 'story',
+      url: '/storydesign',
       theme: 'ThemeYellow'
     },
     {
       name: 'Edu Design',
-      url: '/',
+      key: 'education',
+      url: '/edudesign',
       theme: 'ThemeRed'
     }
   ];
@@ -133,7 +137,7 @@ const MainNavigationTopBar = ({
               <React.Fragment key={`menuItem${index}`}>
                 <Link
                   // href={`${menu.url} `}
-                  href={{ pathname: `${menu.url}/innovationboard`, query: { info: 'innodesign' } }}
+                  href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: 'innodesign' } }}
                   className={styles.textLink}
                 >
                   <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>

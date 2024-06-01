@@ -13,11 +13,11 @@
 }
 
 .ThemeBlue {
-  --primary-color: #5f7dc1;
-  --secondary-color: #203e85;  
-  --highlight-color: #2858c8; 
+  --primary-color: #6D8CD6;
+  --secondary-color: #38518D;  
+  --highlight-color: #38518D; 
   --background-color: #ffffff; 
-  --logo-color: #5f7dc1;
+  --logo-color: #38518D;
 }
 
 /* .yellowTheme {
@@ -211,7 +211,7 @@
 }
 
 .ThemeBlue .bar {
-  --bar-color: #5f7dc1;
+  --bar-color: #6D8CD6;
   --bar-active-color: #ffffff;
 }
 

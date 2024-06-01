@@ -15,11 +15,11 @@
   z-index: 0;
 }
 .ThemeBlue {
-  --border-color: #5773b5;
+  --border-color: #38518D;
   --color-active: #aecbfa;
   --color-default: #ffffff;
   --border-radius: 10px;
-  --text-color: #5773b5;
+  --text-color: #38518D;
 }
 
 .Chip {

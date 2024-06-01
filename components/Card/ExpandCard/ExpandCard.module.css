@@ -17,9 +17,9 @@
   /* min-height: 200px; */
 }
 .ThemeBlue {
-  --card-background-color: linear-gradient(130deg, #5773b5, #0e2d74);
+  --card-background-color: linear-gradient(130deg, #5773b5, #2e4788);
   --card-text-color: #ffffff;
-  --card-btn-background-color: #558ae0;
+  --card-btn-background-color: #3d548c;
   --card-btn-border-color: #ffffff;
   --card-btn-text-color: #ffffff;
 }
