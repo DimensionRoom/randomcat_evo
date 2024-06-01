@@ -4,7 +4,7 @@
   --card-btn-background-color: #9F1CDD;
   --card-btn-border-color: #ffffff;
   --card-btn-text-color:#ffffff;
-  --card-btn-disabled-bg-color: #b6b6b69c;
+  --card-btn-disabled-bg-color: #b6b6b6;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -22,6 +22,14 @@
   --card-btn-background-color: #3d548c;
   --card-btn-border-color: #ffffff;
   --card-btn-text-color: #ffffff;
+}
+
+.ThemeYellow {
+  --card-background-color: linear-gradient(130deg, #FFD013, #FFB24D);
+  --card-text-color: #000000;
+  --card-btn-background-color: #FFB24D;
+  --card-btn-border-color: #ffffff;
+  --card-btn-text-color: #000000;
 }
 
 .thfontlight {

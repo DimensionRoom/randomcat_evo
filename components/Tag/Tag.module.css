@@ -1,7 +1,7 @@
 .TagContainer {
   --background-color: #9F1CDD;
   --border-color: #ffffff;
-  --text-color:#ffffff;
+  --text-color: #ffffff;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,11 +13,19 @@
   border: 2px solid var(--border-color);
   background-color: var(--background-color);
 }
+
 .ThemeBlue {
   --background-color: #38518D;
   --border-color: #ffffff;
-  --text-color:#ffffff;
+  --text-color: #ffffff;
 }
+.ThemeYellow {
+  --background-color: #FFB24D;
+  --border-color: #ffffff;
+  --text-color: #000000;
+}
+
+
 
 .TagContent {
   display: flex;

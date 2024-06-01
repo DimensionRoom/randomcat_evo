@@ -18,17 +18,17 @@
 } */
 .main {
   --background-color: #0000003b;
-  --item-background-color: #5773b5;
+  --item-background-color: #FFD013;
   --border-color: #ffffff;
-  --box-shadow-hover: #5773b5;
+  --box-shadow-hover: #FFB24D;
   --box-shadow-active: #0000005c;
-  --text-color-title: #5773b5;
-  --text-color-content: #5f7dc1;
-  --btn--bg-color: #5773b5;
+  --text-color-title: #FFB24D;
+  --text-color-content: #FFB24D;
+  --btn--bg-color: #FFB24D;
   --btn--text-color: #ffffff;
-  --step-bg-color: #c7d8ff;
-  --step-text-color-title: #3c548b;
-  --step-text-color-content: #5f7dc1;
+  --step-bg-color: #FFB24D;
+  --step-text-color-title: #000000;
+  --step-text-color-content: #000000;
   display: flex;
   max-height: calc(100dvh - 80px);
   overflow-y: scroll;

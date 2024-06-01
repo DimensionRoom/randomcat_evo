@@ -20,6 +20,14 @@
   --logo-color: #38518D;
 }
 
+.ThemeYellow {
+  --primary-color: #FFD013;
+  --secondary-color: #FFB24D;  
+  --highlight-color: #FFBD4D; 
+  --background-color: #ffffff; 
+  --logo-color: #FFBD4D;
+}
+
 /* .yellowTheme {
   --primary-color: #FFBD4D;
   --secondary-color: #E6AC3D;  

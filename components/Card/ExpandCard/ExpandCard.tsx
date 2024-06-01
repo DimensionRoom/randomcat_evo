@@ -62,7 +62,7 @@ const ExpandCard = ({
   return (
     <div className={`${styles.CardItem} ${styles[className]}`}>
       <div className={styles.CardItemTitle}>
-        <Tag className={'ThemeBlue'} text={title} />
+        <Tag className={className} text={title} />
         <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
           {lockContent ? <KeyLockIcon width={20} height={20} />
             : <KeyUnlockIcon color='#9b9b9b' width={20} height={20} />}

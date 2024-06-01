@@ -21,6 +21,14 @@
   --card-btn-text-color: #ffffff;
 }
 
+.ThemeYellow {
+  --card-background-color: linear-gradient(130deg, #FFD013, #FFB24D);
+  --card-text-color: #000000;
+  --card-btn-background-color: #FFB24D;
+  --card-btn-border-color: #ffffff;
+  --card-btn-text-color: #ffffff;
+}
+
 .thfontlight {
   font-weight: 200 !important;
 }

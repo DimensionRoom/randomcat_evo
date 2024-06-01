@@ -22,6 +22,14 @@
   --text-color: #38518D;
 }
 
+.ThemeYellow {
+  --border-color: #FFB24D;
+  --color-active: #ffec9f;
+  --color-default: #ffffff;
+  --border-radius: 10px;
+  --text-color: #000000;
+}
+
 .Chip {
   display: inline-flex;
   align-items: center;

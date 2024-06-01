@@ -4,7 +4,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Kanit, Quicksand, Mitr } from "next/font/google";
 import initTranslations from '../../i18n';
-import styles from "../../../Styles/InnovationBoard/page.module.css";
+import styles from "../../../Styles/StoryBoard/page.module.css";
 
 import TranslationsProvider from '@/components/TranslationsProvider';
 import IconBtn from '@/components/Button/IconBtn/IconBtn';
@@ -189,7 +189,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
           </div>
-          <TagFilter className={'ThemeBlue'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+          <TagFilter className={'ThemeYellow'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
@@ -197,7 +197,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <ExpandCard
                   key={index}
                   itemKey={cardItem.catItemId}
-                  className={'ThemeBlue'}
+                  className={'ThemeYellow'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}
@@ -215,7 +215,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <HorizonCard
                   key={index}
                   itemKey={cardItem.catItemId}
-                  className={'ThemeBlue'}
+                  className={'ThemeYellow'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}
