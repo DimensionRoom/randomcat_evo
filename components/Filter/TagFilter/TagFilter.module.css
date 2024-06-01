@@ -1,6 +1,6 @@
 .ChipContainer {
   --border-color: #7d198a;
-  --color-active:#d7c1ff;
+  --color-active: #d7c1ff;
   --border-radius: 10px;
   --text-color: #620986;
   display: flex;
@@ -64,4 +64,27 @@
   border-color: var(--color-active);
   color: var(--text-color);
   transition: background 0s;
+}
+
+
+@media (max-width: 500px) {
+  .ChipContainer {
+    gap: 6px;
+  }
+
+  .Chip {
+    padding: 0.2em 0.4em;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 400px) {
+  .ChipContainer {
+    gap: 6px;
+  }
+
+  .Chip {
+    padding: 0.2em 0.4em;
+    font-size: 0.8em;
+  }
 }

@@ -10,6 +10,7 @@ import TranslationsProvider from '@/components/TranslationsProvider';
 import IconBtn from '@/components/Button/IconBtn/IconBtn';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
+import HorizonCard from '@/components/Card/HorizonCard/HorizonCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';
 import PointerIcon from '@/public/svgs/innovationboard/pointer';
@@ -198,6 +199,23 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
               .map((cardItem, index) => (
                 <ExpandCard
+                  key={index}
+                  itemKey={cardItem.catItemId}
+                  locale={locale}
+                  title={cardItem.title}
+                  headingContent={cardItem.topic}
+                  content={cardItem.content}
+                  onClick={() => generateRandomEachItem(cardItem.catItemId)}
+                  lock={lockItem.includes(cardItem.catItemId)}
+                  onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
+                />
+              ))}
+          </div>
+          <div className={styles.CardHorizonContainer}>
+            {randomItems
+              .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
+              .map((cardItem, index) => (
+                <HorizonCard
                   key={index}
                   itemKey={cardItem.catItemId}
                   locale={locale}
