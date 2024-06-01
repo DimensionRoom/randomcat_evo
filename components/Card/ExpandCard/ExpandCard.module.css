@@ -1,5 +1,6 @@
 .CardItem {
   --card-background-color: linear-gradient(130deg, #7f1b96, #35136b);
+  --card-text-color: #ffffff;
   --card-btn-background-color: #9F1CDD;
   --card-btn-border-color: #ffffff;
   --card-btn-text-color:#ffffff;
@@ -58,9 +59,10 @@
   align-items: center; /* can remove if not work let ple decide */
 }
 
-.HeaderTextContainer p {
+.HeaderTextContainer .HeaderText {
   font-size: 1.5em;
   font-weight: 600;
+  color: var(--card-text-color);
   line-height: 1.2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -70,7 +72,7 @@
 }
 
 @media screen and (max-width: 690px) {
-  .HeaderTextContainer p {
+  .HeaderTextContainer .HeaderText {
     -webkit-line-clamp: 3;
   }
   
