@@ -218,11 +218,15 @@
   }
 
   .stepSection .itemsContainer .item .itemHeader .itemHeaderDetail {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
 
   .stepSection .itemsContainer .item .itemIcon svg {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
   }
+  /* .stepSection .itemsContainer .item:nth-child(2) .itemIcon svg {
+    width: 45px;
+    height: 45px;
+  } */
 }

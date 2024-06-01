@@ -112,7 +112,8 @@ const MainNavigationTopBar = ({
             return (
               <React.Fragment key={`menuItem${index}`}>
                 <Link
-                  href={menu.url}
+                  // href={`${menu.url} `}
+                  href={{ pathname: `${menu.url}/innovationboard`, query: { info: 'innodesign' } }}
                   className={styles.textLink}
                 >
                   <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
@@ -171,7 +172,8 @@ const MainNavigationTopBar = ({
                 return (
                   <Link
                     key={index}
-                    href={menu.url}
+                    // href={menu.url}
+                    href={{ pathname: `${menu.url}/innovationboard`, query: { info: 'innodesign' } }}
                     className={styles.textLink}
                     onClick={() => handleExpandMenu(false)}
                   >

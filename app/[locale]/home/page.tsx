@@ -289,7 +289,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
 
             <div className={styles.item}>
               <Link
-                href="/innovationandbusiness"
+                href={{ pathname: `innovationandbusiness/innovationboard`, query: { info: 'innodesign' } }}
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/innocard.png" width={300} height={300} alt='' />
