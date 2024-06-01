@@ -193,7 +193,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
           </div>
-          <TagFilter noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+          <TagFilter className={'ThemeBlue'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
@@ -201,6 +201,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                 <ExpandCard
                   key={index}
                   itemKey={cardItem.catItemId}
+                  className={'ThemeBlue'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}
@@ -218,6 +219,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                 <HorizonCard
                   key={index}
                   itemKey={cardItem.catItemId}
+                  className={'ThemeBlue'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}

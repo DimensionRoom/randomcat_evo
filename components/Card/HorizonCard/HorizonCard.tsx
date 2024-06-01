@@ -18,6 +18,7 @@ const mitr = Mitr({
 
 
 export type Props = {
+  className?: string;
   locale?: string;
   title: string;
   itemKey: string;
@@ -30,6 +31,7 @@ export type Props = {
 }
 
 const HorizonCard = ({
+  className ='',
   locale = 'en',
   title = '-',
   itemKey,
@@ -57,7 +59,7 @@ const HorizonCard = ({
   };
 
   return (
-    <div className={styles.CardItem}>
+    <div className={`${styles.CardItem} ${styles[className]}`}>
       <div className={styles.CardItemActionStart}>
         <div onClick={handleLockClick} className={styles.IconContainer}>
           {lockContent ? <KeyLockIcon width={20} height={20} />

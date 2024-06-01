@@ -18,6 +18,12 @@ export type Props = {
   locale: string
 }
 
+type MenuItem = {
+  name: string;
+  url: string;
+  theme: string;
+};
+
 const MainNavigationTopBar = ({
   logo,
   locale = 'en',
@@ -31,23 +37,36 @@ const MainNavigationTopBar = ({
   const searchParamsString = useSearchParams().toString()
   const popCurrentPathname = currentPathname.split('/').slice(1) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
-  const mainMenu = [
+  const mainMenu :MenuItem[] = [
     {
       name: 'Inno Design',
       url: '/innovationandbusiness',
-      theme: 'default'
+      theme: 'ThemeBlue'
     },
     {
       name: 'Story Design',
       url: '/',
-      theme: 'yellow'
+      theme: 'ThemeYellow'
     },
     {
       name: 'Edu Design',
       url: '/',
-      theme: 'red'
+      theme: 'ThemeRed'
     }
   ];
+
+  const findTheme = (pop: string[], mainMenu: MenuItem[]): string | null => {
+    for (const menuItem of mainMenu) {
+      for (const popItem of pop) {
+        if (menuItem.url.includes(popItem)) {
+          return menuItem.theme;
+        }
+      }
+    }
+    return null;
+  };
+
+  const currentTheme = findTheme(popCurrentPathname, mainMenu) || 'Blue';
 
   const handleExpandMenu = (value: boolean) => {
     setIsExpandMenu(value);
@@ -80,8 +99,9 @@ const MainNavigationTopBar = ({
   // useEffect(() => {
   //   console.log('x',currentPathname.split('/').slice(1))
   //   console.log('xx',currentPathname.split('/').slice(2))
+  //   console.log('popCurrentPathname',findTheme(popCurrentPathname,mainMenu))
   // }
-  //   , []);
+  // , []);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -98,7 +118,7 @@ const MainNavigationTopBar = ({
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-      <header className={`${styles.LayoutHeader}`}>
+      <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
         <Link href="/" className={styles.textLink}>
           <div className={styles.BrandContainer}>
             <div className={styles.LogoContainer}>
@@ -150,7 +170,7 @@ const MainNavigationTopBar = ({
           </label>
         </div> */}
       </header>
-      <div className={styles.TopNavigationExpand}>
+      <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
         <input className={styles.ExpandMenu}
           id="ExpandMenu"
           name="ExpandMenu"

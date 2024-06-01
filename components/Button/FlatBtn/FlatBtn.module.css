@@ -1,6 +1,6 @@
 .FlatBtn {
     --border-color:#ffffff;
-    --background-effect-color: #ccbbff;
+    --background-effect-color: #ffffff;
     --border-radius: 10px;
     display: flex;
     flex-direction: row;

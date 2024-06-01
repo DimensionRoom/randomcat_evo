@@ -13,6 +13,13 @@
   flex-direction: row;
   align-items: center;
 }
+.ThemeBlue {
+  --card-background-color: linear-gradient(130deg, #5773b5, #0e2d74);
+  --card-text-color: #ffffff;
+  --card-btn-background-color: #aecbfa;
+  --card-btn-border-color: #ffffff;
+  --card-btn-text-color: #ffffff;
+}
 
 .thfontlight {
   font-weight: 200 !important;

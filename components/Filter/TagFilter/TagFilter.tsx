@@ -4,6 +4,7 @@ import styles from './TagFilter.module.css';
 
 
 export type Props = {
+    className?: string;
     categories: string[];
     onFilterChange: (selectedCategories: string[]) => void;
     defaultSelectedCategories?: string[];
@@ -11,6 +12,7 @@ export type Props = {
 }
 
 const TagFilter = ({
+    className='',
     categories,
     onFilterChange,
     defaultSelectedCategories = [],
@@ -31,7 +33,7 @@ const TagFilter = ({
     };
 
     return (
-        <div className={styles.ChipContainer}>
+        <div className={`${styles.ChipContainer} ${styles[className]}`}>
             {categories.map((category) => (
                 <div
                     key={category}

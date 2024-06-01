@@ -19,6 +19,7 @@ const mitr = Mitr({
 
 
 export type Props = {
+  className?: string;
   locale?: string;
   title: string;
   itemKey: string;
@@ -31,6 +32,7 @@ export type Props = {
 }
 
 const ExpandCard = ({
+  className = '',
   locale = 'en',
   title = '-',
   itemKey,
@@ -58,9 +60,9 @@ const ExpandCard = ({
   };
 
   return (
-    <div className={styles.CardItem}>
+    <div className={`${styles.CardItem} ${styles[className]}`}>
       <div className={styles.CardItemTitle}>
-        <Tag text={title} />
+        <Tag className={'ThemeBlue'} text={title} />
         <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
           {lockContent ? <KeyLockIcon width={20} height={20} />
             : <KeyUnlockIcon color='#9b9b9b' width={20} height={20} />}

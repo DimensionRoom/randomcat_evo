@@ -3,12 +3,21 @@
   --secondary-color: #411692;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
+  --logo-color: #691392;
   display: flex;
   position: sticky;
   align-items: center;
   height: 80px;
   padding: 1rem 2rem !important;
   background: var(--background-color);
+}
+
+.ThemeBlue {
+  --primary-color: #5f7dc1;
+  --secondary-color: #203e85;  
+  --highlight-color: #2858c8; 
+  --background-color: #ffffff; 
+  --logo-color: #5f7dc1;
 }
 
 /* .yellowTheme {
@@ -56,6 +65,10 @@
   display: flex;
   height: inherit;
   align-items: center;
+}
+
+.BrandContainer .LogoContainer svg {
+  fill: var(--logo-color);
 }
 
 .BrandContainer .BrandText {
@@ -195,6 +208,11 @@
   border-radius: 0.5rem;
   background-color: var(--bar-color);
   transition: background-color 0.3s;
+}
+
+.ThemeBlue .bar {
+  --bar-color: #5f7dc1;
+  --bar-active-color: #ffffff;
 }
 
 .barActive {

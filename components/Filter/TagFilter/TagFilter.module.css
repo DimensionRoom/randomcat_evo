@@ -14,6 +14,13 @@
   justify-content: center;
   z-index: 0;
 }
+.ThemeBlue {
+  --border-color: #5773b5;
+  --color-active: #aecbfa;
+  --color-default: #ffffff;
+  --border-radius: 10px;
+  --text-color: #5773b5;
+}
 
 .Chip {
   display: inline-flex;

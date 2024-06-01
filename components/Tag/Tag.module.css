@@ -13,6 +13,11 @@
   border: 2px solid var(--border-color);
   background-color: var(--background-color);
 }
+.ThemeBlue {
+  --background-color: #558ae0;
+  --border-color: #ffffff;
+  --text-color:#ffffff;
+}
 
 .TagContent {
   display: flex;
