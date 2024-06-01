@@ -3,13 +3,13 @@
   --card-text-color: #ffffff;
   --card-btn-background-color: #9F1CDD;
   --card-btn-border-color: #ffffff;
-  --card-btn-text-color:#ffffff;
+  --card-btn-text-color: #ffffff;
   display: flex;
   flex-direction: column;
   padding: 10px 10px 10px 10px;
   background: #362375;
   background-image: var(--card-background-color);
-  flex:1;
+  flex: 1;
   flex-direction: row;
   align-items: center;
 }
@@ -21,6 +21,7 @@
 .thfontbold {
   font-weight: 300 !important;
 }
+
 .CardItemActionStart {
   display: flex;
   flex: 2;
@@ -39,24 +40,42 @@
   padding: 5px 5px;
 }
 
-.CardItemContent{
+.CardItemContent {
   display: flex;
   flex: 8;
   flex-direction: column;
   align-items: flex-start;
+  color: var(--card-text-color);
 }
 
-.CardItemContent .CardTextContainer{
+.CardItemContent .CardTextContainer {
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.CardItemContent .CardTextContainer .CardTitle{
+.CardItemContent .CardTextContainer .CardTitle {
   font-size: 0.7em;
 }
-.CardItemContent .CardTextContainer .CardDetail{
+
+.CardItemContent .CardTextContainer .CardDetail {
   font-size: 1.2em;
 }
 
+.CardItemActionEnd .IconContainer {
+  display: flex;
+  /* background: rgb(168 168 168 / 30%);
+  border-radius: 0px; */
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.CardItemActionEnd .IconContainer:active {
+  transform: scale(0.8);
+}
+
+.CardItemActionEnd .IconContainer:active.actionDisable {
+  transform: scale(1);
+}

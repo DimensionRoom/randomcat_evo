@@ -5,6 +5,7 @@ import styles from './HorizonCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
+import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -58,7 +59,7 @@ const HorizonCard = ({
   return (
     <div className={styles.CardItem}>
       <div className={styles.CardItemActionStart}>
-        <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
+        <div onClick={handleLockClick} className={styles.IconContainer}>
           {lockContent ? <KeyLockIcon width={20} height={20} />
             : <KeyUnlockIcon color='#9b9b9b' width={20} height={20} />}
         </div>
@@ -70,9 +71,9 @@ const HorizonCard = ({
         </div>
       </div>
       <div className={styles.CardItemActionEnd}>
-        <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
-          {lockContent ? <KeyLockIcon width={20} height={20} />
-            : <KeyUnlockIcon color='#9b9b9b' width={20} height={20} />}
+        <div onClick={onClick} className={`${styles.IconContainer} ${lockContent?styles.actionDisable:null}`}>
+          {lockContent ? <RerenderIcon color='#ffffff30' width={20} height={20} />
+            : <RerenderIcon color='#ffffff' width={20} height={20} />}
         </div>
       </div>
     </div>

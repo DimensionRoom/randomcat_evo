@@ -1,6 +1,7 @@
 .ChipContainer {
   --border-color: #7d198a;
   --color-active: #d7c1ff;
+  --color-default: #ffffff;
   --border-radius: 10px;
   --text-color: #620986;
   display: flex;
@@ -60,7 +61,7 @@
 } */
 
 .ChipSelected {
-  background: var(--color-active);
+  background: var(--color-active) !important;
   border-color: var(--color-active);
   color: var(--text-color);
   transition: background 0s;
@@ -86,5 +87,8 @@
   .Chip {
     padding: 0.2em 0.4em;
     font-size: 0.8em;
+  }
+  .Chip:hover {
+    background: var(--color-default);
   }
 }
