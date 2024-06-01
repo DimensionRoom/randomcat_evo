@@ -24,6 +24,11 @@
   --border-color: #ffffff;
   --text-color: #000000;
 }
+.ThemePink {
+  --background-color: #EB6CB4;
+  --border-color: #ffffff;
+  --text-color: #ffffff;
+}
 
 
 

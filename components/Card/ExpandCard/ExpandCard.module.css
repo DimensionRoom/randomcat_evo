@@ -32,6 +32,14 @@
   --card-btn-text-color: #000000;
 }
 
+.ThemePink {
+  --card-background-color: linear-gradient(130deg, #F44FA3, #C80E78);
+  --card-text-color: #ffffff;
+  --card-btn-background-color: #EB6CB4;
+  --card-btn-border-color: #ffffff;
+  --card-btn-text-color: #ffffff;
+}
+
 .thfontlight {
   font-weight: 200 !important;
 }

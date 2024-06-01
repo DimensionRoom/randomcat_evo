@@ -14,30 +14,27 @@
 
 .ThemeBlue {
   --primary-color: #6D8CD6;
-  --secondary-color: #38518D;  
-  --highlight-color: #38518D; 
-  --background-color: #ffffff; 
+  --secondary-color: #38518D;
+  --highlight-color: #38518D;
+  --background-color: #ffffff;
   --logo-color: #38518D;
 }
 
 .ThemeYellow {
   --primary-color: #FFD013;
-  --secondary-color: #FFB24D;  
-  --highlight-color: #FFBD4D; 
-  --background-color: #ffffff; 
+  --secondary-color: #FFB24D;
+  --highlight-color: #FFBD4D;
+  --background-color: #ffffff;
   --logo-color: #FFBD4D;
 }
 
-/* .yellowTheme {
-  --primary-color: #FFBD4D;
-  --secondary-color: #E6AC3D;  
-  --highlight-color: #FFD700; 
-  --background-color: #ffffff; 
-  --menu-text-color: #996B1F; 
-  --menu-text-active-color: #ffffff; 
-  --bar-color: #E6AC3D;  
-  --bar-active-color: #ffffff; 
-} */
+.ThemePink {
+  --primary-color: #F44FA3;
+  --secondary-color: #C80E78;
+  --highlight-color: #C80E78;
+  --background-color: #ffffff;
+  --logo-color: #C80E78;
+}
 
 .BrandContainer {
   flex: 1;
@@ -219,9 +216,20 @@
 }
 
 .ThemeBlue .bar {
-  --bar-color: #6D8CD6;
+  --bar-color: #2e4788;
   --bar-active-color: #ffffff;
 }
+
+.ThemeYellow .bar {
+  --bar-color: #FFB24D;
+  --bar-active-color: #ffffff;
+}
+
+.ThemePink .bar {
+  --bar-color: #C80E78;
+  --bar-active-color: #ffffff;
+}
+
 
 .barActive {
   background-color: var(--bar-active-color);

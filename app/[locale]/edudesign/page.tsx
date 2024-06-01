@@ -4,7 +4,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
 import initTranslations from '../i18n';
-import styles from "../../Styles/StoryDesign/page.module.css";
+import styles from "../../Styles/InnovationAndBusiness/page.module.css";
 
 import TranslationsProvider from '@/components/TranslationsProvider';
 import GameficationIcon from '@/public/svgs/category/gamefication';
@@ -22,7 +22,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"]
 });
-export default function StoryAndDesign({ params: { locale } }: { params: { locale: string } }) {
+export default function InnovationAndBusiness({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);

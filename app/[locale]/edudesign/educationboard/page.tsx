@@ -4,7 +4,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Kanit, Quicksand, Mitr } from "next/font/google";
 import initTranslations from '../../i18n';
-import styles from "../../../Styles/StoryBoard/page.module.css";
+import styles from "../../../Styles/EduBoard/page.module.css";
 
 import TranslationsProvider from '@/components/TranslationsProvider';
 import IconBtn from '@/components/Button/IconBtn/IconBtn';
@@ -17,7 +17,7 @@ import PointerIcon from '@/public/svgs/innovationboard/pointer';
 import LightbulbIcon from '@/public/svgs/innovationboard/lightbulb';
 import RocketIcon from '@/public/svgs/innovationboard/rocket';
 
-import storydesisgnData from '../../../../public/json/storydesignCat.json';
+import edudesisgnData from '../../../../public/json/edudesignCat.json';
 
 export type SubCategoryProps = {
   name: string
@@ -53,7 +53,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"]
 });
-export default function StoryBoard({ params: { locale } }: { params: { locale: string } }) {
+export default function InnovationBoard({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const searchParams = useSearchParams()
   const searchParamsInfo = searchParams.get('info')
@@ -61,16 +61,16 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: 'STORY DESIGN',
-      catItemId: 'storydesign'
+      name: 'EDU DESIGN',
+      catItemId: 'edudesign'
     }
   ]);
 
   const extractMainKeys = (jsonData: JSONData): string[] => {
     return Object.keys(jsonData);
   };
-  const mainKeys = extractMainKeys(storydesisgnData);
-  const cardData: { [key: string]: Category } = storydesisgnData;
+  const mainKeys = extractMainKeys(edudesisgnData);
+  const cardData: { [key: string]: Category } = edudesisgnData;
   const [filterCategory, setFilterCategory] = useState<string[]>(mainKeys);
   const [defaultSelectedCategories, setDefaultSelectedCategories] = useState<string[]>(mainKeys)
   const [filteredCategories, setFilteredCategories] = useState<string[]>(mainKeys);
@@ -189,7 +189,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
           </div>
-          <TagFilter className={'ThemeYellow'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+          <TagFilter className={'ThemePink'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
@@ -197,7 +197,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <ExpandCard
                   key={index}
                   itemKey={cardItem.catItemId}
-                  className={'ThemeYellow'}
+                  className={'ThemePink'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}
@@ -215,7 +215,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <HorizonCard
                   key={index}
                   itemKey={cardItem.catItemId}
-                  className={'ThemeYellow'}
+                  className={'ThemePink'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}

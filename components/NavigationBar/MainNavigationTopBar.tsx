@@ -59,7 +59,7 @@ const MainNavigationTopBar = ({
       key: 'education',
       shortKey: 'edu',
       url: '/edudesign',
-      theme: 'ThemeRed'
+      theme: 'ThemePink'
     }
   ];
 
@@ -201,7 +201,7 @@ const MainNavigationTopBar = ({
                   <Link
                     key={index}
                     // href={menu.url}
-                    href={{ pathname: `${menu.url}/innovationboard`, query: { info: 'innodesign' } }}
+                    href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
                     className={styles.textLink}
                     onClick={() => handleExpandMenu(false)}
                   >
