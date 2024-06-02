@@ -109,7 +109,8 @@
   max-height: 200px;
   overflow-y: auto;
   transition: max-height 0.5s ease, opacity 0.5s ease;
-  opacity: 1
+  opacity: 1;
+  color: var(--card-text-color);
     /* height: inherit; */
 }
 

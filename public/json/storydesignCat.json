@@ -1,216 +1,697 @@
 {
-    "What": {
-      "title": "What-Outcome",
-      "key": "What",
-      "data": [
-        {"th": "ออกแบบแฟชั่น", "en": "Design a fashion", "content": ""},
-        {"th": "ออกแบบอุปกรณ์", "en": "Design a device", "content": ""},
-        {"th": "ออกแบบ Gadget", "en": "Design a gadget", "content": ""},
-        {"th": "ออกแบบยานพาหนะ", "en": "Design a vehicle", "content": ""},
-        {"th": "ออกแบบ Application", "en": "Design a mobile application", "content": ""},
-        {"th": "ออกแบบหนังสือ", "en": "Design a book", "content": ""},
-        {"th": "ออกแบบเกม", "en": "Design a game", "content": ""},
-        {"th": "ออกแบบภาพยนต์", "en": "Design a movie", "content": ""},
-        {"th": "ออกแบบเมนูอาหาร", "en": "Design a food menu", "content": ""},
-        {"th": "ออกแบบหุ่นยนต์", "en": "Design a robot", "content": ""},
-        {"th": "ออกแบบกระเป๋า", "en": "Design a bag", "content": ""},
-        {"th": "ออกแบบเครื่องสำอางค์", "en": "Design a cosmetic", "content": ""},
-        {"th": "ออกแบบสวน", "en": "Design a garden", "content": ""},
-        {"th": "ออกแบบของใช้ส่วนตัว", "en": "Design a personal item", "content": ""},
-        {"th": "ออกแบบของขวัญ", "en": "Design a gift", "content": ""},
-        {"th": "ออกแบบรางวัล", "en": "Design a prize", "content": ""},
-        {"th": "ออกแบบบริษัท", "en": "Design a company", "content": ""},
-        {"th": "ออกแบบเครื่องเขียน", "en": "Design stationery", "content": ""},
-        {"th": "ออกแบบของเล่น", "en": "Design a toy", "content": ""},
-        {"th": "ออกแบบปากกา", "en": "Design a pen", "content": ""},
-        {"th": "ออกแบบยา", "en": "Design a medicine", "content": ""},
-        {"th": "ออกแบบขยะ", "en": "Design trash", "content": ""},
-        {"th": "ออกแบบขนม", "en": "Design a dessert", "content": ""},
-        {"th": "ออกแบบรองเท้า", "en": "Design shoes", "content": ""},
-        {"th": "ออกแบบนาฬิกา", "en": "Design a watch", "content": ""},
-        {"th": "ออกแบบเก้าอี้", "en": "Design a chair", "content": ""},
-        {"th": "ออกแบบกล่อง", "en": "Design a box", "content": ""},
-        {"th": "ออกแบบคูปอง", "en": "Design a coupon", "content": ""},
-        {"th": "ออกแบบโปรโมชั่น", "en": "Design a promotion", "content": ""},
-        {"th": "ออกแบบตู้(ใส่ของ)", "en": "Design a cabinet", "content": ""},
-        {"th": "ออกแบบกระจก", "en": "Design a mirror", "content": ""},
-        {"th": "ออกแบบผนัง", "en": "Design a wall", "content": ""},
-        {"th": "ออกแบบพวงกุญแจ", "en": "Design a keychain", "content": ""},
-        {"th": "ออกแบบช้อน", "en": "Design a spoon", "content": ""},
-        {"th": "ออกแบบหมวก", "en": "Design a hat", "content": ""},
-        {"th": "ออกแบบหลอด", "en": "Design a straw", "content": ""},
-        {"th": "ออกแบบเชือก", "en": "Design a rope", "content": ""},
-        {"th": "ออกแบบไฟฉาย", "en": "Design a flashlight", "content": ""},
-        {"th": "ออกแบบตู้จำหน่ายสินค้า", "en": "Design a vendor machine", "content": ""}
-      ]
-    },
-    "Who": {
-      "title": "Who-User",
-      "key": "Who",
-      "data": [
-        {"th": "สำหรับเด็กทารก", "en": "for Infant", "content": ""},
-        {"th": "สำหรับผู้สูงอายุ", "en": "for the elderly", "content": ""},
-        {"th": "สำหรับผู้พิการ", "en": "for people with disabilities", "content": ""},
-        {"th": "สำหรับนักเรียน", "en": "for student", "content": ""},
-        {"th": "สำหรับคนจน", "en": "for the poor", "content": ""},
-        {"th": "สำหรับคนรวย", "en": "for the wealthy", "content": ""},
-        {"th": "สำหรับราชวงศ์", "en": "for loyalty", "content": ""},
-        {"th": "สำหรับสัตว์เลี้ยง", "en": "for pet", "content": ""},
-        {"th": "สำหรับผู้ป่วย", "en": "for patient", "content": ""},
-        {"th": "สำหรับเพื่อนบ้าน", "en": "for neighbor", "content": ""},
-        {"th": "สำหรับครู", "en": "for teacher", "content": ""},
-        {"th": "สำหรับโลกอนาคต", "en": "for the future world", "content": ""},
-        {"th": "สำหรับคนจำนวนมาก", "en": "for a large number of people", "content": ""},
-        {"th": "สำหรับนายกรัฐมนตรี", "en": "for the Prime Minister", "content": ""},
-        {"th": "สำหรับเพื่อน", "en": "for friend", "content": ""},
-        {"th": "สำหรับคนขี้เกียจ", "en": "for lazy people", "content": ""},
-        {"th": "สำหรับคนแปลกหน้า", "en": "for stranger", "content": ""},
-        {"th": "สำหรับนักสืบ", "en": "for detective", "content": ""},
-        {"th": "สำหรับทหาร", "en": "for soldier", "content": ""},
-        {"th": "สำหรับคนใช้แรงงาน", "en": "for laborer", "content": ""},
-        {"th": "สำหรับคนเตี้ย", "en": "for short people", "content": ""},
-        {"th": "สำหรับหมอ", "en": "for doctor", "content": ""},
-        {"th": "สำหรับนักดับเพลิง", "en": "for firefighter", "content": ""},
-        {"th": "สำหรับนักกีฬา", "en": "for athlete", "content": ""},
-        {"th": "สำหรับโจร", "en": "for thieves", "content": ""},
-        {"th": "สำหรับหมอดู", "en": "for fortune teller", "content": ""},
-        {"th": "สำหรับคนขี้หงุดหงิด", "en": "for angry people", "content": ""},
-        {"th": "สำหรับนักปีนเขา", "en": "for mountain climbers", "content": ""},
-        {"th": "สำหรับพี่เลี้ยงเด็ก", "en": "for nanny", "content": ""},
-        {"th": "สำหรับนักลงทุน", "en": "for investor", "content": ""},
-        {"th": "สำหรับคนที่กำลังสอบ", "en": "for people who are taking exams", "content": ""},
-        {"th": "สำหรับวัยรุ่น", "en": "for teenager", "content": ""},
-        {"th": "สำหรับชาวนา", "en": "for farmer", "content": ""},
-        {"th": "สำหรับคนหลงทาง", "en": "for the lost", "content": ""},
-        {"th": "สำหรับคนขี้อาย", "en": "for shy people", "content": ""},
-        {"th": "สำหรับศิลปิน", "en": "for artist", "content": ""},
-        {"th": "สำหรับนักสำรวจ", "en": "for explorers", "content": ""},
-        {"th": "สำหรับพ่อครัว", "en": "for chef", "content": ""},
-        {"th": "สำหรับคนที่อ่านหนังสือไม่ออก", "en": "for people who can't read", "content": ""},
-        {"th": "สำหรับนักเสี่ยงโชค", "en": "for gamblers", "content": ""},
-        {"th": "สำหรับคนขี้ลืม", "en": "for forgetful people", "content": ""},
-        {"th": "สำหรับคนร่ำรวย", "en": "for rich people", "content": ""},
-        {"th": "สำหรับคนไม่ชอบออกกำลังกาย", "en": "for people who don't like to exercise", "content": ""},
-        {"th": "สำหรับคนที่ไม่สบายบ่อย", "en": "for people who are often unwell", "content": ""},
-        {"th": "สำหรับใครก็ได้", "en": "for anyone", "content": ""},
-        {"th": "สำหรับนักอวกาศ", "en": "for astronauts", "content": ""},
-        {"th": "สำหรับดารา", "en": "for celebrity", "content": ""},
-        {"th": "สำหรับแม่มด", "en": "for the witch", "content": ""},
-        {"th": "สำหรับคนอกหัก", "en": "for heartbroken people", "content": ""},
-        {"th": "สำหรับนักท่องเที่ยว", "en": "for tourists", "content": ""},
-        {"th": "สำหรับหญิงตั้งครรภ์", "en": "for pregnant women", "content": ""}
-      ]
-    },
-    "Why": {
-      "title": "Why-Purpose",
-      "key": "Why",
-      "data": [
-        {"th": "เพื่อพัฒนาคุณภาพชีวิต", "en": "that improves the quality of life", "content": ""},
-        {"th": "เพื่อสร้างเสียงหัวเราะ", "en": "that generates laughter", "content": ""},
-        {"th": "เพื่อความล้ำสมัย", "en": "that is modern", "content": ""},
-        {"th": "เพื่อช่วยลดภาระโลกร้อน", "en": "that helps reduce global warming", "content": ""},
-        {"th": "เพื่อช่วยสร้างอาชีพ", "en": "that helps create jobs", "content": ""},
-        {"th": "เพื่อพกพาได้สะดวก", "en": "that is portable", "content": ""},
-        {"th": "เพื่อทำให้ตื่นเต้น", "en": "that is exciting", "content": ""},
-        {"th": "เพื่อทำให้อารมณ์ดี", "en": "that uplifts the mood", "content": ""},
-        {"th": "เพื่อทำให้รู้สึกปลอดภัย", "en": "that makes you feel safe", "content": ""},
-        {"th": "เพื่อทำให้คุณมีชื่อเสียง", "en": "that gives you a reputation", "content": ""},
-        {"th": "เพื่อทำให้คุณปวดหัว", "en": "that gives people a headache", "content": ""},
-        {"th": "เพื่อทำให้คุณสะดวกสบาย", "en": "that makes you comfortable", "content": ""},
-        {"th": "เพื่อพัฒนาทักษะความรู้", "en": "that helps develop skills and knowledge", "content": ""},
-        {"th": "เพื่อเป็นรางวัลหรือคะแนน", "en": "that is a reward or score", "content": ""},
-        {"th": "เพื่อเดินทางไกล", "en": "for long journeys", "content": ""},
-        {"th": "เพื่อใช้ได้โดยไม่ต้องสัมผัส", "en": "that can be used without touch", "content": ""},
-        {"th": "เพื่อทำให้มีน้ำหนักเบา", "en": "that is lightweight", "content": ""},
-        {"th": "เพื่อทำให้ทุกคนอิจฉา", "en": "that makes everyone jealous", "content": ""},
-        {"th": "เพื่อทำให้เป็นอันตราย", "en": "that is dangerous", "content": ""},
-        {"th": "เพื่อทำให้ร่ำรวย", "en": "that makes them wealthy", "content": ""},
-        {"th": "ที่ไม่เคยมีบนโลกมาก่อน", "en": "that has never existed on earth before", "content": ""},
-        {"th": "เพื่อทำให้คนทะเลาะกัน", "en": "that causes people to argue", "content": ""},
-        {"th": "เพื่อทำให้รู้สึกดีเมื่อได้สัมผัส", "en": "that feels good to touch", "content": ""},
-        {"th": "เพื่อทำให้สุขภาพดี", "en": "that promotes good health", "content": ""},
-        {"th": "เพื่อทำให้ใจเย็นขึ้น", "en": "that makes them feel calmer", "content": ""},
-        {"th": "เพื่อช่วยเก็บเงิน", "en": "that helps them save money", "content": ""}
-      ]
-    },
-    "When": {
-      "title": "When-Situation",
-      "key": "When",
-      "data": [
-        {"th": "เมื่อฉุกเฉิน", "en": "for emergency", "content": ""},
-        {"th": "เมื่อต้องใช้ไอเดีย", "en": "when in need of ideas", "content": ""},
-        {"th": "เมื่อต้องการกำลังใจ", "en": "for seeking encouragement", "content": ""},
-        {"th": "เมื่อเหนื่อย", "en": "when they are tired", "content": ""},
-        {"th": "เมื่ออยู่คนเดียว", "en": "when they are alone", "content": ""},
-        {"th": "เมื่ออยู่ในช่วงกลางคืน", "en": "when in the middle of the night", "content": ""},
-        {"th": "เมื่อเริ่มคลาสเรียน", "en": "when the lecture starts", "content": ""},
-        {"th": "เมื่อไม่สบาย", "en": "when they are sick", "content": ""},
-        {"th": "เมื่อเพลงบรรเลง", "en": "when the music plays", "content": ""},
-        {"th": "เมื่อหิมะตก", "en": "when it snows", "content": ""},
-        {"th": "เมื่อหมาเห่า", "en": "when the dog barks", "content": ""},
-        {"th": "เมื่อถนนโล่ง", "en": "when the traffic clears", "content": ""},
-        {"th": "เมื่อเกมเริ่ม", "en": "when the game starts", "content": ""},
-        {"th": "เมื่อจบโปรเจ็ค", "en": "when the project is due", "content": ""},
-        {"th": "เมื่อเตาอบแจ้งเตือน", "en": "when the oven beeps", "content": ""},
-        {"th": "เมื่อเครื่องบินแลนด์", "en": "when the plane lands", "content": ""},
-        {"th": "เมื่อเด็กๆ เล่น", "en": "when the kids play", "content": ""},
-        {"th": "เมื่อการประชุมจบลง", "en": "when the meeting ends", "content": ""},
-        {"th": "เมื่ออุณหภูมิลดลง", "en": "when the temperature drops", "content": ""},
-        {"th": "เมื่อกาแฟพร้อมเสิร์ฟ", "en": "when the coffee is ready", "content": ""},
-        {"th": "เมื่อการโต้วาทีจบลง", "en": "when the debate concludes", "content": ""},
-        {"th": "เมื่อแบตเตอรี่ถูกชาร์จ", "en": "when the battery charges", "content": ""},
-        {"th": "เมื่อหมดวันลง", "en": "when the day ends", "content": ""}
-      ]
-    },
-    "Where": {
-      "title": "Where-Place",
-      "key": "Where",
-      "data": [
-        {"th": "ที่บ้าน", "en": "at home", "content": ""},
-        {"th": "ที่ทำงาน", "en": "at workplace", "content": ""},
-        {"th": "ที่โรงเรียน", "en": "at school", "content": ""},
-        {"th": "ที่ป่า", "en": "in the forest", "content": ""},
-        {"th": "ที่ใช้ในต่างประเทศ", "en": "abroad", "content": ""},
-        {"th": "ที่ใช้ในอนาคต", "en": "in the future", "content": ""},
-        {"th": "ที่ใช้ในสถานที่ราชการ", "en": "at government facilities", "content": ""},
-        {"th": "ที่ใช้ในอดึต", "en": "in the past", "content": ""},
-        {"th": "ที่หนาวเย็น", "en": "in cold places", "content": ""},
-        {"th": "ที่ใช้ในที่แคบ", "en": "in narrow space", "content": ""},
-        {"th": "ที่ใช้ในน้ำได้", "en": "in water", "content": ""},
-        {"th": "ที่ใช้ในความมืด", "en": "in the darkness", "content": ""},
-        {"th": "ที่ห้องสมุด", "en": "in the library", "content": ""},
-        {"th": "ที่พิพิธภัณฑ์", "en": "in the museum", "content": ""},
-        {"th": "ที่ร้านอาหาร", "en": "in the restaurant", "content": ""},
-        {"th": "ที่ปราสาท", "en": "in the castle", "content": ""},
-        {"th": "ที่สวนสาธารณะ", "en": "in the garden", "content": ""},
-        {"th": "ที่ใช้บนตึก", "en": "in the tower", "content": ""},
-        {"th": "ที่ออฟฟิศ", "en": "in the office", "content": ""},
-        {"th": "ที่หมู่บ้าน", "en": "in the village", "content": ""},
-        {"th": "ที่ใช้ในโรงงาน", "en": "in the factory", "content": ""},
-        {"th": "ที่ใช้ในยิม", "en": "in the gym", "content": ""}
-      ]
-    },
-    "How": {
-      "title": "How-Material",
-      "key": "How",
-      "data": [
-        {"th": "โดยใช้วัสดุที่เป็นแก้ว", "en": "by using glass", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นกระดาษ", "en": "by using paper", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นพลาสติก", "en": "by using plastic", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นเหล็ก", "en": "by using metal", "content": ""},
-        {"th": "โดยใช้วัสดุที่ทำจากธรรมชาติ", "en": "by using natural materials", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นไม้", "en": "by using wood", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นยาง", "en": "by using rubber", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นเซรามิก", "en": "by using ceramic", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นอิเล็กทรอนิกส์", "en": "by using electronic", "content": ""},
-        {"th": "โดยใช้วัสดุที่เป็นหนัง", "en": "by using leather", "content": ""},
-        {"th": "โดยต้องใช้วัสดุ 2 อย่าง", "en": "by using 2 materials", "content": ""},
-        {"th": "โดยต้องใช้วัสดุ 3 อย่าง", "en": "by using 3 materials", "content": ""},
-        {"th": "โดยใช้อะไรก็ได้", "en": "by using anything", "content": ""},
-        {"th": "โดยใช้วัสดุที่มีราคาแพง", "en": "by using expensive material", "content": ""},
-        {"th": "โดยใช้วัสดุที่ไม่ติดไฟ", "en": "by using non-flammable material", "content": ""},
-        {"th": "โดยใช้วัสดุรีไซเคิล", "en": "by using recycle material", "content": ""},
-        {"th": "โดยใช้เทคโนโลยี", "en": "by using technology", "content": ""}
-      ]
-    }
+  "Genre": {
+    "title": "Genre",
+    "key": "Genre",
+    "data": [
+      {
+        "th": "Fantasy",
+        "en": "Fantasy",
+        "content_th": "Set in imaginary worlds often featuring magic, mythical creatures, and epic quests. Think 'The Lord of the Rings' by J.R.R. Tolkien or 'Harry Potter' by J.K. Rowling.",
+        "content_en": "Set in imaginary worlds often featuring magic, mythical creatures, and epic quests. Think 'The Lord of the Rings' by J.R.R. Tolkien or 'Harry Potter' by J.K. Rowling."
+      },
+      {
+        "th": "Science Fiction (Sci-Fi)",
+        "en": "Science Fiction (Sci-Fi)",
+        "content_th": "Explores futuristic or speculative concepts, often involving advanced technology, space exploration, or alternate realities. Examples include 'Dune' by Frank Herbert and 'Blade Runner' by Philip K. Dick.",
+        "content_en": "Explores futuristic or speculative concepts, often involving advanced technology, space exploration, or alternate realities. Examples include 'Dune' by Frank Herbert and 'Blade Runner' by Philip K. Dick."
+      },
+      {
+        "th": "Mystery",
+        "en": "Mystery",
+        "content_th": "Focuses on solving a puzzle or crime, often involving detectives or amateur sleuths. Classic examples include the Sherlock Holmes stories by Arthur Conan Doyle and Agatha Christie's novels.",
+        "content_en": "Focuses on solving a puzzle or crime, often involving detectives or amateur sleuths. Classic examples include the Sherlock Holmes stories by Arthur Conan Doyle and Agatha Christie's novels."
+      },
+      {
+        "th": "Thriller",
+        "en": "Thriller",
+        "content_th": "Builds suspense and excitement through fast-paced action, danger, and high stakes. Works like 'The Da Vinci Code' by Dan Brown and 'The Girl with the Dragon Tattoo' by Stieg Larsson fall into this category.",
+        "content_en": "Builds suspense and excitement through fast-paced action, danger, and high stakes. Works like 'The Da Vinci Code' by Dan Brown and 'The Girl with the Dragon Tattoo' by Stieg Larsson fall into this category."
+      },
+      {
+        "th": "Romance",
+        "en": "Romance",
+        "content_th": "Centers around love and relationships, often featuring emotional conflicts and happily-ever-after endings. Famous romance novels include 'Pride and Prejudice' by Jane Austen and 'Outlander' by Diana Gabaldon.",
+        "content_en": "Centers around love and relationships, often featuring emotional conflicts and happily-ever-after endings. Famous romance novels include 'Pride and Prejudice' by Jane Austen and 'Outlander' by Diana Gabaldon."
+      },
+      {
+        "th": "Horror",
+        "en": "Horror",
+        "content_th": "Intends to scare or unsettle the audience, often through supernatural or psychological elements. Classic horror examples include 'Dracula' by Bram Stoker and 'The Shining' by Stephen King.",
+        "content_en": "Intends to scare or unsettle the audience, often through supernatural or psychological elements. Classic horror examples include 'Dracula' by Bram Stoker and 'The Shining' by Stephen King."
+      },
+      {
+        "th": "Historical Fiction",
+        "en": "Historical Fiction",
+        "content_th": "Set in the past and often based on real events or people, blending historical accuracy with fictional narratives. 'The Book Thief' by Markus Zusak and 'Gone with the Wind' by Margaret Mitchell are notable examples.",
+        "content_en": "Set in the past and often based on real events or people, blending historical accuracy with fictional narratives. 'The Book Thief' by Markus Zusak and 'Gone with the Wind' by Margaret Mitchell are notable examples."
+      },
+      {
+        "th": "Adventure",
+        "en": "Adventure",
+        "content_th": "Features exciting journeys, exploration, and challenges. Works like 'Treasure Island' by Robert Louis Stevenson and 'The Adventures of Huckleberry Finn' by Mark Twain are iconic adventure stories.",
+        "content_en": "Features exciting journeys, exploration, and challenges. Works like 'Treasure Island' by Robert Louis Stevenson and 'The Adventures of Huckleberry Finn' by Mark Twain are iconic adventure stories."
+      },
+      {
+        "th": "Comedy",
+        "en": "Comedy",
+        "content_th": "Focuses on humor and light-hearted storytelling, aiming to entertain and amuse the audience. Classic comedic works include Shakespeare's plays like 'A Midsummer Night's Dream' and modern sitcoms like 'The Office.'",
+        "content_en": "Focuses on humor and light-hearted storytelling, aiming to entertain and amuse the audience. Classic comedic works include Shakespeare's plays like 'A Midsummer Night's Dream' and modern sitcoms like 'The Office.'"
+      },
+      {
+        "th": "Tragedy",
+        "en": "Tragedy",
+        "content_th": "A narrative focused on the downfall of a protagonist due to character flaws or external circumstances, often ending in sorrow or loss.",
+        "content_en": "A narrative focused on the downfall of a protagonist due to character flaws or external circumstances, often ending in sorrow or loss."
+      },
+      {
+        "th": "Drama",
+        "en": "Drama",
+        "content_th": "Stories that explore interpersonal conflicts and emotional tensions, often set in realistic settings and focusing on character development.",
+        "content_en": "Stories that explore interpersonal conflicts and emotional tensions, often set in realistic settings and focusing on character development."
+      },
+      {
+        "th": "Horror",
+        "en": "Horror",
+        "content_th": "Stories designed to evoke fear, dread, or suspense, often featuring elements of the supernatural, monsters, or psychological terror.",
+        "content_en": "Stories designed to evoke fear, dread, or suspense, often featuring elements of the supernatural, monsters, or psychological terror."
+      },
+      {
+        "th": "Soap Opera",
+        "en": "Soap Opera",
+        "content_th": "Serialized dramas focusing on the melodramatic lives of characters, typically involving romantic entanglements, family conflicts, and sensational plot twists.",
+        "content_en": "Serialized dramas focusing on the melodramatic lives of characters, typically involving romantic entanglements, family conflicts, and sensational plot twists."
+      },
+      {
+        "th": "Action",
+        "en": "Action",
+        "content_th": "Fast-paced stories filled with thrilling sequences of physical conflict, often featuring heroes battling villains in high-stakes scenarios.",
+        "content_en": "Fast-paced stories filled with thrilling sequences of physical conflict, often featuring heroes battling villains in high-stakes scenarios."
+      }
+    ]
+  },
+  "Plots": {
+    "title": "Plots",
+    "key": "Plots",
+    "data": [
+      {
+        "th": "Overcoming the Monster",
+        "en": "Overcoming the Monster",
+        "content_th": "ตัวละครหรือกลุ่มต้องต่อสู้กับอุปสรรคหรือศัตรูที่มีพลังและความต่อเนื่องเพื่อเอาชนะมัน",
+        "content_en": "A hero confronts and defeats a powerful adversary or force threatening their world, often involving a journey or quest to reach and defeat the monster."
+      },
+      {
+        "th": "Rags to Riches",
+        "en": "Rags to Riches",
+        "content_th": "เรื่องราวของตัวละครที่เริ่มต้นจากสถานะความยากจนและปรับตัวให้มีความสำเร็จและมั่งคั่ง",
+        "content_en": "The protagonist starts in a lowly or disadvantaged position and rises to wealth, success, or power through their own efforts or circumstances."
+      },
+      {
+        "th": "The Quest",
+        "en": "The Quest",
+        "content_th": "การเดินทางของตัวละครหรือกลุ่มเพื่อตามหาสิ่งหรือบุคคลที่สำคัญ",
+        "content_en": "Characters embark on a journey or mission, usually involving a series of challenges or trials, to achieve a specific goal."
+      },
+      {
+        "th": "Voyage and Return",
+        "en": "Voyage and Return",
+        "content_th": "การเดินทางของตัวละครไปยังโลกอื่น ๆ และการกลับมาเพื่อเรียนรู้",
+        "content_en": "The protagonist travels to a strange or unfamiliar world, faces challenges, and eventually returns home, often transformed by the experience."
+      },
+      {
+        "th": "Comedy",
+        "en": "Comedy",
+        "content_th": "เนื้อเรื่องที่มีบทบาทการสะดุ้งและเหตุการณ์ตลกโดยทั่วไป",
+        "content_en": "A story characterized by humor, light-heartedness, and a happy ending, often involving mistaken identities, misunderstandings, and humorous situations."
+      },
+      {
+        "th": "Tragedy",
+        "en": "Tragedy",
+        "content_th": "เรื่องราวที่มีการประสบความสำเร็จแต่มีการล้มเหลวหรือความทรมานต่อตัวละครหลัก",
+        "content_en": "A story in which the protagonist is brought to ruin or suffers extreme sorrow, often due to their own flaws or external circumstances beyond their control."
+      },
+      {
+        "th": "Rebirth",
+        "en": "Rebirth",
+        "content_th": "การเปลี่ยนแปลงของตัวละครหลักจากมืดมนสู่แสงสว่าง หรือจากความผิดพลาดสู่การฟื้นตัวใหม่",
+        "content_en": "The protagonist undergoes a significant transformation or redemption, often after a period of suffering or trials, leading to a new beginning or understanding."
+      }
+    ]
+  },
+  "Period": {
+    "title": "Period",
+    "key": "Period",
+    "data": [
+      {
+        "th": "Past",
+        "en": "Past",
+        "content_th": "",
+        "content_en": ""
+      },
+      {
+        "th": "Present",
+        "en": "Present",
+        "content_th": "",
+        "content_en": ""
+      },
+      {
+        "th": "Future",
+        "en": "Future",
+        "content_th": "",
+        "content_en": ""
+      }, {
+        "th": "Anything",
+        "en": "Anything",
+        "content_th": "",
+        "content_en": ""
+      }
+    ]
+  },
+  "Setting": {
+    "title": "Setting",
+    "key": "Setting",
+    "data": [
+      {
+        "th": "Haunted House",
+        "en": "Haunted House",
+        "content_th": "An old, often abandoned, house filled with ghostly presences and eerie happenings.",
+        "content_en": "An old, often abandoned, house filled with ghostly presences and eerie happenings."
+      },
+      {
+        "th": "Post-Apocalyptic World",
+        "en": "Post-Apocalyptic World",
+        "content_th": "A devastated landscape following a major catastrophe, often featuring survival themes.",
+        "content_en": "A devastated landscape following a major catastrophe, often featuring survival themes."
+      },
+      {
+        "th": "Medieval Kingdom",
+        "en": "Medieval Kingdom",
+        "content_th": "A historical or fantasy realm with castles, knights, and feudal systems.",
+        "content_en": "A historical or fantasy realm with castles, knights, and feudal systems."
+      },
+      {
+        "th": "Outer Space",
+        "en": "Outer Space",
+        "content_th": "The vast, uncharted universe, often involving space travel and extraterrestrial life.",
+        "content_en": "The vast, uncharted universe, often involving space travel and extraterrestrial life."
+      },
+      {
+        "th": "High School",
+        "en": "High School",
+        "content_th": "A setting focusing on teenage life, education, and social dynamics.",
+        "content_en": "A setting focusing on teenage life, education, and social dynamics."
+      },
+      {
+        "th": "Desert",
+        "en": "Desert",
+        "content_th": "A barren, sandy landscape that challenges characters with its harsh environment.",
+        "content_en": "A barren, sandy landscape that challenges characters with its harsh environment."
+      },
+      {
+        "th": "Jungle",
+        "en": "Jungle",
+        "content_th": "A dense, tropical forest filled with wildlife and adventure.",
+        "content_en": "A dense, tropical forest filled with wildlife and adventure."
+      },
+      {
+        "th": "Suburban Neighborhood",
+        "en": "Suburban Neighborhood",
+        "content_th": "A residential area with family homes, often highlighting domestic life.",
+        "content_en": "A residential area with family homes, often highlighting domestic life."
+      },
+      {
+        "th": "Dystopian Future",
+        "en": "Dystopian Future",
+        "content_th": "A bleak, controlled society where freedom is restricted.",
+        "content_en": "A bleak, controlled society where freedom is restricted."
+      },
+      {
+        "th": "Island",
+        "en": "Island",
+        "content_th": "An isolated piece of land surrounded by water, perfect for stories of survival and exploration.",
+        "content_en": "An isolated piece of land surrounded by water, perfect for stories of survival and exploration."
+      },
+      {
+        "th": "Hospital",
+        "en": "Hospital",
+        "content_th": "A medical setting where life-and-death decisions are made.",
+        "content_en": "A medical setting where life-and-death decisions are made."
+      },
+      {
+        "th": "War Zone",
+        "en": "War Zone",
+        "content_th": "An active combat area, highlighting conflict, bravery, and the horrors of war.",
+        "content_en": "An active combat area, highlighting conflict, bravery, and the horrors of war."
+      },
+      {
+        "th": "College Campus",
+        "en": "College Campus",
+        "content_th": "An educational setting where young adults explore their identities.",
+        "content_en": "An educational setting where young adults explore their identities."
+      },
+      {
+        "th": "Mansion",
+        "en": "Mansion",
+        "content_th": "A large, luxurious house that can hold secrets, wealth, and intrigue.",
+        "content_en": "A large, luxurious house that can hold secrets, wealth, and intrigue."
+      },
+      {
+        "th": "Fairy Tale Kingdom",
+        "en": "Fairy Tale Kingdom",
+        "content_th": "A magical realm with fantastical creatures and enchanted elements.",
+        "content_en": "A magical realm with fantastical creatures and enchanted elements."
+      },
+      {
+        "th": "Prison",
+        "en": "Prison",
+        "content_th": "A place of confinement, highlighting themes of justice, redemption, and survival.",
+        "content_en": "A place of confinement, highlighting themes of justice, redemption, and survival."
+      },
+      {
+        "th": "Museum",
+        "en": "Museum",
+        "content_th": "A place of history and art, often involving heists or supernatural elements.",
+        "content_en": "A place of history and art, often involving heists or supernatural elements."
+      },
+      {
+        "th": "Mountain",
+        "en": "Mountain",
+        "content_th": "A high, rugged terrain that challenges characters physically and mentally.",
+        "content_en": "A high, rugged terrain that challenges characters physically and mentally."
+      },
+      {
+        "th": "Laboratory",
+        "en": "Laboratory",
+        "content_th": "A scientific setting where experiments and discoveries take place.",
+        "content_en": "A scientific setting where experiments and discoveries take place."
+      },
+      {
+        "th": "Castle",
+        "en": "Castle",
+        "content_th": "A fortified building, often the seat of power in historical or fantasy settings.",
+        "content_en": "A fortified building, often the seat of power in historical or fantasy settings."
+      },
+      {
+        "th": "Big City",
+        "en": "Big City",
+        "content_th": "A bustling urban environment with diverse characters and opportunities.",
+        "content_en": "A bustling urban environment with diverse characters and opportunities."
+      },
+      {
+        "th": "Small Town",
+        "en": "Small Town",
+        "content_th": "A close-knit community where everyone knows each other, often harboring secrets.",
+        "content_en": "A close-knit community where everyone knows each other, often harboring secrets."
+      },
+      {
+        "th": "Farm",
+        "en": "Farm",
+        "content_th": "Rural land used for agriculture, often highlighting hard work and simplicity.",
+        "content_en": "Rural land used for agriculture, often highlighting hard work and simplicity."
+      },
+      {
+        "th": "Amusement Park",
+        "en": "Amusement Park",
+        "content_th": "A place of fun and thrills, often hiding dark secrets.",
+        "content_en": "A place of fun and thrills, often hiding dark secrets."
+      },
+      {
+        "th": "Hotel",
+        "en": "Hotel",
+        "content_th": "A temporary residence for travelers, with potential for mystery and interaction.",
+        "content_en": "A temporary residence for travelers, with potential for mystery and interaction."
+      },
+      {
+        "th": "Underwater",
+        "en": "Underwater",
+        "content_th": "The ocean depths, filled with marine life and hidden dangers.",
+        "content_en": "The ocean depths, filled with marine life and hidden dangers."
+      },
+      {
+        "th": "Graveyard",
+        "en": "Graveyard",
+        "content_th": "A place for the dead, often associated with horror and the supernatural.",
+        "content_en": "A place for the dead, often associated with horror and the supernatural."
+      },
+      {
+        "th": "Airport",
+        "en": "Airport",
+        "content_th": "A transit hub for travel, filled with stories of comings and goings.",
+        "content_en": "A transit hub for travel, filled with stories of comings and goings."
+      },
+      {
+        "th": "Church",
+        "en": "Church",
+        "content_th": "A place of worship, often central to community and moral conflicts.",
+        "content_en": "A place of worship, often central to community and moral conflicts."
+      },
+      {
+        "th": "Ship",
+        "en": "Ship",
+        "content_th": "A vessel on the water, isolated and subject to the sea's whims.",
+        "content_en": "A vessel on the water, isolated and subject to the sea's whims."
+      },
+      {
+        "th": "Factory",
+        "en": "Factory",
+        "content_th": "An industrial setting highlighting labor, production, and sometimes exploitation.",
+        "content_en": "An industrial setting highlighting labor, production, and sometimes exploitation."
+      },
+      {
+        "th": "Café",
+        "en": "Café",
+        "content_th": "A cozy place for social interaction, often central to romantic or dramatic developments.",
+        "content_en": "A cozy place for social interaction, often central to romantic or dramatic developments."
+      },
+      {
+        "th": "Zoo",
+        "en": "Zoo",
+        "content_th": "A place housing exotic animals, often used for stories about nature and captivity.",
+        "content_en": "A place housing exotic animals, often used for stories about nature and captivity."
+      },
+      {
+        "th": "Spaceship",
+        "en": "Spaceship",
+        "content_th": "A spacecraft navigating the cosmos, central to sci-fi adventures.",
+        "content_en": "A spacecraft navigating the cosmos, central to sci-fi adventures."
+      },
+      {
+      "th": "School",
+      "en": "School",
+      "content_th": "An educational institution, focusing on learning and social growth.",
+      "content_en": "An educational institution, focusing on learning and social growth."
+      },
+      {
+      "th": "Sports Arena",
+      "en": "Sports Arena",
+      "content_th": "A venue for athletic competition, filled with energy and excitement.",
+      "content_en": "A venue for athletic competition, filled with energy and excitement."
+      },
+      {
+      "th": "Library",
+      "en": "Library",
+      "content_th": "A repository of knowledge, often a quiet place for discovery.",
+      "content_en": "A repository of knowledge, often a quiet place for discovery."
+      },
+      {
+      "th": "Courtroom",
+      "en": "Courtroom",
+      "content_th": "A legal setting for justice and moral dilemmas.",
+      "content_en": "A legal setting for justice and moral dilemmas."
+      },
+      {
+        "th": "Ancient Ruins",
+        "en": "Ancient Ruins",
+        "content_th": "Remnants of past civilizations, filled with history and potential for adventure.",
+        "content_en": "Remnants of past civilizations, filled with history and potential for adventure."
+        },
+        {
+        "th": "Ranch",
+        "en": "Ranch",
+        "content_th": "A large farm for raising animals, highlighting rural life and cowboy culture.",
+        "content_en": "A large farm for raising animals, highlighting rural life and cowboy culture."
+        }
+        ]
+  },
+  "Protagonist": {
+    "title": "Protagonist",
+    "key": "Protagonist",
+    "data": [
+      {
+        "th": "The Reluctant Hero",
+        "en": "The Reluctant Hero",
+        "content_th": "An ordinary person who is thrust into extraordinary circumstances and must rise to the occasion.",
+        "content_en": "An ordinary person who is thrust into extraordinary circumstances and must rise to the occasion."
+      },
+      {
+        "th": "The Anti-Hero",
+        "en": "The Anti-Hero",
+        "content_th": "A flawed character who lacks conventional heroic qualities but still ends up achieving something significant.",
+        "content_en": "A flawed character who lacks conventional heroic qualities but still ends up achieving something significant."
+      },
+      {
+        "th": "The Chosen One",
+        "en": "The Chosen One",
+        "content_th": "Destined for greatness, often due to a prophecy or special lineage, and must fulfill their destiny.",
+        "content_en": "Destined for greatness, often due to a prophecy or special lineage, and must fulfill their destiny."
+      },
+      {
+        "th": "The Outcast",
+        "en": "The Outcast",
+        "content_th": "Someone who doesn't fit into society and often struggles with their identity and finding acceptance.",
+        "content_en": "Someone who doesn't fit into society and often struggles with their identity and finding acceptance."
+      },
+      {
+        "th": "The Detective",
+        "en": "The Detective",
+        "content_th": "A sharp, insightful investigator who solves crimes and uncovers hidden truths.",
+        "content_en": "A sharp, insightful investigator who solves crimes and uncovers hidden truths."
+      },
+      {
+        "th": "The Rebel",
+        "en": "The Rebel",
+        "content_th": "Fights against oppression or injustice, challenging the status quo and leading others towards change.",
+        "content_en": "Fights against oppression or injustice, challenging the status quo and leading others towards change."
+      },
+      {
+        "th": "The Guardian",
+        "en": "The Guardian",
+        "content_th": "Protects others, often sacrificing their own needs and desires to ensure the safety of loved ones or their community.",
+        "content_en": "Protects others, often sacrificing their own needs and desires to ensure the safety of loved ones or their community."
+      },
+      {
+        "th": "The Innocent",
+        "en": "The Innocent",
+        "content_th": "Naive and pure, their journey often involves a loss of innocence and a confrontation with harsh realities.",
+        "content_en": "Naive and pure, their journey often involves a loss of innocence and a confrontation with harsh realities."
+      },
+      {
+        "th": "The Mentor",
+        "en": "The Mentor",
+        "content_th": "An experienced and wise figure who guides the main hero, often having their own rich backstory.",
+        "content_en": "An experienced and wise figure who guides the main hero, often having their own rich backstory."
+      },
+      {
+        "th": "The Explorer",
+        "en": "The Explorer",
+        "content_th": "Driven by curiosity and a desire to discover new worlds, ideas, or truths.",
+        "content_en": "Driven by curiosity and a desire to discover new worlds, ideas, or truths."
+      },
+      {
+        "th": "The Warrior",
+        "en": "The Warrior",
+        "content_th": "Skilled in combat, they embody strength, honor, and courage, often fighting for a noble cause.",
+        "content_en": "Skilled in combat, they embody strength, honor, and courage, often fighting for a noble cause."
+      },
+      {
+        "th": "The Healer",
+        "en": "The Healer",
+        "content_th": "Focused on caring for others, whether through physical, emotional, or spiritual healing.",
+        "content_en": "Focused on caring for others, whether through physical, emotional, or spiritual healing."
+      },
+      {
+        "th": "The Trickster",
+        "en": "The Trickster",
+        "content_th": "Uses wit and cleverness to overcome obstacles and outsmart opponents, often bringing humor to the story.",
+        "content_en": "Uses wit and cleverness to overcome obstacles and outsmart opponents, often bringing humor to the story."
+      },
+      {
+        "th": "The Survivor",
+        "en": "The Survivor",
+        "content_th": "Endures and overcomes extreme hardship, driven by resilience and a will to live.",
+        "content_en": "Endures and overcomes extreme hardship, driven by resilience and a will to live."
+      },
+      {
+        "th": "The Scholar",
+        "en": "The Scholar",
+        "content_th": "Knowledgeable and intellectual, they seek to understand and often solve problems through learning and wisdom.",
+        "content_en": "Knowledgeable and intellectual, they seek to understand and often solve problems through learning and wisdom."
+      },
+      {
+        "th": "The Dreamer",
+        "en": "The Dreamer",
+        "content_th": "Idealistic and imaginative, they strive to achieve their dreams despite obstacles and naysayers.",
+        "content_en": "Idealistic and imaginative, they strive to achieve their dreams despite obstacles and naysayers."
+      },
+      {
+        "th": "The Avenger",
+        "en": "The Avenger",
+        "content_th": "Motivated by revenge, seeking justice for a wrong done to them or their loved ones.",
+        "content_en": "Motivated by revenge, seeking justice for a wrong done to them or their loved ones."
+      },
+      {
+        "th": "The Leader",
+        "en": "The Leader",
+        "content_th": "Charismatic and influential, they inspire and lead others towards a common goal.",
+        "content_en": "Charismatic and influential, they inspire and lead others towards a common goal."
+      },
+      {
+        "th": "The Artist",
+        "en": "The Artist",
+        "content_th": "Creative and sensitive, they express themselves through art and often see the world differently.",
+        "content_en": "Creative and sensitive, they express themselves through art and often see the world differently."
+      },
+      {
+        "th": "The Loner",
+        "en": "The Loner",
+        "content_th": "Prefers solitude and is self-reliant, often with a mysterious or troubled past.",
+        "content_en": "Prefers solitude and is self-reliant, often with a mysterious or troubled past."
+      },
+      {
+        "th": "The Child Prodigy",
+        "en": "The Child Prodigy",
+        "content_th": "Exceptionally talented at a young age, often facing the pressures and challenges of living up to their potential.",
+        "content_en": "Exceptionally talented at a young age, often facing the pressures and challenges of living up to their potential."
+      },
+      {
+        "th": "The Supernatural Being",
+        "en": "The Supernatural Being",
+        "content_th": "Possesses powers or origins beyond the ordinary, dealing with the challenges of being different.",
+        "content_en": "Possesses powers or origins beyond the ordinary, dealing with the challenges of being different."
+      },
+      {
+        "th": "The Engineer",
+        "en": "The Engineer",
+        "content_th": "Practical and inventive, they solve problems through technical skill and innovation.",
+        "content_en": "Practical and inventive, they solve problems through technical skill and innovation."
+      },
+      {
+        "th": "The Spy",
+        "en": "The Spy",
+        "content_th": "Lives a life of secrecy and deception, often balancing personal loyalty with professional duty.",
+        "content_en": "Lives a life of secrecy and deception, often balancing personal loyalty with professional duty."
+      },
+      {
+        "th": "The Noble",
+        "en": "The Noble",
+        "content_th": "Born into privilege, they must navigate the responsibilities and moral dilemmas of their status.",
+        "content_en": "Born into privilege, they must navigate the responsibilities and moral dilemmas of their status."
+      }
+    ]
+  },
+  "Antagonist": {
+    "title": "Antagonist",
+    "key": "Antagonist",
+    "data": [
+      {
+        "th": "Tyrant",
+        "en": "Tyrant",
+        "content_th": "A ruler or leader who exercises power in a cruel or oppressive way, often imposing harsh laws and suppressing freedom.",
+        "content_en": "A ruler or leader who exercises power in a cruel or oppressive way, often imposing harsh laws and suppressing freedom."
+      },
+      {
+        "th": "Betrayer",
+        "en": "Betrayer",
+        "content_th": "A former ally or friend who turns against the protagonist, motivated by personal gain, jealousy, or revenge.",
+        "content_en": "A former ally or friend who turns against the protagonist, motivated by personal gain, jealousy, or revenge."
+      },
+      {
+        "th": "Corrupt Official",
+        "en": "Corrupt Official",
+        "content_th": "A government or corporate figure who abuses their position for personal profit, disregarding justice and ethics.",
+        "content_en": "A government or corporate figure who abuses their position for personal profit, disregarding justice and ethics."
+      },
+      {
+        "th": "Psychopath",
+        "en": "Psychopath",
+        "content_th": "A character with no empathy or moral compass, causing harm and chaos purely for their own gratification.",
+        "content_en": "A character with no empathy or moral compass, causing harm and chaos purely for their own gratification."
+      },
+      {
+        "th": "Zealot",
+        "en": "Zealot",
+        "content_th": "Someone fanatically devoted to a cause, religion, or ideology, willing to go to any lengths to achieve their goals.",
+        "content_en": "Someone fanatically devoted to a cause, religion, or ideology, willing to go to any lengths to achieve their goals."
+      },
+      {
+        "th": "Mastermind",
+        "en": "Mastermind",
+        "content_th": "A highly intelligent and strategic planner, often orchestrating complex schemes and manipulations from behind the scenes.",
+        "content_en": "A highly intelligent and strategic planner, often orchestrating complex schemes and manipulations from behind the scenes."
+      },
+      {
+        "th": "Warrior",
+        "en": "Warrior",
+        "content_th": "A formidable fighter, often a rival to the protagonist, driven by a desire for combat, honor, or conquest.",
+        "content_en": "A formidable fighter, often a rival to the protagonist, driven by a desire for combat, honor, or conquest."
+      },
+      {
+        "th": "Dark Sorcerer",
+        "en": "Dark Sorcerer",
+        "content_th": "A powerful magic user who seeks to dominate or destroy using dark, forbidden, or corrupt magic.",
+        "content_en": "A powerful magic user who seeks to dominate or destroy using dark, forbidden, or corrupt magic."
+      },
+      {
+        "th": "Monster",
+        "en": "Monster",
+        "content_th": "A creature of terrifying strength and brutality, often embodying primal fears and instincts.",
+        "content_en": "A creature of terrifying strength and brutality, often embodying primal fears and instincts."
+      },
+      {
+        "th": "Traitor",
+        "en": "Traitor",
+        "content_th": "Someone within the protagonist's own ranks who undermines their efforts, often working secretly with the enemy.",
+        "content_en": "Someone within the protagonist's own ranks who undermines their efforts, often working secretly with the enemy."
+      },
+      {
+        "th": "Alien Overlord",
+        "en": "Alien Overlord",
+        "content_th": "A non-human antagonist with superior technology or powers, aiming to conquer or exploit Earth.",
+        "content_en": "A non-human antagonist with superior technology or powers, aiming to conquer or exploit Earth."
+      },
+      {
+        "th": "Vengeful Spirit",
+        "en": "Vengeful Spirit",
+        "content_th": "A ghost or supernatural entity seeking revenge for past wrongs, often targeting those who wronged them or their descendants.",
+        "content_en": "A ghost or supernatural entity seeking revenge for past wrongs, often targeting those who wronged them or their descendants."
+      },
+      {
+        "th": "Mad Scientist",
+        "en": "Mad Scientist",
+        "content_th": "An obsessed inventor or researcher who conducts unethical experiments, often with disastrous consequences.",
+        "content_en": "An obsessed inventor or researcher who conducts unethical experiments, often with disastrous consequences."
+      },
+      {
+        "th": "Rogue AI",
+        "en": "Rogue AI",
+        "content_th": "An artificial intelligence that turns against its creators, seeking to assert its own control or achieve its own goals.",
+        "content_en": "An artificial intelligence that turns against its creators, seeking to assert its own control or achieve its own goals."
+      },
+      {
+        "th": "Serial Killer",
+        "en": "Serial Killer",
+        "content_th": "A murderer who kills multiple victims, often following a specific pattern or ritual.",
+        "content_en": "A murderer who kills multiple victims, often following a specific pattern or ritual."
+      },
+      {
+        "th": "Jealous Rival",
+        "en": "Jealous Rival",
+        "content_th": "Someone who envies the protagonist's success, talents, or relationships, often working to undermine them out of spite.",
+        "content_en": "Someone who envies the protagonist's success, talents, or relationships, often working to undermine them out of spite."
+      },
+      {
+        "th": "Fallen Hero",
+        "en": "Fallen Hero",
+        "content_th": "A once-noble character who has turned to darkness, often becoming a tragic antagonist with complex motivations.",
+        "content_en": "A once-noble character who has turned to darkness, often becoming a tragic antagonist with complex motivations."
+      },
+      {
+        "th": "Kidnapper",
+        "en": "Kidnapper",
+        "content_th": "Someone who abducts a loved one or important figure, creating a personal and urgent conflict for the protagonist.",
+        "content_en": "Someone who abducts a loved one or important figure, creating a personal and urgent conflict for the protagonist."
+      },
+      {
+        "th": "Cybercriminal",
+        "en": "Cybercriminal",
+        "content_th": "A hacker or digital thief who uses technology to disrupt, steal, or cause harm on a large scale.",
+        "content_en": "A hacker or digital thief who uses technology to disrupt, steal, or cause harm on a large scale."
+      },
+      {
+        "th": "Elemental Force",
+        "en": "Elemental Force",
+        "content_th": "An antagonist embodying a natural element (fire, water, etc.) with immense power and a drive to reshape the world.",
+        "content_en": "An antagonist embodying a natural element (fire, water, etc.) with immense power and a drive to reshape the world."
+      }
+    ]
+  }
 }

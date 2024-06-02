@@ -78,7 +78,7 @@ const ExpandCard = ({
         </div>
       </div>
       <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
-        <p>{content}</p>
+        <p className={`${styles.HeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{content}</p>
       </div>
       <div onClick={handleExpandClick} className={`
         ${styles.CardItemActionContent} 

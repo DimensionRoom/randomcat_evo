@@ -42,7 +42,7 @@
   min-height: calc(100vh - 80px);
   flex-direction: column;
   flex:8;
-  /* overflow-y: scroll; */
+  overflow-y: auto;
 }
 
 .HeaderCatContainer {
@@ -73,11 +73,11 @@
 }
 
 .CardItemsContainer {
-  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
-  padding: 0 100px;
+  padding: 30px 100px 30px 100px;
+  /* overflow-y: auto; */
 }
 
 .CardHorizonContainer {
