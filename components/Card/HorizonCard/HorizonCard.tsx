@@ -6,6 +6,7 @@ import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
+import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export type Props = {
 }
 
 const HorizonCard = ({
-  className ='',
+  className = '',
   locale = 'en',
   title = '-',
   itemKey,
@@ -54,7 +55,7 @@ const HorizonCard = ({
 
   const handleExpandClick = async () => {
     if (!content) return;
-    console.log(expanded)
+    // console.log(expanded)
     setExpanded((prev) => !prev);
   };
 
@@ -71,9 +72,20 @@ const HorizonCard = ({
           <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
           <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
         </div>
+        <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
+          <p className={`${styles.ExpandText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{content}</p>
+        </div>
       </div>
-      <div className={styles.CardItemActionEnd}>
-        <div onClick={onClick} className={`${styles.IconContainer} ${lockContent?styles.actionDisable:null}`}>
+      <div onClick={handleExpandClick} className={`
+        ${styles.CardItemActionContent} 
+        ${expanded ? styles.Expanded : styles.NonExpanded} 
+        ${content ? styles.HaveContent : styles.NonContent}`}>
+        <div className={`${styles.IconContainer} ${lockContent ? styles.actionDisable : null}`}>
+          <ExpandArrowIcon color='#ffffff' width={20} height={20} disabled={!content ? true : false}/>
+        </div>
+      </div>
+      <div onClick={onClick} className={styles.CardItemActionEnd}>
+        <div  className={`${styles.IconContainer} ${lockContent ? styles.actionDisable : null}`}>
           {lockContent ? <RerenderIcon color='#ffffff30' width={20} height={20} />
             : <RerenderIcon color='#ffffff' width={20} height={20} />}
         </div>

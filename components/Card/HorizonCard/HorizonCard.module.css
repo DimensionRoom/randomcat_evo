@@ -13,6 +13,7 @@
   flex-direction: row;
   align-items: center;
 }
+
 .ThemeBlue {
   --card-background-color: linear-gradient(130deg, #5773b5, #2e4788);
   --card-text-color: #ffffff;
@@ -65,11 +66,77 @@
 
 .CardItemContent {
   display: flex;
-  flex: 8;
+  flex: 7;
   flex-direction: column;
   align-items: flex-start;
   color: var(--card-text-color);
 }
+
+.CardItemBodyContent {
+  display: flex;
+  flex-direction: row;
+  max-height: 100%;
+  overflow-y: auto;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  color: var(--card-text-color);
+    /* height: inherit; */
+}
+
+.CardItemBodyContent .ExpandText {
+  font-size: 0.8em;
+  font-weight: 100;
+  color: var(--card-text-color);
+}
+
+.CardItemBodyContent.NonExpanded {
+  max-height: 0;
+  opacity: 0;
+  /* display: none; */
+}
+
+.CardItemBodyContent::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.CardItemBodyContent::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+
+.CardItemActionContent {
+  display: flex;  
+  flex: 1;
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
+.CardItemActionContent.HaveContent.NonExpanded svg:hover {
+  animation: pulsate-fwd 1s ease-in-out infinite both;
+  cursor: pointer;
+}
+
+
+
+.CardItemActionContent.Expanded svg {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+  cursor: pointer;
+  /* animation: moveRotateUpDown 1.5s infinite; */
+}
+
+.CardItemActionContent.HaveContent+.CardItemActionContent.Expanded svg {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+  cursor: pointer;
+  /* animation: moveRotateUpDown 1.5s infinite; */
+}
+
 
 .CardItemContent .CardTextContainer {
   display: flex;
@@ -79,11 +146,12 @@
 }
 
 .CardItemContent .CardTextContainer .CardTitle {
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 .CardItemContent .CardTextContainer .CardDetail {
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-weight: 600;
 }
 
 .CardItemActionEnd .IconContainer {

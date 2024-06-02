@@ -55,7 +55,7 @@ const ExpandCard = ({
 
   const handleExpandClick = async () => {
     if (!content) return;
-    console.log(expanded)
+    // console.log(expanded)
     setExpanded((prev) => !prev);
   };
 

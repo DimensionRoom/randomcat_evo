@@ -94,6 +94,7 @@
 @media (max-width: 500px) {
   .ChipContainer {
     gap: 6px;
+    padding: 0 50px;
   }
 
   .Chip {
@@ -105,6 +106,7 @@
 @media (max-width: 400px) {
   .ChipContainer {
     gap: 6px;
+    padding: 0 20px;
   }
 
   .Chip {
