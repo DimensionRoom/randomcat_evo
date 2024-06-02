@@ -13,9 +13,9 @@ import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
 import HorizonCard from '@/components/Card/HorizonCard/HorizonCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';
-import PointerIcon from '@/public/svgs/innovationboard/pointer';
-import LightbulbIcon from '@/public/svgs/innovationboard/lightbulb';
-import RocketIcon from '@/public/svgs/innovationboard/rocket';
+import PointerIcon from '@/public/svgs/storyboard/pointer';
+import LightbulbIcon from '@/public/svgs/storyboard/lightbulb';
+import YoYoIcon from '@/public/svgs/storyboard/yoyo';
 
 import storydesisgnData from '../../../../public/json/storydesignCat.json';
 
@@ -251,7 +251,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <RocketIcon width={65} height={65} />
+                <YoYoIcon width={65} height={65} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item3.title')}</p>

@@ -13,9 +13,9 @@ import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
 import HorizonCard from '@/components/Card/HorizonCard/HorizonCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';
-import PointerIcon from '@/public/svgs/innovationboard/pointer';
-import LightbulbIcon from '@/public/svgs/innovationboard/lightbulb';
-import RocketIcon from '@/public/svgs/innovationboard/rocket';
+import PointerIcon from '@/public/svgs/educationboard/pointer';
+import LightbulbIcon from '@/public/svgs/educationboard/lightbulb';
+import BookIcon from '@/public/svgs/educationboard/book';
 
 import edudesisgnData from '../../../../public/json/edudesignCat.json';
 
@@ -251,7 +251,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <RocketIcon width={65} height={65} />
+                <BookIcon width={65} height={65} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item3.title')}</p>
