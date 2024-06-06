@@ -305,9 +305,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
             <div className={styles.item}>
-              <div className={styles.itemImage}>
-                <Image className={styles.image} src="/image/storycard.png" width={300} height={300} alt='' />
-              </div>
+              <Link
+                href={{ pathname: `storydesign/storyboard`, query: { info: 'storydesign' } }}
+              >
+                <div className={styles.itemImage}>
+                  <Image className={styles.image} src="/image/storycard.png" width={300} height={300} alt='' />
+                </div>
+              </Link>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>{t('section.toolsSection.item.item2.title')}</p>
                 <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.toolsSection.item.item2.description1')}</p>
@@ -317,9 +321,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
             <div className={styles.item}>
-              <div className={styles.itemImage}>
-                <Image className={styles.image} src="/image/educard.png" width={300} height={300} alt='' />
-              </div>
+              <Link
+                href={{ pathname: `edudesign/educationboard`, query: { info: 'edudesign' } }}
+              >
+                <div className={styles.itemImage}>
+                  <Image className={styles.image} src="/image/educard.png" width={300} height={300} alt='' />
+                </div>
+              </Link>
               <div className={styles.itemData}>
                 <p className={styles.itemTitle}>{t('section.toolsSection.item.item3.title')}</p>
                 <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.toolsSection.item.item3.description1')}</p>
