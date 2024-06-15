@@ -5,89 +5,37 @@
   --card-btn-border-color: #ffffff;
   --card-btn-text-color: #ffffff;
   display: flex;
-  flex-direction: row;
-  /* flex-direction: column; */
+  flex-direction: column;
   padding: 10px 10px 10px 10px;
-  background: var(--card-background-color);
+  background: #362375;
   background-image: var(--card-background-color);
-  border: 1px solid var(--card-btn-border-color);
-  border-radius: 20px;
   flex: 1;
-  /* align-items: center; */
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.CardFliped {
-  transform: rotateX(180deg);
-}
-
-.CardFront {
-  cursor: pointer;
-  display: flex;
-  flex: 1;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.CardBack {
-  cursor: pointer;
-  display: none;
-  flex: 1;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: rotateX(180deg);
-}
-
-.CardFliped .CardBack {
-  display: flex;
-  flex: 1;
-}
-
-.CardFliped .CardFront {
-  display: none;
+  flex-direction: row;
+  align-items: center;
 }
 
 .ThemeBlue {
-  --card-background-color: #ffffff;
-  --card-background-color-flip: linear-gradient(130deg, #5773b5, #2e4788);
-  --card-text-color: #3d548c;
-  --card-text-color-flip: #ffffff;
+  --card-background-color: linear-gradient(130deg, #5773b5, #2e4788);
+  --card-text-color: #ffffff;
   --card-btn-background-color: #3d548c;
-  --card-btn-border-color: #D9D9D9;
+  --card-btn-border-color: #ffffff;
   --card-btn-text-color: #ffffff;
-  --card-btn-icon-color: #3d548c;
 }
 
 .ThemeYellow {
-  --card-background-color: #ffffff;
-  --card-background-color-flip: linear-gradient(130deg, #FFD013, #FFB24D);
-  --card-text-color: #FFB24D;
-  --card-text-color-flip: #000000;
+  --card-background-color: linear-gradient(130deg, #FFD013, #FFB24D);
+  --card-text-color: #000000;
   --card-btn-background-color: #FFB24D;
-  --card-btn-border-color: #D9D9D9;
+  --card-btn-border-color: #ffffff;
   --card-btn-text-color: #ffffff;
-  --card-btn-icon-color: #FFB24D;
 }
 
 .ThemePink {
-  --card-background-color: #ffffff;
-  --card-background-color-flip: linear-gradient(130deg, #F44FA3, #C80E78);
-  --card-text-color: #C80E78;
-  --card-text-color-flip: #ffffff;
+  --card-background-color: linear-gradient(130deg, #F44FA3, #C80E78);
+  --card-text-color: #ffffff;
   --card-btn-background-color: #EB6CB4;
-  --card-btn-border-color: #D9D9D9;
+  --card-btn-border-color: #ffffff;
   --card-btn-text-color: #ffffff;
-  --card-btn-icon-color: #EB6CB4;
-}
-
-.CardItem.CardFliped {
-  background: var(--card-background-color-flip);
-  cursor: pointer;
-}
-
-.CardItem.CardFliped .CardBack .CardItemContent {
-  color: var(--card-text-color-flip);
 }
 
 .thfontlight {
@@ -103,7 +51,7 @@
   flex: 2;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 5px 5px;
 }
 
@@ -112,7 +60,7 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 5px 5px;
 }
 
@@ -121,7 +69,6 @@
   flex: 7;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
   color: var(--card-text-color);
 }
 
@@ -133,7 +80,7 @@
   transition: max-height 0.3s ease, opacity 0.3s ease;
   opacity: 1;
   color: var(--card-text-color);
-  /* height: inherit; */
+    /* height: inherit; */
 }
 
 .CardItemBodyContent .ExpandText {
@@ -160,17 +107,12 @@
 
 
 .CardItemActionContent {
-  display: flex;
+  display: flex;  
   flex: 1;
-  flex-direction: column;
   padding: 6px;
   align-items: center;
   justify-content: center;
   animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-.CardItemActionContent .IconContainer {
-  display: flex;
 }
 
 
@@ -200,7 +142,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
 }
 
 .CardItemContent .CardTextContainer .CardTitle {
@@ -221,34 +163,10 @@
   justify-content: center;
 }
 
-.IconLock path {
-  fill: var(--card-btn-icon-color);
-}
-
-.IconUnLock path {
-  fill: var(--card-btn-icon-color);
-  opacity: 0.5;
-}
-
-.IconExpandArrow path {
-  fill: var(--card-btn-icon-color);
-}
-
-.IconExpandArrowDisabled path {
-  fill: var(--card-btn-icon-color);
-  opacity: 0.5;
-}
-
-
-
 .CardItemActionEnd .IconContainer:active {
   transform: scale(0.8);
 }
 
 .CardItemActionEnd .IconContainer:active.actionDisable {
   transform: scale(1);
-}
-
-.CardItemActionEnd .IconContainer:active.actionDisable .IconLock path {
-  opacity: 0.2;
 }

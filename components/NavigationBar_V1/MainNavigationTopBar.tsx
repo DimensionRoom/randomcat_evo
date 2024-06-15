@@ -21,9 +21,6 @@ export type Props = {
 type MenuItem = {
   name: string;
   key: string;
-  title: string;
-  titleEx: string;
-  description: string;
   shortKey: string;
   url: string;
   theme: string;
@@ -46,9 +43,6 @@ const MainNavigationTopBar = ({
     {
       name: 'Inno Design',
       key: 'innovation',
-      title: 'Inno',
-      titleEx: 'Design',
-      description: 'Innovation and Business Design',
       shortKey: 'inno',
       url: '/innovationandbusiness',
       theme: 'ThemeBlue'
@@ -56,9 +50,6 @@ const MainNavigationTopBar = ({
     {
       name: 'Story Design',
       key: 'story',
-      title: 'Story',
-      titleEx: 'Design',
-      description: 'Design your own story',
       shortKey: 'story',
       url: '/storydesign',
       theme: 'ThemeYellow'
@@ -66,9 +57,6 @@ const MainNavigationTopBar = ({
     {
       name: 'Edu Design',
       key: 'education',
-      title: 'Edu',
-      titleEx: 'Design',
-      description: 'Education Design',
       shortKey: 'edu',
       url: '/edudesign',
       theme: 'ThemePink'
@@ -176,6 +164,19 @@ const MainNavigationTopBar = ({
             </div>
           </div>
         </div>
+        {/* <div className={`flex ${styles.TopNavigationExpand}`}>
+          <input className={`d-none ${styles.ExpandMenu}`} 
+            id="ExpandMenu" 
+            name="ExpandMenu" 
+            type="checkbox" 
+            onChange={(e) => handleExpandMenu(e.target.checked)}
+          />
+          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
+            <div className={`${styles.bar} ${styles.bar1}`}></div>
+            <div className={`${styles.bar} ${styles.bar2}`}></div>
+            <div className={`${styles.bar} ${styles.bar3}`}></div>
+          </label>
+        </div> */}
       </header>
       <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
         <input className={styles.ExpandMenu}

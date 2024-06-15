@@ -189,7 +189,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
           </div>
-          <TagFilter className={'ThemePink'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+          {/* <TagFilter className={'ThemePink'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} /> */}
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))

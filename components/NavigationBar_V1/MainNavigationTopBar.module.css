@@ -16,24 +16,24 @@
   --primary-color: #6D8CD6;
   --secondary-color: #38518D;
   --highlight-color: #38518D;
-  --background-color: linear-gradient(130deg, #6D8CD6, #38518D);
-  --logo-color: #FFFFFF;
+  --background-color: #ffffff;
+  --logo-color: #38518D;
 }
 
 .ThemeYellow {
   --primary-color: #FFD013;
   --secondary-color: #FFB24D;
   --highlight-color: #FFBD4D;
-  --background-color: linear-gradient(130deg, #FFD013, #FFB24D);
-  --logo-color: #FFFFFF;
+  --background-color: #ffffff;
+  --logo-color: #FFBD4D;
 }
 
 .ThemePink {
   --primary-color: #F44FA3;
   --secondary-color: #C80E78;
   --highlight-color: #C80E78;
-  --background-color: linear-gradient(130deg, #F44FA3, #C80E78);
-  --logo-color: #FFFFFF;
+  --background-color: #ffffff;
+  --logo-color: #C80E78;
 }
 
 .BrandContainer {
@@ -216,17 +216,17 @@
 }
 
 .ThemeBlue .bar {
-  --bar-color: #ffffff;
+  --bar-color: #2e4788;
   --bar-active-color: #ffffff;
 }
 
 .ThemeYellow .bar {
-  --bar-color: #ffffff;
+  --bar-color: #FFB24D;
   --bar-active-color: #ffffff;
 }
 
 .ThemePink .bar {
-  --bar-color: #ffffff;
+  --bar-color: #C80E78;
   --bar-active-color: #ffffff;
 }
 
@@ -313,7 +313,6 @@
 @media (max-width: 560px) {
   .LayoutHeader {
     padding: 1rem 1.2rem !important;
-    border-radius:  0 0 15px 15px;
   }
 
   .BrandContainer .BrandText {

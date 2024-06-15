@@ -17,7 +17,7 @@
   flex-direction: column;
 } */
 .main {
-  --background-color: #0000003b;
+  --background-color: #F6F6F6;
   --item-background-color: #C80E78;
   --border-color: #ffffff;
   --box-shadow-hover: #C80E78;
@@ -33,6 +33,8 @@
   max-height: calc(100dvh - 80px);
   overflow-y: scroll;
   flex-direction: column;
+  background-color: var(--background-color);
+  border-radius: -15px -15px  0 0 ;
 }
 
 
@@ -51,6 +53,7 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+  padding: 10px 0 0 0;
   /* position: sticky;
   top:0px; */
 }
@@ -83,8 +86,8 @@
   display: flex;
   flex:1;
   flex-direction: column;
-  gap: 0px;
-  margin-top: 15px;
+  gap: 10px 0;
+  padding: 10px 25px;
 }
 
 @media (max-width: 1250px) {

@@ -189,7 +189,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
           </div>
-          <TagFilter className={'ThemeYellow'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} />
+          {/* <TagFilter className={'ThemeYellow'} noneSelected={false} defaultSelectedCategories={defaultSelectedCategories} categories={filterCategory} onFilterChange={handleFilterChange} /> */}
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
