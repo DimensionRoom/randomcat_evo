@@ -30,7 +30,7 @@ export default function RootLayout({
   params: { locale: string };
 }>) {
   return (
-    <html lang={locale} dir={dir(locale)}>
+    <html lang={locale} dir={dir(locale)} style={{scrollBehavior:'smooth'}}>
       <body className={quicksand.className}>
         {/* <div className={style.moveBackground}></div>
         <div className={style.wave}></div>
