@@ -1,14 +1,41 @@
-.LayoutHeader {
+.DesktopHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
   --logo-color: #691392;
   display: flex;
+  flex: 1;
+  flex-direction: column;
+
+}
+
+.DesktopHeader .LayoutHeader {
+
+  display: flex;
   position: sticky;
   align-items: center;
   height: 80px;
   padding: 1rem 2rem !important;
+  background: var(--background-color);
+}
+
+.MobileHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --logo-color: #691392;
+  display: none;
+}
+
+.MobileHeader .LayoutHeader {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  height: 180px;
+  padding: 1rem 1.2rem !important;
+  border-radius: 0 0 35px 35px;
   background: var(--background-color);
 }
 
@@ -28,13 +55,26 @@
   --logo-color: #FFFFFF;
 }
 
-.ThemePink {
-  --primary-color: #F44FA3;
-  --secondary-color: #C80E78;
-  --highlight-color: #C80E78;
-  --background-color: linear-gradient(130deg, #F44FA3, #C80E78);
+.ThemePurple {
+  --primary-color: #7C4BE4;
+  --secondary-color: #63058F;
+  --highlight-color: #7C4BE4;
+  --background-color: linear-gradient(130deg, #7C4BE4, #63058F);
   --logo-color: #FFFFFF;
 }
+
+.ThemePink {
+  --primary-color: #F61394;
+  --secondary-color: #C21778;
+  --highlight-color: #C21778;
+  --background-color: linear-gradient(130deg, #C21778, #8915BF);
+  --logo-color: #FFFFFF;
+}
+
+
+/* DesktopHeader */
+
+
 
 .BrandContainer {
   flex: 1;
@@ -188,6 +228,54 @@
   color: var(--menu-text-active-color) !important;
 }
 
+/* MobileHeader */
+.MobileHeader .HeaderTopContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  /* background: red; */
+}
+.MobileHeader .HeaderMinorContainer {
+  display: flex;
+  flex-direction: row;
+  flex: 3;
+}
+.HeaderDetailsContainer {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: green; */
+}
+.HeaderDetailsContainer .HeaderDetailsTitle {
+  display: flex;
+  align-items: baseline;
+  font-size: 2.2em;
+  font-weight: 700;
+  gap: 0 5px;
+}
+.HeaderDetailsContainer .HeaderDetailsTitleEx {
+  display: flex;
+  font-weight: 400;
+}
+.HeaderDetailsContainer .HeaderDetailsDescription {
+  display: flex;
+  font-size: 1em;
+}
+.HeaderActionContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  /* background: blue; */
+}
+
+
+/* Expand Menu Icon */
+
 .ExpandMenuIcon {
   --line-gap: 8px;
   --height-bar: 2.5px;
@@ -229,7 +317,6 @@
   --bar-color: #ffffff;
   --bar-active-color: #ffffff;
 }
-
 
 .barActive {
   background-color: var(--bar-active-color);
@@ -311,13 +398,18 @@
 }
 
 @media (max-width: 560px) {
-  .LayoutHeader {
-    padding: 1rem 1.2rem !important;
-    border-radius:  0 0 15px 15px;
+  .DesktopHeader {
+    display: none;
   }
 
   .BrandContainer .BrandText {
     display: none;
+  }
+
+  .MobileHeader {
+    display: flex;
+    /* flex: 1; */
+    flex-direction: column;
   }
 
   .ExpandMenuIcon {

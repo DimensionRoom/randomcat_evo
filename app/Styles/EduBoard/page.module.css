@@ -26,9 +26,9 @@
   --text-color-content: #F44FA3;
   --btn--bg-color: #C80E78;
   --btn--text-color: #ffffff;
-  --step-bg-color: #ffb2da;
-  --step-text-color-title: #C80E78;
-  --step-text-color-content: #F44FA3;
+  --step-bg-color: linear-gradient(130deg, #C21778, #8915BF);
+  --step-text-color-title: #ffffff;
+  --step-text-color-content: #ffffff;
   display: flex;
   max-height: calc(100dvh - 80px);
   overflow-y: scroll;
@@ -44,7 +44,7 @@
   min-height: calc(100vh - 80px);
   flex-direction: column;
   flex:8;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .HeaderCatContainer {
@@ -71,6 +71,7 @@
 }
 
 .randomAllBtn {
+  height: 50px;
   background-color: var(--btn--bg-color);
   color: var(--btn--text-color);
 }
@@ -136,7 +137,7 @@
   display: flex;
   flex: 1;
   padding: 100px 150px;
-  background-color: var(--step-bg-color);
+  background: var(--step-bg-color);
 }
 
 .stepSection .itemsContainer {
@@ -219,8 +220,14 @@
 }
 
 @media (max-width: 690px) {
+  .main{
+    max-height: calc(100vh - 180px);
+  }
   .CardItemsContainer{
     display: none;
+  }
+  .randomSection {
+    min-height: none;
   }
   .stepSection {
     padding: 30px 15px;

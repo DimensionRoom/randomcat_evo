@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useState, forwardRef } from 'react'
 import { Quicksand, Mitr } from "next/font/google";
 import styles from './HorizonCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
@@ -19,6 +19,7 @@ const mitr = Mitr({
 
 
 export type Props = {
+  setFlippedCards?: React.Dispatch<React.SetStateAction<number>> ;
   className?: string;
   locale?: string;
   title: string;
@@ -32,7 +33,8 @@ export type Props = {
   onClick?: () => void;
 }
 
-const HorizonCard = ({
+const HorizonCard = forwardRef<HTMLDivElement, Props>(({
+  setFlippedCards = () => {},
   className = '',
   locale = 'en',
   title = '-',
@@ -45,7 +47,7 @@ const HorizonCard = ({
   onLockContentChange,
   onClick,
   ...props
-}: Props): JSX.Element => {
+}, ref): JSX.Element => {
 
   const [expanded, setExpanded] = useState<boolean>(expand);
   const [lockContent, setLockContent] = useState<boolean>(lock);
@@ -62,14 +64,20 @@ const HorizonCard = ({
     setExpanded((prev) => !prev);
   };
 
-  const handleCardClick = (side:string) => {
+  const handleCardClick = (side: string) => {
     if (lockContent) return;
     if (side === 'back' && !flipContent) return;
-    setFlipContent((prev) => !prev);
+    setFlipContent(!flipContent);
+    if (!flipContent) {
+      setFlippedCards((prev) => prev + 1);
+    }else{
+      setFlippedCards((prev) => prev - 1);
+    }
   };
+  
 
   return (
-    <div className={`${styles.CardItem} ${styles[className]} ${flipContent ? styles.CardFliped : null}`} onClick={()=>handleCardClick('back')}>
+    <div ref={ref} className={`${styles.CardItem} ${styles[className]} ${flipContent ? styles.CardFliped : null}`} onClick={() => handleCardClick('back')}>
       <div className={styles.CardFront}>
         <div className={styles.CardItemActionStart}>
           <div onClick={handleLockClick} className={styles.IconContainer}>
@@ -77,7 +85,7 @@ const HorizonCard = ({
               : <KeyUnlockIcon className={styles.IconUnLock} width={20} height={20} />}
           </div>
         </div>
-        <div className={styles.CardItemContent} onClick={()=>handleCardClick('front')}>
+        <div className={styles.CardItemContent} onClick={() => handleCardClick('front')}>
           <div className={styles.CardTextContainer}>
             <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
             <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
@@ -109,5 +117,6 @@ const HorizonCard = ({
     </div>
   )
 }
+)
 
 export default HorizonCard

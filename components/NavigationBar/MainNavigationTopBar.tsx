@@ -2,6 +2,7 @@
 import React, { use, useState, useEffect } from 'react'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'
@@ -12,6 +13,10 @@ import initTranslations from '@/app/[locale]/i18n';
 import TranslationsProvider from '@/components/TranslationsProvider';
 
 const i18nNamespaces = ['common'];
+const popins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+});
 
 export type Props = {
   logo?: React.ReactNode
@@ -27,6 +32,7 @@ type MenuItem = {
   shortKey: string;
   url: string;
   theme: string;
+  [key: string]: string; // Add index signature
 };
 
 const MainNavigationTopBar = ({
@@ -42,13 +48,13 @@ const MainNavigationTopBar = ({
   const searchParamsString = useSearchParams().toString()
   const popCurrentPathname = currentPathname.split('/').slice(1) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
-  const mainMenu :MenuItem[] = [
+  const mainMenu: MenuItem[] = [
     {
       name: 'Inno Design',
       key: 'innovation',
       title: 'Inno',
       titleEx: 'Design',
-      description: 'Innovation and Business Design',
+      description: 'Design your own innovation',
       shortKey: 'inno',
       url: '/innovationandbusiness',
       theme: 'ThemeBlue'
@@ -68,7 +74,7 @@ const MainNavigationTopBar = ({
       key: 'education',
       title: 'Edu',
       titleEx: 'Design',
-      description: 'Education Design',
+      description: 'Design your own material',
       shortKey: 'edu',
       url: '/edudesign',
       theme: 'ThemePink'
@@ -85,6 +91,17 @@ const MainNavigationTopBar = ({
     }
     return null;
   };
+
+  const findKey = (pop: string[], mainMenu: MenuItem[], key: string): string | null => {
+    for (const menuItem of mainMenu) {
+      for (const popItem of pop) {
+        if (menuItem.url.includes(popItem)) {
+          return menuItem[key];
+        }
+      }
+    }
+    return null;
+  }
 
   const currentTheme = findTheme(popCurrentPathname, mainMenu) || 'Blue';
 
@@ -138,58 +155,108 @@ const MainNavigationTopBar = ({
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-      <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
-        <Link href="/" className={styles.textLink}>
-          <div className={styles.BrandContainer}>
-            <div className={styles.LogoContainer}>
-              {logo}
+      {/* Desktop Size */}
+      <div className={`${styles.DesktopHeader}`}>
+        <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
+          <Link href="/" className={styles.textLink}>
+            <div className={styles.BrandContainer}>
+              <div className={styles.LogoContainer}>
+                {logo}
+              </div>
+              <p className={styles.BrandText}>ThinkTool</p>
             </div>
-            <p className={styles.BrandText}>ThinkTool</p>
+          </Link>
+          <div className={styles.TopNavigation}>
+            {mainMenu.map((menu, index) => {
+              return (
+                <React.Fragment key={`menuItem${index}`}>
+                  <Link
+                    // href={`${menu.url} `}
+                    href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
+                    className={styles.textLink}
+                  >
+                    <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
+                      <p className={styles.MenuText}>
+                        {menu.name}
+                      </p>
+                    </div>
+                  </Link>
+                  {index < mainMenu.length - 1 && <div className={styles.MenuDivider}></div>}
+                </React.Fragment>
+              );
+            }
+            )}
+            <div className={styles.ToolContainer}>
+              <div onClick={() => handleChangeLanguage('en')} className={`${styles.FlagContainer} ${locale == 'en' ? styles.active : ''}`}>
+                <ENFlag />
+              </div>
+              <div onClick={() => handleChangeLanguage('th')} className={`${styles.FlagContainer} ${locale == 'th' ? styles.active : ''}`}>
+                <THFlag />
+              </div>
+            </div>
           </div>
-        </Link>
-        <div className={styles.TopNavigation}>
-          {mainMenu.map((menu, index) => {
-            return (
-              <React.Fragment key={`menuItem${index}`}>
-                <Link
-                  // href={`${menu.url} `}
-                  href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
-                  className={styles.textLink}
-                >
-                  <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
-                    <p className={styles.MenuText}>
-                      {menu.name}
-                    </p>
-                  </div>
-                </Link>
-                {index < mainMenu.length - 1 && <div className={styles.MenuDivider}></div>}
-              </React.Fragment>
-            );
-          }
-          )}
-          <div className={styles.ToolContainer}>
-            <div onClick={() => handleChangeLanguage('en')} className={`${styles.FlagContainer} ${locale == 'en' ? styles.active : ''}`}>
-              <ENFlag />
-            </div>
-            <div onClick={() => handleChangeLanguage('th')} className={`${styles.FlagContainer} ${locale == 'th' ? styles.active : ''}`}>
-              <THFlag />
-            </div>
-          </div>
+        </header>
+        <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
+          <input className={styles.ExpandMenu}
+            id="ExpandMenuDesktop"
+            name="ExpandMenuDesktop"
+            type="checkbox"
+            checked={isExpandMenu}
+            onChange={(e) => handleExpandMenu(e.target.checked)}
+          />
+          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenuDesktop">
+            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar1}`}></div>
+            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar2}`}></div>
+            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar3}`}></div>
+          </label>
         </div>
-      </header>
-      <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
-        <input className={styles.ExpandMenu}
-          id="ExpandMenu"
-          name="ExpandMenu"
-          type="checkbox"
-          checked={isExpandMenu}
-          onChange={(e) => handleExpandMenu(e.target.checked)}
-        />
-        <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenu">
-          <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar1}`}></div>
-          <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar2}`}></div>
-          <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar3}`}></div>
-        </label>
+      </div>
+      {/* Mobile Size */}
+      <div className={`${styles.MobileHeader}`}>
+        {/* <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
+          <div className={styles.HeaderTopContainer}>
+            <Link href="/" className={styles.textLink}>
+              <div className={styles.BrandContainer}>
+                <div className={styles.LogoContainer}>
+                  {logo}
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div className={styles.HeaderMinorContainer}>
+            <div className={styles.HeaderDetailsContainer}>
+              <p className={`${styles.HeaderDetailsTitle} ${popins.className}`}>
+                {findKey(popCurrentPathname, mainMenu, 'title')}
+                <span className={styles.HeaderDetailsTitleEx}>
+                  {findKey(popCurrentPathname, mainMenu, 'titleEx')}
+                </span>
+              </p>
+              <p className={styles.HeaderDetailsDescription}>
+                {findKey(popCurrentPathname, mainMenu, 'description')}
+              </p>
+            </div>
+            <div className={styles.HeaderActionContainer}>
+              <p>
+                ปุ่ม
+              </p>
+            </div>
+          </div>
+
+        </header> */}
+        <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
+          <input className={styles.ExpandMenu}
+            id="ExpandMenuMobile"
+            name="ExpandMenuMobile"
+            type="checkbox"
+            checked={isExpandMenu}
+            onChange={(e) => handleExpandMenu(e.target.checked)}
+          />
+          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenuMobile">
+            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar1}`}></div>
+            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar2}`}></div>
+            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar3}`}></div>
+          </label>
+        </div>
       </div>
       {
         isExpandMenu && (

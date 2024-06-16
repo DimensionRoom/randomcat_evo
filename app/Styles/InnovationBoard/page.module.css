@@ -44,7 +44,7 @@
   min-height: calc(100vh - 80px);
   flex-direction: column;
   flex:8;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .HeaderCatContainer {
@@ -71,6 +71,7 @@
 }
 
 .randomAllBtn {
+  height: 50px;
   background-color: var(--btn--bg-color);
   color: var(--btn--text-color);
 }
@@ -186,12 +187,6 @@
 }
 
 @media (max-width: 1250px) {
-  .randomSection {
-    /* min-height: auto; */
-    /* padding-bottom: 40px; */
-
-  }
-
   .CardItemsContainer {
     display: none;
   }
@@ -220,12 +215,14 @@
 }
 
 @media (max-width: 690px) {
-  .randomSection {
-    /* overflow-y: scroll; */
-
+  .main{
+    max-height: calc(100vh - 180px);
   }
   .CardItemsContainer{
     display: none;
+  }
+  .randomSection {
+    min-height: none;
   }
   .stepSection {
     padding: 30px 15px;

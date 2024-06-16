@@ -18,17 +18,17 @@
 } */
 .main {
   --background-color: #F6F6F6;
-  --item-background-color: #FFD013;
+  --item-background-color: #7C4BE4;
   --border-color: #ffffff;
-  --box-shadow-hover: #FFB24D;
+  --box-shadow-hover: #63058F;
   --box-shadow-active: #0000005c;
-  --text-color-title: #FFB24D;
-  --text-color-content: #FFB24D;
-  --btn--bg-color: #FFB24D;
+  --text-color-title: #63058F;
+  --text-color-content: #63058F;
+  --btn--bg-color: #63058F;
   --btn--text-color: #ffffff;
-  --step-bg-color: #FFB24D;
-  --step-text-color-title: #000000;
-  --step-text-color-content: #000000;
+  --step-bg-color: linear-gradient(130deg, #7C4BE4, #63058F);
+  --step-text-color-title: #ffffff;
+  --step-text-color-content: #ffffff;
   display: flex;
   max-height: calc(100dvh - 80px);
   overflow-y: scroll;
@@ -44,7 +44,7 @@
   min-height: calc(100vh - 80px);
   flex-direction: column;
   flex:8;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .HeaderCatContainer {
@@ -71,6 +71,7 @@
 }
 
 .randomAllBtn {
+  height: 50px;
   background-color: var(--btn--bg-color);
   color: var(--btn--text-color);
 }
@@ -137,7 +138,7 @@
   display: flex;
   flex: 1;
   padding: 100px 150px;
-  background-color: var(--step-bg-color);
+  background: var(--step-bg-color);
 }
 
 .stepSection .itemsContainer {
@@ -220,8 +221,14 @@
 }
 
 @media (max-width: 690px) {
+  .main{
+    max-height: calc(100vh - 180px);
+  }
   .CardItemsContainer{
     display: none;
+  }
+  .randomSection {
+    min-height: none;
   }
   .stepSection {
     padding: 30px 15px;
