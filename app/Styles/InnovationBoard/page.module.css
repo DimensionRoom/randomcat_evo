@@ -44,7 +44,7 @@
   min-height: calc(100vh - 80px);
   flex-direction: column;
   flex:8;
-  /* overflow-y: scroll; */
+  overflow-y: auto;
 }
 
 .HeaderCatContainer {
@@ -220,6 +220,10 @@
 }
 
 @media (max-width: 690px) {
+  .randomSection {
+    /* overflow-y: scroll; */
+
+  }
   .CardItemsContainer{
     display: none;
   }
