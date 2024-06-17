@@ -136,13 +136,13 @@ const MainNavigationTopBar = ({
     router.refresh();
   };
 
-  useEffect(() => {
-    console.log('currentPathname',currentPathname)
-    console.log('x',currentPathname.split('/').slice(1))
-    console.log('xx',currentPathname.split('/').slice(2))
-    console.log('popCurrentPathname',findTheme(popCurrentPathname,mainMenu))
-  }
-  , []);
+  // useEffect(() => {
+  //   console.log('currentPathname',currentPathname)
+  //   console.log('x',currentPathname.split('/').slice(1))
+  //   console.log('xx',currentPathname.split('/').slice(2))
+  //   console.log('popCurrentPathname',findTheme(popCurrentPathname,mainMenu))
+  // }
+  // , []);
 
   useEffect(() => {
     async function fetchTranslations() {
