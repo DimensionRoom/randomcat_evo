@@ -57,7 +57,8 @@ const MainNavigationTopBar = ({
       description: 'Design your own innovation',
       shortKey: 'inno',
       url: '/innovationandbusiness',
-      theme: 'ThemeBlue'
+      theme: 'ThemeBlue',
+      header:'false'
     },
     {
       name: 'Story Design',
@@ -67,7 +68,8 @@ const MainNavigationTopBar = ({
       description: 'Design your own story',
       shortKey: 'story',
       url: '/storydesign',
-      theme: 'ThemeYellow'
+      theme: 'ThemeYellow',
+      header:'false'
     },
     {
       name: 'Edu Design',
@@ -77,7 +79,8 @@ const MainNavigationTopBar = ({
       description: 'Design your own material',
       shortKey: 'edu',
       url: '/edudesign',
-      theme: 'ThemePink'
+      theme: 'ThemePink',
+      header:'false'
     }
   ];
 
@@ -133,12 +136,13 @@ const MainNavigationTopBar = ({
     router.refresh();
   };
 
-  // useEffect(() => {
-  //   console.log('x',currentPathname.split('/').slice(1))
-  //   console.log('xx',currentPathname.split('/').slice(2))
-  //   console.log('popCurrentPathname',findTheme(popCurrentPathname,mainMenu))
-  // }
-  // , []);
+  useEffect(() => {
+    console.log('currentPathname',currentPathname)
+    console.log('x',currentPathname.split('/').slice(1))
+    console.log('xx',currentPathname.split('/').slice(2))
+    console.log('popCurrentPathname',findTheme(popCurrentPathname,mainMenu))
+  }
+  , []);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -212,8 +216,8 @@ const MainNavigationTopBar = ({
         </div>
       </div>
       {/* Mobile Size */}
-      <div className={`${styles.MobileHeader}`}>
-        {/* <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
+      <div className={`${popCurrentPathname.some(item => item === 'home') ? styles.SimpleMobileHeader : styles.SimpleMobileHeaderHide}`}>
+        <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
             <Link href="/" className={styles.textLink}>
               <div className={styles.BrandContainer}>
@@ -223,26 +227,8 @@ const MainNavigationTopBar = ({
               </div>
             </Link>
           </div>
-          <div className={styles.HeaderMinorContainer}>
-            <div className={styles.HeaderDetailsContainer}>
-              <p className={`${styles.HeaderDetailsTitle} ${popins.className}`}>
-                {findKey(popCurrentPathname, mainMenu, 'title')}
-                <span className={styles.HeaderDetailsTitleEx}>
-                  {findKey(popCurrentPathname, mainMenu, 'titleEx')}
-                </span>
-              </p>
-              <p className={styles.HeaderDetailsDescription}>
-                {findKey(popCurrentPathname, mainMenu, 'description')}
-              </p>
-            </div>
-            <div className={styles.HeaderActionContainer}>
-              <p>
-                ปุ่ม
-              </p>
-            </div>
-          </div>
-
-        </header> */}
+        </header>
+      </div>
         <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
           <input className={styles.ExpandMenu}
             id="ExpandMenuMobile"
@@ -257,7 +243,6 @@ const MainNavigationTopBar = ({
             <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar3}`}></div>
           </label>
         </div>
-      </div>
       {
         isExpandMenu && (
           <div className={styles.ExpandMenuContainer}>

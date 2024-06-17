@@ -26,6 +26,29 @@
   --highlight-color: #7e188b;
   --background-color: #ffffff;
   --logo-color: #691392;
+  --font-color: #FFFFFF;
+  display: none;
+}
+
+.SimpleMobileHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --logo-color: #691392;
+  --font-color: #FFFFFF;
+}
+
+.SimpleMobileHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --logo-color: #691392;
+  --font-color: #FFFFFF;
+}
+
+.SimpleMobileHeaderHide {
   display: none;
 }
 
@@ -39,12 +62,23 @@
   background: var(--background-color);
 }
 
+.SimpleMobileHeader .LayoutHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+  height: 80px;
+  padding: 1rem 1.2rem !important;
+  background: var(--background-color);
+}
+
 .ThemeBlue {
   --primary-color: #6D8CD6;
   --secondary-color: #38518D;
   --highlight-color: #38518D;
   --background-color: linear-gradient(130deg, #6D8CD6, #38518D);
   --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
 }
 
 .ThemeYellow {
@@ -53,6 +87,7 @@
   --highlight-color: #FFBD4D;
   --background-color: linear-gradient(130deg, #FFD013, #FFB24D);
   --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
 }
 
 .ThemePurple {
@@ -61,6 +96,7 @@
   --highlight-color: #7C4BE4;
   --background-color: linear-gradient(130deg, #7C4BE4, #63058F);
   --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
 }
 
 .ThemePink {
@@ -69,6 +105,7 @@
   --highlight-color: #C21778;
   --background-color: linear-gradient(130deg, #C21778, #8915BF);
   --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
 }
 
 
@@ -239,6 +276,7 @@
   display: flex;
   flex-direction: row;
   flex: 3;
+  color: var(--font-color);
 }
 .HeaderDetailsContainer {
   flex: 3;
@@ -368,6 +406,9 @@
 }
 
 @media (max-width: 960px) {
+  .MobileHeader {
+    display: none;
+  }
   .TopNavigation {
     display: none !important;
   }

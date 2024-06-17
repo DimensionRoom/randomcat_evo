@@ -181,7 +181,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
 
 
   if (loading) {
-    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 160px)', justifyContent: 'center', alignItems: 'center' }}>
+    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 80px)', justifyContent: 'center', alignItems: 'center' }}>
       <Player
         autoplay
         loop
@@ -198,7 +198,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-         <div className={`${manivigationStyles.MobileHeader}`}>
+      <div className={`${manivigationStyles.MobileHeader}`}>
         <header className={`${manivigationStyles.LayoutHeader} ${manivigationStyles['ThemePurple']}`}>
           <div className={manivigationStyles.HeaderTopContainer}>
             <Link href="/" className={styles.textLink}>

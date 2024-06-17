@@ -189,7 +189,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
 
 
   if (loading) {
-    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 160px)', justifyContent: 'center', alignItems: 'center' }}>
+    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 80px)', justifyContent: 'center', alignItems: 'center' }}>
       <Player
         autoplay
         loop
