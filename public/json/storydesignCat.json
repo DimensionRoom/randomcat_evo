@@ -144,25 +144,25 @@
       {
         "th": "Past",
         "en": "Past",
-        "content_th": "",
-        "content_en": ""
+        "content_th": "Movies set in the past. They explore how people lived, thought, and interacted during those periods.",
+        "content_en": "Movies set in the past. They explore how people lived, thought, and interacted during those periods."
       },
       {
         "th": "Present",
         "en": "Present",
-        "content_th": "",
-        "content_en": ""
+        "content_th": "Films set in the present day reflect current societal norms, technologies, and cultural trends.",
+        "content_en": "Films set in the present day reflect current societal norms, technologies, and cultural trends."
       },
       {
         "th": "Future",
         "en": "Future",
-        "content_th": "",
-        "content_en": ""
+        "content_th": "Movies set in the future. They explore potential outcomes of current trends and concerns.",
+        "content_en": "Movies set in the future. They explore potential outcomes of current trends and concerns."
       }, {
         "th": "Anything",
         "en": "Anything",
-        "content_th": "",
-        "content_en": ""
+        "content_th": "You can choose whether the story takes place in the past, present, or future, or all three.",
+        "content_en": "You can choose whether the story takes place in the past, present, or future, or all three."
       }
     ]
   },
