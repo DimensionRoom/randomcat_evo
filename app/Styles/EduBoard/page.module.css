@@ -220,15 +220,24 @@
 }
 
 @media (max-width: 690px) {
-  .main{
-    max-height: calc(100vh - 180px);
+  .main {
+    /* max-height: calc(100vh); */
+    min-height: 100dvh;
+    padding-top: 180px;
   }
-  .CardItemsContainer{
+
+  .CardItemsContainer {
     display: none;
   }
+
+  .HeaderCatContainer {
+    display: none;
+  }
+
   .randomSection {
     min-height: none;
   }
+
   .stepSection {
     padding: 30px 15px;
   }
@@ -250,6 +259,7 @@
     width: 45px;
     height: 45px;
   }
+
   /* .stepSection .itemsContainer .item:nth-child(2) .itemIcon svg {
     width: 45px;
     height: 45px;

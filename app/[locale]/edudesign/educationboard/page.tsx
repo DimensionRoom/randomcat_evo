@@ -230,14 +230,14 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       </div>
       <main className={styles.main}>
         <div className={styles.randomSection}>
-          {/* <div className={styles.HeaderCatContainer}>
+          <div className={styles.HeaderCatContainer}>
             <p className={`${styles.HeaderCatContainerText} ${kanit.className}`}>
               {subCategory.map((subCat, index) => (
                 searchParamsInfo === subCat.catItemId ? subCat.name : ''
               ))}
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
-          </div> */}
+          </div>
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
