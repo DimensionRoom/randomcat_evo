@@ -61,7 +61,11 @@
   height: 180px;
   padding: 1rem 1.2rem !important;
   border-radius: 0 0 35px 35px;
-  background: var(--background-color);
+  overflow: hidden;
+  background-image: url('../../public/svgs/svg/headerLayer.svg'),var(--background-color);
+  background-size: cover;
+  background-position: 100% 30%;
+  background-repeat: no-repeat;
 }
 
 .SimpleMobileHeader .LayoutHeader {
@@ -96,7 +100,7 @@
   --primary-color: #7C4BE4;
   --secondary-color: #63058F;
   --highlight-color: #7C4BE4;
-  --background-color: linear-gradient(130deg, #7C4BE4, #63058F);
+  --background-color: linear-gradient(130deg, #7C4BE4, #8F4DBD);
   --logo-color: #FFFFFF;
   --font-color: #FFFFFF;
 }

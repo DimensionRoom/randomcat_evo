@@ -137,7 +137,11 @@
   display: flex;
   flex: 1;
   padding: 100px 150px;
-  background: var(--step-bg-color);
+  /* background: var(--step-bg-color); */
+  background-image: url('../../../public/svgs/svg/footerLayer.svg'),var(--step-bg-color);
+  background-position: center 100%; 
+  background-repeat: no-repeat; 
+  background-size: cover;
 }
 
 .stepSection .itemsContainer {

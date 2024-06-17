@@ -26,9 +26,9 @@
   --text-color-content: #5f7dc1;
   --btn--bg-color: #5773b5;
   --btn--text-color: #ffffff;
-  --step-bg-color: #c7d8ff;
-  --step-text-color-title: #3c548b;
-  --step-text-color-content: #5f7dc1;
+  --step-bg-color: linear-gradient(130deg, #5773b5, #38518D);
+  --step-text-color-title: #ffffff;
+  --step-text-color-content: #ffffff;
   display: flex;
   max-height: calc(100dvh - 80px);
   overflow-y: scroll;
@@ -137,7 +137,11 @@
   display: flex;
   flex: 1;
   padding: 100px 150px;
-  background-color: var(--step-bg-color);
+  /* background-color: var(--step-bg-color); */
+  background-image: url('../../../public/svgs/svg/footerLayer.svg'),var(--step-bg-color);
+  background-position: center 100%; 
+  background-repeat: no-repeat; 
+  background-size: cover;
 }
 
 .stepSection .itemsContainer {
