@@ -79,10 +79,10 @@
 }
 
 .ThemeBlue {
-  --primary-color: #6D8CD6;
-  --secondary-color: #38518D;
-  --highlight-color: #38518D;
-  --background-color: linear-gradient(130deg, #6D8CD6, #38518D);
+  --primary-color: #298edc;
+  --secondary-color: #1a3785;
+  --highlight-color: #1a3785;
+  --background-color: linear-gradient(130deg, #298edc, #1a3785);
   --logo-color: #FFFFFF;
   --font-color: #FFFFFF;
 }

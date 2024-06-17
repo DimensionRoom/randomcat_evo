@@ -18,15 +18,15 @@
 } */
 .main {
   --background-color: #F6F6F6;
-  --item-background-color: #5773b5;
+  --item-background-color: #1D2B84;
   --border-color: #ffffff;
-  --box-shadow-hover: #5773b5;
+  --box-shadow-hover: #1D2B84;
   --box-shadow-active: #0000005c;
-  --text-color-title: #38518D;
-  --text-color-content: #5f7dc1;
-  --btn--bg-color: #5773b5;
+  --text-color-title: #1D2B84;
+  --text-color-content: #0D93FF;
+  --btn--bg-color: #1D2B84;
   --btn--text-color: #ffffff;
-  --step-bg-color: linear-gradient(130deg, #5773b5, #38518D);
+  --step-bg-color: linear-gradient(130deg, #0D93FF, #1D2B84);
   --step-text-color-title: #ffffff;
   --step-text-color-content: #ffffff;
   display: flex;
