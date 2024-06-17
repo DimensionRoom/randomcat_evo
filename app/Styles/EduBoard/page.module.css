@@ -41,7 +41,7 @@
 
 .randomSection {
   display: flex;
-  min-height: calc(100vh - 80px);
+  /* min-height: calc(100vh - 80px); */
   flex-direction: column;
   flex:8;
   /* overflow-y: auto; */
