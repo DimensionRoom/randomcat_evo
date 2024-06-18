@@ -408,7 +408,9 @@
   .SimpleMobileHeader {
     display: none;
   }
-  
+  .MobileHeader{
+    display: none;
+  }
   .TopNavigation {
     display: none !important;
   }
@@ -448,6 +450,10 @@
 
   .BrandContainer .BrandText {
     display: none;
+  }
+  .MobileHeader {
+    display: flex;
+    flex-direction: column;
   }
 
   .SimpleMobileHeader {
