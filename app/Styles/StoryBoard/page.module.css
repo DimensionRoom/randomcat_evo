@@ -22,9 +22,10 @@
   --border-color: #ffffff;
   --box-shadow-hover: #63058F;
   --box-shadow-active: #0000005c;
-  --text-color-title: #63058F;
+  --text-color-title: #8503C2;
+  --text-color-title-ex: #9A19D6;
   --text-color-content: #63058F;
-  --btn--bg-color: #63058F;
+  --btn--bg-color: #9A19D6;
   --btn--text-color: #ffffff;
   --step-bg-color: linear-gradient(130deg, #7C4BE4, #63058F);
   --step-text-color-title: #ffffff;
@@ -37,6 +38,14 @@
   border-radius: -15px -15px  0 0 ;
 }
 
+.HeaderSection {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   padding: 10px 0 10px 0;
+}
 
 
 .randomSection {
@@ -53,24 +62,52 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  padding: 10px 0 0 0;
+  /* padding: 10px 0 0 0; */
   /* position: sticky;
   top:0px; */
 }
 
 .HeaderCatContainerText {
-  font-size: 3em;
+  font-size: 5em;
   font-weight: 600;
+  color: var(--text-color-title);
+}
+.HeaderCatContainerText+p {
+  font-size: 5em;
+  font-weight: 400;
+  color: var(--text-color-title-ex);
+}
+
+.HeaderCatDescContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.HeaderCatContainerDescText {
+  font-size: 1.5em;
+  font-weight: 400;
   color: var(--text-color-title);
 }
 
 @media (max-width: 960px) {
-  .HeaderCatContainerText {
-    font-size: 1.5em;
+  .HeaderCatContainerText,
+  .HeaderCatContainerText+p {
+    font-size: 2.2em;
+  }
+
+  .HeaderCatContainerDescText {
+    font-size: 1em;
   }
 }
 
 .randomAllBtn {
+  background-color: var(--btn--bg-color);
+  color: var(--btn--text-color);
+}
+
+.randomAllMobileBtn {
   height: 50px;
   background-color: var(--btn--bg-color);
   color: var(--btn--text-color);
@@ -140,9 +177,9 @@
   padding: 100px 150px;
   /* background: var(--step-bg-color); */
   background-image: url('../../../public/svgs/svg/footerLayer.svg'),var(--step-bg-color);
-  background-position: 70% 70%; 
+  background-position: 100% 100%; 
   background-repeat: no-repeat; 
-  /* background-size: cover; */
+  background-size: cover;
 }
 
 .stepSection .itemsContainer {
@@ -231,11 +268,19 @@
     padding-top: 180px;
   }
 
+  .HeaderSection {
+    display: none;
+  }
+
+
   .CardItemsContainer {
     display: none;
   }
 
   .HeaderCatContainer {
+    display: none;
+  }
+  .HeaderCatDescContainer {
     display: none;
   }
 
@@ -265,8 +310,9 @@
     height: 45px;
   }
 
-  /* .stepSection .itemsContainer .item:nth-child(2) .itemIcon svg {
-    width: 45px;
-    height: 45px;
-  } */
+  .stepSection {
+    background-position: 70% 70%; 
+    background-repeat: no-repeat; 
+    background-size: auto;
+  }
 }

@@ -693,6 +693,7 @@
   height: auto;
   box-shadow: 0px 8px 12px 1px rgb(0 0 0 / 20%);
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .toolsSection .itemsContainer .itemData {

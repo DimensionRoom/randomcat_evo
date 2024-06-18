@@ -24,9 +24,10 @@ import edudesisgnData from '../../../../public/json/edudesignCat.json';
 
 export type SubCategoryProps = {
   name: string
+  nameEx: string
+  fullDescription: string
   catItemId: string
 }
-
 type JSONData = {
   [key: string]: any;
 };
@@ -68,7 +69,9 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: 'EDU DESIGN',
+      name: 'EDU',
+      nameEx: 'DESIGN',
+      fullDescription: '"Innovate Teaching Materials for Tomorrow."',
       catItemId: 'edudesign'
     }
   ]);
@@ -223,21 +226,35 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
               </p>
             </div>
             <div className={manivigationStyles.HeaderActionContainer}>
-              <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
+              <FlatBtn className={`${styles.randomAllMobileBtn}`} text='Random' onClick={() => generateRandomItems()} />
             </div>
           </div>
         </header>
       </div>
       <main className={styles.main}>
-        <div className={styles.randomSection}>
+      <div className={styles.HeaderSection}>
           <div className={styles.HeaderCatContainer}>
-            <p className={`${styles.HeaderCatContainerText} ${kanit.className}`}>
-              {subCategory.map((subCat, index) => (
+            <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
+              {subCategory.map((subCat) => (
                 searchParamsInfo === subCat.catItemId ? subCat.name : ''
+              ))}
+            </p>
+            <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
+              {subCategory.map((subCat) => (
+                searchParamsInfo === subCat.catItemId ? subCat.nameEx : ''
+              ))}
+            </p>
+          </div>
+          <div className={styles.HeaderCatDescContainer}>
+            <p className={`${styles.HeaderCatContainerDescText}`}>
+              {subCategory.map((subCat) => (
+                searchParamsInfo === subCat.catItemId ? subCat.fullDescription : ''
               ))}
             </p>
             <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
           </div>
+        </div>
+        <div className={styles.randomSection}>
           <div className={styles.CardItemsContainer}>
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))

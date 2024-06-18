@@ -1,7 +1,8 @@
 .DesktopHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
-  --nav-menu-text-color: #ffffff;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #411692;
   --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
@@ -25,6 +26,7 @@
 .MobileHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
   --nav-menu-text-color: #ffffff;
   --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7e188b;
@@ -37,6 +39,7 @@
 .SimpleMobileHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
   --nav-menu-text-color: #ffffff;
   --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7e188b;
@@ -115,6 +118,7 @@
 .ThemePink {
   --primary-color: #F61394;
   --secondary-color: #C21778;
+  --nav-menu-active-color: #C21778;
   --nav-menu-text-color: #ffffff;
   --nav-menu-text-active-color: #ffffff;
   --highlight-color: #C21778;

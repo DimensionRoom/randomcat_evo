@@ -292,7 +292,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 href={{ pathname: `innovationandbusiness/innovationboard`, query: { info: 'innodesign' } }}
               >
                 <div className={styles.itemImage}>
-                  <Image className={styles.image} src="/image/innocard.png" width={300} height={300} alt='' />
+                  <Image className={styles.image} src="/image/inno_card.png" width={300} height={300} alt='' />
                 </div>
               </Link>
 
@@ -309,7 +309,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 href={{ pathname: `storydesign/storyboard`, query: { info: 'storydesign' } }}
               >
                 <div className={styles.itemImage}>
-                  <Image className={styles.image} src="/image/storycard.png" width={300} height={300} alt='' />
+                  <Image className={styles.image} src="/image/story_card.png" width={300} height={300} alt='' />
                 </div>
               </Link>
               <div className={styles.itemData}>
@@ -325,7 +325,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 href={{ pathname: `edudesign/educationboard`, query: { info: 'edudesign' } }}
               >
                 <div className={styles.itemImage}>
-                  <Image className={styles.image} src="/image/educard.png" width={300} height={300} alt='' />
+                  <Image className={styles.image} src="/image/edu_card.png" width={300} height={300} alt='' />
                 </div>
               </Link>
               <div className={styles.itemData}>
