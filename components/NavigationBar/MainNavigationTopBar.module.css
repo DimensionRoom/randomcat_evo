@@ -1,6 +1,8 @@
 .DesktopHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
   --logo-color: #691392;
@@ -23,6 +25,8 @@
 .MobileHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
   --logo-color: #691392;
@@ -33,6 +37,8 @@
 .SimpleMobileHeader {
   --primary-color: #a765b2;
   --secondary-color: #411692;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7e188b;
   --background-color: #ffffff;
   --logo-color: #691392;
@@ -73,6 +79,9 @@
 .ThemeBlue {
   --primary-color: #298edc;
   --secondary-color: #1a3785;
+  --nav-menu-active-color: #1a3785;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #1a3785;
   --background-color: linear-gradient(130deg, #298edc, #1a3785);
   --logo-color: #FFFFFF;
@@ -82,6 +91,9 @@
 .ThemeYellow {
   --primary-color: #FFD013;
   --secondary-color: #FFB24D;
+  --nav-menu-active-color: #FFB24D;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #FFBD4D;
   --background-color: linear-gradient(130deg, #FFD013, #FFB24D);
   --logo-color: #FFFFFF;
@@ -91,8 +103,11 @@
 .ThemePurple {
   --primary-color: #7C4BE4;
   --secondary-color: #63058F;
+  --nav-menu-active-color: #7C4BE4;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #7C4BE4;
-  --background-color: linear-gradient(130deg, #7C4BE4, #8F4DBD);
+  --background-color: linear-gradient(130deg, #7C4BE4, #63058F);
   --logo-color: #FFFFFF;
   --font-color: #FFFFFF;
 }
@@ -100,6 +115,8 @@
 .ThemePink {
   --primary-color: #F61394;
   --secondary-color: #C21778;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
   --highlight-color: #C21778;
   --background-color: linear-gradient(130deg, #C21778, #8915BF);
   --logo-color: #FFFFFF;
@@ -152,7 +169,7 @@
 }
 
 .BrandContainer .BrandText {
-  color: var(--highlight-color);
+  color: var(--nav-menu-text-color);
   font-weight: bold;
   font-size: 2em;
 }
@@ -237,7 +254,7 @@
 }
 
 .TopNavigation .TopNavigationMenu .MenuText {
-  color: var(--secondary-color);
+  color: var(--nav-menu-text-color);
   padding: 0 12px;
   font-size: 1.1em;
 }
@@ -248,7 +265,7 @@
 }
 
 .TopNavigation .TopNavigationMenu:hover {
-  background-color: var(--primary-color);
+  background-color: var(--nav-menu-active-color);
 }
 
 .TopNavigation .TopNavigationMenu:hover .MenuText {
@@ -256,11 +273,11 @@
 }
 
 .MenuActive {
-  background-color: var(--primary-color);
+  background-color: var(--nav-menu-active-color);
 }
 
 .MenuActive .MenuText {
-  color: var(--menu-text-active-color) !important;
+  color: var(--nav-menu-text-active-color) !important;
 }
 
 /* MobileHeader */
@@ -345,6 +362,11 @@
 }
 
 .ThemeYellow .bar {
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
+}
+
+.ThemePurple .bar {
   --bar-color: #ffffff;
   --bar-active-color: #ffffff;
 }

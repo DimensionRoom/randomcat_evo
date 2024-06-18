@@ -75,7 +75,7 @@
 
 .ThemePurple {
   --card-background-color: #ffffff;
-  --card-background-color-flip: linear-gradient(130deg, #7C4BE4, #7C4BE4);
+  --card-background-color-flip: linear-gradient(130deg, #7C4BE4, #63058F);
   --card-text-color: #63058F;
   --card-text-color-flip: #ffffff;
   --card-btn-background-color: #63058F;
@@ -86,7 +86,7 @@
 
 .ThemePink {
   --card-background-color: #ffffff;
-  --card-background-color-flip: linear-gradient(130deg, #F61394, #F61394);
+  --card-background-color-flip: linear-gradient(130deg, #C21778, #8915BF);
   --card-text-color: #C21778;
   --card-text-color-flip: #ffffff;
   --card-btn-background-color: #F61394;

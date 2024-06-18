@@ -68,7 +68,7 @@ const MainNavigationTopBar = ({
       description: 'Design your own story',
       shortKey: 'story',
       url: '/storydesign',
-      theme: 'ThemeYellow',
+      theme: 'ThemePurple',
       header:'false'
     },
     {
@@ -175,7 +175,6 @@ const MainNavigationTopBar = ({
               return (
                 <React.Fragment key={`menuItem${index}`}>
                   <Link
-                    // href={`${menu.url} `}
                     href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
                     className={styles.textLink}
                   >
