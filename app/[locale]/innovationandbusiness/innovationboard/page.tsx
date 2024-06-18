@@ -11,7 +11,7 @@ import manivigationStyles from '../../../../components/NavigationBar/MainNavigat
 import TranslationsProvider from '@/components/TranslationsProvider';
 import IconBtn from '@/components/Button/IconBtn/IconBtn';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
-import ExpandCard from '@/components/Card/ExpandCard/ExpandCard';
+import PhysicalCard from '@/components/Card/PhysicalCard/PhysicalCard';
 import HorizonCard from '@/components/Card/HorizonCard/HorizonCard';
 import mainLoad from '../../../../public/json/mainload.json';
 import TagFilter from '@/components/Filter/TagFilter/TagFilter';
@@ -269,7 +269,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
             {randomItems
               .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
               .map((cardItem, index) => (
-                <ExpandCard
+                <PhysicalCard
                   key={index}
                   itemKey={cardItem.catItemId}
                   className={'ThemeBlue'}
