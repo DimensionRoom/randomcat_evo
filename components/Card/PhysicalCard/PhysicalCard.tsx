@@ -1,12 +1,12 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useState, forwardRef } from 'react'
 import { Quicksand, Mitr } from "next/font/google";
-import Tag from '@/components/Tag/Tag';
 import styles from './PhysicalCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
+import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -19,6 +19,7 @@ const mitr = Mitr({
 
 
 export type Props = {
+  setFlippedCards?: React.Dispatch<React.SetStateAction<number>> ;
   className?: string;
   locale?: string;
   title: string;
@@ -27,11 +28,13 @@ export type Props = {
   content: string;
   expand?: boolean;
   lock?: boolean;
-  onLockContentChange: (key:string,lockContent: boolean) => void;
+  flip?: boolean;
+  onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
 }
 
-const PhysicalCard = ({
+const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
+  setFlippedCards = () => {},
   className = '',
   locale = 'en',
   title = '-',
@@ -40,57 +43,77 @@ const PhysicalCard = ({
   content = '-',
   expand = false,
   lock = false,
+  flip = true,
   onLockContentChange,
   onClick,
   ...props
-}: Props): JSX.Element => {
+}, ref): JSX.Element => {
 
   const [expanded, setExpanded] = useState<boolean>(expand);
   const [lockContent, setLockContent] = useState<boolean>(lock);
+  const [flipContent, setFlipContent] = useState<boolean>(flip);
 
   const handleLockClick = async () => {
     setLockContent((prev) => !prev);
-    onLockContentChange(itemKey,!lockContent);
+    onLockContentChange(itemKey, !lockContent);
   }
 
   const handleExpandClick = async () => {
     if (!content) return;
-    // console.log(expanded)
     setExpanded((prev) => !prev);
   };
 
+  const handleCardClick = (side: string) => {
+    if (lockContent) return;
+    if (side === 'back' && !flipContent) return;
+    setFlipContent(!flipContent);
+    if (!flipContent) {
+      setFlippedCards((prev) => prev + 1);
+    }else{
+      setFlippedCards((prev) => prev - 1);
+    }
+  };
+
   return (
-    <div className={`${styles.CardItem} ${styles[className]}`}>
-      <div className={styles.CardItemTitle}>
-        <Tag className={className} text={title} />
-        <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
-          {lockContent ? <KeyLockIcon width={20} height={20} />
-            : <KeyUnlockIcon color='#ffffffa6' width={20} height={20} />}
+    <div ref={ref} className={`${styles.CardItem} ${styles[className]} ${flipContent ? styles.CardFliped : null}`} onClick={() => handleCardClick('back')}>
+          <div className={styles.CardFront}>
+        <div className={styles.CardItemActionStart}>
+          <div onClick={handleLockClick} className={styles.IconContainer}>
+            {lockContent ? <KeyLockIcon className={styles.IconLock} width={20} height={20} />
+              : <KeyUnlockIcon className={styles.IconUnLock} width={20} height={20} />}
+          </div>
         </div>
-      </div>
-      <div className={styles.CardItemHeaderContent}>
-        {/* <div onClick={handleLockClick} className={styles.HeaderIconContainer}>
-          {lockContent ? <KeyLockIcon width={20} height={20} />
-            : <KeyUnlockIcon color='#5b5879' width={20} height={20} />}
-        </div> */}
-        <div className={styles.HeaderTextContainer}>
-          <p className={`${styles.HeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
+        <div className={styles.CardItemContent} onClick={() => handleCardClick('front')}>
+          <div className={styles.CardTextContainer}>
+            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
+            <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
+          </div>
+          <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
+            <p className={`${styles.ExpandText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{content}</p>
+          </div>
         </div>
-      </div>
-      <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
-        <p className={`${styles.HeaderText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{content}</p>
-      </div>
-      <div onClick={handleExpandClick} className={`
+        <div onClick={handleExpandClick} className={`
         ${styles.CardItemActionContent} 
         ${expanded ? styles.Expanded : styles.NonExpanded} 
         ${content ? styles.HaveContent : styles.NonContent}`}>
-        <ExpandArrowIcon width={30} height={30} disabled={!content ? true : false} />
+          <div className={`${styles.IconContainer} ${lockContent ? styles.actionDisable : null}`}>
+            <ExpandArrowIcon className={!content ? styles.IconExpandArrowDisabled : styles.IconExpandArrow} width={20} height={20} disabled={!content ? true : false} />
+          </div>
+        </div>
+        <div onClick={onClick} className={styles.CardItemActionEnd}>
+          <div className={`${styles.IconContainer} ${lockContent ? styles.actionDisable : null}`}>
+            {lockContent ? <RerenderIcon className={styles.IconUnLock} width={20} height={20} />
+              : <RerenderIcon className={styles.IconLock} width={20} height={20} />}
+          </div>
+        </div>
       </div>
-      <div className={styles.CardItemFooterContent}>
-        <FlatBtn className={styles.randomBtn} disabled={lockContent} style={{ width: 100 }} text="Random" onClick={onClick}/>
+      <div className={styles.CardBack}>
+        <div className={styles.CardItemContent} style={{ flex: 1, alignItems: 'center' }}>
+          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
+        </div>
       </div>
     </div>
   )
 }
-
+)
 export default PhysicalCard

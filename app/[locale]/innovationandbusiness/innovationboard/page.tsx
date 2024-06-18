@@ -83,6 +83,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
     }
   ]);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const extractMainKeys = (jsonData: JSONData): string[] => {
     return Object.keys(jsonData);
@@ -95,6 +96,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
+  const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
 
 
   const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
@@ -139,13 +141,20 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       }
     }).filter(item => item !== undefined) as Item[];
     setRandomItems(newRandomItems);
-    if (flippedCards == 0) {
+    if (flippedCards == 0 || flippedPhysicalCards == 0) {
       trigerCardClick();
     }
   };
 
   const trigerCardClick = () => {
     cardRefs.current.forEach((ref, index) => {
+      setTimeout(() => {
+        if (ref) {
+          ref.click();
+        }
+      }, index * 150);
+    });
+    physicalRefs.current.forEach((ref, index) => {
       setTimeout(() => {
         if (ref) {
           ref.click();
@@ -271,12 +280,14 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
               .map((cardItem, index) => (
                 <PhysicalCard
                   key={index}
+                  ref={(el) => physicalRefs.current[index] = el}
                   itemKey={cardItem.catItemId}
                   className={'ThemeBlue'}
                   locale={locale}
                   title={cardItem.title}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
+                  setFlippedCards={setFlippedPhysicalCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
