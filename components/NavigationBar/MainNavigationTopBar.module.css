@@ -82,7 +82,7 @@
 .ThemeBlue {
   --primary-color: #298edc;
   --secondary-color: #1a3785;
-  --nav-menu-active-color: #1a3785;
+  --nav-menu-active-color: #298edc;
   --nav-menu-text-color: #ffffff;
   --nav-menu-text-active-color: #ffffff;
   --highlight-color: #1a3785;
@@ -118,7 +118,7 @@
 .ThemePink {
   --primary-color: #F61394;
   --secondary-color: #C21778;
-  --nav-menu-active-color: #C21778;
+  --nav-menu-active-color: #F61394;
   --nav-menu-text-color: #ffffff;
   --nav-menu-text-active-color: #ffffff;
   --highlight-color: #C21778;
