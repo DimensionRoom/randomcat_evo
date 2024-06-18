@@ -223,7 +223,7 @@
   }
 }
 
-@media (max-width: 690px) {
+@media (max-width: 560px) {
   .main {
     /* max-height: calc(100vh); */
     min-height: 100dvh;

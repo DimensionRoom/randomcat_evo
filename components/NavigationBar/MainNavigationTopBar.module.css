@@ -37,15 +37,7 @@
   --background-color: #ffffff;
   --logo-color: #691392;
   --font-color: #FFFFFF;
-}
-
-.SimpleMobileHeader {
-  --primary-color: #a765b2;
-  --secondary-color: #411692;
-  --highlight-color: #7e188b;
-  --background-color: #ffffff;
-  --logo-color: #691392;
-  --font-color: #FFFFFF;
+  display: none;
 }
 
 .SimpleMobileHeaderHide {
@@ -412,9 +404,11 @@
 }
 
 @media (max-width: 960px) {
-  .MobileHeader {
+  
+  .SimpleMobileHeader {
     display: none;
   }
+  
   .TopNavigation {
     display: none !important;
   }
@@ -456,7 +450,7 @@
     display: none;
   }
 
-  .MobileHeader {
+  .SimpleMobileHeader {
     display: flex;
     /* flex: 1; */
     flex-direction: column;
