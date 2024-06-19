@@ -1,6 +1,7 @@
 {
   "Subject": {
     "title": "Subject",
+    "subTitle": "And Skill",
     "key": "Subject",
     "data": [
       {"th": "วิชาภาษาอังกฤษ", "en": "English", "content": ""},
@@ -28,7 +29,8 @@
     ]
   },
   "Technique": {
-    "title": "Technique",
+    "title": "Design",
+    "subTitle": "Technique",
     "key": "Technique",
     "data": [
       {"th": "การลด", "en": "Reduce", "content": ""},
@@ -52,7 +54,8 @@
       {"th": "เลียนแบบธรรมชาติ", "en": "Biomimicry", "content": ""}
     ]
   },"Format": {
-    "title": "Format",
+    "title": "Design",
+    "subTitle": "Format",
     "key": "Format",
     "data": [
       {"th": "Online Learning", "en": "Online Learning", "content": ""},
@@ -75,7 +78,8 @@
     ]
   },
   "USP": {
-    "title": "USP",
+    "title": "Unique",
+    "subTitle": "Selling Point",
     "key": "USP",
     "data": [
       {"th": "Personalize", "en": "Personalize", "content": ""},
@@ -98,7 +102,8 @@
     ]
   },
   "Level": {
-    "title": "Level",
+    "title": "Student",
+    "subTitle": "Level",
     "key": "Level",
     "data": [
       {"th": "อนุบาล 1", "en": "K1", "content": ""},
@@ -120,7 +125,8 @@
     ]
   },
   "Methodology": {
-    "title": "Methodology",
+    "title": "Teaching",
+    "subTitle": "Method",
     "key": "Methodology",
     "data": [
       {"th": "แลกเปลี่ยนทางการคิด", "en": "Discussion", "content": ""},

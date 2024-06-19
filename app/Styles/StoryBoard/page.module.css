@@ -44,15 +44,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-   padding: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
 }
 
 
 .randomSection {
   display: flex;
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 260px);
   flex-direction: column;
-  flex:8;
+  flex: 1;
   /* overflow-y: auto; */
 }
 
@@ -105,6 +105,7 @@
 .randomAllBtn {
   background-color: var(--btn--bg-color);
   color: var(--btn--text-color);
+  font-weight: 600;
 }
 
 .randomAllMobileBtn {
@@ -114,11 +115,15 @@
 }
 
 .CardItemsContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
-  padding: 30px 100px 30px 100px;
-  /* overflow-y: auto; */
+  display: flex;
+  flex:1;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0 20px 20px 20px;
 }
 
 .CardHorizonContainer {
@@ -130,27 +135,27 @@
 }
 
 @media (max-width: 1250px) {
-  .CardItemsContainer {
+  /* .CardItemsContainer {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 40px;
-  }
+  } */
 }
 
 @media (max-width: 790px) {
-  .CardItemsContainer {
+  /* .CardItemsContainer {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 40px;
-  }
+  } */
 
-  .CardItemsContainer {
+  /* .CardItemsContainer {
     padding: 0 50px;
-  }
+  } */
 }
 
 @media (max-width: 490px) {
-  .CardItemsContainer {
+  /* .CardItemsContainer {
     padding: 0 30px;
-  }
+  } */
 }
 
 .CardItem {

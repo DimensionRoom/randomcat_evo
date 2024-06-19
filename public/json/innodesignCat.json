@@ -1,6 +1,7 @@
 {
     "What": {
-      "title": "What-Outcome",
+      "title": "What",
+      "subTitle": "Outcome",
       "key": "What",
       "data": [
         {"th": "ออกแบบแฟชั่น", "en": "Design a fashion", "content": ""},
@@ -45,7 +46,8 @@
       ]
     },
     "Who": {
-      "title": "Who-User",
+      "title": "Who",
+      "subTitle": "User",
       "key": "Who",
       "data": [
         {"th": "สำหรับเด็กทารก", "en": "for Infant", "content": ""},
@@ -102,7 +104,8 @@
       ]
     },
     "Why": {
-      "title": "Why-Purpose",
+      "title": "Why",
+      "subTitle": "Purpose",
       "key": "Why",
       "data": [
         {"th": "เพื่อพัฒนาคุณภาพชีวิต", "en": "that improves the quality of life", "content": ""},
@@ -134,7 +137,8 @@
       ]
     },
     "When": {
-      "title": "When-Situation",
+      "title": "When",
+      "subTitle": "Situation",
       "key": "When",
       "data": [
         {"th": "เมื่อฉุกเฉิน", "en": "for emergency", "content": ""},
@@ -163,7 +167,8 @@
       ]
     },
     "Where": {
-      "title": "Where-Place",
+      "title": "Where",
+      "subTitle": "Place",
       "key": "Where",
       "data": [
         {"th": "ที่บ้าน", "en": "at home", "content": ""},
@@ -191,7 +196,8 @@
       ]
     },
     "How": {
-      "title": "How-Material",
+      "title": "How",
+      "subTitle": "Material",
       "key": "How",
       "data": [
         {"th": "โดยใช้วัสดุที่เป็นแก้ว", "en": "by using glass", "content": ""},

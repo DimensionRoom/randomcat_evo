@@ -7,6 +7,8 @@ import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
+import SiteLogo from '@/public/svgs/siteLogo';
+import CystalIcon from '@/public/svgs/components/PhysicalCard/cystal';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -19,10 +21,12 @@ const mitr = Mitr({
 
 
 export type Props = {
-  setFlippedCards?: React.Dispatch<React.SetStateAction<number>> ;
-  className?: string;
+  setFlippedCards?: React.Dispatch<React.SetStateAction<number>>;
+  color?: string;
   locale?: string;
   title: string;
+  subTitle: string;
+  categoryName: string | undefined;
   itemKey: string;
   headingContent: string;
   content: string;
@@ -34,10 +38,12 @@ export type Props = {
 }
 
 const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
-  setFlippedCards = () => {},
-  className = '',
+  setFlippedCards = () => { },
+  color = '',
   locale = 'en',
   title = '-',
+  subTitle = '',
+  categoryName = '',
   itemKey,
   headingContent = '-',
   content = '-',
@@ -69,47 +75,43 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
     setFlipContent(!flipContent);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
-    }else{
+    } else {
       setFlippedCards((prev) => prev - 1);
     }
   };
 
   return (
-    <div ref={ref} className={`${styles.CardItem} ${styles[className]} ${flipContent ? styles.CardFliped : null}`} onClick={() => handleCardClick('back')}>
-          <div className={styles.CardFront}>
+    <div ref={ref} className={`${styles.CardItem} ${styles[color]} ${flipContent ? styles.CardFliped : styles.CardNoneFliped}`} onClick={() => handleCardClick('back')}>
+      <div className={styles.CardFront}>
         <div className={styles.CardItemActionStart}>
+          <div className={styles.TitleGroup}>
+            {/* <CrystalIcon color={color} width={20} height={20} /> */}
+            <div className={styles.CardCystal}/>
+            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle ? `-${subTitle}` : ''}</p>
+          </div>
           <div onClick={handleLockClick} className={styles.IconContainer}>
             {lockContent ? <KeyLockIcon className={styles.IconLock} width={20} height={20} />
               : <KeyUnlockIcon className={styles.IconUnLock} width={20} height={20} />}
           </div>
         </div>
-        <div className={styles.CardItemContent} onClick={() => handleCardClick('front')}>
-          <div className={styles.CardTextContainer}>
-            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
+        <div className={`${styles.CardItemContent}`}>
+          <div className={`${styles.CardTextContainer} ${content ? styles.HaveContent : styles.NonContent}`}>
             <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
           </div>
-          <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
+          <div className={`${styles.CardItemBodyContent}`}>
             <p className={`${styles.ExpandText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{content}</p>
           </div>
         </div>
-        <div onClick={handleExpandClick} className={`
-        ${styles.CardItemActionContent} 
-        ${expanded ? styles.Expanded : styles.NonExpanded} 
-        ${content ? styles.HaveContent : styles.NonContent}`}>
-          <div className={`${styles.IconContainer} ${lockContent ? styles.actionDisable : null}`}>
-            <ExpandArrowIcon className={!content ? styles.IconExpandArrowDisabled : styles.IconExpandArrow} width={20} height={20} disabled={!content ? true : false} />
-          </div>
-        </div>
-        <div onClick={onClick} className={styles.CardItemActionEnd}>
-          <div className={`${styles.IconContainer} ${lockContent ? styles.actionDisable : null}`}>
-            {lockContent ? <RerenderIcon className={styles.IconUnLock} width={20} height={20} />
-              : <RerenderIcon className={styles.IconLock} width={20} height={20} />}
-          </div>
+        <div className={styles.CardItemActionEnd}>
+          <FlatBtn className={styles.flipBtn} disabled={lockContent} style={{ width: 80 }} text="Flip" onClick={() => handleCardClick('front')} />
+          <FlatBtn className={styles.randomBtn} disabled={lockContent} style={{ width: 80 }} text="Random" onClick={onClick} />
         </div>
       </div>
       <div className={styles.CardBack}>
-        <div className={styles.CardItemContent} style={{ flex: 1, alignItems: 'center' }}>
-          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
+        <div className={styles.CardItemContent}>
+          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title.toUpperCase()}</p>
+          <p className={`${styles.CardSubTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{subTitle.toUpperCase()}</p>
+          <p className={`${styles.CardCatName} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{categoryName}</p>
         </div>
       </div>
     </div>

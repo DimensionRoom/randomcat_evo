@@ -23,6 +23,7 @@ export type Props = {
   className?: string;
   locale?: string;
   title: string;
+  subTitle: string;
   itemKey: string;
   headingContent: string;
   content: string;
@@ -37,7 +38,8 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
   setFlippedCards = () => {},
   className = '',
   locale = 'en',
-  title = '-',
+  title = '',
+  subTitle = '',
   itemKey,
   headingContent = '-',
   content = '-',
@@ -87,7 +89,7 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
         </div>
         <div className={styles.CardItemContent} onClick={() => handleCardClick('front')}>
           <div className={styles.CardTextContainer}>
-            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
+            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle?`-${subTitle}`:''}</p>
             <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
           </div>
           <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
@@ -111,7 +113,7 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
       </div>
       <div className={styles.CardBack}>
         <div className={styles.CardItemContent} style={{ flex: 1, alignItems: 'center' }}>
-          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}</p>
+          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle?`-${subTitle}`:''}</p>
         </div>
       </div>
     </div>

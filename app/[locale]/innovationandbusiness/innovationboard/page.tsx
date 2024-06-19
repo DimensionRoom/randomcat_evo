@@ -35,6 +35,7 @@ type JSONData = {
 
 interface Item {
   title: string;
+  subTitle: string;
   catItemId: string;
   topic: string;
   content: string;
@@ -70,8 +71,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: 'INNOVATION',
-      nameEx: 'DESIGN',
+      name: 'Innovation',
+      nameEx: 'Design',
       fullDescription: '"Unleash your creativity with ThinkTool."',
       catItemId: 'innodesign'
     },
@@ -82,6 +83,12 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       catItemId: 'gamification'
     }
   ]);
+  const fullCategoryName = subCategory.map((subCat) => {
+    // searchParamsInfo === subCat.catItemId ? subCat.name : ''
+    if (searchParamsInfo === subCat.catItemId) {
+      return subCat.name + ' ' + subCat.nameEx
+    }
+  });
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -113,11 +120,12 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   };
 
   const getRandomItem = (category: any): Item => {
-    const { title, key, data } = category;
+    const { title, subTitle, key, data } = category;
     const randomIndex = Math.floor(Math.random() * data.length);
     const randomData = data[randomIndex];
     return {
       title: `${title}`,
+      subTitle: `${subTitle}`,
       catItemId: key,
       topic: randomData[locale],
       content: randomData.content
@@ -255,12 +263,12 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
           <div className={styles.HeaderCatContainer}>
             <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
               {subCategory.map((subCat) => (
-                searchParamsInfo === subCat.catItemId ? subCat.name : ''
+                searchParamsInfo === subCat.catItemId ? subCat.name.toUpperCase() : ''
               ))}
             </p>
             <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
               {subCategory.map((subCat) => (
-                searchParamsInfo === subCat.catItemId ? subCat.nameEx : ''
+                searchParamsInfo === subCat.catItemId ? subCat.nameEx.toUpperCase() : ''
               ))}
             </p>
           </div>
@@ -282,9 +290,11 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   key={index}
                   ref={(el) => physicalRefs.current[index] = el}
                   itemKey={cardItem.catItemId}
-                  className={'ThemeBlue'}
+                  color={'ThemeBlue'}
                   locale={locale}
                   title={cardItem.title}
+                  subTitle={cardItem.subTitle}
+                  categoryName={fullCategoryName[0]}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedPhysicalCards}
@@ -305,6 +315,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   className={'ThemeBlue'}
                   locale={locale}
                   title={cardItem.title}
+                  subTitle={cardItem.subTitle}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedCards}
