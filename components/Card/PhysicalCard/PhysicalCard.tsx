@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, forwardRef } from 'react'
+import React, { useState, forwardRef,useEffect } from 'react'
 import { Quicksand, Mitr } from "next/font/google";
 import styles from './PhysicalCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
@@ -33,6 +33,7 @@ export type Props = {
   expand?: boolean;
   lock?: boolean;
   flip?: boolean;
+  delay?: number;
   onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
 }
@@ -50,6 +51,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   expand = false,
   lock = false,
   flip = true,
+  delay = 200,
   onLockContentChange,
   onClick,
   ...props
@@ -58,6 +60,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   const [expanded, setExpanded] = useState<boolean>(expand);
   const [lockContent, setLockContent] = useState<boolean>(lock);
   const [flipContent, setFlipContent] = useState<boolean>(flip);
+  const [isAnimated, setIsAnimated] = useState(true);
 
   const handleLockClick = async () => {
     setLockContent((prev) => !prev);
@@ -80,8 +83,16 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
     }
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsAnimated(true);
+    }, delay);
+
+    return () => clearTimeout(timeout);
+  }, [delay]);
+
   return (
-    <div ref={ref} className={`${styles.CardItem} ${styles[color]} ${flipContent ? styles.CardFliped : styles.CardNoneFliped}`} onClick={() => handleCardClick('back')}>
+    <div ref={ref} className={`${styles.CardItem} ${styles[color]} ${flipContent ? styles.CardFliped : styles.CardNoneFliped} ${isAnimated ? styles.fadeInFromTop : ''}`} onClick={() => handleCardClick('back')}>
       <div className={styles.CardFront}>
         <div className={styles.CardItemActionStart}>
           <div className={styles.TitleGroup}>

@@ -22,8 +22,8 @@
   --border-color: #ffffff;
   --box-shadow-hover: #1D2B84;
   --box-shadow-active: #0000005c;
-  --text-color-title: #298edc;
-  --text-color-title-ex: #4ca9f0;
+  --text-color-title: #1D2B84;
+  --text-color-title-ex: #3252a4;
   --text-color-content: #0D93FF;
   --btn--bg-color: #298edc;
   --btn--text-color: #ffffff;
@@ -49,10 +49,11 @@
 
 .randomSection {
   display: flex;
-  min-height: calc(100vh - 260px);
+  /* min-height: calc(100vh - 260px); */
   flex-direction: column;
   flex: 1;
   /* overflow-y: auto; */
+  padding: 20px 0;
 }
 
 .HeaderCatContainer {
@@ -118,10 +119,11 @@
 
 .CardItemsContainer {
   display: flex;
-  flex:1;
+  flex: 1;
   justify-content: center;
   align-items: center;
   overflow-x: auto;
+  overflow: visible;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 16px;
   width: 100%;
@@ -241,6 +243,10 @@
     display: none;
   }
 
+  .randomSection {
+    padding: 0;
+  }
+
   .stepSection {
     padding: 40px 20px;
   }
@@ -290,6 +296,7 @@
 
   .randomSection {
     min-height: auto;
+    padding: 0;
   }
 
   .stepSection {

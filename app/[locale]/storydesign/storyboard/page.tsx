@@ -292,6 +292,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   setFlippedCards={setFlippedPhysicalCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
+                  delay={index * 200}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
               ))}

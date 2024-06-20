@@ -300,6 +300,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   setFlippedCards={setFlippedPhysicalCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
+                  delay={index * 200}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
               ))}

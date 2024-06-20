@@ -23,6 +23,7 @@
   margin: 0 8px;
   box-shadow: -5px 5px 8px 2px rgb(0 0 0 / 30%);
   scroll-snap-align: start;
+
   /* margin: auto; */
 }
 
@@ -30,6 +31,8 @@
   transform: rotateY(180deg);
   border: 0;
 }
+
+
 
 .CardFront {
   cursor: pointer;
@@ -40,6 +43,7 @@
   /* min-height: 50px; */
   /* -webkit-backface-visibility: hidden;
   backface-visibility: hidden; */
+
 }
 
 .CardBack {
@@ -129,6 +133,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 5px 5px 8px 2px rgb(0 0 0 / 10%);
+}
+
+.CardItem.CardNoneFliped.fadeInFromTop {
+  animation: fadeInFromTop 1s ease-out;
 }
 
 .CardItem.CardFliped .CardBack .CardItemContent {
@@ -394,4 +402,15 @@
 
 .CardItemActionEnd .IconContainer:active.actionDisable .IconLock path {
   opacity: 0.2;
+}
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
