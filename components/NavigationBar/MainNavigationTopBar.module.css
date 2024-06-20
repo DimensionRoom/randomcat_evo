@@ -8,7 +8,7 @@
   --background-color: #ffffff;
   --logo-color: #691392;
   display: flex;
-  flex: 1;
+  /* flex: 1; */
   flex-direction: column;
 
 }

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, forwardRef,useEffect } from 'react'
+import React, { useState, forwardRef, useEffect } from 'react'
 import { Quicksand, Mitr } from "next/font/google";
 import styles from './PhysicalCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
@@ -97,8 +97,15 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
         <div className={styles.CardItemActionStart}>
           <div className={styles.TitleGroup}>
             {/* <CrystalIcon color={color} width={20} height={20} /> */}
-            <div className={styles.CardCystal}/>
-            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle ? `-${subTitle}` : ''}</p>
+            <div className={styles.CardCystal} />
+            {categoryName === 'Innovation Design' ?
+              <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>
+                {title}{subTitle ? `-${subTitle}` : ''}
+              </p> :
+              <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>
+                {subTitle ? `${subTitle}` : ''}
+              </p>
+            }
           </div>
           <div onClick={handleLockClick} className={styles.IconContainer}>
             {lockContent ? <KeyLockIcon className={styles.IconLock} width={20} height={20} />

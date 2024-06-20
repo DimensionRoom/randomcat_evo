@@ -63,7 +63,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   }, [locale]);
 
   if (loading) {
-    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 160px)', justifyContent: 'center', alignItems: 'center' }}>
+    return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Player
         autoplay
         loop

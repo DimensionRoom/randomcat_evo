@@ -203,7 +203,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
 
 
   if (loading) {
-    return <div style={{ display: 'flex', flex: 1, height: 'calc(100vh - 80px)', justifyContent: 'center', alignItems: 'center' }}>
+    return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Player
         autoplay
         loop

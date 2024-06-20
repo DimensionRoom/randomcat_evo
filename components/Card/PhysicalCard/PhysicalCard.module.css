@@ -210,6 +210,10 @@
   font-weight: 600;
 }
 
+.CardItemActionStart .IconContainer {
+  margin: 0px 5px 0px 0px;
+}
+
 .CardItemActionEnd {
   display: flex;
   flex: 1;
