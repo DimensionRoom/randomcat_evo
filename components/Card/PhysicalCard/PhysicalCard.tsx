@@ -109,9 +109,9 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
       </div>
       <div className={styles.CardBack}>
         <div className={styles.CardItemContent}>
-          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title.toUpperCase()}</p>
-          <p className={`${styles.CardSubTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{subTitle.toUpperCase()}</p>
-          <p className={`${styles.CardCatName} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{categoryName}</p>
+          <p className={`${styles.CardTitle}`}>{title.toUpperCase()}</p>
+          <p className={`${styles.CardSubTitle}`}>{subTitle.toUpperCase()}</p>
+          <p className={`${styles.CardCatName}`}>{categoryName}</p>
         </div>
       </div>
     </div>

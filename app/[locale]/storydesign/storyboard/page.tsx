@@ -119,8 +119,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       title: `${title}`,
       subTitle: `${subTitle}`,
       catItemId: key,
-      topic: randomData[locale],
-      content: `${randomData[`content_${locale}`]}`
+      topic: randomData['en'],
+      content: `${randomData[`content_${'en'}`]}`
     };
   };
 
@@ -282,7 +282,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   ref={(el) => physicalRefs.current[index] = el}
                   itemKey={cardItem.catItemId}
                   color={'ThemePurple'}
-                  locale={locale}
+                  // locale={locale}
+                  locale={'en'}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -304,7 +305,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   ref={(el) => cardRefs.current[index] = el}
                   itemKey={cardItem.catItemId}
                   className={'ThemePurple'}
-                  locale={locale}
+                  // locale={locale}
+                  locale={'en'}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   headingContent={cardItem.topic}

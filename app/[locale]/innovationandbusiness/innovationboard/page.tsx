@@ -43,7 +43,7 @@ interface Item {
 interface Category {
   title: string;
   key: string;
-  data: { th: string; en: string; content: string }[];
+  data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
 const i18nNamespaces = ['innovationboard'];
@@ -128,7 +128,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       subTitle: `${subTitle}`,
       catItemId: key,
       topic: randomData[locale],
-      content: randomData.content
+      content: `${randomData[`content_${locale}`]}`
     };
   };
 

@@ -42,7 +42,7 @@ interface Item {
 interface Category {
   title: string;
   key: string;
-  data: { th: string; en: string; content: string }[];
+  data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
 const i18nNamespaces = ['innovationboard'];
@@ -118,8 +118,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       title: `${title}`,
       subTitle: `${subTitle}`,
       catItemId: key,
-      topic: randomData[locale],
-      content: randomData.content
+      topic: randomData['en'],
+      content: `${randomData[`content_${'en'}`]}`
     };
   };
 
@@ -281,7 +281,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   ref={(el) => physicalRefs.current[index] = el}
                   itemKey={cardItem.catItemId}
                   color={'ThemePink'}
-                  locale={locale}
+                  // locale={locale}
+                  locale={'en'}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -303,7 +304,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   ref={(el) => cardRefs.current[index] = el}
                   itemKey={cardItem.catItemId}
                   className={'ThemePink'}
-                  locale={locale}
+                  // locale={locale}
+                  locale={'en'}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   headingContent={cardItem.topic}
