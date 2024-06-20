@@ -317,6 +317,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   locale={locale}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
+                  categoryName={fullCategoryName[0]}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedCards}

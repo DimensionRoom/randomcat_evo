@@ -106,7 +106,7 @@
 
 .ThemePink {
   --card-background-color: linear-gradient(130deg, #ffffff, #ffffff);
-  --card-background-color-flip: linear-gradient(130deg, #C21778, #C21778);
+  --card-background-color-flip: linear-gradient(130deg, #EB2194, #EB2194);
   --card-text-color: #C21778;
   --card-text-color-flip: #ffffff;
   --card-btn-background-color: #F61394;

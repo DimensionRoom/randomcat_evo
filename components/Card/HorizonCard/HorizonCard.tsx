@@ -19,11 +19,12 @@ const mitr = Mitr({
 
 
 export type Props = {
-  setFlippedCards?: React.Dispatch<React.SetStateAction<number>> ;
+  setFlippedCards?: React.Dispatch<React.SetStateAction<number>>;
   className?: string;
   locale?: string;
   title: string;
   subTitle: string;
+  categoryName: string | undefined;
   itemKey: string;
   headingContent: string;
   content: string;
@@ -35,11 +36,12 @@ export type Props = {
 }
 
 const HorizonCard = forwardRef<HTMLDivElement, Props>(({
-  setFlippedCards = () => {},
+  setFlippedCards = () => { },
   className = '',
   locale = 'en',
   title = '',
   subTitle = '',
+  categoryName = '',
   itemKey,
   headingContent = '-',
   content = '-',
@@ -72,11 +74,11 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
     setFlipContent(!flipContent);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
-    }else{
+    } else {
       setFlippedCards((prev) => prev - 1);
     }
   };
-  
+
 
   return (
     <div ref={ref} className={`${styles.CardItem} ${styles[className]} ${flipContent ? styles.CardFliped : null}`} onClick={() => handleCardClick('back')}>
@@ -89,7 +91,10 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
         </div>
         <div className={styles.CardItemContent} onClick={() => handleCardClick('front')}>
           <div className={styles.CardTextContainer}>
-            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle?`-${subTitle}`:''}</p>
+            {categoryName === 'Innovation Design' ?
+            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle ? `-${subTitle}` : ''}</p>
+            : <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{subTitle ? `${subTitle}` : ''}</p>
+          }
             <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
           </div>
           <div className={`${styles.CardItemBodyContent} ${expanded ? styles.Expanded : styles.NonExpanded} `}>
@@ -113,7 +118,14 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
       </div>
       <div className={styles.CardBack}>
         <div className={styles.CardItemContent} style={{ flex: 1, alignItems: 'center' }}>
-          <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{title}{subTitle?`-${subTitle}`:''}</p>
+          {categoryName === 'Innovation Design' ?
+            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>
+              {title}{subTitle ? `-${subTitle}` : ''}
+            </p> :
+            <p className={`${styles.CardTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>
+              {subTitle ? `${subTitle}` : ''}
+            </p>
+          }
         </div>
       </div>
     </div>

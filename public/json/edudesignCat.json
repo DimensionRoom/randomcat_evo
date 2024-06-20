@@ -1,7 +1,7 @@
 {
   "Subject": {
-    "title": "Subject",
-    "subTitle": "And Skill",
+    "title": "",
+    "subTitle": "Subject And Skill",
     "key": "Subject",
     "data": [
       {"th": "วิชาภาษาอังกฤษ", "en": "English", "content_th": "","content_en": ""},
@@ -78,8 +78,8 @@
     ]
   },
   "USP": {
-    "title": "Unique",
-    "subTitle": "Selling Point",
+    "title": "",
+    "subTitle": "Unique Selling Point",
     "key": "USP",
     "data": [
       {"th": "Personalize", "en": "Personalize", "content_th": "","content_en": ""},

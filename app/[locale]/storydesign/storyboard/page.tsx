@@ -310,6 +310,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   locale={'en'}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
+                  categoryName={fullCategoryName[0]}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedCards}
