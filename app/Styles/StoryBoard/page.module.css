@@ -182,10 +182,10 @@
 .stepSection {
   display: flex;
   flex: 1;
-  padding: 100px 150px;
+  padding: 20px 25%;
   /* background: var(--step-bg-color); */
   background-image: url('../../../public/svgs/svg/footerLayer.svg'),var(--step-bg-color);
-  background-position: 100% 100%; 
+  background-position: 100% 80%; 
   background-repeat: no-repeat; 
   background-size: cover;
 }
@@ -201,7 +201,7 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 }
 
 .stepSection .itemsContainer .item .itemHeader {
