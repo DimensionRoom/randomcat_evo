@@ -97,6 +97,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
+  const [flipCardLimit, setFlipCardLimit] = useState<number>(4);
 
   const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
     if (newLockContent) {
@@ -141,26 +142,33 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       }
     }).filter(item => item !== undefined) as Item[];
     setRandomItems(newRandomItems);
-    if (flippedCards == 0 || flippedPhysicalCards == 0) {
-      trigerCardClick();
+    if (flippedCards == items.length) {
+      trigerCardClick('card');
+    }
+    if (flippedPhysicalCards == items.length) {
+      trigerCardClick('physical');
     }
   };
 
-  const trigerCardClick = () => {
-    cardRefs.current.forEach((ref, index) => {
-      setTimeout(() => {
-        if (ref) {
-          ref.click();
-        }
-      }, index * 150);
-    });
-    physicalRefs.current.forEach((ref, index) => {
-      setTimeout(() => {
-        if (ref) {
-          ref.click();
-        }
-      }, index * 150);
-    });
+  const trigerCardClick = (type: string) => {
+    if (type === 'card') {
+      cardRefs.current.forEach((ref, index) => {
+        setTimeout(() => {
+          if (ref) {
+            ref.click();
+          }
+        }, index * 150);
+      });
+    }
+    if (type === 'physical') {
+      physicalRefs.current.forEach((ref, index) => {
+        setTimeout(() => {
+          if (ref) {
+            ref.click();
+          }
+        }, index * 150);
+      });
+    }
   }
 
   const generateRandomEachItem = (key: string) => {
@@ -198,6 +206,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       }
     }
     setRandomItems(items);
+    setFlippedCards(items.length);
+    setFlippedPhysicalCards(items.length);
   }, []);
 
 
@@ -293,6 +303,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
                   delay={index * 200}
+                  flipLimit={flipCardLimit}
+                  flippedCards={flippedPhysicalCards}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
               ))}
@@ -316,6 +328,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   setFlippedCards={setFlippedCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
+                  flipLimit={flipCardLimit}
+                  flippedCards={flippedCards}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
               ))}

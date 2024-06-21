@@ -96,6 +96,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
+  const [flipCardLimit, setFlipCardLimit] = useState<number>(4);
 
   const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
     if (newLockContent) {
@@ -140,26 +141,33 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       }
     }).filter(item => item !== undefined) as Item[];
     setRandomItems(newRandomItems);
-    if (flippedCards == 0 || flippedPhysicalCards == 0) {
-      trigerCardClick();
+    if (flippedCards == items.length) {
+      trigerCardClick('card');
+    }
+    if (flippedPhysicalCards == items.length) {
+      trigerCardClick('physical');
     }
   };
 
-  const trigerCardClick = () => {
-    cardRefs.current.forEach((ref, index) => {
-      setTimeout(() => {
-        if (ref) {
-          ref.click();
-        }
-      }, index * 150);
-    });
-    physicalRefs.current.forEach((ref, index) => {
-      setTimeout(() => {
-        if (ref) {
-          ref.click();
-        }
-      }, index * 150);
-    });
+  const trigerCardClick = (type: string) => {
+    if (type === 'card') {
+      cardRefs.current.forEach((ref, index) => {
+        setTimeout(() => {
+          if (ref) {
+            ref.click();
+          }
+        }, index * 150);
+      });
+    }
+    if (type === 'physical') {
+      physicalRefs.current.forEach((ref, index) => {
+        setTimeout(() => {
+          if (ref) {
+            ref.click();
+          }
+        }, index * 150);
+      });
+    }
   }
 
   const generateRandomEachItem = (key: string) => {
@@ -197,6 +205,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       }
     }
     setRandomItems(items);
+    setFlippedCards(items.length);
+    setFlippedPhysicalCards(items.length);
   }, []);
 
 
@@ -219,7 +229,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-         <div className={`${manivigationStyles.MobileHeader}`}>
+      <div className={`${manivigationStyles.MobileHeader}`}>
         <header className={`${manivigationStyles.LayoutHeader} ${manivigationStyles['ThemePink']}`}>
           <div className={manivigationStyles.HeaderTopContainer}>
             <Link href="/" className={styles.textLink}>
@@ -249,7 +259,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
         </header>
       </div>
       <main className={styles.main}>
-      <div className={styles.HeaderSection}>
+        <div className={styles.HeaderSection}>
           <div className={styles.HeaderCatContainer}>
             <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
               {subCategory.map((subCat) => (
@@ -292,6 +302,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
                   delay={index * 200}
+                  flipLimit={flipCardLimit}
+                  flippedCards={flippedPhysicalCards}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
               ))}
@@ -315,6 +327,8 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
                   setFlippedCards={setFlippedCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
+                  flipLimit={flipCardLimit}
+                  flippedCards={flippedCards}
                   onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
                 />
               ))}

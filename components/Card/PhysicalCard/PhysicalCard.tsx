@@ -32,6 +32,8 @@ export type Props = {
   content: string;
   expand?: boolean;
   lock?: boolean;
+  flipLimit?: number;
+  flippedCards?: number;
   flip?: boolean;
   delay?: number;
   onLockContentChange: (key: string, lockContent: boolean) => void;
@@ -51,6 +53,8 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   expand = false,
   lock = false,
   flip = true,
+  flipLimit = 0,
+  flippedCards = 0,
   delay = 200,
   onLockContentChange,
   onClick,
@@ -75,7 +79,11 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   const handleCardClick = (side: string) => {
     if (lockContent) return;
     if (side === 'back' && !flipContent) return;
-    setFlipContent(!flipContent);
+    console.log(flippedCards,flipLimit)
+    if (side === 'front'){
+      if (flippedCards >= flipLimit) return;
+    } 
+    setFlipContent((prev) => !prev);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
     } else {
