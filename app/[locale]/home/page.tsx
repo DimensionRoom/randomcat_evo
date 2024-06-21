@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
+import { sendGAEvent } from '@next/third-parties/google'
 import Link from 'next/link'
 import initTranslations from '../i18n';
 import Image from 'next/image'
@@ -290,6 +291,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <Link
                 href={{ pathname: `innovationandbusiness/innovationboard`, query: { info: 'innodesign' } }}
+                onClick={() => sendGAEvent({ event: 'goTo', value: 'innodesign' })}
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/inno_card.png" width={300} height={300} alt='' />
@@ -307,6 +309,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <Link
                 href={{ pathname: `storydesign/storyboard`, query: { info: 'storydesign' } }}
+                onClick={() => sendGAEvent({ event: 'goTo', value: 'storydesign' })}
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/story_card.png" width={300} height={300} alt='' />
@@ -323,6 +326,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <Link
                 href={{ pathname: `edudesign/educationboard`, query: { info: 'edudesign' } }}
+                onClick={() => sendGAEvent({ event: 'goTo', value: 'edudesign' })}
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/edu_card.png" width={300} height={300} alt='' />

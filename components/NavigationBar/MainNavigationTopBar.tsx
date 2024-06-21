@@ -3,6 +3,7 @@ import React, { use, useState, useEffect } from 'react'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+import { sendGAEvent } from '@next/third-parties/google'
 import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'
@@ -58,7 +59,7 @@ const MainNavigationTopBar = ({
       shortKey: 'inno',
       url: '/innovationandbusiness',
       theme: 'ThemeBlue',
-      header:'false'
+      header: 'false'
     },
     {
       name: 'Story Design',
@@ -69,7 +70,7 @@ const MainNavigationTopBar = ({
       shortKey: 'story',
       url: '/storydesign',
       theme: 'ThemePurple',
-      header:'false'
+      header: 'false'
     },
     {
       name: 'Edu Design',
@@ -80,7 +81,7 @@ const MainNavigationTopBar = ({
       shortKey: 'edu',
       url: '/edudesign',
       theme: 'ThemePink',
-      header:'false'
+      header: 'false'
     }
   ];
 
@@ -162,7 +163,7 @@ const MainNavigationTopBar = ({
       {/* Desktop Size */}
       <div className={`${styles.DesktopHeader}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
-          <Link href="/" className={styles.textLink}>
+          <Link href="/" onClick={() => sendGAEvent({ event: 'goTo', value: 'home' })} className={styles.textLink}>
             <div className={styles.BrandContainer}>
               <div className={styles.LogoContainer}>
                 {logo}
@@ -176,6 +177,7 @@ const MainNavigationTopBar = ({
                 <React.Fragment key={`menuItem${index}`}>
                   <Link
                     href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
+                    onClick={() => sendGAEvent({ event: 'goTo', value: `${menu.shortKey}design` })}
                     className={styles.textLink}
                   >
                     <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
@@ -218,7 +220,7 @@ const MainNavigationTopBar = ({
       <div className={`${popCurrentPathname.some(item => item === 'home') ? styles.SimpleMobileHeader : styles.SimpleMobileHeaderHide}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
-            <Link href="/" className={styles.textLink}>
+            <Link href="/" onClick={() => sendGAEvent({ event: 'goTo', value: 'home' })} className={styles.textLink}>
               <div className={styles.BrandContainer}>
                 <div className={styles.LogoContainer}>
                   {logo}
@@ -228,20 +230,20 @@ const MainNavigationTopBar = ({
           </div>
         </header>
       </div>
-        <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
-          <input className={styles.ExpandMenu}
-            id="ExpandMenuMobile"
-            name="ExpandMenuMobile"
-            type="checkbox"
-            checked={isExpandMenu}
-            onChange={(e) => handleExpandMenu(e.target.checked)}
-          />
-          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenuMobile">
-            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar1}`}></div>
-            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar2}`}></div>
-            <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar3}`}></div>
-          </label>
-        </div>
+      <div className={`${styles.TopNavigationExpand} ${styles[currentTheme]}`}>
+        <input className={styles.ExpandMenu}
+          id="ExpandMenuMobile"
+          name="ExpandMenuMobile"
+          type="checkbox"
+          checked={isExpandMenu}
+          onChange={(e) => (handleExpandMenu(e.target.checked))}
+        />
+        <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenuMobile">
+          <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar1}`}></div>
+          <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar2}`}></div>
+          <div className={`${isExpandMenu ? styles.barActive : null} ${styles.bar} ${styles.bar3}`}></div>
+        </label>
+      </div>
       {
         isExpandMenu && (
           <div className={styles.ExpandMenuContainer}>
@@ -253,7 +255,7 @@ const MainNavigationTopBar = ({
                     // href={menu.url}
                     href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
                     className={styles.textLink}
-                    onClick={() => handleExpandMenu(false)}
+                    onClick={() => (handleExpandMenu(false), sendGAEvent({ event: 'goTo', value: `${menu.shortKey}design` }))}
                   >
                     <div className={styles.ExpandMenuContentItem}>
                       <p className={`${styles.MenuText} ${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuTextActive : ''}`}>
