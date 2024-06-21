@@ -1,4 +1,4 @@
-export const GA_TRACKING_ID = 'G-36ZYRJ7Q12'; // Replace with your tracking ID
+export const GA_TRACKING_ID = 'G-20SGT8JBK6'; // Replace with your tracking ID
 
 export const pageview = (url: string) => {
   window.gtag('config', GA_TRACKING_ID, {
