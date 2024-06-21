@@ -50,11 +50,11 @@
 
 .randomSection {
   display: flex;
-  /* min-height: calc(100vh - 260px); */
+  min-height: calc(100vh - 260px);
   flex-direction: column;
   flex: 1;
   padding: 20px 0;
-  /* overflow-y: auto; */
+  animation: scale-in-hor-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .HeaderCatContainer {
@@ -321,5 +321,22 @@
     background-position: 70% 70%; 
     background-repeat: no-repeat; 
     background-size: auto;
+  }
+}
+
+@keyframes scale-in-hor-left {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    opacity: 1;
   }
 }

@@ -23,7 +23,7 @@
   margin: 0 8px;
   box-shadow: -5px 5px 8px 2px rgb(0 0 0 / 30%);
   scroll-snap-align: start;
-
+  /* animation: fadeInFromTop 1s ease-out; */
   /* margin: auto; */
 }
 
@@ -135,9 +135,10 @@
   box-shadow: 5px 5px 8px 2px rgb(0 0 0 / 10%);
 }
 
+/* 
 .CardItem.CardNoneFliped.fadeInFromTop {
   animation: fadeInFromTop 1s ease-out;
-}
+} */
 
 .CardItem.CardFliped .CardBack .CardItemContent {
   color: var(--card-text-color-flip);
@@ -413,6 +414,7 @@
     opacity: 0;
     transform: translateY(-100px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
