@@ -324,7 +324,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <PointerIcon width={65} height={65} />
+                <PointerIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item1.title')}</p>
@@ -334,7 +334,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <LightbulbIcon width={65} height={65} />
+                <LightbulbIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item2.title')}</p>
@@ -344,7 +344,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <BookIcon width={65} height={65} />
+                <BookIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item3.title')}</p>

@@ -214,15 +214,15 @@
 
 .stepSection .itemsContainer .item .itemHeader .itemHeaderText {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 2.2em;
+  /* margin-bottom: 10px; */
+  font-size: 1.3em;
   font-weight: 700;
   color: var(--step-text-color-title);
 }
 
 .stepSection .itemsContainer .item .itemHeader .itemHeaderDetail {
   text-align: center;
-  font-size: 1.6em;
+  font-size: 1em;
   font-weight: lighter;
   color: var(--step-text-color-content);
 }
@@ -257,11 +257,11 @@
   }
 
   .stepSection .itemsContainer .item .itemHeader .itemHeaderText {
-    font-size: 2em;
+    font-size: 1.3em;
   }
 
   .stepSection .itemsContainer .item .itemHeader .itemHeaderDetail {
-    font-size: 1.4em;
+    font-size: 1em;
   }
 
   .stepSection .itemsContainer .item .itemIcon svg {
