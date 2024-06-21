@@ -2,11 +2,13 @@ import React, { ReactNode } from 'react';
 import type { Metadata } from "next";
 import { Quicksand, Mitr } from "next/font/google";
 import { dir } from 'i18next';
+import { GoogleAnalytics } from '@next/third-parties/google'
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
 import style from "../Styles/MovingBackground.module.css"
 import "../Styles/globals.css";
+import { GA_TRACKING_ID } from '@/utils/gtag';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -40,6 +42,7 @@ export default function RootLayout({
         />
         {children}
       </body>
+      <GoogleAnalytics gaId={GA_TRACKING_ID} />
     </html>
   );
 }
