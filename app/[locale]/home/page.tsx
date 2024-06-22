@@ -287,11 +287,10 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.toolsSection.subtitle')}</p>
           </div>
           <div className={styles.itemsContainer}>
-
             <div className={styles.item}>
               <Link
                 href={{ pathname: `innovationandbusiness/innovationboard`, query: { info: 'innodesign' } }}
-                onClick={() => sendGTMEvent({ event: 'goTo', value: 'innodesign' })}
+                className='toolsSectionInnoDesignLink'
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/inno_card.png" width={300} height={300} alt='' />
@@ -309,7 +308,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <Link
                 href={{ pathname: `storydesign/storyboard`, query: { info: 'storydesign' } }}
-                onClick={() => sendGTMEvent({ event: 'goTo', value: 'storydesign' })}
+                className='toolsSectionStoryDesignLink'
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/story_card.png" width={300} height={300} alt='' />
@@ -326,7 +325,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <Link
                 href={{ pathname: `edudesign/educationboard`, query: { info: 'edudesign' } }}
-                onClick={() => sendGTMEvent({ event: 'goTo', value: 'edudesign' })}
+                className='toolsSectionEduDesignLink'
               >
                 <div className={styles.itemImage}>
                   <Image className={styles.image} src="/image/edu_card.png" width={300} height={300} alt='' />

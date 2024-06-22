@@ -163,7 +163,7 @@ const MainNavigationTopBar = ({
       {/* Desktop Size */}
       <div className={`${styles.DesktopHeader}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
-          <Link href="/" onClick={() => sendGAEvent({ event: 'goTo', value: 'home' })} className={styles.textLink}>
+          <Link href="/" onClick={() => sendGAEvent({ event: 'goTo', value: 'home' })} className={`${styles.textLink} ${`homeLink`}`}>
             <div className={styles.BrandContainer}>
               <div className={styles.LogoContainer}>
                 {logo}
@@ -178,7 +178,7 @@ const MainNavigationTopBar = ({
                   <Link
                     href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
                     onClick={() => sendGAEvent({ event: 'goTo', value: `${menu.shortKey}design` })}
-                    className={styles.textLink}
+                    className={`${styles.textLink} ${`${menu.key}Link`}`}
                   >
                     <div className={`${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuActive : ''} ${styles.TopNavigationMenu}`}>
                       <p className={styles.MenuText}>
@@ -220,7 +220,7 @@ const MainNavigationTopBar = ({
       <div className={`${popCurrentPathname.some(item => item === 'home') ? styles.SimpleMobileHeader : styles.SimpleMobileHeaderHide}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
-            <Link href="/" onClick={() => sendGAEvent({ event: 'goTo', value: 'home' })} className={styles.textLink}>
+            <Link href="/" className={styles.textLink}>
               <div className={styles.BrandContainer}>
                 <div className={styles.LogoContainer}>
                   {logo}
@@ -255,7 +255,7 @@ const MainNavigationTopBar = ({
                     // href={menu.url}
                     href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
                     className={styles.textLink}
-                    onClick={() => (handleExpandMenu(false), sendGAEvent({ event: 'goTo', value: `${menu.shortKey}design` }))}
+                    onClick={() => (handleExpandMenu(false))}
                   >
                     <div className={styles.ExpandMenuContentItem}>
                       <p className={`${styles.MenuText} ${popCurrentPathname.some(item => item === menu.url.replace('/', '')) ? styles.MenuTextActive : ''}`}>
