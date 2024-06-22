@@ -216,7 +216,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       }
     }
     setRandomItems(items);
-    
+
     setFlippedCards(items.length);
     setFlippedPhysicalCards(items.length);
   }, []);
@@ -244,7 +244,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header className={`${manivigationStyles.LayoutHeader} ${manivigationStyles['ThemeBlue']}`}>
           <div className={manivigationStyles.HeaderTopContainer}>
-            <Link href="/" className={styles.textLink}>
+            <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
               <div className={manivigationStyles.BrandContainer}>
                 <div className={manivigationStyles.LogoContainer}>
                   <SiteLogo />

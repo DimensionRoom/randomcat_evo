@@ -233,7 +233,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header className={`${manivigationStyles.LayoutHeader} ${manivigationStyles['ThemePurple']}`}>
           <div className={manivigationStyles.HeaderTopContainer}>
-            <Link href="/" className={styles.textLink}>
+            <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
               <div className={manivigationStyles.BrandContainer}>
                 <div className={manivigationStyles.LogoContainer}>
                   <SiteLogo />

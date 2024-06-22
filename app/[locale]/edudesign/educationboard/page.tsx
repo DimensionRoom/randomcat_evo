@@ -232,7 +232,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header className={`${manivigationStyles.LayoutHeader} ${manivigationStyles['ThemePink']}`}>
           <div className={manivigationStyles.HeaderTopContainer}>
-            <Link href="/" className={styles.textLink}>
+            <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
               <div className={manivigationStyles.BrandContainer}>
                 <div className={manivigationStyles.LogoContainer}>
                   <SiteLogo />
