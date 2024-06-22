@@ -105,7 +105,7 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
-  const [flipCardLimit, setFlipCardLimit] = useState<number>(4);
+  const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
 
 
   const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
@@ -216,9 +216,9 @@ export default function InnovationBoard({ params: { locale } }: { params: { loca
       }
     }
     setRandomItems(items);
-
     setFlippedCards(items.length);
     setFlippedPhysicalCards(items.length);
+    setFlipCardLimit(items.length);
   }, []);
 
 

@@ -3,12 +3,14 @@ import type { Metadata } from "next";
 import { Quicksand, Mitr } from "next/font/google";
 import { dir } from 'i18next';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
+import { GA_TRACKING_ID, GTM_TRACKING_ID } from '@/utils/gtag';
+import { ToastProvider , useToast} from '@/contexts/ToastContext';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
 import style from "../Styles/MovingBackground.module.css"
 import "../Styles/globals.css";
-import { GA_TRACKING_ID, GTM_TRACKING_ID } from '@/utils/gtag';
+
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -36,11 +38,14 @@ export default function RootLayout({
   return (
     <html lang={locale} dir={dir(locale)} style={{ scrollBehavior: 'smooth' }}>
       <body className={quicksand.className}>
+        <ToastProvider>
         <MainNavigationTopBar
           locale={locale}
           logo={<SiteLogo width={45} height={45} />}
         />
+        
         {children}
+        </ToastProvider>
       </body>
       {/* <GoogleAnalytics gaId={GA_TRACKING_ID} /> */}
       <GoogleTagManager gtmId={GTM_TRACKING_ID} />

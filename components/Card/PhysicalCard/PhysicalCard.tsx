@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, forwardRef, useEffect } from 'react'
 import { Quicksand, Mitr } from "next/font/google";
+import { useToast } from '@/contexts/ToastContext';
 import styles from './PhysicalCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
@@ -60,7 +61,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   onClick,
   ...props
 }, ref): JSX.Element => {
-
+  const { showToast } = useToast();
   const [expanded, setExpanded] = useState<boolean>(expand);
   const [lockContent, setLockContent] = useState<boolean>(lock);
   const [flipContent, setFlipContent] = useState<boolean>(flip);
@@ -79,10 +80,12 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   const handleCardClick = (side: string) => {
     if (lockContent) return;
     if (side === 'back' && !flipContent) return;
-    console.log(flippedCards,flipLimit)
-    if (side === 'front'){
-      if (flippedCards >= flipLimit) return;
-    } 
+    if (side === 'front') {
+      if (flippedCards >= flipLimit) {
+        // showToast('This is an info toast!', 'warning');
+        return;
+      }
+    }
     setFlipContent((prev) => !prev);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
