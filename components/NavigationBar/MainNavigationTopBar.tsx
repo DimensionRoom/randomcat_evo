@@ -163,7 +163,7 @@ const MainNavigationTopBar = ({
       {/* Desktop Size */}
       <div className={`${styles.DesktopHeader}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
-          <Link href="/" onClick={() => sendGAEvent({ event: 'goTo', value: 'home' })} className={`${styles.textLink} ${`homeLink`}`}>
+          <Link href="/" className={`${styles.textLink} ${`homeLink`}`}>
             <div className={styles.BrandContainer}>
               <div className={styles.LogoContainer}>
                 {logo}
@@ -220,7 +220,7 @@ const MainNavigationTopBar = ({
       <div className={`${popCurrentPathname.some(item => item === 'home') ? styles.SimpleMobileHeader : styles.SimpleMobileHeaderHide}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
-            <Link href="/" className={styles.textLink}>
+            <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
               <div className={styles.BrandContainer}>
                 <div className={styles.LogoContainer}>
                   {logo}
@@ -254,7 +254,7 @@ const MainNavigationTopBar = ({
                     key={index}
                     // href={menu.url}
                     href={{ pathname: `${menu.url}/${menu.key}board`, query: { info: `${menu.shortKey}design` } }}
-                    className={styles.textLink}
+                    className={`${styles.textLink} ${`${menu.key}MobileLink`}`}
                     onClick={() => (handleExpandMenu(false))}
                   >
                     <div className={styles.ExpandMenuContentItem}>
