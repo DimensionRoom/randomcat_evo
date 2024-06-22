@@ -42,7 +42,7 @@ export default function RootLayout({
         />
         {children}
       </body>
-      <GoogleAnalytics gaId={GA_TRACKING_ID} />
+      {/* <GoogleAnalytics gaId={GA_TRACKING_ID} /> */}
       <GoogleTagManager gtmId={GTM_TRACKING_ID} />
     </html>
   );
