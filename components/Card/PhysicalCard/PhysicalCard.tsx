@@ -141,6 +141,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
           <p className={`${styles.CardTitle}`}>{title.toUpperCase()}</p>
           <p className={`${styles.CardSubTitle}`}>{subTitle.toUpperCase()}</p>
           <p className={`${styles.CardCatName}`}>{categoryName}</p>
+          {/* <p className={`${styles.clickToFlip} ${styles.textShine}`}>Tap to flip!</p> */}
         </div>
       </div>
     </div>

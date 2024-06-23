@@ -56,6 +56,46 @@
   transform: rotateY(180deg);
 }
 
+.CardFliped .clickToFlip {
+  display: none;
+}
+
+.CardFliped:hover .clickToFlip {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  animation: pulsate-fwd 0.5s ease-in-out infinite both;
+
+}
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 .CardFliped .CardBack {
   display: flex;
   flex: 1;

@@ -30,6 +30,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ffffff;
+  animation: fadeIn 1s forwards;
 }
 
 .parallaxSection .textContainer {
@@ -138,9 +139,9 @@
 
 @media (max-width: 690px) {
   .parallaxSection {
-    display: block;
+    /* display: block; */
     /* min-height: auto; */
-    padding: 20px 0px;
+    /* padding: 20px 0px; */
   }
 
   .cardParallax {
@@ -167,15 +168,15 @@
   }
 
   .parallaxSection .title {
-    font-size: 3.8em;
+    font-size: 3em;
   }
 
   .parallaxSection .subtitle {
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
 
   .parallaxSection .details {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 
@@ -942,3 +943,4 @@
     height: 35px;
   }
 }
+

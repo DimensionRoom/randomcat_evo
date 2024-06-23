@@ -64,7 +64,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
     fetchTranslations();
   }, [locale]);
 
-
   if (loading) {
     return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Player
@@ -84,7 +83,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       locale={locale}
       resources={resources}>
       <main className={styles.main}>
-        <div className={styles.parallaxSection} style={{ backgroundPositionY: `${offsetY * 0.5}px` }}>
+        <section className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>THINK<span>TOOL</span></p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.parallaxSection.subtitle')}</p>
@@ -106,8 +105,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               <p className={styles.cardDetail}>A versatile online tool and physical card deck that make learning more fun and challenging than before</p>
             </div>
           </div>
-        </div>
-        <div className={styles.gradientSection}>
+        </section>
+        <section className={`${styles.section} ${styles.gradientSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>A magical tool is designed for you</p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.gradientSection.subtitle')}</p>
@@ -151,8 +150,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.whiteSection}>
+        </section>
+        <section className={`${styles.section} ${styles.whiteSection}`}>
           <div className={styles.itemsContainer}>
             {/* <div className={styles.itemIcon} style={{ transform: 'translate(0%, 0%) rotate(350deg)' }}>
               <CoupleIcon width={'80%'} height={'80%'} />
@@ -191,8 +190,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
 
             </div>
           </div>
-        </div>
-        <div className={styles.stepSection}>
+        </section>
+        <section className={`${styles.section} ${styles.stepSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemHeader}>
@@ -225,8 +224,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.outcomeSection}>
+        </section>
+        <section className={`${styles.section} ${styles.outcomeSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.itemData}>
               <p className={styles.itemTitle}>Final Outcome</p>
@@ -242,8 +241,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.colorSection}>
+        </section>
+        <section className={`${styles.section} ${styles.colorSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
@@ -282,8 +281,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.toolsSection}>
+        </section>
+        <section className={`${styles.section} ${styles.toolsSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>A series of Think Tools</p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.toolsSection.subtitle')}</p>
@@ -342,8 +341,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </div>
-        {/* <div className={styles.teamSection}>
+        </section>
+        {/* <section className={`${styles.section} ${styles.teamSection}`}
           <div className={styles.textContainer}>
             <SiteLogo width={50} height={50} color={'#ffffff'} />
             <p className={styles.title}>Think throughs team</p>
@@ -375,8 +374,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </div> */}
-        <div className={styles.footerSection}>
+        </section> */}
+        <section className={`${styles.section} ${styles.footerSection}`}>
           <div className={styles.itemsContainer}>
             <p className={styles.title}>Contact us</p>
             <div className={styles.contact}>
@@ -394,7 +393,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               <SiteLogo className={styles.brandIcon} width={50} height={50} />
             </div>
           </div>
-        </div>
+        </section>
       </main>
     </TranslationsProvider >
   );
