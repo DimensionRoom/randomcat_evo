@@ -39,3 +39,4 @@ Desktop.ini
 
 # Next.js telemetry
 .next-telemetry.json
+.vercel

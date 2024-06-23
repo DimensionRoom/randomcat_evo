@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { sql } from "@vercel/postgres";
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
@@ -13,7 +14,6 @@ import teamwork from './../../../public/json/teamwork.json';
 import PotionIcon from '@/public/svgs/home/potion';
 import BookIcon from '@/public/svgs/home/book';
 import GiftBoxIcon from '@/public/svgs/home/giftBox';
-import CoupleIcon from '@/public/svgs/home/couple1';
 import TargetArrowIcon from '@/public/svgs/home/targetArrow';
 import GroupPplIcon from '@/public/svgs/home/groupPpl';
 import JigsawIcon from '@/public/svgs/home/jigsaw';
@@ -21,6 +21,8 @@ import LetterIcon from '@/public/svgs/home/letter';
 import FacebookIcon from '@/public/svgs/home/facebook';
 import SiteLogo from "@/public/svgs/siteLogo";
 import styles from "../../Styles/Home/page.module.css";
+
+import { useFetchUserData } from '../../../utils/getTotalUsers'
 
 const i18nNamespaces = ['homeScreen'];
 const quicksand = Quicksand({
@@ -32,6 +34,7 @@ const mitr = Mitr({
   weight: ["200", "300", "400", "500", "600", "700"]
 });
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
+  const { userData, loadingUserData } = useFetchUserData();
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -43,12 +46,19 @@ export default function Home({ params: { locale } }: { params: { locale: string 
     setOffsetY(window.scrollY);
   };
 
+  // const getxxx = async () => {
+  //   const { rows } = await sql`SELECT * FROM visit_user`;
+  //   console.log(rows);
+  // }
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
+    // getxxx();
+    console.log('visit_user', userData);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+
   }, []);
 
   useEffect(() => {
@@ -62,6 +72,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
     }
     fetchTranslations();
   }, [locale]);
+
 
   if (loading) {
     return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
