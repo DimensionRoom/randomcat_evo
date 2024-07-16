@@ -342,28 +342,16 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        {/* <section className={`${styles.section} ${styles.teamSection}`}
-          <div className={styles.textContainer}>
+        <section className={`${styles.section} ${styles.teamSection}`}>
+        <div className={styles.textContainer}>
             <SiteLogo width={50} height={50} color={'#ffffff'} />
             <p className={styles.title}>Think throughs team</p>
           </div>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemImage}>
-                <div className={styles.itemFrame} style={{ width: 300 }}>
-                  <Image className={styles.image} src="/image/defaultimg.jpg" width={300} height={300} alt='' />
-                </div>
-              </div>
-              <div className={styles.itemData}>
-                <p className={`${styles.itemTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item1.title')}</p>
-                <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item1.description1')}</p>
-                <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item1.description2')}</p>
-              </div>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.itemImage}>
-                <div className={styles.itemFrame} style={{ width: 300 }}>
-                  <Image className={styles.image} src="/image/defaultimg.jpg" width={300} height={300} alt='' />
+                <div className={styles.itemFrame} style={{ width: 250 }}>
+                  <Image className={styles.image} src="/image/team/natchaya.jpg" width={250} height={250} alt='' />
                 </div>
               </div>
               <div className={styles.itemData}>
@@ -373,8 +361,20 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item2.description3')}</p>
               </div>
             </div>
+            <div className={styles.item}>
+              <div className={styles.itemImage}>
+                <div className={styles.itemFrame} style={{ width: 250 }}>
+                  <Image className={styles.image} src="/image/team/tada.jpg" width={250} height={250} alt='' />
+                </div>
+              </div>
+              <div className={styles.itemData}>
+                <p className={`${styles.itemTitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item1.title')}</p>
+                <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item1.description1')}</p>
+                <p className={`${styles.itemDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.teamSection.item.item1.description2')}</p>
+              </div>
+            </div>
           </div>
-        </section> */}
+        </section>
         <section className={`${styles.section} ${styles.footerSection}`}>
           <div className={styles.itemsContainer}>
             <p className={styles.title}>Contact us</p>

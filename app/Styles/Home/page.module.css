@@ -753,7 +753,7 @@
   justify-content: center;
   text-align: center;
   gap: 15px;
-  padding: 100px 40px;
+  padding: 80px 40px;
   background: linear-gradient(130deg, #7f1b96, #35136b);
 
 }
@@ -785,6 +785,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.teamSection .itemsContainer .item .itemImage {
+  display: flex;
+  justify-content: center;
 }
 
 .teamSection .itemsContainer .itemImage .itemFrame {
