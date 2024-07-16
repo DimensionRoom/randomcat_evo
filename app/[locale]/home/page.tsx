@@ -18,6 +18,7 @@ import GroupPplIcon from '@/public/svgs/home/groupPpl';
 import JigsawIcon from '@/public/svgs/home/jigsaw';
 import LetterIcon from '@/public/svgs/home/letter';
 import FacebookIcon from '@/public/svgs/home/facebook';
+import InstagramIcon from '@/public/svgs/home/instagram';
 import SiteLogo from "@/public/svgs/siteLogo";
 import styles from "../../Styles/Home/page.module.css";
 
@@ -153,9 +154,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
         </section>
         <section className={`${styles.section} ${styles.whiteSection}`}>
           <div className={styles.itemsContainer}>
-            {/* <div className={styles.itemIcon} style={{ transform: 'translate(0%, 0%) rotate(350deg)' }}>
-              <CoupleIcon width={'80%'} height={'80%'} />
-            </div> */}
             <div className={styles.itemIcon}>
               <Player
                 autoplay
@@ -187,7 +185,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                   </>
                 )
               }
-
             </div>
           </div>
         </section>
@@ -384,7 +381,15 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
             <div className={styles.contact}>
               <FacebookIcon width={25} height={25} />
-              <p className={styles.contactData}>Facebook: @KidandKru</p>
+              <a href="https://www.facebook.com/KidandKru" target="_blank" rel="noreferrer">
+                <p className={styles.contactData}>Facebook: @KidandKru</p>
+              </a>
+            </div>
+            <div className={styles.contact}>
+              <InstagramIcon width={25} height={25} />
+              <a href="https://www.instagram.com/thinktool_official" target="_blank" rel="noreferrer">
+                <p className={styles.contactData}>Instagram: thinktool_official</p>
+              </a>
             </div>
           </div>
           <div className={styles.brandContainer}>

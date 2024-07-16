@@ -793,7 +793,9 @@
 }
 
 .teamSection .itemsContainer .itemImage .itemFrame {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   padding: 10px;
   background-color: white;
   border: 5px solid white;
