@@ -89,6 +89,7 @@ const MainNavigationTopBar = ({
     for (const menuItem of mainMenu) {
       for (const popItem of pop) {
         if (menuItem.url.includes(popItem)) {
+          // console.log('menuItem.pop',pop)
           return menuItem.theme;
         }
       }
@@ -107,7 +108,7 @@ const MainNavigationTopBar = ({
     return null;
   }
 
-  const currentTheme = findTheme(popCurrentPathname, mainMenu) || 'Blue';
+  const currentTheme = currentPathname != '/' ? findTheme(popCurrentPathname, mainMenu) || 'ThemeNone' : 'ThemeNone';
 
   const handleExpandMenu = (value: boolean) => {
     setIsExpandMenu(value);
