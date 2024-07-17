@@ -1,32 +1,32 @@
-'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
-import initTranslations from '../../i18n';
+import initTranslations from "../../i18n";
 import styles from "../../../Styles/StoryBoard/page.module.css";
-import manivigationStyles from '../../../../components/NavigationBar/MainNavigationTopBar.module.css';
-import TranslationsProvider from '@/components/TranslationsProvider';
-import Link from 'next/link'
-import IconBtn from '@/components/Button/IconBtn/IconBtn';
-import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
-import PhysicalCard from '@/components/Card/PhysicalCard/PhysicalCard';
-import HorizonCard from '@/components/Card/HorizonCard/HorizonCard';
-import mainLoad from '../../../../public/json/mainload.json';
-import TagFilter from '@/components/Filter/TagFilter/TagFilter';
-import PointerIcon from '@/public/svgs/storyboard/pointer';
-import LightbulbIcon from '@/public/svgs/storyboard/lightbulb';
-import YoYoIcon from '@/public/svgs/storyboard/yoyo';
+import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.css";
+import TranslationsProvider from "@/components/TranslationsProvider";
+import Link from "next/link";
+import IconBtn from "@/components/Button/IconBtn/IconBtn";
+import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
+import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
+import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
+import mainLoad from "../../../../public/json/mainload.json";
+import TagFilter from "@/components/Filter/TagFilter/TagFilter";
+import PointerIcon from "@/public/svgs/storyboard/pointer";
+import LightbulbIcon from "@/public/svgs/storyboard/lightbulb";
+import YoYoIcon from "@/public/svgs/storyboard/yoyo";
 import SiteLogo from "@/public/svgs/siteLogo";
 
-import storydesisgnData from '../../../../public/json/storydesignCat.json';
+import storydesisgnData from "../../../../public/json/storydesignCat.json";
 
 export type SubCategoryProps = {
-  name: string
-  nameEx: string
-  fullDescription: string
-  catItemId: string
-}
+  name: string;
+  nameEx: string;
+  fullDescription: string;
+  catItemId: string;
+};
 
 type JSONData = {
   [key: string]: any;
@@ -45,41 +45,45 @@ interface Category {
   data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
-const i18nNamespaces = ['innovationboard'];
+const i18nNamespaces = ["innovationboard"];
 const kanit = Kanit({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 const popins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 const quicksand = Quicksand({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
+  weight: ["300", "400", "500", "600", "700"],
 });
 const mitr = Mitr({
   subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"]
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function StoryBoard({ params: { locale } }: { params: { locale: string } }) {
+export default function StoryBoard({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [t, setT] = useState<any>(null);
-  const searchParams = useSearchParams()
-  const searchParamsInfo = searchParams.get('info')
+  const searchParams = useSearchParams();
+  const searchParamsInfo = searchParams.get("info");
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: 'Story',
-      nameEx: 'Design',
+      name: "Story",
+      nameEx: "Design",
       fullDescription: '"Start your own story right here."',
-      catItemId: 'storydesign',
-    }
+      catItemId: "storydesign",
+    },
   ]);
   const fullCategoryName = subCategory.map((subCat) => {
     // searchParamsInfo === subCat.catItemId ? subCat.name : ''
     if (searchParamsInfo === subCat.catItemId) {
-      return subCat.name + ' ' + subCat.nameEx
+      return subCat.name + " " + subCat.nameEx;
     }
   });
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -91,25 +95,30 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
   const mainKeys = extractMainKeys(storydesisgnData);
   const cardData: { [key: string]: Category } = storydesisgnData;
   const [filterCategory, setFilterCategory] = useState<string[]>(mainKeys);
-  const [defaultSelectedCategories, setDefaultSelectedCategories] = useState<string[]>(mainKeys)
-  const [filteredCategories, setFilteredCategories] = useState<string[]>(mainKeys);
+  const [defaultSelectedCategories, setDefaultSelectedCategories] =
+    useState<string[]>(mainKeys);
+  const [filteredCategories, setFilteredCategories] =
+    useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
   const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
 
-  const handleLockContentChange = (catItemId: string, newLockContent: boolean) => {
+  const handleLockContentChange = (
+    catItemId: string,
+    newLockContent: boolean
+  ) => {
     if (newLockContent) {
       setLockItem([...lockItem, catItemId]);
     } else {
-      setLockItem(lockItem.filter(item => item !== catItemId));
+      setLockItem(lockItem.filter((item) => item !== catItemId));
     }
   };
 
   const handleFilterChange = (selectedCategories: string[]) => {
     setFilteredCategories(selectedCategories);
-    console.log('Selected Categories:', selectedCategories);
+    console.log("Selected Categories:", selectedCategories);
   };
 
   const getRandomItem = (category: any): Item => {
@@ -120,8 +129,8 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       title: `${title}`,
       subTitle: `${subTitle}`,
       catItemId: key,
-      topic: randomData['en'],
-      content: `${randomData[`content_${'en'}`]}`
+      topic: randomData["en"],
+      content: `${randomData[`content_${"en"}`]}`,
     };
   };
 
@@ -133,25 +142,29 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
         items.push(getRandomItem(category));
       }
     }
-    const newRandomItems = items.map((item) => {
-      if (lockItem.includes(item.catItemId)) {
-        const originalItem = randomItems.find((randomItem) => randomItem.catItemId === item.catItemId);
-        return originalItem ? originalItem : item;
-      } else {
-        return item;
-      }
-    }).filter(item => item !== undefined) as Item[];
+    const newRandomItems = items
+      .map((item) => {
+        if (lockItem.includes(item.catItemId)) {
+          const originalItem = randomItems.find(
+            (randomItem) => randomItem.catItemId === item.catItemId
+          );
+          return originalItem ? originalItem : item;
+        } else {
+          return item;
+        }
+      })
+      .filter((item) => item !== undefined) as Item[];
     setRandomItems(newRandomItems);
     if (flippedCards == items.length) {
-      trigerCardClick('card');
+      trigerCardClick("card");
     }
     if (flippedPhysicalCards == items.length) {
-      trigerCardClick('physical');
+      trigerCardClick("physical");
     }
   };
 
   const trigerCardClick = (type: string) => {
-    if (type === 'card') {
+    if (type === "card") {
       cardRefs.current.forEach((ref, index) => {
         setTimeout(() => {
           if (ref) {
@@ -160,7 +173,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
         }, index * 150);
       });
     }
-    if (type === 'physical') {
+    if (type === "physical") {
       physicalRefs.current.forEach((ref, index) => {
         setTimeout(() => {
           if (ref) {
@@ -169,7 +182,7 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
         }, index * 150);
       });
     }
-  }
+  };
 
   const generateRandomEachItem = (key: string) => {
     const category = cardData[key];
@@ -182,8 +195,6 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
     });
     setRandomItems(newRandomItems);
   };
-
-
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -211,28 +222,31 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
     setFlipCardLimit(items.length);
   }, []);
 
-
-
   if (loading) {
-    return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Player
-        autoplay
-        loop
-        src={mainLoad}
-        style={{ width: '30vh' }}
+    return (
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-      </Player>
-    </div>
-      ;
+        <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player>
+      </div>
+    );
   }
 
   return (
     <TranslationsProvider
       namespaces={i18nNamespaces}
       locale={locale}
-      resources={resources}>
+      resources={resources}
+    >
       <div className={`${manivigationStyles.MobileHeader}`}>
-        <header className={`${manivigationStyles.LayoutHeader} ${manivigationStyles['ThemePurple']}`}>
+        <header
+          className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemePurple"]}`}
+        >
           <div className={manivigationStyles.HeaderTopContainer}>
             <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
               <div className={manivigationStyles.BrandContainer}>
@@ -244,7 +258,9 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
           </div>
           <div className={manivigationStyles.HeaderMinorContainer}>
             <div className={manivigationStyles.HeaderDetailsContainer}>
-              <p className={`${manivigationStyles.HeaderDetailsTitle} ${popins.className}`}>
+              <p
+                className={`${manivigationStyles.HeaderDetailsTitle} ${popins.className}`}
+              >
                 Story
                 <span className={manivigationStyles.HeaderDetailsTitleEx}>
                   Design
@@ -255,7 +271,11 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
               </p>
             </div>
             <div className={manivigationStyles.HeaderActionContainer}>
-              <FlatBtn className={`${styles.randomAllMobileBtn}`} text='Random' onClick={() => generateRandomItems()} />
+              <FlatBtn
+                className={`${styles.randomAllMobileBtn}`}
+                text="Random"
+                onClick={() => generateRandomItems()}
+              />
             </div>
           </div>
         </header>
@@ -263,38 +283,54 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
       <main className={styles.main}>
         <div className={styles.HeaderSection}>
           <div className={styles.HeaderCatContainer}>
-            <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
-              {subCategory.map((subCat) => (
-                searchParamsInfo === subCat.catItemId ? subCat.name.toUpperCase() : ''
-              ))}
+            <p
+              className={`${styles.HeaderCatContainerText} ${popins.className}`}
+            >
+              {subCategory.map((subCat) =>
+                searchParamsInfo === subCat.catItemId
+                  ? subCat.name.toUpperCase()
+                  : ""
+              )}
             </p>
-            <p className={`${styles.HeaderCatContainerText} ${popins.className}`}>
-              {subCategory.map((subCat) => (
-                searchParamsInfo === subCat.catItemId ? subCat.nameEx.toUpperCase() : ''
-              ))}
+            <p
+              className={`${styles.HeaderCatContainerText} ${popins.className}`}
+            >
+              {subCategory.map((subCat) =>
+                searchParamsInfo === subCat.catItemId
+                  ? subCat.nameEx.toUpperCase()
+                  : ""
+              )}
             </p>
           </div>
           <div className={styles.HeaderCatDescContainer}>
             <p className={`${styles.HeaderCatContainerDescText}`}>
-              {subCategory.map((subCat) => (
-                searchParamsInfo === subCat.catItemId ? subCat.fullDescription : ''
-              ))}
+              {subCategory.map((subCat) =>
+                searchParamsInfo === subCat.catItemId
+                  ? subCat.fullDescription
+                  : ""
+              )}
             </p>
-            <FlatBtn className={`${styles.randomAllBtn}`} text='Random' onClick={() => generateRandomItems()} />
+            <FlatBtn
+              className={`${styles.randomAllBtn}`}
+              text="Random"
+              onClick={() => generateRandomItems()}
+            />
           </div>
         </div>
         <div className={styles.randomSection}>
           <div className={styles.CardItemsContainer}>
             {randomItems
-              .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
+              .filter((cardItem) =>
+                filteredCategories.includes(cardItem.catItemId)
+              )
               .map((cardItem, index) => (
                 <PhysicalCard
                   key={index}
-                  ref={(el) => physicalRefs.current[index] = el}
+                  ref={(el) => (physicalRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  color={'ThemePurple'}
+                  color={"ThemePurple"}
                   // locale={locale}
-                  locale={'en'}
+                  locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -306,21 +342,55 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalCards}
-                  onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
+                  onLockContentChange={(key, newLockContent) =>
+                    handleLockContentChange(cardItem.catItemId, newLockContent)
+                  }
+                />
+              ))}
+          </div>
+          <div className={styles.CardGridContainer}>
+            {randomItems
+              .filter((cardItem) =>
+                filteredCategories.includes(cardItem.catItemId)
+              )
+              .map((cardItem, index) => (
+                <PhysicalCard
+                  key={index}
+                  ref={(el) => (physicalRefs.current[index] = el)}
+                  itemKey={cardItem.catItemId}
+                  color={"ThemePurple"}
+                  // locale={locale}
+                  locale={"en"}
+                  title={cardItem.title}
+                  subTitle={cardItem.subTitle}
+                  categoryName={fullCategoryName[0]}
+                  headingContent={cardItem.topic}
+                  content={cardItem.content}
+                  setFlippedCards={setFlippedPhysicalCards}
+                  onClick={() => generateRandomEachItem(cardItem.catItemId)}
+                  lock={lockItem.includes(cardItem.catItemId)}
+                  delay={index * 200}
+                  flipLimit={flipCardLimit}
+                  flippedCards={flippedPhysicalCards}
+                  onLockContentChange={(key, newLockContent) =>
+                    handleLockContentChange(cardItem.catItemId, newLockContent)
+                  }
                 />
               ))}
           </div>
           <div className={styles.CardHorizonContainer}>
             {randomItems
-              .filter(cardItem => filteredCategories.includes(cardItem.catItemId))
+              .filter((cardItem) =>
+                filteredCategories.includes(cardItem.catItemId)
+              )
               .map((cardItem, index) => (
                 <HorizonCard
                   key={index}
-                  ref={(el) => cardRefs.current[index] = el}
+                  ref={(el) => (cardRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  className={'ThemePurple'}
+                  className={"ThemePurple"}
                   // locale={locale}
-                  locale={'en'}
+                  locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -331,7 +401,9 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                   lock={lockItem.includes(cardItem.catItemId)}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedCards}
-                  onLockContentChange={(key, newLockContent) => handleLockContentChange(cardItem.catItemId, newLockContent)}
+                  onLockContentChange={(key, newLockContent) =>
+                    handleLockContentChange(cardItem.catItemId, newLockContent)
+                  }
                 />
               ))}
           </div>
@@ -343,9 +415,23 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <PointerIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
-                <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item1.title')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item1.description1')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item1.description2')}</p>
+                <p className={`${styles.itemHeaderText}`}>
+                  {t("section.stepSection.item1.title")}
+                </p>
+                <p
+                  className={`${styles.itemHeaderDetail} ${
+                    locale == "th" ? `${mitr.className}` : null
+                  }`}
+                >
+                  {t("section.stepSection.item1.description1")}
+                </p>
+                <p
+                  className={`${styles.itemHeaderDetail} ${
+                    locale == "th" ? `${mitr.className}` : null
+                  }`}
+                >
+                  {t("section.stepSection.item1.description2")}
+                </p>
               </div>
             </div>
             <div className={styles.item}>
@@ -353,9 +439,23 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <LightbulbIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
-                <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item2.title')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item2.description1')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item2.description2')}</p>
+                <p className={`${styles.itemHeaderText}`}>
+                  {t("section.stepSection.item2.title")}
+                </p>
+                <p
+                  className={`${styles.itemHeaderDetail} ${
+                    locale == "th" ? `${mitr.className}` : null
+                  }`}
+                >
+                  {t("section.stepSection.item2.description1")}
+                </p>
+                <p
+                  className={`${styles.itemHeaderDetail} ${
+                    locale == "th" ? `${mitr.className}` : null
+                  }`}
+                >
+                  {t("section.stepSection.item2.description2")}
+                </p>
               </div>
             </div>
             <div className={styles.item}>
@@ -363,9 +463,23 @@ export default function StoryBoard({ params: { locale } }: { params: { locale: s
                 <YoYoIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
-                <p className={`${styles.itemHeaderText}`}>{t('section.stepSection.item3.title')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item3.description1')}</p>
-                <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.stepSection.item3.description2')}</p>
+                <p className={`${styles.itemHeaderText}`}>
+                  {t("section.stepSection.item3.title")}
+                </p>
+                <p
+                  className={`${styles.itemHeaderDetail} ${
+                    locale == "th" ? `${mitr.className}` : null
+                  }`}
+                >
+                  {t("section.stepSection.item3.description1")}
+                </p>
+                <p
+                  className={`${styles.itemHeaderDetail} ${
+                    locale == "th" ? `${mitr.className}` : null
+                  }`}
+                >
+                  {t("section.stepSection.item3.description2")}
+                </p>
               </div>
             </div>
           </div>

@@ -218,7 +218,7 @@ const MainNavigationTopBar = ({
         </div>
       </div>
       {/* Mobile Size */}
-      <div className={`${popCurrentPathname.some(item => item === 'home') ? styles.SimpleMobileHeader : styles.SimpleMobileHeaderHide}`}>
+      <div className={`${popCurrentPathname.some(item => item === '') ? styles.SimpleMobileHeader : styles.SimpleMobileHeaderHide}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
             <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>

@@ -131,6 +131,14 @@
   padding: 0 20px 20px 20px;
 }
 
+.CardGridContainer{
+  display: none;
+  grid-template-columns: repeat(3, 1fr);;
+  gap: 10px;
+  padding: 10px 10px 20px 10px;
+  margin: auto;
+}
+
 .CardHorizonContainer {
   display: flex;
   flex: 1;
@@ -231,9 +239,16 @@
   fill: var(--step-text-color-content);
 }
 
-@media (min-width: 1251px) {
+@media (min-width: 760px) {
   .CardHorizonContainer {
     display: none;
+  }
+}
+
+
+@media (max-width: 1250px) and (min-width: 760px) {
+  .CardGridContainer {
+    display: grid;
   }
 }
 
