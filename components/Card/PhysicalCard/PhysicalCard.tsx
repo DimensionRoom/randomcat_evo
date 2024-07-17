@@ -10,6 +10,7 @@ import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
 import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
 import SiteLogo from '@/public/svgs/siteLogo';
 import CystalIcon from '@/public/svgs/components/PhysicalCard/cystal';
+import { on } from 'events';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export type Props = {
   flippedCards?: number;
   flip?: boolean;
   delay?: number;
+  onSelectedCardChange: () => void;
   onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
 }
@@ -57,6 +59,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   flipLimit = 0,
   flippedCards = 0,
   delay = 200,
+  onSelectedCardChange,
   onLockContentChange,
   onClick,
   ...props
@@ -89,8 +92,10 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
     setFlipContent((prev) => !prev);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
+      onSelectedCardChange();
     } else {
       setFlippedCards((prev) => prev - 1);
+      onSelectedCardChange();
     }
   };
 

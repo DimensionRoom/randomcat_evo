@@ -381,13 +381,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
             <div className={styles.contact}>
               <FacebookIcon width={25} height={25} />
-              <a href="https://www.facebook.com/KidandKru" target="_blank" rel="noreferrer">
+              <a className={styles.textLink} href="https://www.facebook.com/KidandKru" target="_blank" rel="noreferrer">
                 <p className={styles.contactData}>Facebook: @KidandKru</p>
               </a>
             </div>
             <div className={styles.contact}>
               <InstagramIcon width={25} height={25} />
-              <a href="https://www.instagram.com/thinktool_official" target="_blank" rel="noreferrer">
+              <a className={styles.textLink} href="https://www.instagram.com/thinktool_official" target="_blank" rel="noreferrer">
                 <p className={styles.contactData}>Instagram: thinktool_official</p>
               </a>
             </div>

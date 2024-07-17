@@ -917,6 +917,10 @@
   font-weight: 700;
 }
 
+.textLink{
+  text-decoration: none;
+}
+
 @media (max-width: 1090px) {
   .footerSection {
     padding: 50px 40px;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, use } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
@@ -109,6 +109,7 @@ export default function InnovationBoard({
     useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
+  const [selectedCardItem, setSelectedCardItem] = useState<Category[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
   const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
@@ -121,6 +122,14 @@ export default function InnovationBoard({
       setLockItem([...lockItem, catItemId]);
     } else {
       setLockItem(lockItem.filter((item) => item !== catItemId));
+    }
+  };
+
+  const handleSelectedCardChange = (catItem: any) => {
+    if (!selectedCardItem.includes(catItem)) {
+      setSelectedCardItem([...selectedCardItem, catItem]);
+    } else {
+      setSelectedCardItem(selectedCardItem.filter((item) => item !== catItem));
     }
   };
 
@@ -203,6 +212,10 @@ export default function InnovationBoard({
     });
     setRandomItems(newRandomItems);
   };
+
+  useEffect(() => {
+    console.log("card", selectedCardItem);
+  }, [selectedCardItem]);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -349,6 +362,9 @@ export default function InnovationBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalCards}
+                  onSelectedCardChange={() =>
+                    handleSelectedCardChange(cardItem)
+                  }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
                   }
@@ -378,6 +394,9 @@ export default function InnovationBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalCards}
+                  onSelectedCardChange={() =>
+                    handleSelectedCardChange(cardItem)
+                  }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
                   }

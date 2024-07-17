@@ -76,7 +76,7 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
   const handleCardClick = (side: string) => {
     if (lockContent) return;
     if (side === 'back' && !flipContent) return;
-    console.log(flippedCards,flipLimit)
+    // console.log(flippedCards,flipLimit)
     if (side === 'front') {
       if (flippedCards >= flipLimit) {
         // showToast('This is an info toast!', 'warning');
