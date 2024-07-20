@@ -154,7 +154,7 @@ const MainNavigationTopBar = ({
   //   console.log("currentPathname", currentPathname);
   //   console.log("x", currentPathname.split("/").slice(1));
   //   console.log("xx", currentPathname.split("/").slice(2));
-  //   console.log("popCurrentPathname", findTheme(popCurrentPathname, mainMenu));
+  //   console.log("popCurrentPathname", findTheme(popCurrentPathname, mainMenu),popCurrentPathname.length);
   // }, []);
 
   useEffect(() => {
@@ -269,8 +269,8 @@ const MainNavigationTopBar = ({
       {/* Mobile Size */}
       <div
         className={`${
-          popCurrentPathname.length <= 1 &&
-          popCurrentPathname[0] == "" || popCurrentPathname[0] == "th"
+          popCurrentPathname.length < 2 &&
+          (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
         }`}

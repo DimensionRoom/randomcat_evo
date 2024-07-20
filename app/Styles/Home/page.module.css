@@ -26,7 +26,7 @@
   flex-wrap: wrap;
   padding: 0 40px 80px 40px;
   overflow: hidden;
-  background-image: url('../../../public/svgs/svg/pallaraxBg1.svg');
+  background-image: url("../../../public/svgs/svg/pallaraxBg1.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #ffffff;
@@ -193,7 +193,6 @@
   gap: 15px;
   padding: 100px 40px;
   background: linear-gradient(130deg, #7f1b96, #35136b);
-
 }
 
 .gradientSection .textContainer {
@@ -284,7 +283,6 @@
 
   .gradientSection .itemsContainer .item .itemData .itemDetail {
     font-size: 0.8em;
-
   }
 
   .gradientSection .itemsContainer .item .itemIcon .icon {
@@ -492,7 +490,7 @@
   padding: 20px;
   background-color: white;
   border: 5px solid white;
-  box-shadow: 10px 14px 19px rgba(0, 0, 0, .2);
+  box-shadow: 10px 14px 19px rgba(0, 0, 0, 0.2);
   perspective: 1000px;
   border-radius: 5px;
   transition: transform 0.2s;
@@ -688,7 +686,6 @@
   transition: transform 0.3s;
 }
 
-
 .toolsSection .itemsContainer .item .itemImage .image {
   width: 70%;
   height: auto;
@@ -710,7 +707,7 @@
   text-align: center;
 }
 
-.toolsSection .itemsContainer .item .itemData p+p {
+.toolsSection .itemsContainer .item .itemData p + p {
   font-size: 1.2em;
   font-weight: 400;
   line-height: 1.5;
@@ -755,7 +752,6 @@
   gap: 15px;
   padding: 80px 40px;
   background: linear-gradient(130deg, #7f1b96, #35136b);
-
 }
 
 .teamSection .textContainer {
@@ -826,7 +822,7 @@
   text-align: left;
 }
 
-.teamSection .itemsContainer .item .itemData p+p {
+.teamSection .itemsContainer .item .itemData p + p {
   font-size: 1.2em;
   font-weight: lighter;
   line-height: 1.5;
@@ -867,7 +863,6 @@
   gap: 15px;
   padding: 50px 150px;
   background: #ffde5a;
-
 }
 
 .footerSection .itemsContainer {
@@ -883,7 +878,6 @@
   align-items: flex-start;
   gap: 5px;
 }
-
 
 .footerSection .itemsContainer .title {
   font-size: 2.4em;
@@ -917,7 +911,7 @@
   font-weight: 700;
 }
 
-.textLink{
+.textLink {
   text-decoration: none;
 }
 
@@ -953,5 +947,10 @@
     width: 35px;
     height: 35px;
   }
-}
 
+  @media screen and (max-width: 560px) {
+    .main {
+      max-height: calc(100dvh - 60px);
+    }
+  }
+}
