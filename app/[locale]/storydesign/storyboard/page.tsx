@@ -420,6 +420,9 @@ export default function StoryBoard({
                   lock={lockItem.includes(cardItem.catItemId)}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedCards}
+                  onSelectedCardChange={() =>
+                    handleSelectedCardChange(cardItem)
+                  }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
                   }

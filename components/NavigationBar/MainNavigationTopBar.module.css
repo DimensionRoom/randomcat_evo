@@ -335,7 +335,7 @@
 
 .ExpandMenuIcon {
   --line-gap: 8px;
-  --height-bar: 2.5px;
+  --height-bar: 3px;
   --pos-y-bar-one: 0;
   --pos-y-bar-three: 0;
   --scale-bar: 1;
@@ -484,8 +484,15 @@
 
   .SimpleMobileHeader {
     display: flex;
-    /* flex: 1; */
     flex-direction: column;
+  }
+
+  .SimpleMobileHeader .LayoutHeader {
+    height: 60px;
+  }
+
+  .TopNavigationExpand {
+    padding: 20px 25px !important;
   }
 
   .ExpandMenuIcon {
