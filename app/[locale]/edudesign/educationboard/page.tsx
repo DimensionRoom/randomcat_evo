@@ -88,6 +88,8 @@ export default function InnovationBoard({
   });
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const physicalGridRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const extractMainKeys = (jsonData: JSONData): string[] => {
     return Object.keys(jsonData);
   };
@@ -103,6 +105,8 @@ export default function InnovationBoard({
   const [selectedCardItem, setSelectedCardItem] = useState<Category[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
+  const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
+  useState<number>(0);
   const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
 
   const handleLockContentChange = (
@@ -169,6 +173,9 @@ export default function InnovationBoard({
     if (flippedPhysicalCards == items.length) {
       trigerCardClick("physical");
     }
+    if (flippedPhysicalGridCards == items.length) {
+      trigerCardClick("grid");
+    }
   };
 
   const trigerCardClick = (type: string) => {
@@ -183,6 +190,15 @@ export default function InnovationBoard({
     }
     if (type === "physical") {
       physicalRefs.current.forEach((ref, index) => {
+        setTimeout(() => {
+          if (ref) {
+            ref.click();
+          }
+        }, index * 150);
+      });
+    }
+    if (type === "grid") {
+      physicalGridRefs.current.forEach((ref, index) => {
         setTimeout(() => {
           if (ref) {
             ref.click();
@@ -231,6 +247,7 @@ export default function InnovationBoard({
     setRandomItems(items);
     setFlippedCards(items.length);
     setFlippedPhysicalCards(items.length);
+    setFlippedPhysicalGridCards(items.length);
     setFlipCardLimit(items.length);
   }, []);
 
@@ -371,7 +388,7 @@ export default function InnovationBoard({
               .map((cardItem, index) => (
                 <PhysicalCard
                   key={index}
-                  ref={(el) => (physicalRefs.current[index] = el)}
+                  ref={(el) => (physicalGridRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
                   color={"ThemePink"}
                   // locale={locale}
@@ -381,12 +398,12 @@ export default function InnovationBoard({
                   categoryName={fullCategoryName[0]}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
-                  setFlippedCards={setFlippedPhysicalCards}
+                  setFlippedCards={setFlippedPhysicalGridCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
                   lock={lockItem.includes(cardItem.catItemId)}
                   delay={index * 200}
                   flipLimit={flipCardLimit}
-                  flippedCards={flippedPhysicalCards}
+                  flippedCards={flippedPhysicalGridCards}
                   onSelectedCardChange={() =>
                     handleSelectedCardChange(cardItem)
                   }

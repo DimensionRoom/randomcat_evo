@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
-import { sendGTMEvent } from '@next/third-parties/google'
 import Link from 'next/link'
 import initTranslations from './i18n';
 import Image from 'next/image'
@@ -23,7 +22,6 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import styles from "./../Styles/Home/page.module.css";
 
 
-
 const i18nNamespaces = ['homeScreen'];
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -37,20 +35,19 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [offsetY, setOffsetY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const currentPathname = usePathname();
 
-  const handleScroll = () => {
-    console.log(window.scrollY)
-    setOffsetY(window.scrollY);
-  };
-
+  const handleScroll = (e: Event) => {
+    const target = e.target as HTMLDivElement;
+    console.log(target.scrollTop);
+  }
+  
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true, capture: true});
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-
+       window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   useEffect(() => {
