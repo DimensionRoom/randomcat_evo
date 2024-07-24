@@ -13,6 +13,7 @@ import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
 import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
+import LottieAnimation from "@/components/Loading/LottieAnimation";
 import mainLoad from "../../../../public/json/mainload.json";
 import TagFilter from "@/components/Filter/TagFilter/TagFilter";
 import PointerIcon from "@/public/svgs/innovationboard/pointer";
@@ -110,7 +111,7 @@ export default function InnovationBoard({
     useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
-  const [selectedCardItem, setSelectedCardItem] = useState<Category[]>([]);
+  const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
   const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
@@ -128,11 +129,15 @@ export default function InnovationBoard({
     }
   };
 
-  const handleSelectedCardChange = (catItem: any) => {
-    if (!selectedCardItem.includes(catItem)) {
-      setSelectedCardItem([...selectedCardItem, catItem]);
+  const handleSelectedCardChange = (catItem: string, newFlipCard: boolean) => {
+    if (!newFlipCard && !selectedCardItem.includes(catItem)) {
+      const newSelectedCardItem = [...selectedCardItem, catItem];
+      setSelectedCardItem(newSelectedCardItem);
     } else {
-      setSelectedCardItem(selectedCardItem.filter((item) => item !== catItem));
+      const newSelectedCardItem = selectedCardItem.filter(
+        (item) => item !== catItem
+      );
+      setSelectedCardItem(newSelectedCardItem);
     }
   };
 
@@ -228,9 +233,16 @@ export default function InnovationBoard({
     setRandomItems(newRandomItems);
   };
 
-  // useEffect(() => {
-  //   console.log("card", selectedCardItem);
-  // }, [selectedCardItem]);
+  useEffect(() => {
+    console.log("newRandomItems", randomItems);
+  }, [randomItems]);
+
+  useEffect(() => {
+    const filteredData = randomItems.filter((item) =>
+      selectedCardItem.includes(item.catItemId)
+    );
+    console.log("filteredData", filteredData);
+  }, [selectedCardItem]);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -258,7 +270,6 @@ export default function InnovationBoard({
     setFlippedPhysicalGridCards(items.length);
     setFlipCardLimit(items.length);
   }, []);
-
   if (loading) {
     return (
       <div
@@ -269,7 +280,11 @@ export default function InnovationBoard({
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player>
+        <LottieAnimation
+          animationData={mainLoad}
+          color={["#1e4e9c", "#298edc", "#072167"]}
+        />
+        {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
     );
   }
@@ -378,8 +393,8 @@ export default function InnovationBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalCards}
-                  onSelectedCardChange={() =>
-                    handleSelectedCardChange(cardItem)
+                  onSelectedCardChange={(key, newFlipCard) =>
+                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -410,8 +425,8 @@ export default function InnovationBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalGridCards}
-                  onSelectedCardChange={() =>
-                    handleSelectedCardChange(cardItem)
+                  onSelectedCardChange={(key, newFlipCard) =>
+                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -441,8 +456,8 @@ export default function InnovationBoard({
                   lock={lockItem.includes(cardItem.catItemId)}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedCards}
-                  onSelectedCardChange={() =>
-                    handleSelectedCardChange(cardItem)
+                  onSelectedCardChange={(key, newFlipCard) =>
+                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)

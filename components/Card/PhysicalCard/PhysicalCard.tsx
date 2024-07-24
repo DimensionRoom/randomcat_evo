@@ -11,6 +11,7 @@ import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
 import SiteLogo from '@/public/svgs/siteLogo';
 import CystalIcon from '@/public/svgs/components/PhysicalCard/cystal';
 import { on } from 'events';
+import { use } from 'i18next';
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -38,7 +39,7 @@ export type Props = {
   flippedCards?: number;
   flip?: boolean;
   delay?: number;
-  onSelectedCardChange: () => void;
+  onSelectedCardChange: (key: string, flipContent: boolean) => void;
   onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
 }
@@ -92,12 +93,15 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
     setFlipContent((prev) => !prev);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
-      onSelectedCardChange();
+      onSelectedCardChange(itemKey,!flipContent);
     } else {
       setFlippedCards((prev) => prev - 1);
-      onSelectedCardChange();
+      onSelectedCardChange(itemKey,!flipContent);
     }
   };
+
+  useEffect(() => {
+  } , [flipContent]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {

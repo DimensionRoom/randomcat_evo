@@ -13,6 +13,7 @@ import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
 import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
+import LottieAnimation from "@/components/Loading/LottieAnimation";
 import mainLoad from "../../../../public/json/mainload.json";
 import TagFilter from "@/components/Filter/TagFilter/TagFilter";
 import PointerIcon from "@/public/svgs/educationboard/pointer";
@@ -261,7 +262,11 @@ export default function InnovationBoard({
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player>
+         <LottieAnimation
+          animationData={mainLoad}
+          color={["#c0167a", "#f04ea6", "#730445"]}
+        />
+        {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
     );
   }

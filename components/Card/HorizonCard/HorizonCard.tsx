@@ -34,7 +34,7 @@ export type Props = {
   flipLimit?: number;
   flippedCards?: number;
   flip?: boolean;
-  onSelectedCardChange: () => void;
+  onSelectedCardChange: (key: string, flipContent: boolean) => void;
   onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
 }
@@ -88,10 +88,10 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
     setFlipContent((prev) => !prev);
     if (!flipContent) {
       setFlippedCards((prev) => prev + 1);
-      onSelectedCardChange();
+      onSelectedCardChange(itemKey,!flipContent);
     } else {
       setFlippedCards((prev) => prev - 1);
-      onSelectedCardChange();
+      onSelectedCardChange(itemKey,!flipContent);
     }
   };
 

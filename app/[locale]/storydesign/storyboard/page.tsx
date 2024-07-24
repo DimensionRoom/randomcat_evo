@@ -12,6 +12,7 @@ import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
 import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
+import LottieAnimation from "@/components/Loading/LottieAnimation";
 import mainLoad from "../../../../public/json/mainload.json";
 import TagFilter from "@/components/Filter/TagFilter/TagFilter";
 import PointerIcon from "@/public/svgs/storyboard/pointer";
@@ -106,7 +107,7 @@ export default function StoryBoard({
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
   const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
-  useState<number>(0);
+    useState<number>(0);
   const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
 
   const handleLockContentChange = (
@@ -261,7 +262,11 @@ export default function StoryBoard({
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player>
+        <LottieAnimation
+          animationData={mainLoad}
+          color={["#63058F", "#7C4BE4", "#390455"]}
+        />
+        {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
     );
   }
