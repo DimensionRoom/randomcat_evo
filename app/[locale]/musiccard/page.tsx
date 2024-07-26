@@ -391,30 +391,38 @@ export default function MusicCard({
               ))}
           </div>
           <div className={styles.TextItemsContainer}>
-            <div className={styles.ToolName}>
-              <p className={`${styles.ToolNameText} ${popins.className}`}>
-                Music Card Game
-              </p>
-            </div>
-            <div className={styles.RandomCardName}>
-              <p className={`${styles.CardNameText} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>
-                {randomQuestionItem ? randomQuestionItem : "Question"}
-              </p>
-            </div>
-            <div className={styles.Countdown}>
-              <CountdownProgressBar
-                duration={10}
-                delay={1000}
-                onComplete={handleComplete}
-                resetTrigger={resetCountdownTrigger}
-              />
-            </div>
-            <div className={styles.Action}>
-              <FlatBtn
-                text="Random"
-                className={styles.RandomBtn}
-                onClick={generateRandomItems}
-              />
+            <div className={styles.GroupItem}>
+              <div className={styles.ToolName}>
+                <p className={`${styles.ToolNameText} ${popins.className}`}>
+                  Music Card Game
+                </p>
+              </div>
+              <div className={styles.RandomCardName}>
+                <p
+                  className={`${styles.CardNameText} ${
+                    locale == "th"
+                      ? `${mitr.className} ${styles.thfontlight}`
+                      : null
+                  }`}
+                >
+                  {randomQuestionItem ? randomQuestionItem : "Question"}
+                </p>
+              </div>
+              <div className={styles.Countdown}>
+                <CountdownProgressBar
+                  duration={10}
+                  delay={1000}
+                  onComplete={handleComplete}
+                  resetTrigger={resetCountdownTrigger}
+                />
+              </div>
+              <div className={styles.Action}>
+                <FlatBtn
+                  text="Random"
+                  className={styles.RandomBtn}
+                  onClick={generateRandomItems}
+                />
+              </div>
             </div>
           </div>
         </div>
