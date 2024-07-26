@@ -8,6 +8,7 @@
   --text-color-content: #0d93ff;
   --btn--bg-color: #ffffff;
   --btn--text-color: #411874;
+  --btn--text-color-hover: #ffffff;
   --btn--bg-hover: #970090;
   --btn--bg-active: #4b4b4b5c;
   display: flex;
@@ -159,9 +160,11 @@
     }
     .RandomBtn:hover {
       background-color: var(--btn--bg-hover);
+      color: var(--btn--text-color-hover);
     }
     .RandomBtn:active {
       background-color: var(--btn--bg-active);
+      color: var(--btn--text-color-hover);
     }
   }
 }
