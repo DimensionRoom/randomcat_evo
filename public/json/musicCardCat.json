@@ -1,0 +1,32 @@
+{
+  "Instrument": {
+    "title": "Musical Instrument",
+    "subTitle": "",
+    "key": "Instrument",
+    "data": [
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Violin", "content_th": "","content_en": "", "dataKey": "Violin"},
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Cello", "content_th": "","content_en": "", "dataKey": "Cello"},
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Harp", "content_th": "","content_en": "", "dataKey": "Harp"},
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Electric Guitar", "content_th": "","content_en": "", "dataKey": "Electric Guitar"},
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Electric Bass", "content_th": "","content_en": "", "dataKey": "Electric Bass"},
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Double Bass", "content_th": "","content_en": "", "dataKey": "Double Bass"},
+      {"type_th":"เครื่องสาย","type_en":"String Instrument","th": "", "en": "Viola", "content_th": "","content_en": "", "dataKey": "Viola"},
+      {"type_th":"เครื่องดนตรีเคาะตี","type_en":"Percussion Instrument","th": "", "en": "Timpani", "content_th": "","content_en": "", "dataKey": "Timpani"},
+      {"type_th":"เครื่องดนตรีเคาะตี","type_en":"Percussion Instrument","th": "", "en": "Xylophone", "content_th": "","content_en": "", "dataKey": "Xylophone"},
+      {"type_th":"เครื่องดนตรีเคาะตี","type_en":"Percussion Instrument","th": "", "en": "Grand Piano", "content_th": "","content_en": "", "dataKey": "Grand Piano"},
+      {"type_th":"เครื่องดนตรีเคาะตี","type_en":"Percussion Instrument","th": "", "en": "Drum set", "content_th": "","content_en": "", "dataKey": "Drum set"},
+      {"type_th":"เครื่องดนตรีเคาะตี","type_en":"Percussion Instrument","th": "", "en": "Snare Drum", "content_th": "","content_en": "", "dataKey": "Snare Drum"},
+      {"type_th":"เครื่องดนตรีเคาะตี","type_en":"Percussion Instrument","th": "", "en": "Bass Drum", "content_th": "","content_en": "", "dataKey": "Bass Drum"},
+      {"type_th":"เครื่องเป่า","type_en":"Woodwind Instrument","th": "", "en": "Saxophone", "content_th": "","content_en": "", "dataKey": "Saxophone"},
+      {"type_th":"เครื่องเป่า","type_en":"Woodwind Instrument","th": "", "en": "Flute", "content_th": "","content_en": "", "dataKey": "Flute"},
+      {"type_th":"เครื่องเป่า","type_en":"Woodwind Instrument","th": "", "en": "Bassoon", "content_th": "","content_en": "", "dataKey": "Bassoon"},
+      {"type_th":"เครื่องเป่า","type_en":"Woodwind Instrument","th": "", "en": "Piccolo", "content_th": "","content_en": "", "dataKey": "Piccolo"},
+      {"type_th":"เครื่องเป่า","type_en":"Woodwind Instrument","th": "", "en": "Clarinet", "content_th": "","content_en": "", "dataKey": "Clarinet"},
+      {"type_th":"เครื่องเป่า","type_en":"Woodwind Instrument","th": "", "en": "Oboe", "content_th": "","content_en": "", "dataKey": "Oboe"},
+      {"type_th":"เครื่องดนตรีทองเหลือง","type_en":"Brass Instrument","th": "", "en": "French Horn", "content_th": "","content_en": "", "dataKey": "French Horn"},
+      {"type_th":"เครื่องดนตรีทองเหลือง","type_en":"Brass Instrument","th": "", "en": "Tuba", "content_th": "","content_en": "", "dataKey": "Tuba"},
+      {"type_th":"เครื่องดนตรีทองเหลือง","type_en":"Brass Instrument","th": "", "en": "Trumpet", "content_th": "","content_en": "", "dataKey": "Trumpet"},
+      {"type_th":"เครื่องดนตรีทองเหลือง","type_en":"Brass Instrument","th": "", "en": "Trombone", "content_th": "","content_en": "", "dataKey": "Trombone"}
+    ]
+  }
+}

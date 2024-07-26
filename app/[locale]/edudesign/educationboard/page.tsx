@@ -22,6 +22,7 @@ import BookIcon from "@/public/svgs/educationboard/book";
 import SiteLogo from "@/public/svgs/siteLogo";
 
 import edudesisgnData from "../../../../public/json/edudesignCat.json";
+import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 
 export type SubCategoryProps = {
   name: string;
@@ -277,6 +278,7 @@ export default function InnovationBoard({
       locale={locale}
       resources={resources}
     >
+      <MainNavigationTopBar locale={locale} />
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header
           className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemePink"]}`}

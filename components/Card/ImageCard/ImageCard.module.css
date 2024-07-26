@@ -1,0 +1,411 @@
+.CardItem {
+  --card-background-color: #ffffff;
+  --card-text-color: #000000;
+  --card-text-color-flip: #000000;
+  --card-btn-background-color: #9F1CDD;
+  --card-btn-flip-bg-color: #ffffff;
+  --card-btn-border-color: #ffffff;
+  --card-btn-text-color: #ffffff;
+  display: flex;
+  /* flex: 1; */
+  flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px 10px 10px 10px;
+  background: var(--card-background-color);
+  background-image: var(--card-background-color);
+  border: 0;
+  border-radius: 20px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  width: 380px;
+  height: 530px;
+  margin: 0 8px;
+  box-shadow: -18px 20px 20px 2px rgb(0 0 0 / 30%);
+  scroll-snap-align: start;
+  overflow: hidden;
+  /* animation: fadeInFromTop 1s ease-out; */
+  /* margin: auto; */
+}
+
+.CardFliped {
+  transform: rotateY(180deg);
+  border: 0;
+}
+
+
+
+.CardFront {
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  /* align-items: center; */
+  /* min-height: 50px; */
+  /* -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; */
+
+}
+
+.CardBack {
+  cursor: pointer;
+  display: none;
+  /* flex: 1; */
+  /* min-height: 50px; */
+  /* -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; */
+  transform: rotateY(180deg);
+}
+
+.CardFliped .clickToFlip {
+  display: none;
+}
+
+.CardFliped:hover .clickToFlip {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  animation: pulsate-fwd 0.5s ease-in-out infinite both;
+
+}
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.CardFliped .CardBack {
+  display: flex;
+  flex: 1;
+}
+
+.CardFliped .CardFront {
+  display: none;
+}
+
+.CardItem.CardFliped {
+  cursor: pointer;
+  background-image: url('../../../public/svgs/svg/cardPattern.svg'), var(--card-background-color-flip);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+}
+
+.CardItem.CardNoneFliped {
+  cursor: pointer;
+  background-image: var(--card-bg-url), var(--card-background-color);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 5px 5px 8px 2px rgb(0 0 0 / 10%);
+}
+
+/* 
+.CardItem.CardNoneFliped.fadeInFromTop {
+  animation: fadeInFromTop 1s ease-out;
+} */
+
+.CardItem.CardFliped .CardBack .CardItemContent {
+  color: var(--card-text-color-flip);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  /* gap: 5px; */
+}
+
+.CardItem.CardFliped .CardBack .CardItemContent svg {
+  fill: var(--card-text-color-flip);
+}
+
+.CardItem.CardFliped .CardBack .CardItemContent .CardTitle {
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+}
+
+.CardItem.CardFliped .CardBack .CardItemContent .CardSubTitle {
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.CardItem.CardFliped .CardBack .CardItemContent .CardCatName {
+  font-size: 0.8em;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+.CardItemActionStart {
+  color: var(--card-text-color);
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 5px 5px; */
+}
+
+
+
+.CardItemActionStart .TitleGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.CardItemActionStart .TitleGroup .CardCystal {
+  width: 20px;
+  height: 20px;
+  background-image: var(--card-symbol-crystal);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.CardItemActionStart .TitleGroup .CardTitle {
+  font-weight: 600;
+}
+
+.CardItemActionStart .IconContainer {
+  margin: 0px 5px 0px 0px;
+}
+
+.CardItemActionEnd {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  /* padding: 5px 5px; */
+}
+
+.CardItemBodyContent {
+  display: flex;
+  flex-direction: row;
+  max-height: 100%;
+  overflow-y: auto;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  color: var(--card-text-color);
+  padding: 0px 10px;
+  text-align: center;
+  /* height: inherit; */
+}
+
+.CardItemBodyContent .ExpandText {
+  font-size: 1em;
+  font-weight: 100;
+  color: var(--card-text-color);
+}
+
+.CardItemBodyContent.NonExpanded {
+  max-height: 0;
+  opacity: 0;
+  /* display: none; */
+}
+
+.CardItemBodyContent::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.CardItemBodyContent::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+
+.CardItemActionContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  /* padding: 6px; */
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.CardItemActionContent .IconContainer {
+  display: flex;
+}
+
+
+.CardItemActionContent.HaveContent.NonExpanded svg:hover {
+  animation: pulsate-fwd 1s ease-in-out infinite both;
+  cursor: pointer;
+}
+
+
+
+.CardItemActionContent.Expanded svg {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+  cursor: pointer;
+  /* animation: moveRotateUpDown 1.5s infinite; */
+}
+
+.CardItemActionContent.HaveContent+.CardItemActionContent.Expanded svg {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+  cursor: pointer;
+  /* animation: moveRotateUpDown 1.5s infinite; */
+}
+
+.CardFront .CardItemContent {
+  display: flex;
+  flex: 4;
+  flex-direction: column;
+  gap: 5px;
+  overflow-x: auto;
+  max-height: 300px;
+
+  /* align-items: center; */
+  /* justify-content: center;
+  align-items: center; */
+}
+
+
+.CardFront .CardItemContent .CardTextContainer {
+  color: var(--card-text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.CardFront .CardItemContent .CardTextContainer.NonContent {
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+
+.CardFront .CardItemContent .CardTextContainer .CardTitle {
+  font-size: 0.8em;
+}
+
+.CardFront .CardItemContent .CardTextContainer .CardDetail {
+  font-size: 1.8em;
+  font-weight: 600;
+  text-align: center;
+  text-wrap: wrap;
+}
+
+.CardItemActionEnd .IconContainer {
+  display: flex;
+  /* background: rgb(168 168 168 / 30%);
+  border-radius: 0px; */
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.IconLock path {
+  fill: var(--card-btn-icon-color);
+}
+
+.IconUnLock path {
+  fill: var(--card-btn-icon-color);
+  opacity: 0.5;
+}
+
+.IconExpandArrow path {
+  fill: var(--card-btn-icon-color);
+}
+
+.IconExpandArrowDisabled path {
+  fill: var(--card-btn-icon-color);
+  opacity: 0.5;
+}
+
+.randomBtn {
+  height: 35px;
+  background-color: var(--card-btn-background-color);
+  color: var(--card-btn-text-color);
+  border: 2px solid var(--card-btn-background-color);
+  font-weight: 600;
+}
+
+.flipBtn {
+  height: 35px;
+  background-color: var(--card-btn-flip-bg-color);
+  color: var(--card-btn-background-color);
+  border: 2px solid var(--card-btn-background-color);
+  font-weight: 600;
+}
+
+.flipBtn:hover {
+  color: var(--card-btn-background-color) !important;
+}
+
+
+.randomBtn:disabled {
+  background-color: var(--card-btn-background-color);
+  border: 2px solid var(--card-btn-background-color);
+  filter: opacity(0.5);
+}
+
+.flipBtn:disabled {
+  border: 2px solid var(--card-btn-background-color);
+  /* filter: grayscale(0.8); */
+  filter: opacity(0.5);
+}
+
+.CardItemActionEnd .IconContainer:active {
+  transform: scale(0.8);
+}
+
+.CardItemActionEnd .IconContainer:active.actionDisable {
+  transform: scale(1);
+}
+
+.CardItemActionEnd .IconContainer:active.actionDisable .IconLock path {
+  opacity: 0.2;
+}
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

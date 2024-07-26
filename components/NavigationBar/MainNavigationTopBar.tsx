@@ -12,6 +12,7 @@ import styles from "./MainNavigationTopBar.module.css";
 import mainLoad from "@/public/json/mainload.json";
 import initTranslations from "@/app/[locale]/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
+import SiteLogo from "@/public/svgs/siteLogo";
 
 const i18nNamespaces = ["common"];
 const popins = Poppins({
@@ -37,7 +38,7 @@ type MenuItem = {
 };
 
 const MainNavigationTopBar = ({
-  logo,
+  logo = <SiteLogo width={45} height={45} />,
   locale = "en",
   ...props
 }: Props): JSX.Element => {

@@ -22,7 +22,7 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({ animationData, color 
       // Change color dynamically
       if (color) {
         const elements = containerRef.current.querySelectorAll('path, g, rect, circle, polygon, polyline, line, ellipse');
-        console.log('elements',elements)
+        // console.log('elements',elements)
         elements[10].setAttribute('fill', color[0]);
         elements[13].setAttribute('fill', color[1]);
         elements[16].setAttribute('fill', color[2]);

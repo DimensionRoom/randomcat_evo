@@ -7,6 +7,7 @@ import Link from 'next/link'
 import initTranslations from './i18n';
 import Image from 'next/image'
 import TranslationsProvider from '@/components/TranslationsProvider';
+import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBar';
 import mainLoad from './../../public/json/mainload.json';
 import teamwork from './../../public/json/teamwork.json';
 import PotionIcon from '@/public/svgs/home/potion';
@@ -80,6 +81,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
+      <MainNavigationTopBar locale={locale} />
       <main className={styles.main}>
         <section className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>

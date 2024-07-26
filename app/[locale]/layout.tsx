@@ -39,10 +39,10 @@ export default function RootLayout({
     <html lang={locale} dir={dir(locale)} style={{ scrollBehavior: 'smooth' }}>
       <body className={quicksand.className}>
         <ToastProvider>
-        <MainNavigationTopBar
+        {/* <MainNavigationTopBar
           locale={locale}
           logo={<SiteLogo width={45} height={45} />}
-        />
+        /> */}
         
         {children}
         </ToastProvider>

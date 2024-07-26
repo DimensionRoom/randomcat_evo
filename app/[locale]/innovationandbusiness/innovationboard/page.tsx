@@ -23,6 +23,7 @@ import SiteLogo from "@/public/svgs/siteLogo";
 
 import innodesisgnData from "../../../../public/json/innodesignCat.json";
 import { it } from "node:test";
+import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 
 export type SubCategoryProps = {
   name: string;
@@ -295,6 +296,7 @@ export default function InnovationBoard({
       locale={locale}
       resources={resources}
     >
+      <MainNavigationTopBar locale={locale} />
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header
           className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemeBlue"]}`}
