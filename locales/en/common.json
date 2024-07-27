@@ -1,15 +1,22 @@
 {
-    "component":{
-     "mainNavigationTopBar": {
-        "items": {
-                "changeLanguage": "Language"        
-     }
-    }
- },
- "texts":{
-      "language": {
-         "english": "English",
-         "thai": "Thai"
+  "component": {
+    "mainNavigationTopBar": {
+      "items": {
+        "changeLanguage": "Language"
       }
- }
+    },
+    "progressBar": {
+      "loading": "Loading...",
+      "timeUp": "Time's up"
+    }
+  },
+  "texts": {
+    "language": {
+      "english": "English",
+      "thai": "Thai"
+    }
+  },
+  "button": {
+    "random": "สุ่ม"
+  }
 }

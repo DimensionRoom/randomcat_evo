@@ -5,7 +5,9 @@ interface CountdownProgressBarProps {
   onComplete: () => void; // callback function when countdown completes
   resetTrigger?: boolean; // trigger to reset the countdown
   delay?: number; // delay in milliseconds before starting the countdown
-  showPercentage?: boolean; // show or hide the percentage text
+  displayMode?: "seconds" | "percentage" | "none"; // display mode for countdown
+  showCompletedText?: boolean; // show or hide the completed text
+  completedText?: string; // text to show when countdown completes
 }
 
 const CountdownProgressBar: React.FC<CountdownProgressBarProps> = ({
@@ -13,10 +15,13 @@ const CountdownProgressBar: React.FC<CountdownProgressBarProps> = ({
   onComplete,
   resetTrigger = false,
   delay = 500,
-  showPercentage = false,
+  displayMode = "percentage",
+  showCompletedText = false,
+  completedText = "Completed",
 }) => {
-  const [percentage, setPercentage] = useState(100);
+  const [timeLeft, setTimeLeft] = useState(duration);
   const [isStarted, setIsStarted] = useState(false); // track if countdown has started
+  const [isCompleted, setIsCompleted] = useState(false); // track if countdown has completed
   const isComplete = useRef(false); // useRef to track completion
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const delayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -30,40 +35,46 @@ const CountdownProgressBar: React.FC<CountdownProgressBarProps> = ({
       clearTimeout(delayTimeoutRef.current);
     }
 
-    if (!isStarted && resetTrigger) {
+    if (resetTrigger) {
       setIsStarted(true);
     }
 
     if (isStarted) {
       isComplete.current = false;
-      setPercentage(100); // Reset percentage to 100%
-
-      const totalMilliseconds = duration * 1000;
-      const interval = totalMilliseconds / 100;
+      setIsCompleted(false);
+      setTimeLeft(duration); // Reset time left to duration
 
       const startCountdown = () => {
+        const startTime = Date.now();
+        const endTime = startTime + duration * 1000;
+
         timerRef.current = setInterval(() => {
-          setPercentage((prev) => {
-            if (prev <= 1) {
-              if (timerRef.current) {
-                clearInterval(timerRef.current);
-              }
-              if (!isComplete.current) {
-                // Check if already completed
-                isComplete.current = true;
-                onComplete();
-              }
-              return 0;
+          const now = Date.now();
+          const newTimeLeft = Math.max(0, (endTime - now) / 1000);
+
+          if (newTimeLeft <= 0) {
+            if (timerRef.current) {
+              clearInterval(timerRef.current);
             }
-            return prev - 1;
-          });
-        }, interval);
+            if (!isComplete.current) {
+              isComplete.current = true;
+              countdownComplete();
+            }
+          }
+
+          setTimeLeft(newTimeLeft);
+        }, 100);
       };
 
       delayTimeoutRef.current = setTimeout(() => {
         startCountdown();
       }, delay);
     }
+
+    const countdownComplete = () => {
+      setIsCompleted(true);
+      onComplete();
+    };
 
     return () => {
       if (timerRef.current) {
@@ -74,6 +85,8 @@ const CountdownProgressBar: React.FC<CountdownProgressBarProps> = ({
       }
     };
   }, [duration, onComplete, resetTrigger, delay, isStarted]);
+
+  const percentage = (timeLeft / duration) * 100;
 
   return (
     <div
@@ -95,7 +108,23 @@ const CountdownProgressBar: React.FC<CountdownProgressBarProps> = ({
           transition: "width 0.1s linear",
         }}
       ></div>
-      {showPercentage && (
+      {showCompletedText && isCompleted && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p style={{ color: "#000000" }}>{completedText}</p>
+        </div>
+      )}
+      {!isComplete.current && displayMode !== "none" && (
         <div
           style={{
             position: "absolute",
@@ -109,7 +138,7 @@ const CountdownProgressBar: React.FC<CountdownProgressBarProps> = ({
             fontWeight: "bold",
           }}
         >
-          {percentage}%
+          {displayMode === "percentage" ? `${Math.round(percentage)}%` : `${Math.ceil(timeLeft)} s`}
         </div>
       )}
     </div>

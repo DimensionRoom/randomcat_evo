@@ -60,7 +60,7 @@ interface Question {
   content_en: string;
 }
 
-const i18nNamespaces = ["innovationboard"];
+const i18nNamespaces = ["common"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -421,6 +421,9 @@ export default function MusicCard({
                   delay={1000}
                   onComplete={handleComplete}
                   resetTrigger={resetCountdownTrigger}
+                  displayMode="none"
+                  showCompletedText
+                  completedText="Time's up!"
                 />
               </div>
               <div className={styles.RandomCardName}>
