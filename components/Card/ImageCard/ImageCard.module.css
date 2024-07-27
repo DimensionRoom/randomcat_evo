@@ -26,6 +26,9 @@
   overflow: hidden;
   /* animation: fadeInFromTop 1s ease-out; */
   /* margin: auto; */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s;
 }
 
 .CardFliped {
@@ -54,7 +57,12 @@
   /* min-height: 50px; */
   /* -webkit-backface-visibility: hidden;
   backface-visibility: hidden; */
-  transform: rotateY(180deg);
+  transform:  rotateY(var(--rotateY)) rotateX(var(--rotateX));
+
+}
+
+.tilted {
+  transform:  rotateY(var(--rotateY)) rotateX(var(--rotateX));
 }
 
 .CardFliped .clickToFlip {

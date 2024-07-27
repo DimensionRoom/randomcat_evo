@@ -106,13 +106,32 @@ const ImageCard = forwardRef<HTMLDivElement, Props>(
       return () => clearTimeout(timeout);
     }, [delay]);
 
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+
+      e.currentTarget.style.setProperty("--rotateX", `${rotateX}deg`);
+      e.currentTarget.style.setProperty("--rotateY", `${rotateY}deg`);
+    };
+
+    const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.currentTarget.style.setProperty("--rotateX", `0deg`);
+      e.currentTarget.style.setProperty("--rotateY", `0deg`);
+    };
+
     return (
       <div
         ref={ref}
-        className={`${styles.CardItem} ${
+        className={`${styles.CardItem} ${styles.tilted} ${
           flipContent ? styles.CardFliped : styles.CardNoneFliped
         } ${isAnimated ? styles.fadeInFromTop : ""}`}
-        // onClick={() => handleCardClick("back")} // ปิด Fnc กลับด้านหลัง
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <div className={styles.CardFront}>
           <div className={styles.CardItemActionStart}>
