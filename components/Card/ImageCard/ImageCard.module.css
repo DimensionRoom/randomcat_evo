@@ -21,7 +21,7 @@
   width: 380px;
   height: 530px;
   margin: 0 8px;
-  box-shadow: -18px 20px 20px 2px rgb(0 0 0 / 30%);
+  box-shadow: 18px 20px 20px 2px rgb(0 0 0 / 30%);
   scroll-snap-align: start;
   overflow: hidden;
   /* animation: fadeInFromTop 1s ease-out; */
