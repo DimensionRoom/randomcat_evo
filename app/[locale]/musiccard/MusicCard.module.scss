@@ -51,7 +51,7 @@
   flex-direction: column;
   // align-items: center;
   justify-content: center;
-  padding: 10px 40px;
+  padding: 30px 40px;
   .HeaderCatContainer {
     display: flex;
     flex-direction: row;
@@ -159,6 +159,8 @@
     }
   }
   .RandomCardName {
+    display: flex;
+    flex:1;
     .CardNameText {
       text-align: center;
       font-size: 2.8em;
