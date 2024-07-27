@@ -57,7 +57,7 @@
   /* min-height: 50px; */
   /* -webkit-backface-visibility: hidden;
   backface-visibility: hidden; */
-  transform:  rotateY(var(--rotateY)) rotateX(var(--rotateX));
+  /* transform:  rotateY(var(--rotateY)) rotateX(var(--rotateX)); */
 
 }
 

@@ -12,6 +12,7 @@ import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import ImageCard from "@/components/Card/ImageCard/ImageCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
 import musicLoad from "../../../public/json/musicLoading.json";
+import musicLogo from "../../../public/json/musicLogo.json";
 
 import i18nConfig from "@/i18nConfig";
 import THFlag from "@/public/svgs/thFlag";
@@ -331,10 +332,17 @@ export default function MusicCard({
         <div className={styles.HeaderSection}>
           <div className={styles.HeaderCatContainer}>
             <p
-              className={`${styles.HeaderCatContainerText} ${popins.className}`}
+              className={`${styles.HeaderCatContainerText} ${styles.BrandText}  ${popins.className}`}
             >
               Random Tool
             </p>
+            <Player
+              className={styles.BrandLogo}
+              autoplay
+              loop={false}
+              src={musicLoad}
+              style={{ width: "50px" }}
+            ></Player>
             <div className={styles.ToolContainer}>
               <p
                 className={`${styles.HeaderCatContainerText} ${popins.className}`}
@@ -368,6 +376,7 @@ export default function MusicCard({
               )
               .map((cardItem, index) => (
                 <ImageCard
+                  className={styles.CardItemConfig}
                   key={index}
                   ref={(el) => (physicalRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}

@@ -32,6 +32,7 @@ export type Props = {
   flippedCards?: number;
   flip?: boolean;
   delay?: number;
+  className?: string;
   onSelectedCardChange: (key: string, flipContent: boolean) => void;
   onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
@@ -129,7 +130,7 @@ const ImageCard = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         className={`${styles.CardItem} ${styles.tilted} ${
           flipContent ? styles.CardFliped : styles.CardNoneFliped
-        } ${isAnimated ? styles.fadeInFromTop : ""}`}
+        } ${isAnimated ? styles.fadeInFromTop : ""} ${props.className?props.className:''}`}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
