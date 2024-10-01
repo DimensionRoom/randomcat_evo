@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
+import ReactPlayer from 'react-player';
 import Link from 'next/link'
 import initTranslations from './i18n';
 import Image from 'next/image'
@@ -153,13 +154,22 @@ export default function Home({ params: { locale } }: { params: { locale: string 
         </section>
         <section className={`${styles.section} ${styles.whiteSection}`}>
           <div className={styles.itemsContainer}>
-            <div className={styles.itemIcon}>
+            {/* <div className={styles.itemIcon}>
               <Player
                 autoplay
                 loop
                 src={teamwork}
               >
               </Player>
+            </div> */}
+            <div className={styles.videoContainer}>
+              <ReactPlayer
+                url='/video/presentvid01.mp4'
+                playing={true}
+                controls={true}
+                width='100%'
+                height='auto'
+              />
             </div>
             <div className={styles.itemData}>
               <p className={styles.itemTitle}>Think-throughs cards</p>

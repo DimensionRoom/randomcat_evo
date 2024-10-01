@@ -303,6 +303,17 @@
 .whiteSection .itemsContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+}
+
+.whiteSection .itemsContainer .videoContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.whiteSection .itemsContainer .videoContainer video{
+  border-radius: 20px;
 }
 
 .whiteSection .itemsContainer .itemIcon {
