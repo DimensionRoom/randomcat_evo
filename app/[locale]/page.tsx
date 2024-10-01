@@ -164,7 +164,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div> */}
             <div className={styles.videoContainer}>
               <ReactPlayer
-                url='/video/presentvid01.mp4'
+                url='../../video/presentvid01.mp4'
                 playing={true}
                 controls={true}
                 width='100%'
