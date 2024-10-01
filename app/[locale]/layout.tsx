@@ -18,9 +18,11 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Think Tool - Generate Innovative Education Ideas",
-  description: "Explore innovative education ideas from creative thinkers and educators at Think Tool. Find inspiration and unique solutions for your educational needs.",
+  title: "Think Tool - Generate Innovation and Education Ideas",
+  description: "Think Tool enables you to generate fresh innovation and education ideas. Spark creativity and transform learning with our cutting-edge brainstorming tools.",
 };
+
+
 
 export function generateStaticParams() {
   return i18nConfig.locales.map(locale => ({ locale }));
