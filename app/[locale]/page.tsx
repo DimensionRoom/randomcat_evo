@@ -164,7 +164,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div> */}
             <div className={styles.videoContainer}>
               <ReactPlayer
-                url='../../video/presentvid01.mp4'
+                url='https://thinktool.s3.ap-southeast-2.amazonaws.com/presentvid01.mp4'
                 playing={true}
                 controls={true}
                 width='100%'
