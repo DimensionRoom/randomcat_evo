@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
@@ -10,6 +10,7 @@ import Image from 'next/image'
 import TranslationsProvider from '@/components/TranslationsProvider';
 import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBar';
 import mainLoad from './../../public/json/mainload.json';
+import videoPlay from './../../public/json/videoPlay.json';
 import teamwork from './../../public/json/teamwork.json';
 import PotionIcon from '@/public/svgs/home/potion';
 import BookIcon from '@/public/svgs/home/book';
@@ -38,7 +39,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [scrollY, setScrollY] = useState(0);
+  const [presentPlaying, setPresentPlaying] = useState(false);
+  const presentPlayerRef = useRef(null);
   const currentPathname = usePathname();
+
+  const togglePlayPresentVideo = () => {
+    setPresentPlaying(!presentPlaying);
+  };
 
   const handleScroll = (e: Event) => {
     const target = e.target as HTMLDivElement;
@@ -163,13 +170,29 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </Player>
             </div> */}
             <div className={styles.videoContainer}>
+              <div className={styles.videoBox}>
               <ReactPlayer
+                ref={presentPlayerRef}
                 url='https://thinktool.s3.ap-southeast-2.amazonaws.com/presentvid01.mp4'
-                playing={true}
-                controls={true}
+                playing={presentPlaying}
+                onPause={()=>setPresentPlaying(false)}
+                controls={presentPlaying}
                 width='100%'
                 height='auto'
+                style={{display: 'flex'}}
               />
+              {!presentPlaying && (
+                <div className={styles.customPlayButton} onClick={togglePlayPresentVideo}>
+                   <Player
+                    autoplay
+                    loop
+                    src={videoPlay}
+                    style={{ width: '30vh' }}
+                  >
+                  </Player>
+                </div>
+              )}
+              </div>
             </div>
             <div className={styles.itemData}>
               <p className={styles.itemTitle}>Think-throughs cards</p>
