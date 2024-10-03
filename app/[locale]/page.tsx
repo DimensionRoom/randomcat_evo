@@ -187,7 +187,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                     autoplay
                     loop
                     src={videoPlay}
-                    style={{ width: '30vh' }}
+                    style={{ width: '22vh' }}
                   >
                   </Player>
                 </div>
