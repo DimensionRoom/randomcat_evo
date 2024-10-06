@@ -3,6 +3,8 @@ import React, { useState, useEffect,useRef } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
 import { Quicksand, Mitr } from "next/font/google";
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactPlayer from 'react-player';
 import Link from 'next/link'
 import initTranslations from './i18n';
@@ -34,13 +36,21 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"]
 });
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [scrollY, setScrollY] = useState(0);
   const [presentPlaying, setPresentPlaying] = useState(false);
+
   const presentPlayerRef = useRef(null);
+  const titleRef = useRef(null);
+  const cardRef = useRef(null);
+  const card2Ref = useRef(null);
+  
   const currentPathname = usePathname();
 
   const togglePlayPresentVideo = () => {
@@ -49,7 +59,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
 
   const handleScroll = (e: Event) => {
     const target = e.target as HTMLDivElement;
-    console.log(target.scrollTop);
+    // console.log(target.scrollTop);
   }
   
   useEffect(() => {
@@ -58,6 +68,33 @@ export default function Home({ params: { locale } }: { params: { locale: string 
        window.removeEventListener("scroll", handleScroll);
     }
   }, []);
+
+  useEffect(() => {
+    // Title animation
+    gsap.from(titleRef.current, {
+      duration: 1,
+      y: -20,
+      opacity: 0,
+      ease: 'power3.out',
+      markers: true,
+    });
+    // Card animation
+    gsap.from(cardRef.current, {
+      duration: 1,
+      y: -20,
+      opacity: 0,
+      ease: 'power3.out',
+      markers: true,
+    });
+    gsap.from(card2Ref.current, {
+      duration: 1,
+      y: 20,
+      opacity: 0,
+      ease: 'power3.out',
+      markers: true,
+    });
+    
+  }, [loading]);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -84,6 +121,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       ;
   }
 
+  
+
   return (
     <TranslationsProvider
       namespaces={i18nNamespaces}
@@ -95,17 +134,17 @@ export default function Home({ params: { locale } }: { params: { locale: string 
           <div className={styles.textContainer}>
             <p className={styles.title}>THINK<span>TOOL</span></p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.parallaxSection.subtitle')}</p>
-            <p className={styles.details}>Random | Brainstorm | Spark your ideas</p>
+            <p ref={titleRef} className={styles.details}>Random | Brainstorm | Spark your ideas</p>
           </div>
           <div className={styles.cardsContainer}>
-            <div className={`${styles.cardParallax} ${styles.cardColor} ${styles.cardRotate1}`}>
+            <div ref={cardRef} className={`${styles.cardParallax} ${styles.cardColor} ${styles.cardRotate1}`}>
               <div className={styles.cardTopicContainer}>
                 <p className={styles.cardTopic}>Story</p>
                 <p className={styles.cardTopic}>Builder</p>
               </div>
               <p className={styles.cardDetail}>A versatile online tool and physical card deck that make learning more fun and challenging than before</p>
             </div>
-            <div className={`${styles.cardParallax} ${styles.cardClear} ${styles.cardRotate2}`}>
+            <div ref={card2Ref} className={`${styles.cardParallax} ${styles.cardClear} ${styles.cardRotate2}`}>
               <div className={styles.cardTopicContainer}>
                 <p className={styles.cardTopic}>Innovation</p>
                 <p className={styles.cardTopic}>Design</p>

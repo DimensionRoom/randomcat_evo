@@ -139,9 +139,9 @@
 
 @media (max-width: 690px) {
   .parallaxSection {
-    /* display: block; */
-    /* min-height: auto; */
-    /* padding: 20px 0px; */
+    display: block;
+    min-height: calc(100vh - 380px);
+    padding: 20px 0px;
   }
 
   .cardParallax {
