@@ -11,6 +11,7 @@ import initTranslations from './i18n';
 import Image from 'next/image'
 import TranslationsProvider from '@/components/TranslationsProvider';
 import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBar';
+import PageFooter from '@/components/Footer/PageFooter';
 import mainLoad from './../../public/json/mainload.json';
 import videoPlay from './../../public/json/videoPlay.json';
 import teamwork from './../../public/json/teamwork.json';
@@ -444,31 +445,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
           </div>
         </section>
         <section className={`${styles.section} ${styles.footerSection}`}>
-          <div className={styles.itemsContainer}>
-            <p className={styles.title}>Contact us</p>
-            <div className={styles.contact}>
-              <LetterIcon width={25} height={25} />
-              <p className={styles.contactData}>Email: Upskillteachers@gmail.com</p>
-            </div>
-            <div className={styles.contact}>
-              <FacebookIcon width={25} height={25} />
-              <a className={styles.textLink} href="https://www.facebook.com/KidandKru" target="_blank" rel="noreferrer">
-                <p className={styles.contactData}>Facebook: @KidandKru</p>
-              </a>
-            </div>
-            <div className={styles.contact}>
-              <InstagramIcon width={25} height={25} />
-              <a className={styles.textLink} href="https://www.instagram.com/thinktool_official" target="_blank" rel="noreferrer">
-                <p className={styles.contactData}>Instagram: thinktool_official</p>
-              </a>
-            </div>
-          </div>
-          <div className={styles.brandContainer}>
-            <div className={styles.brand}>
-              <p className={styles.brandName}>ThinkTool</p>
-              <SiteLogo className={styles.brandIcon} width={50} height={50} />
-            </div>
-          </div>
+          <PageFooter locale={locale}/>  
         </section>
       </main>
     </TranslationsProvider >

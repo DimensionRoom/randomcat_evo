@@ -34,7 +34,8 @@ type MenuItem = {
   shortKey: string;
   url: string;
   theme: string;
-  [key: string]: string; // Add index signature
+  type: string;
+  [key: string]: string;
 };
 
 const MainNavigationTopBar = ({
@@ -61,6 +62,7 @@ const MainNavigationTopBar = ({
       url: "/innovationandbusiness",
       theme: "ThemeBlue",
       header: "false",
+      type:"randomTool"
     },
     {
       name: "Story Design",
@@ -72,6 +74,7 @@ const MainNavigationTopBar = ({
       url: "/storydesign",
       theme: "ThemePurple",
       header: "false",
+      type:"randomTool"
     },
     {
       name: "Edu Design",
@@ -83,7 +86,20 @@ const MainNavigationTopBar = ({
       url: "/edudesign",
       theme: "ThemePink",
       header: "false",
+      type:"randomTool"
     },
+    {
+      name: "Template",
+      key: "template",
+      title: "Template",
+      titleEx: "",
+      description: "Download template",
+      shortKey: "template",
+      url: "/template",
+      theme: "ThemeGreen",
+      header: "false",
+      type:"page"
+    }
   ];
 
   const findTheme = (pop: string[], mainMenu: MenuItem[]): string | null => {
@@ -186,7 +202,10 @@ const MainNavigationTopBar = ({
             {mainMenu.map((menu, index) => {
               return (
                 <React.Fragment key={`menuItem${index}`}>
-                  <Link
+                  {
+                    menu.type == "randomTool" ? 
+                    (
+                    <Link
                     href={{
                       pathname: `${menu.url}/${menu.key}board`,
                       query: { info: `${menu.shortKey}design` },
@@ -210,7 +229,33 @@ const MainNavigationTopBar = ({
                     >
                       <p className={styles.MenuText}>{menu.name}</p>
                     </div>
+                  </Link>) : 
+                  (
+                    <Link
+                    href={menu.url}
+                    onClick={() =>
+                      sendGAEvent({
+                        event: "goTo",
+                        value: `${menu.shortKey}`,
+                      })
+                    }
+                    className={`${styles.textLink} ${`${menu.key}Link`}`}
+                  >
+                    <div
+                      className={`${
+                        popCurrentPathname.some(
+                          (item) => item === menu.url.replace("/", "")
+                        )
+                          ? styles.MenuActive
+                          : ""
+                      } ${styles.TopNavigationMenu}`}
+                    >
+                      <p className={styles.MenuText}>{menu.name}</p>
+                    </div>
                   </Link>
+                  )
+                  }
+               
                   {index < mainMenu.length - 1 && (
                     <div className={styles.MenuDivider}></div>
                   )}

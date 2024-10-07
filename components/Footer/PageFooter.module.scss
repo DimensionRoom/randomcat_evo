@@ -1,0 +1,94 @@
+.footerContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  gap: 15px;
+  padding: 50px 150px;
+  background: #ffde5a;
+  .itemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    .title {
+      font-size: 2.4em;
+      font-weight: 700;
+      color: #691392;
+      margin-bottom: 5px;
+    }
+    .contact {
+      display: flex;
+      flex-direction: row;
+      font-size: 1.4em;
+      font-weight: lighter;
+      color: #691392;
+      gap: 10px;
+      align-items: center;
+      .textLink {
+        text-decoration: none;
+      }
+    }
+  }
+  .brandContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    .brand {
+      display: flex;
+      flex-direction: row;
+      font-size: 1.4em;
+      font-weight: lighter;
+      color: #691392;
+      gap: 10px;
+      align-items: baseline;
+      .brandName {
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (max-width: 1090px) {
+  .footerContainer {
+    padding: 50px 40px;
+    .brandContainer {
+      flex: 1;
+      align-items: center;
+    }
+    .itemsContainer {
+      .contact {
+        font-size: 1.4em;
+      }
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .footerContainer {
+    .itemsContainer {
+      .title {
+        font-size: 2em;
+      }
+      .contact {
+        font-size: 1em;
+      }
+    }
+    .brandContainer {
+      .brand {
+        .brandName {
+          font-size: 1.2em;
+        }
+        .brandIcon {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+}
