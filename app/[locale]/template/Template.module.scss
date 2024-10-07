@@ -29,8 +29,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../../../public/svgs/svg/pallaraxBg1.svg") repeat;
-    opacity: 0.1;
+    background: url("../../../public/svgs/svg/seamless_school.svg") repeat;
+    background-size: contain;
+    opacity: 0.04;
     z-index: 1;
   }
   .textContainer {
