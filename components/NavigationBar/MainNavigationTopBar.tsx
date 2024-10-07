@@ -167,12 +167,13 @@ const MainNavigationTopBar = ({
     router.refresh();
   };
 
-  // useEffect(() => {
-  //   console.log("currentPathname", currentPathname);
-  //   console.log("x", currentPathname.split("/").slice(1));
-  //   console.log("xx", currentPathname.split("/").slice(2));
-  //   console.log("popCurrentPathname", findTheme(popCurrentPathname, mainMenu),popCurrentPathname.length);
-  // }, []);
+  useEffect(() => {
+    console.log("currentPathname", currentPathname);
+    console.log("x", currentPathname.split("/").slice(1));
+    console.log("xx", currentPathname.split("/").slice(2));
+    console.log("xxx", popCurrentPathname[popCurrentPathname.length - 1]);
+    console.log("popCurrentPathname", findTheme(popCurrentPathname, mainMenu),popCurrentPathname.length);
+  }, []);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -315,8 +316,8 @@ const MainNavigationTopBar = ({
       {/* Mobile Size */}
       <div
         className={`${
-          popCurrentPathname.length < 2 &&
-          (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th")
+          popCurrentPathname.length <= 2 &&
+          (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th" || popCurrentPathname[popCurrentPathname.length - 1] == "template")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
         }`}
@@ -362,14 +363,34 @@ const MainNavigationTopBar = ({
         <div className={styles.ExpandMenuContainer}>
           <div className={`${styles.ExpandMenuContent}`}>
             {mainMenu.map((menu, index) => {
-              return (
+              return menu.type == "randomTool" ? (
                 <Link
                   key={index}
-                  // href={menu.url}
                   href={{
                     pathname: `${menu.url}/${menu.key}board`,
                     query: { info: `${menu.shortKey}design` },
                   }}
+                  className={`${styles.textLink} ${`${menu.key}MobileLink`}`}
+                  onClick={() => handleExpandMenu(false)}
+                >
+                  <div className={styles.ExpandMenuContentItem}>
+                    <p
+                      className={`${styles.MenuText} ${
+                        popCurrentPathname.some(
+                          (item) => item === menu.url.replace("/", "")
+                        )
+                          ? styles.MenuTextActive
+                          : ""
+                      }`}
+                    >
+                      {menu.name}
+                    </p>
+                  </div>
+                </Link>
+              ) : (
+                <Link
+                  key={index}
+                  href={menu.url}
                   className={`${styles.textLink} ${`${menu.key}MobileLink`}`}
                   onClick={() => handleExpandMenu(false)}
                 >

@@ -45,10 +45,20 @@
       color: #ffffff;
       margin: 0;
     }
+    @media screen and (max-width: 690px) {
+      .title {
+        font-size: 3em;
+      }
+    }
     .subtitle {
       font-size: 3em;
       font-weight: 300;
       color: #ffffff;
+    }
+    @media screen and (max-width: 690px) {
+      .subtitle {
+        font-size: 1.5em;
+      }   
     }
   }
 }
@@ -72,10 +82,20 @@
       color: #691392;
       margin: 0;
     }
+    @media screen and (max-width: 690px) {
+      .title {
+        font-size: 1.8em;
+      }
+    }
     .subtitle {
       font-size: 1.8em;
       font-weight: 300;
       color: #821dbf;
+    }
+    @media screen and (max-width: 690px) {
+      .subtitle {
+        font-size: 1.2em;
+      }
     }
   }
 }
@@ -91,6 +111,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 60px;
+  }
+  @media screen and (max-width: 690px) {
+    .documentContainer {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 
