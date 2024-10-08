@@ -11,15 +11,15 @@ import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import ImageCard from "@/components/Card/ImageCard/ImageCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
-import musicLoad from "../../../public/json/musicLoading.json";
-import musicLogo from "../../../public/json/musicLogo.json";
+import musicLoad from "@/public/json/musicLoading.json";
+import musicLogo from "@/public/json/musicLogo.json";
 
 import i18nConfig from "@/i18nConfig";
 import THFlag from "@/public/svgs/thFlag";
 import ENFlag from "@/public/svgs/enFlag";
 
-import musicCardData from "../../../public/json/musicCardCat.json";
-import musicCardQuestion from "../../../public/json/musicCardQuestion.json";
+import musicCardData from "@/public/json/musicCardCat.json";
+import musicCardQuestion from "@/public/json/musicCardQuestion.json";
 
 export type SubCategoryProps = {
   name: string;

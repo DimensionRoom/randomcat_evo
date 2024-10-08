@@ -12,9 +12,9 @@ import Image from 'next/image'
 import TranslationsProvider from '@/components/TranslationsProvider';
 import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBar';
 import PageFooter from '@/components/Footer/PageFooter';
-import mainLoad from './../../public/json/mainload.json';
-import videoPlay from './../../public/json/videoPlay.json';
-import teamwork from './../../public/json/teamwork.json';
+import mainLoad from '@/public/json/mainload.json';
+import videoPlay from '@/public/json/videoPlay.json';
+import teamwork from '@/public/json/teamwork.json';
 import PotionIcon from '@/public/svgs/home/potion';
 import BookIcon from '@/public/svgs/home/book';
 import GiftBoxIcon from '@/public/svgs/home/giftBox';
