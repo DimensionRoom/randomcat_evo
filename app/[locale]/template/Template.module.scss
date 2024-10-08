@@ -58,7 +58,7 @@
     @media screen and (max-width: 690px) {
       .subtitle {
         font-size: 1.5em;
-      }   
+      }
     }
   }
 }
@@ -105,12 +105,17 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding:0px 40px 120px 40px;
+  padding: 0px 40px 120px 40px;
   background-color: #ffffff;
   .documentContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 60px;
+  }
+  @media screen and (max-width: 1090px) {
+    .documentContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   @media screen and (max-width: 690px) {
     .documentContainer {

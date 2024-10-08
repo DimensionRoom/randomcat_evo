@@ -147,7 +147,6 @@ export default function TemplateScreen({
       >
         <LottieAnimation
           animationData={mainLoad}
-          color={["#1e4e9c", "#298edc", "#072167"]}
         />
       </div>
     );

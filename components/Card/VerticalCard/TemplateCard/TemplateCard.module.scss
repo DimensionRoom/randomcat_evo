@@ -6,7 +6,11 @@
   background-color: #fff;
   gap: 10px;
   .itemImage {
+    overflow: hidden;
     .image {
+      border: none;
+      overflow: hidden !important;
+      background-color: #c9c9c9c9;
     }
   }
   .itemData {
