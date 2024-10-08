@@ -119,7 +119,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       >
       </Player>
     </div>
-      ;
   }
 
   

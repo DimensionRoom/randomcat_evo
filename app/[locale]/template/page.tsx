@@ -1,13 +1,12 @@
 "use client";
-import React, { useState, useEffect, useRef, use } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { Player} from "@lottiefiles/react-lottie-player";
+import { useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
-import Link from "next/link";
 import TranslationsProvider from "@/components/TranslationsProvider";
-import LottieAnimation from "@/components/Loading/LottieAnimation";
-import mainLoad from "@/public/json/mainload.json";
+import templateLoad from "@/public/json/templateLoad.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
 import styles from "./Template.module.scss";
@@ -130,7 +129,7 @@ export default function TemplateScreen({
       setResources(resources);
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1500);
     }
     fetchTranslations();
   }, [locale]);
@@ -145,9 +144,12 @@ export default function TemplateScreen({
           alignItems: "center",
         }}
       >
-        <LottieAnimation
-          animationData={mainLoad}
-        />
+        <Player
+          autoplay
+          loop
+          src={templateLoad}
+          style={{ width: "25vh" }}
+        ></Player>
       </div>
     );
   }
