@@ -40,7 +40,6 @@ const TemplateCard = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         className={styles.TemplateCardContainer}
         style={{ backgroundColor: color }}
-        onClick={onClick}
         {...props}
       >
         <div className={styles.itemImage}>
