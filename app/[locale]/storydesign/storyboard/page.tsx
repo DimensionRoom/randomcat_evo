@@ -5,7 +5,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "../../i18n";
 import styles from "../../../Styles/StoryBoard/page.module.css";
-import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.css";
+import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import Link from "next/link";
 import IconBtn from "@/components/Button/IconBtn/IconBtn";

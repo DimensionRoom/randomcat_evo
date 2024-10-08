@@ -6,7 +6,7 @@ import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'
 import ENFlag from '@/public/svgs/enFlag'
-import styles from './MainNavigationTopBar.module.css';
+import styles from './MainNavigationTopBar.module.scss';
 import mainLoad from '@/public/json/mainload.json';
 import initTranslations from '@/app/[locale]/i18n';
 import TranslationsProvider from '@/components/TranslationsProvider';

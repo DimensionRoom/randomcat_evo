@@ -6,7 +6,7 @@ import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "../../i18n";
 import Link from "next/link";
 import styles from "../../../Styles/EduBoard/page.module.css";
-import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.css";
+import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
 
 import TranslationsProvider from "@/components/TranslationsProvider";
 import IconBtn from "@/components/Button/IconBtn/IconBtn";
