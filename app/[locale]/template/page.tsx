@@ -6,7 +6,7 @@ import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
-import templateLoad from "@/public/json/templateLoad.json";
+import templateLoad from "@/public/json/templateload.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
 import styles from "./Template.module.scss";
