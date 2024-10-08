@@ -51,7 +51,7 @@ export default function TemplateScreen({
   const documents = [
     {
       id: "1",
-      picture: "",
+      picture: "/image/pdf_cover/morphological_chart.png",
       topic: "Morphological Chart",
       desc: "A visual way to capture the",
       desc2: "necessary product functionality.",
@@ -59,7 +59,7 @@ export default function TemplateScreen({
     },
     {
       id: "2",
-      picture: "",
+      picture: "/image/pdf_cover/pitching_plan.png",
       topic: "Pitching Plan",
       desc: "Planning your pitch on a single",
       desc2: "page sounds great, right?",
@@ -67,7 +67,7 @@ export default function TemplateScreen({
     },
     {
       id: "3",
-      picture: "",
+      picture: "/image/pdf_cover/scamper.png",
       topic: "SCAMPER",
       desc: "Think creatively by using",
       desc2: "the SCAMPER method.",
@@ -75,7 +75,7 @@ export default function TemplateScreen({
     },
     {
       id: "4",
-      picture: "",
+      picture: "/image/pdf_cover/innovation_design.png",
       topic: "Innovation Design",
       desc: "This template can be used",
       desc2: "along with our online cards.",
@@ -83,7 +83,7 @@ export default function TemplateScreen({
     },
     {
       id: "5",
-      picture: "",
+      picture: "/image/pdf_cover/story_design.png",
       topic: "Story Design",
       desc: "This template can be used",
       desc2: "along with our online cards.",
@@ -91,7 +91,7 @@ export default function TemplateScreen({
     },
     {
       id: "6",
-      picture: "",
+      picture: "/image/pdf_cover/education_design.png",
       topic: "Education Design",
       desc: "This template can be used",
       desc2: "along with our online cards.",
@@ -99,7 +99,7 @@ export default function TemplateScreen({
     },
     {
       id: "7",
-      picture: "",
+      picture: "/image/pdf_cover/educational_canvas.png",
       topic: "Innovation Canvas",
       desc: "A canvas that shows an overview",
       desc2: "of your educational innovation.",
@@ -107,7 +107,7 @@ export default function TemplateScreen({
     },
     {
       id: "8",
-      picture: "",
+      picture: "/image/pdf_cover/content_combination.png",
       topic: "Content Combination",
       desc: "Finding the right content for",
       desc2: "your audience with this tool.",
@@ -115,7 +115,7 @@ export default function TemplateScreen({
     },
     {
       id: "9",
-      picture: "",
+      picture: "/image/pdf_cover/character_design.png",
       topic: "Character Design",
       desc: "Can’t think of a character for",
       desc2: "your story? look at this tool.",
@@ -158,7 +158,7 @@ export default function TemplateScreen({
       locale={locale}
       resources={resources}
     >
-      <MainNavigationTopBar locale={locale} />
+      <MainNavigationTopBar fill locale={locale} />
       <main className={styles.main}>
         <section className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>

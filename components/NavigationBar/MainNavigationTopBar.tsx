@@ -8,7 +8,7 @@ import i18nConfig from "@/i18nConfig";
 import Link from "next/link";
 import THFlag from "@/public/svgs/thFlag";
 import ENFlag from "@/public/svgs/enFlag";
-import styles from "./MainNavigationTopBar.module.css";
+import styles from "./MainNavigationTopBar.module.scss";
 import mainLoad from "@/public/json/mainload.json";
 import initTranslations from "@/app/[locale]/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -23,6 +23,7 @@ const popins = Poppins({
 export type Props = {
   logo?: React.ReactNode;
   locale: string;
+  fill?: boolean;
 };
 
 type MenuItem = {
@@ -41,6 +42,7 @@ type MenuItem = {
 const MainNavigationTopBar = ({
   logo = <SiteLogo width={45} height={45} />,
   locale = "en",
+  fill=false,
   ...props
 }: Props): JSX.Element => {
   const [resources, setResources] = useState<any>(null);
@@ -167,13 +169,13 @@ const MainNavigationTopBar = ({
     router.refresh();
   };
 
-  useEffect(() => {
-    console.log("currentPathname", currentPathname);
-    console.log("x", currentPathname.split("/").slice(1));
-    console.log("xx", currentPathname.split("/").slice(2));
-    console.log("xxx", popCurrentPathname[popCurrentPathname.length - 1]);
-    console.log("popCurrentPathname", findTheme(popCurrentPathname, mainMenu),popCurrentPathname.length);
-  }, []);
+  // useEffect(() => {
+  //   console.log("currentPathname", currentPathname);
+  //   console.log("x", currentPathname.split("/").slice(1));
+  //   console.log("xx", currentPathname.split("/").slice(2));
+  //   console.log("xxx", popCurrentPathname[popCurrentPathname.length - 1]);
+  //   console.log("popCurrentPathname", findTheme(popCurrentPathname, mainMenu),popCurrentPathname.length);
+  // }, []);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -191,7 +193,7 @@ const MainNavigationTopBar = ({
       resources={resources}
     >
       {/* Desktop Size */}
-      <div className={`${styles.DesktopHeader}`}>
+      <div className={`${styles.DesktopHeader} ${fill?styles.FillColor:null}`}>
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <Link href="/" className={`${styles.textLink} ${`homeLink`}`}>
             <div className={styles.BrandContainer}>
@@ -320,7 +322,7 @@ const MainNavigationTopBar = ({
           (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th" || popCurrentPathname[popCurrentPathname.length - 1] == "template")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
-        }`}
+        } ${fill?styles.FillColor:null}`}
       >
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
@@ -345,17 +347,17 @@ const MainNavigationTopBar = ({
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar1}`}
+            } ${styles.bar1} ${fill?styles.FillColor:null}`}
           ></div>
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar2}`}
+            } ${styles.bar2} ${fill?styles.FillColor:null}`}
           ></div>
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar3}`}
+            } ${styles.bar3} ${fill?styles.FillColor:null}`}
           ></div>
         </label>
       </div>

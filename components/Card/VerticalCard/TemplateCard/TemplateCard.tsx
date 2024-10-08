@@ -49,7 +49,7 @@ const TemplateCard = forwardRef<HTMLDivElement, Props>(
             src={image ? image : "/image/defaultimg.jpg"}
             width={300}
             height={250}
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "contain" }}
             alt=""
           />
         </div>

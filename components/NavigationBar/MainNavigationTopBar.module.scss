@@ -10,7 +10,17 @@
   display: flex;
   /* flex: 1; */
   flex-direction: column;
+}
 
+.DesktopHeader.FillColor {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: linear-gradient(135deg, #811a96, #302e76);
+  --logo-color: #ffffff;
 }
 
 .DesktopHeader .LayoutHeader {
@@ -47,6 +57,17 @@
   --logo-color: #691392;
   --font-color: #FFFFFF;
   display: none;
+}
+.SimpleMobileHeader.FillColor{
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: linear-gradient(135deg, #811a96, #302e76);
+  --logo-color: #ffffff;
+  --font-color: #FFFFFF;
 }
 
 .SimpleMobileHeaderHide {
@@ -358,6 +379,10 @@
   border-radius: 0.5rem;
   background-color: var(--bar-color);
   transition: background-color 0.3s;
+}
+.bar.FillColor{
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
 }
 
 .ThemeBlue .bar {
