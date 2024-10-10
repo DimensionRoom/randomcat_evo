@@ -140,7 +140,7 @@
 @media (max-width: 690px) {
   .parallaxSection {
     display: block;
-    min-height: calc(100vh - 380px);
+    min-height: calc(60vh);
     padding: 20px 0px;
   }
 
