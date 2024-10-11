@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { Player} from "@lottiefiles/react-lottie-player";
+import React, { useState, useEffect, use } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import PageFooter from "@/components/Footer/PageFooter";
@@ -20,7 +20,23 @@ type DocumentItem = {
   link: string;
 };
 
-const i18nNamespaces = ["innovationboard"];
+interface TemplateFile {
+  type: string;
+  topic: string;
+  desc: string;
+  desc2: string;
+}
+
+interface OutputItem {
+  id: string;
+  picture: string;
+  topic: string;
+  desc: string;
+  desc2: string;
+  link: string;
+}
+
+const i18nNamespaces = ["templateScreen", "documentTemplateData"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -47,80 +63,30 @@ export default function TemplateScreen({
   const searchParamsInfo = searchParams.get("info");
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const documents = [
-    {
-      id: "1",
-      picture: "/image/pdf_cover/morphological_chart.png",
-      topic: "Morphological Chart",
-      desc: "A visual way to capture the",
-      desc2: "necessary product functionality.",
-      link: "/workshop_template/morphological_chart.pdf",
-    },
-    {
-      id: "2",
-      picture: "/image/pdf_cover/pitching_plan.png",
-      topic: "Pitching Plan",
-      desc: "Planning your pitch on a single",
-      desc2: "page sounds great, right?",
-      link: "/workshop_template/pitching_plan.pdf",
-    },
-    {
-      id: "3",
-      picture: "/image/pdf_cover/scamper.png",
-      topic: "SCAMPER",
-      desc: "Think creatively by using",
-      desc2: "the SCAMPER method.",
-      link: "/workshop_template/scamper.pdf",
-    },
-    {
-      id: "4",
-      picture: "/image/pdf_cover/innovation_design.png",
-      topic: "Innovation Design",
-      desc: "This template can be used",
-      desc2: "along with our online cards.",
-      link: "/workshop_template/innovation_design.pdf",
-    },
-    {
-      id: "5",
-      picture: "/image/pdf_cover/story_design.png",
-      topic: "Story Design",
-      desc: "This template can be used",
-      desc2: "along with our online cards.",
-      link: "/workshop_template/story_design.pdf",
-    },
-    {
-      id: "6",
-      picture: "/image/pdf_cover/education_design.png",
-      topic: "Education Design",
-      desc: "This template can be used",
-      desc2: "along with our online cards.",
-      link: "/workshop_template/education_design.pdf",
-    },
-    {
-      id: "7",
-      picture: "/image/pdf_cover/educational_canvas.png",
-      topic: "Innovation Canvas",
-      desc: "A canvas that shows an overview",
-      desc2: "of your educational innovation.",
-      link: "/workshop_template/educational_canvas.pdf",
-    },
-    {
-      id: "8",
-      picture: "/image/pdf_cover/content_combination.png",
-      topic: "Content Combination",
-      desc: "Finding the right content for",
-      desc2: "your audience with this tool.",
-      link: "/workshop_template/content_combination.pdf",
-    },
-    {
-      id: "9",
-      picture: "/image/pdf_cover/character_design.png",
-      topic: "Character Design",
-      desc: "Can’t think of a character for",
-      desc2: "your story? look at this tool.",
-      link: "/workshop_template/character_design.pdf",
-    },
-  ];
+  const [documents,setDocuments] =  useState<DocumentItem[]>([]);
+
+  const transformJsonTemplateData = () => {
+    const templateData = require(`@/locales/${locale}/documentTemplateData.json`);
+    if (!templateData?.template?.files) {
+      return [];
+    }
+
+    const files = templateData.template.files;
+
+    const transformedData = Object.keys(files).map((key, index) => {
+      const item = files[key];
+
+      return {
+        id: (index + 1).toString(),
+        picture: `/image/pdf_cover/${key}.png`,
+        topic: item.topic,
+        desc: item.desc,
+        desc2: item.desc2,
+        link: `/workshop_template/${key}.pdf`,
+      };
+    });
+    setDocuments(transformedData);
+  };
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -133,6 +99,11 @@ export default function TemplateScreen({
     }
     fetchTranslations();
   }, [locale]);
+
+  useEffect(() => {
+    transformJsonTemplateData();
+  }
+  , []);
 
   if (loading) {
     return (
@@ -164,15 +135,21 @@ export default function TemplateScreen({
       <main className={styles.main}>
         <section className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>
-            <p className={styles.title}>Resources</p>
-            <p className={styles.subtitle}>Beyond creative tools</p>
+            <p className={styles.title}>{t("section.parallaxSection.title")}</p>
+            <p className={styles.subtitle}>
+              {t("section.parallaxSection.subtitle")}
+            </p>
           </div>
         </section>
         <section className={`${styles.section} ${styles.whiteSection}`}>
           <div className={styles.textContainer}>
-            <p className={styles.title}>Free templates for you</p>
-            <p className={styles.subtitle}>
-              "These templates help you work systematically. Try it now!"
+            <p className={styles.title}>{t("section.whiteSection.title")}</p>
+            <p
+              className={`${styles.subtitle} ${
+                locale == "th" ? `${mitr.className} ${styles.thfontbold}` : null
+              }`}
+            >
+              {t("section.whiteSection.subtitle")}
             </p>
           </div>
         </section>
@@ -180,6 +157,7 @@ export default function TemplateScreen({
           <div className={styles.documentContainer}>
             {documents.map((document: DocumentItem) => (
               <TemplateCard
+                key={document.id}
                 locale={locale}
                 title={document.topic}
                 contentFirst={document.desc}

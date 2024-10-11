@@ -1,0 +1,60 @@
+{
+  "template": {
+    "files": {
+      "morphological_chart": {
+        "type": "pdf",
+        "topic": "Morphological Chart",
+        "desc": "ฝึกเขียนวิเคราะห์ด้วย",
+        "desc2": "ตารางโครงสร้างการใช้งาน"
+      },
+      "pitching_plan": {
+        "type": "pdf",
+        "topic": "Pitching Plan",
+        "desc": "วางแผนการพรีเซนต์งาน",
+        "desc2": "ให้เห็นภาพรวมด้วยเทมเพลตนี้เลย"
+      },
+      "scamper": {
+        "type": "pdf",
+        "topic": "SCAMPER",
+        "desc": "คิดสร้างสรรค์ผ่าน",
+        "desc2": "SCAMPER method."
+      },
+      "innovation_design": {
+        "type": "pdf",
+        "topic": "Innovation Design",
+        "desc": "เทมเพลตสำหรับ Workshop",
+        "desc2": "สามารถใช้คู่กับเครื่องมือออนไลน์"
+      },
+      "story_design": {
+        "type": "pdf",
+        "topic": "Story Design",
+        "desc": "เทมเพลตสำหรับ Workshop",
+        "desc2": "สามารถใช้คู่กับเครื่องมือออนไลน์"
+      },
+      "education_design": {
+        "type": "pdf",
+        "topic": "Education Design",
+        "desc": "เทมเพลตสำหรับ Workshop",
+        "desc2": "สามารถใช้คู่กับเครื่องมือออนไลน์"
+      },
+      "educational_canvas": {
+        "type": "pdf",
+        "topic": "Innovation Canvas",
+        "desc": "เขียนสรุปภาพรวมนวัตกรรม",
+        "desc2": "การศึกษาไว้ในกระดาษหน้าเดียว"
+      },
+      "content_combination": {
+        "type": "pdf",
+        "topic": "Content Combination",
+        "desc": "ออกแบบคอนเทนต์ตรงใจผู้เล่า",
+        "desc2": "ถูกใจผู้ฟัง ดาวน์โหลดเลย"
+      },
+      "character_design": {
+        "type": "pdf",
+        "topic": "Character Design",
+        "desc": "มีเรื่องเล่าแล้ว แต่ตัวละครไม่ชัดเจน",
+        "desc2": "มาขยายไอเดียด้วยเทมเพลตนี้"
+      }
+    }
+  }
+}

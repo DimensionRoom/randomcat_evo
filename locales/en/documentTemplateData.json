@@ -1,0 +1,60 @@
+{
+  "template": {
+    "files": {
+      "morphological_chart": {
+        "type": "pdf",
+        "topic": "Morphological Chart",
+        "desc": "A visual way to capture the",
+        "desc2": "necessary product functionality."
+      },
+      "pitching_plan": {
+        "type": "pdf",
+        "topic": "Pitching Plan",
+        "desc": "Planning your pitch on a single",
+        "desc2": "page sounds great, right?"
+      },
+      "scamper": {
+        "type": "pdf",
+        "topic": "SCAMPER",
+        "desc": "Think creatively by using",
+        "desc2": "the SCAMPER method."
+      },
+      "innovation_design": {
+        "type": "pdf",
+        "topic": "Innovation Design",
+        "desc": "This template can be used",
+        "desc2": "along with our online cards."
+      },
+      "story_design": {
+        "type": "pdf",
+        "topic": "Story Design",
+        "desc": "This template can be used",
+        "desc2": "along with our online cards."
+      },
+      "education_design": {
+        "type": "pdf",
+        "topic": "Education Design",
+        "desc": "This template can be used",
+        "desc2": "along with our online cards."
+      },
+      "educational_canvas": {
+        "type": "pdf",
+        "topic": "Innovation Canvas",
+        "desc": "A canvas that shows an overview",
+        "desc2": "of your educational innovation."
+      },
+      "content_combination": {
+        "type": "pdf",
+        "topic": "Content Combination",
+        "desc": "Finding the right content for",
+        "desc2": "your audience with this tool."
+      },
+      "character_design": {
+        "type": "pdf",
+        "topic": "Character Design",
+        "desc": "Can’t think of a character for",
+        "desc2": "your story? look at this tool."
+      }
+    }
+  }
+}

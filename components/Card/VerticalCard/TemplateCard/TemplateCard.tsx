@@ -11,6 +11,11 @@ const mitr = Mitr({
   weight: ["200", "300", "400", "500", "600", "700"],
 });
 
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export type Props = {
   color?: string;
   locale?: string;
@@ -54,8 +59,20 @@ const TemplateCard = forwardRef<HTMLDivElement, Props>(
         </div>
         <div className={styles.itemData}>
           <p className={styles.title}>{title}</p>
-          <p className={styles.content}>{contentFirst}</p>
-          <p className={styles.content}>{contentSecond}</p>
+          <p
+            className={`${styles.content} ${
+              locale == "th" ? `${mitr.className} ${styles.thfontbold}` : null
+            }`}
+          >
+            {contentFirst}
+          </p>
+          <p
+            className={`${styles.content} ${
+              locale == "th" ? `${mitr.className} ${styles.thfontbold}` : null
+            }`}
+          >
+            {contentSecond}
+          </p>
         </div>
         <div className={styles.itemAction}>
           <FlatBtn
