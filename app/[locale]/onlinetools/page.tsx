@@ -55,7 +55,7 @@ export default function OnlineToolsScreen({
   };
 
   const transformJsonTemplateData = () => {
-    const toolsListData = require(`@/locales/${locale}/toolsListData.json`);
+    const toolsListData = require(`/locales/${locale}/toolsListData.json`);
     if (!toolsListData?.tools) {
       return [];
     }
