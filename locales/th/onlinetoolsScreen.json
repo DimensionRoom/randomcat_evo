@@ -1,0 +1,26 @@
+{
+  "section": {
+    "parallaxSection": {
+      "title": "Card Series",
+      "subtitle": "Beyond creative tools"
+    },
+    "whiteSection": {
+      "creativity": {
+        "title": "Creativity and Brain skills",
+        "subtitle": "Expand your horizon of brain skills with incredible tools."
+      },
+      "education": {
+        "title": "Education and Parent",
+        "subtitle": "Suit for teacher, parent to explore new skill of you and your kids."
+      },
+      "business": {
+        "title": "Business and Innovation",
+        "subtitle": "Training and working gonna be ease with our innovation."
+      },
+      "other": {
+        "title": "Other Tools",
+        "subtitle": "A digital tool without card try this category it is free and fun."
+      }
+    }
+  }
+}

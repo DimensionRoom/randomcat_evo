@@ -1,0 +1,103 @@
+.TemplateCardContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  background-color: #fff;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  .itemCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #811a96, #302e76);
+    border-radius: 20px;
+    width: 280px;
+    height: 380px;
+    .itemIcon {
+      overflow: hidden !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 6;
+      .icon {
+        width: 80%;
+      }
+    }
+    .titleContainer {
+      flex: 3;
+      .title {
+        font-size: 2.2em;
+        font-weight: 600;
+        color: #fff;
+        text-align: center;
+      }
+      .title + .title {
+        font-size: 1.8em;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+      }
+    }
+  }
+  .itemData {
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      font-size: 1.2em;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #821dbf;
+      text-align: center;
+    }
+    .content + .content {
+      font-size: 1.2em;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #821dbf;
+      text-align: center;
+    }
+  }
+  .itemAction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    .tryBtn {
+      padding: 4px 12px;
+      border-radius: 20px;
+      border-color: #821dbf;
+      background-color: #821dbf;
+      color: #fff;
+      font-size: 1em;
+      font-weight: 300;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: #691392;
+      }
+    }
+    .moreBtn {
+      padding: 4px 12px;
+      border-radius: 20px;
+      border-color: #000;
+      background-color: #f2f2f2;
+      color: #821dbf;
+      font-size: 1em;
+      font-weight: 300;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  }
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+.thfontbold {
+  font-weight: 300 !important;
+}

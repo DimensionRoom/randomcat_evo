@@ -319,7 +319,7 @@ const MainNavigationTopBar = ({
       <div
         className={`${
           popCurrentPathname.length <= 2 &&
-          (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th" || popCurrentPathname[popCurrentPathname.length - 1] == "template")
+          (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th" || popCurrentPathname[popCurrentPathname.length - 1] == "template" || popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
         } ${fill?styles.FillColor:null}`}
