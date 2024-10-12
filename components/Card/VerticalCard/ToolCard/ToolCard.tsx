@@ -3,7 +3,6 @@ import React, { useState, forwardRef, useEffect } from "react";
 import { Quicksand, Mitr } from "next/font/google";
 import Image from "next/image";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
-import InnovationDesign from "@/public/svgs/onlinetools/innovation_design";
 import styles from "./ToolCard.module.scss";
 
 const mitr = Mitr({
