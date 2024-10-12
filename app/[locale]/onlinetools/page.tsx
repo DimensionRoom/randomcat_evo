@@ -56,6 +56,7 @@ export default function OnlineToolsScreen({
 
   const transformJsonTemplateData = () => {
     const toolsListData = require(`/locales/${locale}/toolsListData.json`);
+    console.log('toolsListData', toolsListData);
     if (!toolsListData?.tools) {
       return [];
     }
@@ -82,6 +83,7 @@ export default function OnlineToolsScreen({
         item: itemsArray,
       };
     });
+    console.log('data', data);
     setTools(data);
   };
 
