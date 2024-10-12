@@ -164,6 +164,7 @@ export default function OnlineToolsScreen({
                 slidesPerView={3}
                 spaceBetween={0}
                 navigation={true}
+                rewind={true}
                 breakpoints={{
                   384: {
                     slidesPerView: 1,
