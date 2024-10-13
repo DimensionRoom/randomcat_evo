@@ -5,14 +5,18 @@ import { useSearchParams } from "next/navigation";
 import { Mitr } from "next/font/google";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import Image from "next/image";
 import ReactPlayer from "react-player";
 import ToolCard from "@/components/Card/VerticalCard/ToolCard/ToolCard";
+import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import templateLoad from "@/public/json/templateload.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import videoPlay from "@/public/json/videoPlay.json";
+import PdfFile from "@/public/svgs/onlinetools/pdffile";
+import Capture from "@/public/svgs/onlinetools/capture";
 import styles from "./OnlineTools.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -72,7 +76,7 @@ export default function OnlineToolsScreen({
           topic2: item.topic2,
           desc: item.desc,
           desc2: item.desc2,
-          onlineLink: item.onlineLink || item.productLink || "",
+          onlineLink: item.onlineLink || "",
           productLink: item.productLink || "",
         };
       });
@@ -191,12 +195,14 @@ export default function OnlineToolsScreen({
                       contentFirst={item.desc}
                       contentSecond={item.desc2}
                       image={item.picture}
-                      onClick={() => {
-                        window.open(item.onlineLink, "_blank");
-                      }}
-                      onClickMore={() => {
-                        window.open(item.productLink, "_blank");
-                      }}
+                      onlineLink={item.onlineLink}
+                      productLink={item.productLink}
+                      // onClick={() => {
+                      //   window.open(item.onlineLink, "_blank");
+                      // }}
+                      // onClickMore={() => {
+                      //   window.open(item.productLink, "_blank");
+                      // }}
                     />
                   </SwiperSlide>
                 ))}
@@ -229,6 +235,58 @@ export default function OnlineToolsScreen({
                 ></Player>
               </div>
             )}
+          </div>
+        </section>
+        <section className={`${styles.section} ${styles.gradientSection}`}>
+          <div className={styles.itemContainer}>
+            <div className={styles.item}>
+              <div className={styles.itemImage}>
+                <Capture width={"60%"} />
+              </div>
+              <div className={styles.itemData}>
+                <p className={styles.title}>
+                  {t("section.gradientSection.items.showWork.title")}
+                </p>
+                <p className={styles.subtitle}>
+                  {t("section.gradientSection.items.showWork.desc")}
+                </p>
+                <p className={styles.subtitle}>
+                  {t("section.gradientSection.items.showWork.desc2")}
+                </p>
+                <FlatBtn disabled className={`${styles.moreBtn}`} text={"Upcoming"} />
+              </div>
+            </div>
+            <div className={styles.item}>
+              <div className={styles.itemImage}>
+                <PdfFile width={"60%"} />
+                {/* <Image
+                  className={styles.icon}
+                  src={"/svgs/svg/onlinetools/business_design.svg"}
+                  width={300}
+                  height={250}
+                  style={{ objectFit: "contain" }}
+                  alt=""
+                /> */}
+              </div>
+              <div className={styles.itemData}>
+                <p className={styles.title}>
+                  {t("section.gradientSection.items.downloadMaterial.title")}
+                </p>
+                <p className={styles.subtitle}>
+                  {t("section.gradientSection.items.downloadMaterial.desc")}
+                </p>
+                <p className={styles.subtitle}>
+                  {t("section.gradientSection.items.downloadMaterial.desc2")}
+                </p>
+                <FlatBtn
+                  className={`${styles.moreBtn}`}
+                  text={"Learn More"}
+                  onClick={() => {
+                    window.open("/template", "_blank");
+                  }}
+                />
+              </div>
+            </div>
           </div>
         </section>
         <section className={`${styles.section} ${styles.footerSection}`}>

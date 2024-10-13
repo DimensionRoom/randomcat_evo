@@ -4,6 +4,7 @@ import { Quicksand, Mitr } from "next/font/google";
 import Image from "next/image";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./ToolCard.module.scss";
+import { on } from "events";
 
 const mitr = Mitr({
   subsets: ["thai"],
@@ -23,8 +24,10 @@ export type Props = {
   title2?: string;
   contentFirst: string;
   contentSecond: string;
-  onClick?: () => void;
-  onClickMore?: () => void;
+  onlineLink: string;
+  productLink: string;
+  // onClick?: () => void;
+  // onClickMore?: () => void;
 };
 
 const ToolCard = forwardRef<HTMLDivElement, Props>(
@@ -34,19 +37,27 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
       locale = "en",
       image = "",
       title = "-",
-      title2= "",
+      title2 = "",
       contentFirst = "-",
       contentSecond = "",
-      onClick,
-      onClickMore,
+      onlineLink = "",
+      productLink = "",
+      // onClick,
+      // onClickMore,
       ...props
     },
     ref
   ): JSX.Element => {
+    const onClick = () => {
+      window.open(onlineLink, "_blank");
+    };
+    const onClickMore = () => {
+      window.open(productLink, "_blank");
+    };
     return (
       <div
         ref={ref}
-        className={styles.TemplateCardContainer}
+        className={styles.ToolCardContainer}
         style={{ backgroundColor: color }}
         {...props}
       >
@@ -83,16 +94,22 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
           </p>
         </div>
         <div className={styles.itemAction}>
-          <FlatBtn
-            className={`${styles.tryBtn}`}
-            text="Try Online"
-            onClick={onClick}
-          />
-          <FlatBtn
-            className={`${styles.moreBtn}`}
-            text="Learn More"
-            onClick={onClickMore}
-          />
+          {onlineLink && (
+            <FlatBtn
+              className={`${styles.tryBtn}`}
+              text="Try Online"
+              onClick={onClick}
+            />
+          )}
+          {(onlineLink && productLink) ||
+            (!onlineLink && !productLink && (
+              <FlatBtn
+                className={`${styles.moreBtn}`}
+                text={onlineLink ? "Learn More" : "Upcoming"}
+                disabled={!productLink}
+                onClick={onClickMore}
+              />
+            ))}
         </div>
       </div>
     );

@@ -21,6 +21,20 @@
         "title": "Other Tools",
         "subtitle": "A digital tool without card try this category it is free and fun."
       }
+    },
+    "gradientSection":{
+      "items":{
+        "showWork": {
+          "title": "Show your work",
+          "desc": "Click the bottom and",
+          "desc2": "submit your amazing work"
+        },
+        "downloadMaterial": {
+          "title": "Download Material",
+          "desc": "Free templates to enhance",
+          "desc2": "your creative thinking"
+        }
+      }
     }
   }
 }

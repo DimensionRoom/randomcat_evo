@@ -6,24 +6,24 @@
         "topic2": "Design",
         "desc": "A Tool for creating innovation",
         "desc2": "through WH-questions",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "innovationandbusiness/innovationboard?info=innodesign",
+        "productLink": ""
       },
       "story_design": {
         "topic": "Story",
         "topic2": "Design",
         "desc": "A tool for writing stories - we",
         "desc2": "provide 6 categories for you",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "storydesign/storyboard?info=storydesign",
+        "productLink": ""
       },
       "content_design": {
         "topic": "Content",
         "topic2": "Design",
         "desc": "A tool for content creators",
         "desc2": "& practicing content design",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       }
     },
     "education": {
@@ -32,24 +32,24 @@
         "topic2": "Design",
         "desc": "A tool for designing teaching",
         "desc2": "materials",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "/edudesign/educationboard?info=edudesign",
+        "productLink": ""
       },
       "music_cards_mini_game": {
         "topic": "Music Cards",
         "topic2": "Mini Game",
         "desc": "A random game for ",
         "desc2": "kids who study music",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "/musiccard",
+        "productLink": ""
       },
       "re_design_innovation": {
         "topic": "Re-Design",
         "topic2": "Innovation",
         "desc": "A tool that helps you develop",
         "desc2": "& enhance your product",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       }
     },
     "business": {
@@ -58,24 +58,24 @@
         "topic2": "Design",
         "desc": "An introductory tool for",
         "desc2": "understanding business",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       },
       "pitching_design": {
         "topic": "Pitching",
         "topic2": "Design",
         "desc": "A tool for practicing to deliver",
         "desc2": "a perfect pitch on stage",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       },
       "gamification_in_business": {
         "topic": "Gamification",
         "topic2": "In Business",
         "desc": "A tool to integrate",
         "desc2": "gamification into business",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       }
     },
     "other": {
@@ -84,24 +84,24 @@
         "topic2": "Theme",
         "desc": "A tool for thinking outside",
         "desc2": "the box with a \"What if\"",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       },
       "related_combination": {
         "topic": "Related",
         "topic2": "Combination",
         "desc": "A creative tool that lets you",
         "desc2": "combine 2 things together",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       },
       "oblique_strategies": {
         "topic": "Oblique",
         "topic2": "strategies",
         "desc": "Oblique strategies that",
         "desc2": "you can practice everyday",
-        "onlineLink": "https://www.google.com",
-        "productLink": "https://www.google.com"
+        "onlineLink": "",
+        "productLink": ""
       }
     }
   }
