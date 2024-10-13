@@ -12,7 +12,7 @@ import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
-import templateLoad from "@/public/json/templateload.json";
+import mainLoad from "@/public/json/mainload.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import videoPlay from "@/public/json/videoPlay.json";
 import PdfFile from "@/public/svgs/onlinetools/pdffile";
@@ -115,12 +115,7 @@ export default function OnlineToolsScreen({
           alignItems: "center",
         }}
       >
-        <Player
-          autoplay
-          loop
-          src={templateLoad}
-          style={{ width: "25vh" }}
-        ></Player>
+        <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player>
       </div>
     );
   }
@@ -253,7 +248,11 @@ export default function OnlineToolsScreen({
                 <p className={styles.subtitle}>
                   {t("section.gradientSection.items.showWork.desc2")}
                 </p>
-                <FlatBtn disabled className={`${styles.moreBtn}`} text={"Upcoming"} />
+                <FlatBtn
+                  disabled
+                  className={`${styles.moreBtn}`}
+                  text={"Upcoming"}
+                />
               </div>
             </div>
             <div className={styles.item}>
