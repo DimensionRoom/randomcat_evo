@@ -55,16 +55,40 @@ const MainNavigationTopBar = ({
   const [isExpandMenu, setIsExpandMenu] = useState(false);
   const mainMenu: MenuItem[] = [
     {
-      name: "Online Tools",
-      key: "onlineTools",
-      title: "OnlineTools",
-      titleEx: "",
+      name: "Inno Design",
+      key: "innovation",
+      title: "Inno",
+      titleEx: "Design",
       description: "Design your own innovation",
-      shortKey: "onlinetools",
-      url: "/onlinetools",
-      theme: "",
+      shortKey: "inno",
+      url: "/innovationandbusiness",
+      theme: "ThemeBlue",
       header: "false",
-      type:"page"
+      type:"randomTool"
+    },
+    {
+      name: "Story Design",
+      key: "story",
+      title: "Story",
+      titleEx: "Design",
+      description: "Design your own story",
+      shortKey: "story",
+      url: "/storydesign",
+      theme: "ThemePurple",
+      header: "false",
+      type:"randomTool"
+    },
+    {
+      name: "Edu Design",
+      key: "education",
+      title: "Edu",
+      titleEx: "Design",
+      description: "Design your own material",
+      shortKey: "edu",
+      url: "/edudesign",
+      theme: "ThemePink",
+      header: "false",
+      type:"randomTool"
     },
     {
       name: "Template",
@@ -74,7 +98,7 @@ const MainNavigationTopBar = ({
       description: "Download template",
       shortKey: "template",
       url: "/template",
-      theme: "",
+      theme: "ThemeGreen",
       header: "false",
       type:"page"
     }

@@ -1,0 +1,528 @@
+.DesktopHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #741f92;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --logo-color: #691392;
+  display: flex;
+  /* flex: 1; */
+  flex-direction: column;
+}
+
+.DesktopHeader.FillColor {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: linear-gradient(135deg, #811a96, #302e76);
+  --logo-color: #ffffff;
+}
+
+.DesktopHeader .LayoutHeader {
+
+  display: flex;
+  position: sticky;
+  align-items: center;
+  height: 80px;
+  padding: 1rem 2rem !important;
+  background: var(--background-color);
+}
+
+.MobileHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --logo-color: #691392;
+  --font-color: #FFFFFF;
+  display: none;
+}
+
+.SimpleMobileHeader {
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: #ffffff;
+  --logo-color: #691392;
+  --font-color: #FFFFFF;
+  display: none;
+}
+.SimpleMobileHeader.FillColor{
+  --primary-color: #a765b2;
+  --secondary-color: #411692;
+  --nav-menu-active-color: #a765b2;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7e188b;
+  --background-color: linear-gradient(135deg, #811a96, #302e76);
+  --logo-color: #ffffff;
+  --font-color: #FFFFFF;
+}
+
+.SimpleMobileHeaderHide {
+  display: none;
+}
+
+.MobileHeader .LayoutHeader {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 180px;
+  padding: 1rem 1.2rem !important;
+  border-radius: 0 0 35px 35px;
+  overflow: hidden;
+  background-image: url('../../public/svgs/svg/headerLayer.svg'),var(--background-color);
+  background-size: cover;
+  background-position: 100% 30%;
+  background-repeat: no-repeat;
+}
+
+.SimpleMobileHeader .LayoutHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+  height: 80px;
+  padding: 1rem 1.2rem !important;
+  background: var(--background-color);
+}
+
+.ThemeBlue {
+  --primary-color: #298edc;
+  --secondary-color: #1a3785;
+  --nav-menu-active-color: #298edc;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #1a3785;
+  --background-color: linear-gradient(130deg, #298edc, #1a3785);
+  --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
+}
+
+.ThemeYellow {
+  --primary-color: #FFD013;
+  --secondary-color: #FFB24D;
+  --nav-menu-active-color: #FFB24D;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #FFBD4D;
+  --background-color: linear-gradient(130deg, #FFD013, #FFB24D);
+  --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
+}
+
+.ThemePurple {
+  --primary-color: #7C4BE4;
+  --secondary-color: #63058F;
+  --nav-menu-active-color: #7C4BE4;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #7C4BE4;
+  --background-color: linear-gradient(130deg, #7C4BE4, #63058F);
+  --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
+}
+
+.ThemePink {
+  --primary-color: #F61394;
+  --secondary-color: #C21778;
+  --nav-menu-active-color: #F61394;
+  --nav-menu-text-color: #ffffff;
+  --nav-menu-text-active-color: #ffffff;
+  --highlight-color: #C21778;
+  --background-color: linear-gradient(130deg, #C21778, #8915BF);
+  --logo-color: #FFFFFF;
+  --font-color: #FFFFFF;
+}
+
+
+/* DesktopHeader */
+
+
+
+.BrandContainer {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  height: inherit;
+  align-items: center;
+}
+
+.ToolContainer {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  gap: 5px;
+}
+
+.FlagContainer {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: 2px solid transparent;
+  transition: padding 0.3s;
+}
+
+.FlagContainer:hover,
+.FlagContainer.active {
+  padding: 2%;
+  border: 2px solid var(--primary-color);
+}
+
+.BrandContainer .LogoContainer {
+  display: flex;
+  height: inherit;
+  align-items: center;
+}
+
+.BrandContainer .LogoContainer svg {
+  fill: var(--logo-color);
+}
+
+.BrandContainer .BrandText {
+  color: var(--nav-menu-text-color);
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.TopNavigation {
+  display: flex;
+  flex: 3;
+  justify-content: flex-end;
+  align-items: center;
+  height: inherit;
+}
+
+.TopNavigationExpand {
+  display: none !important;
+  z-index: 2;
+  padding: 28px 25px !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.ExpandMenuContainer {
+  display: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(14, 14, 14, 0.93);
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ExpandMenuContent {
+  --menu-text-color: #a1a1a1;
+  --menu-text-active-color: #ffffff;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ExpandMenuContent .ExpandMenuContentItem .MenuText {
+  color: var(--menu-text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s;
+}
+
+.ExpandMenuContent .ExpandMenuContentItem .MenuText.MenuTextActive {
+  color: var(--menu-text-active-color);
+}
+
+.TopNavigation a {
+  height: 40px;
+  text-decoration: none;
+}
+
+.textLink {
+  text-decoration: none;
+}
+
+.TopNavigation .TopNavigationMenu {
+  margin: 0 10px;
+  height: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.TopNavigation .TopNavigationMenu .MenuText {
+  color: var(--nav-menu-text-color);
+  padding: 0 12px;
+  font-size: 1.1em;
+}
+
+.TopNavigation .MenuDivider {
+  height: 25px;
+  border-right: 1px solid var(--primary-color);
+}
+
+.TopNavigation .TopNavigationMenu:hover {
+  background-color: var(--nav-menu-active-color);
+}
+
+.TopNavigation .TopNavigationMenu:hover .MenuText {
+  color: var(--menu-text-active-color);
+}
+
+.MenuActive {
+  background-color: var(--nav-menu-active-color);
+}
+
+.MenuActive .MenuText {
+  color: var(--nav-menu-text-active-color) !important;
+}
+
+/* MobileHeader */
+.MobileHeader .HeaderTopContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  /* background: red; */
+}
+.MobileHeader .HeaderMinorContainer {
+  display: flex;
+  flex-direction: row;
+  flex: 3;
+  color: var(--font-color);
+}
+.HeaderDetailsContainer {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: green; */
+}
+.HeaderDetailsContainer .HeaderDetailsTitle {
+  display: flex;
+  align-items: baseline;
+  font-size: 2.2em;
+  font-weight: 700;
+  gap: 0 5px;
+}
+.HeaderDetailsContainer .HeaderDetailsTitleEx {
+  display: flex;
+  font-weight: 400;
+}
+.HeaderDetailsContainer .HeaderDetailsDescription {
+  display: flex;
+  font-size: 1em;
+}
+.HeaderActionContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  /* background: blue; */
+}
+
+
+/* Expand Menu Icon */
+
+.ExpandMenuIcon {
+  --line-gap: 8px;
+  --height-bar: 3px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--line-gap);
+  cursor: pointer;
+  position: relative;
+}
+
+.bar {
+  --bar-color: #741f92;
+  --bar-active-color: #ffffff;
+  position: relative;
+  height: var(--height-bar);
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: var(--bar-color);
+  transition: background-color 0.3s;
+}
+.bar.FillColor{
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
+}
+
+.ThemeBlue .bar {
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
+}
+
+.ThemeYellow .bar {
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
+}
+
+.ThemePurple .bar {
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
+}
+
+.ThemePink .bar {
+  --bar-color: #ffffff;
+  --bar-active-color: #ffffff;
+}
+
+.barActive {
+  background-color: var(--bar-active-color);
+}
+
+.bar1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.ExpandMenu {
+  display: none;
+}
+
+.ExpandMenu:checked+.ExpandMenuIcon>.bar1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.ExpandMenu:checked+.ExpandMenuIcon>.bar3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.ExpandMenu:checked+.ExpandMenuIcon {
+  --pos-y-bar-one: calc(var(--line-gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--line-gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+
+.spanButton.active {
+  padding: 2px 6px !important;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 960px) {
+  
+  .SimpleMobileHeader {
+    display: none;
+  }
+  .MobileHeader{
+    display: none;
+  }
+  .TopNavigation {
+    display: none !important;
+  }
+
+  .TopNavigationExpand {
+    /* padding: 30px 25px !important; */
+    z-index: 3;
+    position: fixed;
+  }
+
+  .BrandContainer .LogoContainer svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .BrandContainer .BrandText {
+    font-size: 1.5em;
+    text-decoration: none;
+  }
+
+  .TopNavigationExpand {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .ExpandMenuContainer {
+    display: flex !important;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .DesktopHeader {
+    display: none;
+  }
+
+  .BrandContainer .BrandText {
+    display: none;
+  }
+  .MobileHeader {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .SimpleMobileHeader {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .SimpleMobileHeader .LayoutHeader {
+    height: 60px;
+  }
+
+  .TopNavigationExpand {
+    padding: 20px 25px !important;
+  }
+
+  .ExpandMenuIcon {
+    --line-gap: 6px;
+    --height-bar: 3px;
+    width: 25px;
+  }
+}
