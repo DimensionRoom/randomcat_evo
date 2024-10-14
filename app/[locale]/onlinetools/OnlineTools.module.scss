@@ -214,19 +214,33 @@
           font-weight: 300;
           cursor: pointer;
           transition: background-color 0.3s;
+          animation: pulse 2s ease-in-out infinite;
+
           &:hover {
             border-color: #9f4fd0;
             background-color: #9f4fd0;
             color: #fff;
           }
-            &:disabled {
+          &:disabled {
             background-color: #cccccc;
             border-color: #cccccc;
             cursor: not-allowed;
             color: #666666;
-            }
+            animation: none;
+          }
         }
       }
+    }
+  }
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    }
+    50% {
+      box-shadow: 0 0 20px #992eda;
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0);
     }
   }
 }
