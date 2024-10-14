@@ -46,7 +46,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   const [loading, setLoading] = useState<boolean>(true);
   const [scrollY, setScrollY] = useState(0);
   const [presentPlaying, setPresentPlaying] = useState(false);
-
+  const mainRef = useRef<HTMLElement>(null);
+  const [currentSection, setCurrentSection] = useState<string>('');
   const presentPlayerRef = useRef(null);
   const titleRef = useRef(null);
   const cardRef = useRef(null);
@@ -58,10 +59,38 @@ export default function Home({ params: { locale } }: { params: { locale: string 
     setPresentPlaying(!presentPlaying);
   };
 
-  const handleScroll = (e: Event) => {
-    const target = e.target as HTMLDivElement;
-    // console.log(target.scrollTop);
-  }
+
+
+  // const handleScroll = (e: Event) => {
+  //   const target = e.target as HTMLDivElement;
+  //   const tolerance = 5; 
+    
+  //   if (target.scrollTop + target.clientHeight >= target.scrollHeight - tolerance) {
+  //     console.log('Reached the end of scroll with tolerance');
+  //   }
+  // };
+
+  const handleScroll = () => {
+    const mainElement = mainRef.current as HTMLElement;
+    if (!mainElement) return;
+  
+    const sections = (mainElement as HTMLElement).querySelectorAll('section');
+  
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const mainRect = mainElement.getBoundingClientRect();
+  
+      // Calculate the section's top relative to the main element
+      const sectionTop = rect.top - mainRect.top;
+  
+      // Check if the section's top is within the main element's viewport
+      if (sectionTop >= 0 && sectionTop <= mainElement.clientHeight) {
+        // console.log('Section in view:', section.id);
+        setCurrentSection(section.id);
+        gsap.to(section, { opacity: 1, y: 0, duration: 1, ease: 'power4.out' });
+      }
+    });
+  };
   
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true, capture: true});
@@ -109,6 +138,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
     fetchTranslations();
   }, [locale]);
 
+  
+
   if (loading) {
     return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Player
@@ -129,8 +160,8 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       locale={locale}
       resources={resources}>
       <MainNavigationTopBar locale={locale} />
-      <main className={styles.main}>
-        <section className={`${styles.section} ${styles.parallaxSection}`}>
+      <main ref={mainRef} className={styles.main}>
+        <section id='parallaxSection' className={`${styles.parallaxSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>THINK<span>TOOL</span></p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.parallaxSection.subtitle')}</p>
@@ -153,7 +184,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.gradientSection}`}>
+        <section id='gradientSection' className={`${styles.section} ${styles.gradientSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>A magical tool is designed for you</p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.gradientSection.subtitle')}</p>
@@ -198,7 +229,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.whiteSection}`}>
+        <section id='whiteSection' className={`${styles.section} ${styles.whiteSection}`}>
           <div className={styles.itemsContainer}>
             {/* <div className={styles.itemIcon}>
               <Player
@@ -259,7 +290,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.stepSection}`}>
+        <section id='stepSection' className={`${styles.section} ${styles.stepSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemHeader}>
@@ -293,7 +324,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.outcomeSection}`}>
+        <section id='outcomeSection' className={`${styles.section} ${styles.outcomeSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.itemData}>
               <p className={styles.itemTitle}>Final Outcome</p>
@@ -310,7 +341,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.colorSection}`}>
+        <section id='colorSection' className={`${styles.section} ${styles.colorSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
@@ -350,7 +381,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.toolsSection}`}>
+        <section id='toolsSection' className={`${styles.section} ${styles.toolsSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>A series of Think Tools</p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.toolsSection.subtitle')}</p>
@@ -410,7 +441,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.teamSection}`}>
+        <section id='teamSection' className={`${styles.section} ${styles.teamSection}`}>
         <div className={styles.textContainer}>
             <SiteLogo width={50} height={50} color={'#ffffff'} />
             <p className={styles.title}>Think throughs team</p>
@@ -443,7 +474,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section className={`${styles.section} ${styles.footerSection}`}>
+        <section id='footerSection' className={`${styles.section} ${styles.footerSection}`}>
           <PageFooter locale={locale}/>  
         </section>
       </main>

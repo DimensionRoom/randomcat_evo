@@ -45,7 +45,6 @@ export default function RootLayout({
           locale={locale}
           logo={<SiteLogo width={45} height={45} />}
         /> */}
-        
         {children}
         </ToastProvider>
       </body>

@@ -6,6 +6,12 @@
   overflow-y: scroll;
 }
 
+.section{
+  opacity: 0;
+  /* transform: translateY(40px); */
+  transition: opacity 0.5s, transform 0.5s;
+}
+
 .thfontlight {
   font-weight: 200 !important;
 }
