@@ -36,13 +36,15 @@ type MenuItem = {
   url: string;
   theme: string;
   type: string;
-  [key: string]: string;
+  header: string;
+  show: boolean;
+  // [key: string]: string;
 };
 
 const MainNavigationTopBar = ({
   logo = <SiteLogo width={45} height={45} />,
   locale = "en",
-  fill=false,
+  fill = false,
   ...props
 }: Props): JSX.Element => {
   const [resources, setResources] = useState<any>(null);
@@ -55,6 +57,45 @@ const MainNavigationTopBar = ({
   const [isExpandMenu, setIsExpandMenu] = useState(false);
   const mainMenu: MenuItem[] = [
     {
+      name: "Inno Design",
+      key: "innovation",
+      title: "Inno",
+      titleEx: "Design",
+      description: "Design your own innovation",
+      shortKey: "inno",
+      url: "/innovationandbusiness",
+      theme: "ThemeBlue",
+      header: "false",
+      type: "randomTool",
+      show: false,
+    },
+    {
+      name: "Story Design",
+      key: "story",
+      title: "Story",
+      titleEx: "Design",
+      description: "Design your own story",
+      shortKey: "story",
+      url: "/storydesign",
+      theme: "ThemePurple",
+      header: "false",
+      type: "randomTool",
+      show: false,
+    },
+    {
+      name: "Edu Design",
+      key: "education",
+      title: "Edu",
+      titleEx: "Design",
+      description: "Design your own material",
+      shortKey: "edu",
+      url: "/edudesign",
+      theme: "ThemePink",
+      header: "false",
+      type: "randomTool",
+      show: false,
+    },
+    {
       name: "Online Tools",
       key: "onlineTools",
       title: "OnlineTools",
@@ -64,7 +105,8 @@ const MainNavigationTopBar = ({
       url: "/onlinetools",
       theme: "",
       header: "false",
-      type:"page"
+      type: "page",
+      show: true,
     },
     {
       name: "Template",
@@ -76,8 +118,9 @@ const MainNavigationTopBar = ({
       url: "/template",
       theme: "",
       header: "false",
-      type:"page"
-    }
+      type: "page",
+      show: true,
+    },
   ];
 
   const findTheme = (pop: string[], mainMenu: MenuItem[]): string | null => {
@@ -94,12 +137,15 @@ const MainNavigationTopBar = ({
   const findKey = (
     pop: string[],
     mainMenu: MenuItem[],
-    key: string
+    key: keyof MenuItem
   ): string | null => {
     for (const menuItem of mainMenu) {
       for (const popItem of pop) {
         if (menuItem.url.includes(popItem)) {
-          return menuItem[key];
+          const value = menuItem[key];
+          if (typeof value === "string") {
+            return value;
+          }
         }
       }
     }
@@ -169,7 +215,9 @@ const MainNavigationTopBar = ({
       resources={resources}
     >
       {/* Desktop Size */}
-      <div className={`${styles.DesktopHeader} ${fill?styles.FillColor:null}`}>
+      <div
+        className={`${styles.DesktopHeader} ${fill ? styles.FillColor : null}`}
+      >
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <Link href="/" className={`${styles.textLink} ${`homeLink`}`}>
             <div className={styles.BrandContainer}>
@@ -178,69 +226,63 @@ const MainNavigationTopBar = ({
             </div>
           </Link>
           <div className={styles.TopNavigation}>
-            {mainMenu.map((menu, index) => {
-              return (
-                <React.Fragment key={`menuItem${index}`}>
-                  {
-                    menu.type == "randomTool" ? 
-                    (
-                    <Link
-                    href={{
-                      pathname: `${menu.url}/${menu.key}board`,
-                      query: { info: `${menu.shortKey}design` },
-                    }}
-                    onClick={() =>
-                      sendGAEvent({
-                        event: "goTo",
-                        value: `${menu.shortKey}design`,
-                      })
-                    }
-                    className={`${styles.textLink} ${`${menu.key}Link`}`}
-                  >
-                    <div
-                      className={`${
-                        popCurrentPathname.some(
-                          (item) => item === menu.url.replace("/", "")
-                        )
-                          ? styles.MenuActive
-                          : ""
-                      } ${styles.TopNavigationMenu}`}
-                    >
-                      <p className={styles.MenuText}>{menu.name}</p>
-                    </div>
-                  </Link>) : 
-                  (
-                    <Link
-                    href={menu.url}
-                    onClick={() =>
-                      sendGAEvent({
-                        event: "goTo",
-                        value: `${menu.shortKey}`,
-                      })
-                    }
-                    className={`${styles.textLink} ${`${menu.key}Link`}`}
-                  >
-                    <div
-                      className={`${
-                        popCurrentPathname.some(
-                          (item) => item === menu.url.replace("/", "")
-                        )
-                          ? styles.MenuActive
-                          : ""
-                      } ${styles.TopNavigationMenu}`}
-                    >
-                      <p className={styles.MenuText}>{menu.name}</p>
-                    </div>
-                  </Link>
-                  )
+          {mainMenu.filter(menu => menu.show).map((menu, index) => (
+            <React.Fragment key={`menuItem${index}`}>
+              {menu.type == "randomTool" ? (
+                <Link
+                  href={{
+                    pathname: `${menu.url}/${menu.key}board`,
+                    query: { info: `${menu.shortKey}design` },
+                  }}
+                  onClick={() =>
+                    sendGAEvent({
+                      event: "goTo",
+                      value: `${menu.shortKey}design`,
+                    })
                   }
-               
-                  {index < mainMenu.length - 1 && (
-                    <div className={styles.MenuDivider}></div>
-                  )}
-                </React.Fragment>
-              );
-            })}
+                  className={`${styles.textLink} ${`${menu.key}Link`}`}
+                >
+                  <div
+                    className={`${
+                      popCurrentPathname.some(
+                        (item) => item === menu.url.replace("/", "")
+                      )
+                        ? styles.MenuActive
+                        : ""
+                    } ${styles.TopNavigationMenu}`}
+                  >
+                    <p className={styles.MenuText}>{menu.name}</p>
+                  </div>
+                </Link>
+              ) : menu.type == "page" ? (
+                <Link
+                  href={menu.url}
+                  onClick={() =>
+                    sendGAEvent({
+                      event: "goTo",
+                      value: `${menu.shortKey}`,
+                    })
+                  }
+                  className={`${styles.textLink} ${`${menu.key}Link`}`}
+                >
+                  <div
+                    className={`${
+                      popCurrentPathname.some(
+                        (item) => item === menu.url.replace("/", "")
+                      )
+                        ? styles.MenuActive
+                        : ""
+                    } ${styles.TopNavigationMenu}`}
+                  >
+                    <p className={styles.MenuText}>{menu.name}</p>
+                  </div>
+                </Link>
+              ) : null}
+              {index < mainMenu.length - 1 && (
+                <div className={styles.MenuDivider}></div>
+              )}
+            </React.Fragment>
+          ))}
             <div className={styles.ToolContainer}>
               <div
                 onClick={() => handleChangeLanguage("en")}
@@ -295,10 +337,13 @@ const MainNavigationTopBar = ({
       <div
         className={`${
           popCurrentPathname.length <= 2 &&
-          (popCurrentPathname[0] == "" || popCurrentPathname[0] == "th" || popCurrentPathname[popCurrentPathname.length - 1] == "template" || popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
+          (popCurrentPathname[0] == "" ||
+            popCurrentPathname[0] == "th" ||
+            popCurrentPathname[popCurrentPathname.length - 1] == "template" ||
+            popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
-        } ${fill?styles.FillColor:null}`}
+        } ${fill ? styles.FillColor : null}`}
       >
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
@@ -323,25 +368,25 @@ const MainNavigationTopBar = ({
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar1} ${fill?styles.FillColor:null}`}
+            } ${styles.bar1} ${fill ? styles.FillColor : null}`}
           ></div>
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar2} ${fill?styles.FillColor:null}`}
+            } ${styles.bar2} ${fill ? styles.FillColor : null}`}
           ></div>
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar3} ${fill?styles.FillColor:null}`}
+            } ${styles.bar3} ${fill ? styles.FillColor : null}`}
           ></div>
         </label>
       </div>
       {isExpandMenu && (
         <div className={styles.ExpandMenuContainer}>
           <div className={`${styles.ExpandMenuContent}`}>
-            {mainMenu.map((menu, index) => {
-              return menu.type == "randomTool" ? (
+            {mainMenu.filter(menu => menu.show).map((menu, index) => (
+              menu.type == "randomTool" ? (
                 <Link
                   key={index}
                   href={{
@@ -365,7 +410,7 @@ const MainNavigationTopBar = ({
                     </p>
                   </div>
                 </Link>
-              ) : (
+              ) : menu.type == "page" ? (
                 <Link
                   key={index}
                   href={menu.url}
@@ -386,8 +431,8 @@ const MainNavigationTopBar = ({
                     </p>
                   </div>
                 </Link>
-              );
-            })}
+              ) : null
+            ))}
             <div className={styles.ExpandMenuContentItem}>
               <p
                 className={`${styles.MenuText} ${styles.MenuTextActive}`}
