@@ -249,9 +249,11 @@ export default function OnlineToolsScreen({
                   {t("section.gradientSection.items.showWork.desc2")}
                 </p>
                 <FlatBtn
-                  disabled
                   className={`${styles.moreBtn}`}
-                  text={"Upcoming"}
+                  text={"Let's share!"}
+                  onClick={() => {
+                    window.open("https://www.instagram.com/thinktool_official", "_blank");
+                  }}
                 />
               </div>
             </div>
