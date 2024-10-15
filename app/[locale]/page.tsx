@@ -161,7 +161,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       resources={resources}>
       <MainNavigationTopBar locale={locale} />
       <main ref={mainRef} className={styles.main}>
-        <section id='parallaxSection' className={`${styles.parallaxSection}`}>
+        <section id='parallaxSection' className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>THINK<span>TOOL</span></p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{t('section.parallaxSection.subtitle')}</p>
@@ -229,7 +229,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='whiteSection' className={`${styles.section} ${styles.whiteSection}`}>
+        <section id='whiteSection' className={`${styles.section} ${styles.animationSection} ${styles.whiteSection}`}>
           <div className={styles.itemsContainer}>
             {/* <div className={styles.itemIcon}>
               <Player
@@ -290,7 +290,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='stepSection' className={`${styles.section} ${styles.stepSection}`}>
+        <section id='stepSection' className={`${styles.section} ${styles.animationSection} ${styles.stepSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemHeader}>
@@ -324,7 +324,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='outcomeSection' className={`${styles.section} ${styles.outcomeSection}`}>
+        <section id='outcomeSection' className={`${styles.section} ${styles.animationSection} ${styles.outcomeSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.itemData}>
               <p className={styles.itemTitle}>Final Outcome</p>
@@ -341,7 +341,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='colorSection' className={`${styles.section} ${styles.colorSection}`}>
+        <section id='colorSection' className={`${styles.section} ${styles.animationSection} ${styles.colorSection}`}>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
@@ -381,7 +381,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='toolsSection' className={`${styles.section} ${styles.toolsSection}`}>
+        <section id='toolsSection' className={`${styles.section} ${styles.animationSection} ${styles.toolsSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>A series of Think Tools</p>
             <p className={`${styles.subtitle} ${locale == 'th' ? `${mitr.className}` : null}`}>{t('section.toolsSection.subtitle')}</p>
@@ -441,7 +441,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='teamSection' className={`${styles.section} ${styles.teamSection}`}>
+        <section id='teamSection' className={`${styles.section} ${styles.animationSection} ${styles.teamSection}`}>
         <div className={styles.textContainer}>
             <SiteLogo width={50} height={50} color={'#ffffff'} />
             <p className={styles.title}>Think throughs team</p>
@@ -474,7 +474,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='footerSection' className={`${styles.section} ${styles.footerSection}`}>
+        <section id='footerSection' className={`${styles.section} ${styles.animationSection} ${styles.footerSection}`}>
           <PageFooter locale={locale}/>  
         </section>
       </main>
