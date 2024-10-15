@@ -281,7 +281,7 @@ export default function OnlineToolsScreen({
                   className={`${styles.moreBtn}`}
                   text={"Learn More"}
                   onClick={() => {
-                    window.open("/template", "_blank");
+                    window.open("/templates", "_blank");
                   }}
                 />
               </div>

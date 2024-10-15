@@ -5,7 +5,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "../../i18n";
 import Link from "next/link";
-import styles from "../../../Styles/EduBoard/page.module.css";
+import styles from "../../../Styles/EduBoard/page.module.scss";
 import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
 
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -47,7 +47,7 @@ interface Category {
   data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
-const i18nNamespaces = ["innovationboard"];
+const i18nNamespaces = ["educationboard"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -265,7 +265,7 @@ export default function InnovationBoard({
       >
          <LottieAnimation
           animationData={mainLoad}
-          color={["#c0167a", "#f04ea6", "#730445"]}
+          // color={["#c0167a", "#f04ea6", "#730445"]}
         />
         {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
@@ -281,7 +281,7 @@ export default function InnovationBoard({
       <MainNavigationTopBar locale={locale} />
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header
-          className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemePink"]}`}
+          className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemePurple"]}`}
         >
           <div className={manivigationStyles.HeaderTopContainer}>
             <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
@@ -364,7 +364,7 @@ export default function InnovationBoard({
                   key={index}
                   ref={(el) => (physicalRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  color={"ThemePink"}
+                  color={"ThemePurple"}
                   // locale={locale}
                   locale={"en"}
                   title={cardItem.title}
@@ -397,7 +397,7 @@ export default function InnovationBoard({
                   key={index}
                   ref={(el) => (physicalGridRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  color={"ThemePink"}
+                  color={"ThemePurple"}
                   // locale={locale}
                   locale={"en"}
                   title={cardItem.title}
@@ -430,7 +430,7 @@ export default function InnovationBoard({
                   key={index}
                   ref={(el) => (cardRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  className={"ThemePink"}
+                  className={"ThemePurple"}
                   // locale={locale}
                   locale={"en"}
                   title={cardItem.title}

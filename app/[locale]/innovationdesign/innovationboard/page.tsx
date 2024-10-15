@@ -1,13 +1,14 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, use } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "../../i18n";
-import styles from "../../../Styles/StoryBoard/page.module.scss";
-import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
-import TranslationsProvider from "@/components/TranslationsProvider";
 import Link from "next/link";
+import styles from "../../../Styles/InnovationBoard/page.module.scss";
+import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
+
+import TranslationsProvider from "@/components/TranslationsProvider";
 import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
@@ -15,12 +16,13 @@ import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
 import mainLoad from "../../../../public/json/mainload.json";
 import TagFilter from "@/components/Filter/TagFilter/TagFilter";
-import PointerIcon from "@/public/svgs/storyboard/pointer";
-import LightbulbIcon from "@/public/svgs/storyboard/lightbulb";
-import YoYoIcon from "@/public/svgs/storyboard/yoyo";
+import PointerIcon from "@/public/svgs/innovationboard/pointer";
+import LightbulbIcon from "@/public/svgs/innovationboard/lightbulb";
+import RocketIcon from "@/public/svgs/innovationboard/rocket";
 import SiteLogo from "@/public/svgs/siteLogo";
 
-import storydesisgnData from "../../../../public/json/storydesignCat.json";
+import innodesisgnData from "../../../../public/json/innodesignCat.json";
+import { it } from "node:test";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 
 export type SubCategoryProps = {
@@ -47,7 +49,7 @@ interface Category {
   data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
-const i18nNamespaces = ["storyboard"];
+const i18nNamespaces = ["innovationboard"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -64,7 +66,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function StoryBoard({
+export default function InnovationBoard({
   params: { locale },
 }: {
   params: { locale: string };
@@ -76,10 +78,16 @@ export default function StoryBoard({
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: "Story",
+      name: "Innovation",
       nameEx: "Design",
-      fullDescription: '"Start your own story right here."',
-      catItemId: "storydesign",
+      fullDescription: '"Unleash your creativity with ThinkTool."',
+      catItemId: "innodesign",
+    },
+    {
+      name: "Gamification for biz",
+      nameEx: "for biz",
+      fullDescription: "Design your own gamification",
+      catItemId: "gamification",
     },
   ]);
   const fullCategoryName = subCategory.map((subCat) => {
@@ -95,8 +103,8 @@ export default function StoryBoard({
   const extractMainKeys = (jsonData: JSONData): string[] => {
     return Object.keys(jsonData);
   };
-  const mainKeys = extractMainKeys(storydesisgnData);
-  const cardData: { [key: string]: Category } = storydesisgnData;
+  const mainKeys = extractMainKeys(innodesisgnData);
+  const cardData: { [key: string]: Category } = innodesisgnData;
   const [filterCategory, setFilterCategory] = useState<string[]>(mainKeys);
   const [defaultSelectedCategories, setDefaultSelectedCategories] =
     useState<string[]>(mainKeys);
@@ -104,7 +112,7 @@ export default function StoryBoard({
     useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
-  const [selectedCardItem, setSelectedCardItem] = useState<Category[]>([]);
+  const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
   const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
@@ -122,11 +130,15 @@ export default function StoryBoard({
     }
   };
 
-  const handleSelectedCardChange = (catItem: any) => {
-    if (!selectedCardItem.includes(catItem)) {
-      setSelectedCardItem([...selectedCardItem, catItem]);
+  const handleSelectedCardChange = (catItem: string, newFlipCard: boolean) => {
+    if (!newFlipCard && !selectedCardItem.includes(catItem)) {
+      const newSelectedCardItem = [...selectedCardItem, catItem];
+      setSelectedCardItem(newSelectedCardItem);
     } else {
-      setSelectedCardItem(selectedCardItem.filter((item) => item !== catItem));
+      const newSelectedCardItem = selectedCardItem.filter(
+        (item) => item !== catItem
+      );
+      setSelectedCardItem(newSelectedCardItem);
     }
   };
 
@@ -143,8 +155,8 @@ export default function StoryBoard({
       title: `${title}`,
       subTitle: `${subTitle}`,
       catItemId: key,
-      topic: randomData["en"],
-      content: `${randomData[`content_${"en"}`]}`,
+      topic: randomData[locale],
+      content: `${randomData[`content_${locale}`]}`,
     };
   };
 
@@ -223,7 +235,14 @@ export default function StoryBoard({
   };
 
   useEffect(() => {
-    console.log("card", selectedCardItem);
+    console.log("newRandomItems", randomItems);
+  }, [randomItems]);
+
+  useEffect(() => {
+    const filteredData = randomItems.filter((item) =>
+      selectedCardItem.includes(item.catItemId)
+    );
+    console.log("filteredData", filteredData);
   }, [selectedCardItem]);
 
   useEffect(() => {
@@ -252,7 +271,6 @@ export default function StoryBoard({
     setFlippedPhysicalGridCards(items.length);
     setFlipCardLimit(items.length);
   }, []);
-
   if (loading) {
     return (
       <div
@@ -265,7 +283,7 @@ export default function StoryBoard({
       >
         <LottieAnimation
           animationData={mainLoad}
-          // color={["#63058F", "#7C4BE4", "#390455"]}
+          // color={["#1e4e9c", "#298edc", "#072167"]}
         />
         {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
@@ -297,13 +315,13 @@ export default function StoryBoard({
               <p
                 className={`${manivigationStyles.HeaderDetailsTitle} ${popins.className}`}
               >
-                Story
+                Inno
                 <span className={manivigationStyles.HeaderDetailsTitleEx}>
                   Design
                 </span>
               </p>
               <p className={manivigationStyles.HeaderDetailsDescription}>
-                Design your own story
+                Design your own innovation
               </p>
             </div>
             <div className={manivigationStyles.HeaderActionContainer}>
@@ -365,8 +383,7 @@ export default function StoryBoard({
                   ref={(el) => (physicalRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
                   color={"ThemePurple"}
-                  // locale={locale}
-                  locale={"en"}
+                  locale={locale}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -378,8 +395,8 @@ export default function StoryBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalCards}
-                  onSelectedCardChange={() =>
-                    handleSelectedCardChange(cardItem)
+                  onSelectedCardChange={(key, newFlipCard) =>
+                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -398,8 +415,7 @@ export default function StoryBoard({
                   ref={(el) => (physicalGridRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
                   color={"ThemePurple"}
-                  // locale={locale}
-                  locale={"en"}
+                  locale={locale}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -411,8 +427,8 @@ export default function StoryBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalGridCards}
-                  onSelectedCardChange={() =>
-                    handleSelectedCardChange(cardItem)
+                  onSelectedCardChange={(key, newFlipCard) =>
+                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -431,8 +447,7 @@ export default function StoryBoard({
                   ref={(el) => (cardRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
                   className={"ThemePurple"}
-                  // locale={locale}
-                  locale={"en"}
+                  locale={locale}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -443,8 +458,8 @@ export default function StoryBoard({
                   lock={lockItem.includes(cardItem.catItemId)}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedCards}
-                  onSelectedCardChange={() =>
-                    handleSelectedCardChange(cardItem)
+                  onSelectedCardChange={(key, newFlipCard) =>
+                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -505,7 +520,7 @@ export default function StoryBoard({
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <YoYoIcon width={40} height={40} />
+                <RocketIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>

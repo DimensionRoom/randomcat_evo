@@ -63,8 +63,8 @@ const MainNavigationTopBar = ({
       titleEx: "Design",
       description: "Design your own innovation",
       shortKey: "inno",
-      url: "/innovationandbusiness",
-      theme: "ThemeBlue",
+      url: "/innovationdesign",
+      theme: "ThemePurple",
       header: "false",
       type: "randomTool",
       show: false,
@@ -90,7 +90,20 @@ const MainNavigationTopBar = ({
       description: "Design your own material",
       shortKey: "edu",
       url: "/edudesign",
-      theme: "ThemePink",
+      theme: "ThemePurple",
+      header: "false",
+      type: "randomTool",
+      show: false,
+    },
+    {
+      name: "Content Design",
+      key: "content",
+      title: "Content",
+      titleEx: "Design",
+      description: "Design your own content",
+      shortKey: "content",
+      url: "/contentdesign",
+      theme: "ThemePurple",
       header: "false",
       type: "randomTool",
       show: false,
@@ -109,13 +122,13 @@ const MainNavigationTopBar = ({
       show: true,
     },
     {
-      name: "Template",
-      key: "template",
-      title: "Template",
+      name: "Templates",
+      key: "templates",
+      title: "Templates",
       titleEx: "",
-      description: "Download template",
-      shortKey: "template",
-      url: "/template",
+      description: "Download templates",
+      shortKey: "templates",
+      url: "/templates",
       theme: "",
       header: "false",
       type: "page",
@@ -339,7 +352,7 @@ const MainNavigationTopBar = ({
           popCurrentPathname.length <= 2 &&
           (popCurrentPathname[0] == "" ||
             popCurrentPathname[0] == "th" ||
-            popCurrentPathname[popCurrentPathname.length - 1] == "template" ||
+            popCurrentPathname[popCurrentPathname.length - 1] == "templates" ||
             popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide

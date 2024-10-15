@@ -1,14 +1,13 @@
 "use client";
-import React, { useState, useEffect, useRef, use } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "../../i18n";
-import Link from "next/link";
-import styles from "../../../Styles/InnovationBoard/page.module.css";
+import styles from "../../../Styles/ContentBoard/page.module.scss";
 import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
-
 import TranslationsProvider from "@/components/TranslationsProvider";
+import Link from "next/link";
 import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
@@ -16,13 +15,12 @@ import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
 import mainLoad from "../../../../public/json/mainload.json";
 import TagFilter from "@/components/Filter/TagFilter/TagFilter";
-import PointerIcon from "@/public/svgs/innovationboard/pointer";
-import LightbulbIcon from "@/public/svgs/innovationboard/lightbulb";
-import RocketIcon from "@/public/svgs/innovationboard/rocket";
+import PointerIcon from "@/public/svgs/storyboard/pointer";
+import LightbulbIcon from "@/public/svgs/storyboard/lightbulb";
+import ContentIcon from "@/public/svgs/contentboard/content";
 import SiteLogo from "@/public/svgs/siteLogo";
 
-import innodesisgnData from "../../../../public/json/innodesignCat.json";
-import { it } from "node:test";
+import contentdesisgnData from "../../../../public/json/contentdesignCat.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 
 export type SubCategoryProps = {
@@ -49,7 +47,7 @@ interface Category {
   data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
-const i18nNamespaces = ["innovationboard"];
+const i18nNamespaces = ["contentboard"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -66,7 +64,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function InnovationBoard({
+export default function ContentBoard({
   params: { locale },
 }: {
   params: { locale: string };
@@ -78,20 +76,13 @@ export default function InnovationBoard({
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: "Innovation",
+      name: "Content",
       nameEx: "Design",
-      fullDescription: '"Unleash your creativity with ThinkTool."',
-      catItemId: "innodesign",
-    },
-    {
-      name: "Gamification for biz",
-      nameEx: "for biz",
-      fullDescription: "Design your own gamification",
-      catItemId: "gamification",
+      fullDescription: '"Practice becoming a content creator."',
+      catItemId: "contentdesign",
     },
   ]);
   const fullCategoryName = subCategory.map((subCat) => {
-    // searchParamsInfo === subCat.catItemId ? subCat.name : ''
     if (searchParamsInfo === subCat.catItemId) {
       return subCat.name + " " + subCat.nameEx;
     }
@@ -103,8 +94,8 @@ export default function InnovationBoard({
   const extractMainKeys = (jsonData: JSONData): string[] => {
     return Object.keys(jsonData);
   };
-  const mainKeys = extractMainKeys(innodesisgnData);
-  const cardData: { [key: string]: Category } = innodesisgnData;
+  const mainKeys = extractMainKeys(contentdesisgnData);
+  const cardData: { [key: string]: Category } = contentdesisgnData;
   const [filterCategory, setFilterCategory] = useState<string[]>(mainKeys);
   const [defaultSelectedCategories, setDefaultSelectedCategories] =
     useState<string[]>(mainKeys);
@@ -112,7 +103,7 @@ export default function InnovationBoard({
     useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
-  const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
+  const [selectedCardItem, setSelectedCardItem] = useState<Category[]>([]);
   const [flippedCards, setFlippedCards] = useState<number>(0);
   const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
   const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
@@ -130,15 +121,11 @@ export default function InnovationBoard({
     }
   };
 
-  const handleSelectedCardChange = (catItem: string, newFlipCard: boolean) => {
-    if (!newFlipCard && !selectedCardItem.includes(catItem)) {
-      const newSelectedCardItem = [...selectedCardItem, catItem];
-      setSelectedCardItem(newSelectedCardItem);
+  const handleSelectedCardChange = (catItem: any) => {
+    if (!selectedCardItem.includes(catItem)) {
+      setSelectedCardItem([...selectedCardItem, catItem]);
     } else {
-      const newSelectedCardItem = selectedCardItem.filter(
-        (item) => item !== catItem
-      );
-      setSelectedCardItem(newSelectedCardItem);
+      setSelectedCardItem(selectedCardItem.filter((item) => item !== catItem));
     }
   };
 
@@ -155,8 +142,8 @@ export default function InnovationBoard({
       title: `${title}`,
       subTitle: `${subTitle}`,
       catItemId: key,
-      topic: randomData[locale],
-      content: `${randomData[`content_${locale}`]}`,
+      topic: randomData["en"],
+      content: `${randomData[`content_${"en"}`]}`,
     };
   };
 
@@ -235,14 +222,7 @@ export default function InnovationBoard({
   };
 
   useEffect(() => {
-    console.log("newRandomItems", randomItems);
-  }, [randomItems]);
-
-  useEffect(() => {
-    const filteredData = randomItems.filter((item) =>
-      selectedCardItem.includes(item.catItemId)
-    );
-    console.log("filteredData", filteredData);
+    console.log("card", selectedCardItem);
   }, [selectedCardItem]);
 
   useEffect(() => {
@@ -271,6 +251,7 @@ export default function InnovationBoard({
     setFlippedPhysicalGridCards(items.length);
     setFlipCardLimit(items.length);
   }, []);
+
   if (loading) {
     return (
       <div
@@ -283,7 +264,7 @@ export default function InnovationBoard({
       >
         <LottieAnimation
           animationData={mainLoad}
-          color={["#1e4e9c", "#298edc", "#072167"]}
+          // color={["#63058F", "#7C4BE4", "#390455"]}
         />
         {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
@@ -299,7 +280,7 @@ export default function InnovationBoard({
       <MainNavigationTopBar locale={locale} />
       <div className={`${manivigationStyles.MobileHeader}`}>
         <header
-          className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemeBlue"]}`}
+          className={`${manivigationStyles.LayoutHeader} ${manivigationStyles["ThemePurple"]}`}
         >
           <div className={manivigationStyles.HeaderTopContainer}>
             <Link href="/" className={`${styles.textLink} ${`homeMobileLink`}`}>
@@ -315,13 +296,13 @@ export default function InnovationBoard({
               <p
                 className={`${manivigationStyles.HeaderDetailsTitle} ${popins.className}`}
               >
-                Inno
+                  Content
                 <span className={manivigationStyles.HeaderDetailsTitleEx}>
                   Design
                 </span>
               </p>
               <p className={manivigationStyles.HeaderDetailsDescription}>
-                Design your own innovation
+                 Design your own Content
               </p>
             </div>
             <div className={manivigationStyles.HeaderActionContainer}>
@@ -382,8 +363,9 @@ export default function InnovationBoard({
                   key={index}
                   ref={(el) => (physicalRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  color={"ThemeBlue"}
-                  locale={locale}
+                  color={"ThemePurple"}
+                  // locale={locale}
+                  locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -395,8 +377,8 @@ export default function InnovationBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalCards}
-                  onSelectedCardChange={(key, newFlipCard) =>
-                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
+                  onSelectedCardChange={() =>
+                    handleSelectedCardChange(cardItem)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -414,8 +396,9 @@ export default function InnovationBoard({
                   key={index}
                   ref={(el) => (physicalGridRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  color={"ThemeBlue"}
-                  locale={locale}
+                  color={"ThemePurple"}
+                  // locale={locale}
+                  locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -427,8 +410,8 @@ export default function InnovationBoard({
                   delay={index * 200}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedPhysicalGridCards}
-                  onSelectedCardChange={(key, newFlipCard) =>
-                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
+                  onSelectedCardChange={() =>
+                    handleSelectedCardChange(cardItem)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -446,8 +429,9 @@ export default function InnovationBoard({
                   key={index}
                   ref={(el) => (cardRefs.current[index] = el)}
                   itemKey={cardItem.catItemId}
-                  className={"ThemeBlue"}
-                  locale={locale}
+                  className={"ThemePurple"}
+                  // locale={locale}
+                  locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
                   categoryName={fullCategoryName[0]}
@@ -458,8 +442,8 @@ export default function InnovationBoard({
                   lock={lockItem.includes(cardItem.catItemId)}
                   flipLimit={flipCardLimit}
                   flippedCards={flippedCards}
-                  onSelectedCardChange={(key, newFlipCard) =>
-                    handleSelectedCardChange(cardItem.catItemId, newFlipCard)
+                  onSelectedCardChange={() =>
+                    handleSelectedCardChange(cardItem)
                   }
                   onLockContentChange={(key, newLockContent) =>
                     handleLockContentChange(cardItem.catItemId, newLockContent)
@@ -520,7 +504,7 @@ export default function InnovationBoard({
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <RocketIcon width={40} height={40} />
+                <ContentIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>

@@ -1,0 +1,130 @@
+{
+    "Objective": {
+      "title": "Design",
+      "subTitle": "Objective",
+      "key": "Objective",
+      "data": [
+        {"th": "", "en": "Brand Awareness", "content_th": "", "content_en": "Increase recognition and visibility of a brand."},
+        {"th": "", "en": "Audience Engagement", "content_th": "", "content_en": "Interact with and keep the audience engaged."},
+        {"th": "", "en": "Lead Generation", "content_th": "", "content_en": "Attract and convert visitors into potential customers."},
+        {"th": "", "en": "SEO Optimization", "content_th": "", "content_en": "Improve search engine rankings and visibility."},
+        {"th": "", "en": "Customer Education", "content_th": "", "content_en": "Provide valuable information and educate customers about products or services."},
+        {"th": "", "en": "Sales Conversion", "content_th": "", "content_en": "Directly drive sales and conversions."},
+        {"th": "", "en": "Community Building", "content_th": "", "content_en": "Foster a community around shared interests or values."},
+        {"th": "", "en": "Content Marketing", "content_th": "", "content_en": "Support broader marketing campaigns and strategies."},
+        {"th": "", "en": "Customer Retention", "content_th": "", "content_en": "Keep existing customers engaged and satisfied."},
+        {"th": "", "en": "Brand Loyalty", "content_th": "", "content_en": "Build and strengthen loyalty among customers."},
+        {"th": "", "en": "Reputation Management", "content_th": "", "content_en": "Manage and enhance the brand’s online reputation."},
+        {"th": "", "en": "Product Promotion", "content_th": "", "content_en": "Highlight and promote specific products or services."},
+        {"th": "", "en": "Market Research", "content_th": "", "content_en": "Gather insights and feedback from the audience."},
+        {"th": "", "en": "Customer Support", "content_th": "", "content_en": "Provide answers and support to customer inquiries."},
+        {"th": "", "en": "Traffic Generation", "content_th": "", "content_en": "Increase website or platform traffic."},
+        {"th": "", "en": "Monetization", "content_th": "", "content_en": "Generate revenue through ads, sponsorships, or sales."},
+        {"th": "", "en": "Social Proof", "content_th": "", "content_en": "Showcase testimonials, reviews, and user-generated content."},
+        {"th": "", "en": "Crisis Management", "content_th": "", "content_en": "Address and manage public relations crises."},
+        {"th": "", "en": "Networking", "content_th": "", "content_en": "Connect with industry peers and influencers."},
+        {"th": "", "en": "Event Promotion", "content_th": "", "content_en": "Promote events and drive attendance."},
+        {"th": "", "en": "Audience Expansion", "content_th": "", "content_en": "Reach new demographics and expand audience base."},
+        {"th": "", "en": "Influence and Persuasion", "content_th": "", "content_en": "Persuade and influence audience opinions or behaviors."},
+        {"th": "", "en": "Entertainment", "content_th": "", "content_en": "Provide entertaining content to attract and retain viewers."}
+      ]
+    },
+    "Platform": {
+      "title": "Design",
+      "subTitle": "Platform",
+      "key": "Platform",
+      "data": [
+        {"th": "", "en": "YouTube", "content_th": "", "content_en": "Video sharing and streaming platform."},
+        {"th": "", "en": "Instagram", "content_th": "", "content_en": "Photo and short video sharing with a focus on visual content."},
+        {"th": "", "en": "Facebook", "content_th": "", "content_en": "Social media platform with diverse content types including text, images, and videos."},
+        {"th": "", "en": "Twitter", "content_th": "", "content_en": "Microblogging platform for short, timely updates."},
+        {"th": "", "en": "TikTok", "content_th": "", "content_en": "Platform for short, engaging videos."},
+        {"th": "", "en": "LinkedIn", "content_th": "", "content_en": "Professional networking site with a focus on business-related content."},
+        {"th": "", "en": "Pinterest", "content_th": "", "content_en": "Visual discovery and bookmarking tool."},
+        {"th": "", "en": "Medium", "content_th": "", "content_en": "Publishing platform for long-form articles and blogs."},
+        {"th": "", "en": "Blogger", "content_th": "", "content_en": "Blogging platform by Google."},
+        {"th": "", "en": "Reddit", "content_th": "", "content_en": "Community-driven site for discussion, content sharing, and social news."},
+        {"th": "", "en": "Vimeo", "content_th": "", "content_en": "Video sharing platform with a focus on high-quality content."}
+      ]
+    },
+    "Format": {
+      "title": "Design",
+      "subTitle": "Format",
+      "key": "Format",
+      "data": [
+      {"th": "", "en": "Blog Posts", "content_th": "", "content_en": "Articles or written content, typically published on websites or blogging platforms."},
+      {"th": "", "en": "Videos", "content_th": "", "content_en": "Recorded or live visual content, shared on platforms like YouTube, TikTok, and Instagram."},
+      {"th": "", "en": "Podcasts", "content_th": "", "content_en": "Audio recordings, often in episodic series, distributed on platforms like Spotify, Apple Podcasts, and Anchor."},
+      {"th": "", "en": "Infographics", "content_th": "", "content_en": "Visual representations of information or data, designed to be easy to understand."},
+      {"th": "", "en": "Ebooks", "content_th": "", "content_en": "Long-form written content, often downloadable, providing in-depth information on a topic."},
+      {"th": "", "en": "Webinars", "content_th": "", "content_en": "Live or recorded online seminars, often educational or informative."},
+      {"th": "", "en": "Newsletters", "content_th": "", "content_en": "Regularly distributed emails containing updates, news, or curated content."},
+      {"th": "", "en": "Slideshows/ Presentations", "content_th": "", "content_en": "Visual content typically used for educational or professional presentations, often created in tools like PowerPoint or Google Slides."},
+      {"th": "", "en": "Memes", "content_th": "", "content_en": "Humorous or cultural images, videos, or text shared widely on social media."},
+      {"th": "", "en": "Live Streams", "content_th": "", "content_en": "Real-time video broadcasts on platforms like Twitch, YouTube, and Facebook Live."}
+    ]
+    },
+    "Technique": {
+      "title": "Design",
+      "subTitle": "Technique",
+      "key": "Technique",
+      "data": [
+          {"th": "", "en": "Storytelling", "content_th": "", "content_en": "Narratives that evoke emotions and connect with the audience can be highly persuasive. Personal anecdotes or case studies can make your content more relatable and engaging."},
+          {"th": "", "en": "Social Proof", "content_th": "", "content_en": "Incorporating testimonials, reviews, or user-generated content can establish credibility and persuade others to take action."},
+          {"th": "", "en": "Authority", "content_th": "", "content_en": "Demonstrating expertise and authority in your niche can persuade audiences to trust your content and recommendations. This can be achieved through credentials, certifications, or endorsements from credible sources."},
+          {"th": "", "en": "Scarcity", "content_th": "", "content_en": "Creating a sense of urgency or scarcity can persuade audiences to act quickly. Limited-time offers, exclusive deals, or highlighting limited availability can encourage immediate action."},
+          {"th": "", "en": "Social Influence", "content_th": "", "content_en": "Utilizing influencers or leveraging social media to showcase endorsements or endorsements from popular figures can persuade audiences to engage with your content or offerings."},
+          {"th": "", "en": "Emotional Appeals", "content_th": "", "content_en": "Appealing to emotions such as fear, joy, or nostalgia can influence audience behavior. Understanding your audience's emotional triggers and crafting content that resonates with them can be highly persuasive."},
+          {"th": "", "en": "Value Proposition", "content_th": "", "content_en": "Clearly communicating the benefits and value of your product or service can persuade audiences to take action. Highlighting unique selling points and addressing pain points can make your content more compelling."},
+          {"th": "", "en": "Call to Action (CTA)", "content_th": "", "content_en": "Using clear and compelling CTAs can guide audiences towards the desired action. Whether it's making a purchase, signing up for a newsletter, or sharing content, a well-crafted CTA can increase conversion rates."},
+          {"th": "", "en": "Personalization", "content_th": "", "content_en": "Tailoring your content to specific audience segments or individuals can increase relevance and persuade them to engage with your content or offerings."},
+          {"th": "", "en": "Interactive Content", "content_th": "", "content_en": "Interactive elements such as quizzes, polls, or calculators can engage audiences and persuade them to spend more time with your content."},
+          {"th": "", "en": "User Experience (UX)", "content_th": "", "content_en": "Providing a seamless and enjoyable user experience can enhance the persuasiveness of your content. Easy navigation, fast loading times, and mobile responsiveness can all contribute to a positive user experience."}
+      ]
+     },
+    "Mood & Tone": {
+      "title": "Design",
+      "subTitle": "Mood & Tone",
+      "key": "Mood & Tone",
+      "data": [
+        {"th": "", "en": "Formal", "content_th": "", "content_en": "Professional, serious, and respectful."},
+        {"th": "", "en": "Informal", "content_th": "", "content_en": "Casual, friendly, and conversational."},
+        {"th": "", "en": "Excited", "content_th": "", "content_en": "Enthusiastic, eager, and full of anticipation."},
+        {"th": "", "en": "Humorous", "content_th": "", "content_en": "Funny, witty, and playful."},
+        {"th": "", "en": "Optimistic", "content_th": "", "content_en": "Positive, hopeful, and confident."},
+        {"th": "", "en": "Inspirational", "content_th": "", "content_en": "Uplifting and motivational, aiming to inspire and encourage viewers."},
+        {"th": "", "en": "Neutral", "content_th": "", "content_en": "Objective, balanced, and unbiased."},
+        {"th": "", "en": "Empowering", "content_th": "", "content_en": "Confident and assertive, encouraging viewers to take action or feel strong."},
+        {"th": "", "en": "Sympathetic", "content_th": "", "content_en": "Compassionate, understanding, and caring."},
+        {"th": "", "en": "Critical", "content_th": "", "content_en": "Analytical, evaluative, and judgmental."}
+      ]
+    },
+    "Content Type": {
+      "title": "Design",
+      "subTitle": "Content Type",
+      "key": "Content Type",
+      "data": [
+        {"th": "", "en": "Ask the Experts", "content_th": "", "content_en": "Articles or posts featuring insights and advice from industry professionals or subject matter experts."},
+        {"th": "", "en": "Review Before After", "content_th": "", "content_en": "Content that compares the state of something before and after a change or intervention, often with visual aids."},
+        {"th": "", "en": "Answer a Question", "content_th": "", "content_en": "Posts focused on providing a detailed answer to a specific, commonly asked question within your niche or industry."},
+        {"th": "", "en": "How-to", "content_th": "", "content_en": "Step-by-step guides that teach readers how to complete a specific task or achieve a particular goal."},
+        {"th": "", "en": "Timesaver Posts", "content_th": "", "content_en": "Content offering tips, tools, or strategies designed to save time and increase efficiency."},
+        {"th": "", "en": "Crowdsourced Posts", "content_th": "", "content_en": "Articles that compile insights, tips, or opinions gathered from a large group of people, often through surveys or social media."},
+        {"th": "", "en": "Best Practice", "content_th": "", "content_en": "Posts that share industry-standard methods, strategies, or techniques considered most effective based on research and expert consensus."},
+        {"th": "", "en": "Experiment-Based Posts", "content_th": "", "content_en": "Content that shares the process, results, and insights from a personal or scientific experiment related to your niche."},
+        {"th": "", "en": "Productivity Posts", "content_th": "", "content_en": "Articles focused on tips, tools, and strategies to help readers be more productive and manage their time better."},
+        {"th": "", "en": "Resources", "content_th": "", "content_en": "Posts that compile valuable tools, websites, books, or other resources relevant to a specific topic or industry."},
+        {"th": "", "en": "Dos and Don’ts", "content_th": "", "content_en": "Content listing the best practices (dos) and common pitfalls (don’ts) for a particular task or topic."},
+        {"th": "", "en": "Pros and Cons", "content_th": "", "content_en": "Articles that outline the advantages and disadvantages of a specific tool, method, or decision."},
+        {"th": "", "en": "Checklists", "content_th": "", "content_en": "Easy-to-follow lists that ensure readers cover all necessary steps or considerations for a particular task."},
+        {"th": "", "en": "Debates", "content_th": "", "content_en": "Posts that present different sides of a controversial or debated topic, often inviting readers to form their own opinions."},
+        {"th": "", "en": "Beginner’s Guides", "content_th": "", "content_en": "Comprehensive guides aimed at newcomers, providing basic information and steps to get started in a particular field or activity."},
+        {"th": "", "en": "Summarize", "content_th": "", "content_en": "Content that condenses complex information or lengthy content into a shorter, more digestible format."},
+        {"th": "", "en": "Trends-Based Posts", "content_th": "", "content_en": "Articles that analyze current trends in your industry, predicting future developments and providing relevant insights."},
+        {"th": "", "en": "Your Experience", "content_th": "", "content_en": "Personal posts where you share your own experiences, stories, and lessons learned related to your niche."},
+        {"th": "", "en": "Polls", "content_th": "", "content_en": "Content that includes surveys or polls to gather opinions from your audience, often followed by analysis or discussion of the results."},
+        {"th": "", "en": "Step by Step", "content_th": "", "content_en": "Detailed instructions broken down into sequential steps to guide readers through completing a specific task or process."},
+        {"th": "", "en": "Interviews", "content_th": "", "content_en": "Posts featuring Q&A sessions with experts, influencers, or other notable figures in your industry."}
+      ]
+    }
+}

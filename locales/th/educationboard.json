@@ -1,0 +1,21 @@
+{
+   "section": {
+      "stepSection": {
+         "item1": {
+            "title": "Step 1",
+            "description1": "Choose categories",
+            "description2": "and click random."
+         },
+         "item2": {
+            "title": "Step 2",
+            "description1": "Get prompts and",
+            "description2": "brainstorm."
+         },
+         "item3": {
+            "title": "Step 3",
+            "description1": "Create a prototype",
+            "description2": "(Physical/Digital)"
+         }
+      }
+   }
+}

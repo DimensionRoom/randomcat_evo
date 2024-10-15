@@ -6,7 +6,7 @@
         "topic2": "Design",
         "desc": "A Tool for creating innovation",
         "desc2": "through WH-questions",
-        "onlineLink": "innovationandbusiness/innovationboard?info=innodesign",
+        "onlineLink": "innovationdesign/innovationboard?info=innodesign",
         "productLink": ""
       },
       "story_design": {
@@ -22,7 +22,7 @@
         "topic2": "Design",
         "desc": "A tool for content creators",
         "desc2": "& practicing content design",
-        "onlineLink": "",
+        "onlineLink": "contentdesign/contentboard?info=contentdesign",
         "productLink": ""
       }
     },
