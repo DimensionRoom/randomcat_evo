@@ -278,7 +278,7 @@ const MainNavigationTopBar = ({
                   </div>
                 </Link>
               ) : null}
-              {index < mainMenu.length - 1 && (
+              {(index < mainMenu.length - 1 ) && (
                 <div className={styles.MenuDivider}></div>
               )}
             </React.Fragment>
