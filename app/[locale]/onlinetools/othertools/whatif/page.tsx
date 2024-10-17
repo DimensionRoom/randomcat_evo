@@ -13,7 +13,7 @@ import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import ImageCard from "@/components/Card/ImageCard/ImageCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
-import musicLoad from "@/public/json/musicLoading.json";
+import whatifLoad from "@/public/json/whatifLoading.json";
 import musicLogo from "@/public/json/musicLogo.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 
@@ -339,7 +339,7 @@ export default function MusicCard({
         <Player
           autoplay
           loop
-          src={musicLoad}
+          src={whatifLoad}
           style={{ width: "30vh" }}
         ></Player>
       </div>
