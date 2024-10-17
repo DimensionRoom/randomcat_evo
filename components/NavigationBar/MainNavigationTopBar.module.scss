@@ -23,6 +23,18 @@
   --logo-color: #ffffff;
 }
 
+.DesktopHeader.FillColor.semiTransparent {
+  --primary-color: #e8afff;
+  --background-color: linear-gradient(135deg, rgba(129,26,150,0.2), rgba(48,46,118,0.2));
+  --nav-menu-active-color: #c05dff;
+}
+.DesktopHeader.FillColor.transparent {
+  --primary-color: #e8afff;
+  --background-color: none;
+  --nav-menu-active-color: #c05dff;
+}
+
+
 .DesktopHeader .LayoutHeader {
 
   display: flex;

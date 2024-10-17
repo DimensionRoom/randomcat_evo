@@ -24,6 +24,7 @@ export type Props = {
   logo?: React.ReactNode;
   locale: string;
   fill?: boolean;
+  fillMode?: 'normal' | 'semiTransparent' | 'transparent';
 };
 
 type MenuItem = {
@@ -45,6 +46,7 @@ const MainNavigationTopBar = ({
   logo = <SiteLogo width={45} height={45} />,
   locale = "en",
   fill = false,
+  fillMode = "normal",
   ...props
 }: Props): JSX.Element => {
   const [resources, setResources] = useState<any>(null);
@@ -229,7 +231,7 @@ const MainNavigationTopBar = ({
     >
       {/* Desktop Size */}
       <div
-        className={`${styles.DesktopHeader} ${fill ? styles.FillColor : null}`}
+        className={`${styles.DesktopHeader} ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
       >
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <Link href="/" className={`${styles.textLink} ${`homeLink`}`}>
@@ -356,7 +358,7 @@ const MainNavigationTopBar = ({
             popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
-        } ${fill ? styles.FillColor : null}`}
+        } ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
       >
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>
@@ -381,17 +383,17 @@ const MainNavigationTopBar = ({
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar1} ${fill ? styles.FillColor : null}`}
+            } ${styles.bar1} ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
           ></div>
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar2} ${fill ? styles.FillColor : null}`}
+            } ${styles.bar2} ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
           ></div>
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
-            } ${styles.bar3} ${fill ? styles.FillColor : null}`}
+            } ${styles.bar3} ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
           ></div>
         </label>
       </div>
