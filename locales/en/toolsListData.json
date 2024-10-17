@@ -58,7 +58,7 @@
         "topic2": "Design",
         "desc": "An introductory tool for",
         "desc2": "understanding business",
-        "onlineLink": "/onlinetools/othertools/whatif",
+        "onlineLink": "",
         "productLink": ""
       },
       "pitching_design": {
@@ -84,7 +84,7 @@
         "topic2": "Theme",
         "desc": "A tool for thinking outside",
         "desc2": "the box with a \"What if\"",
-        "onlineLink": "",
+        "onlineLink": "/onlinetools/othertools/whatif",
         "productLink": ""
       },
       "related_combination": {
