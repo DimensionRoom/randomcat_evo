@@ -117,7 +117,7 @@ export default function WhatIf({
         whatifData.Category.data[randomIndex][`content_en`]
       );
       setLoadingRandom(false);
-    }, 1500);
+    }, 500);
   };
 
   useEffect(() => {}, [randomItems]);
@@ -189,17 +189,10 @@ export default function WhatIf({
             <div className={styles.GroupItem}>
               {!loadingRandom ? (
                 <React.Fragment>
-                    <div className={styles.ToolName}>
-                <p className={`${styles.ToolNameText} ${popins.className}`}>
-                  What If ?
-                </p>
-              </div>
-                  <div className={styles.Action}>
-                    <FlatBtn
-                      text="Random"
-                      className={styles.RandomBtn}
-                      onClick={generateRandomItems}
-                    />
+                  <div className={styles.ToolName}>
+                    <p className={`${styles.ToolNameText} ${popins.className}`}>
+                      What If ?
+                    </p>
                   </div>
                   <div className={styles.RandomCardName}>
                     <p
@@ -211,6 +204,13 @@ export default function WhatIf({
                     >
                       {randomQuestionItem ? randomQuestionItem : "Question"}
                     </p>
+                  </div>
+                  <div className={styles.Action}>
+                    <FlatBtn
+                      text="Random"
+                      className={styles.RandomBtn}
+                      onClick={generateRandomItems}
+                    />
                   </div>
                 </React.Fragment>
               ) : (

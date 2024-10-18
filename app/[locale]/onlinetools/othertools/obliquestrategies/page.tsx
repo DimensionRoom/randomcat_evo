@@ -92,7 +92,7 @@ export default function Obliquestrategies({
   let previousRandomIndex = -1;
 
   const randomQuestion = (obliquestrategiesData: any) => {
-    setLoadingRandom(true);
+    // setLoadingRandom(true);
     setTimeout(() => {
       const dataLength = obliquestrategiesData.Category.data.length;
       let randomIndex;
@@ -116,8 +116,8 @@ export default function Obliquestrategies({
         // whatifData.Category.data[randomIndex][`content_${locale}`]
         obliquestrategiesData.Category.data[randomIndex][`content_en`]
       );
-      setLoadingRandom(false);
-    }, 1500);
+      // setLoadingRandom(false);
+    }, 0);
   };
 
   useEffect(() => {}, [randomItems]);
@@ -193,14 +193,7 @@ export default function Obliquestrategies({
                 <p className={`${styles.ToolNameText} ${popins.className}`}>
                 Oblique Strategies
                 </p>
-              </div>
-                  <div className={styles.Action}>
-                    <FlatBtn
-                      text="Random"
-                      className={styles.RandomBtn}
-                      onClick={generateRandomItems}
-                    />
-                  </div>
+              </div>        
                   <div className={styles.RandomCardName}>
                     <p
                       className={`${styles.CardNameText} ${
@@ -211,6 +204,13 @@ export default function Obliquestrategies({
                     >
                       {randomQuestionItem ? randomQuestionItem : "Question"}
                     </p>
+                  </div>
+                  <div className={styles.Action}>
+                    <FlatBtn
+                      text="Random"
+                      className={styles.RandomBtn}
+                      onClick={generateRandomItems}
+                    />
                   </div>
                 </React.Fragment>
               ) : (
