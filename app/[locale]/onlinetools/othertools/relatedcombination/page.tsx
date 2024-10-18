@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+import { gsap } from "gsap";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
@@ -35,25 +36,6 @@ interface Item {
   topic: string;
   content: string;
 }
-interface Category {
-  title: string;
-  key: string;
-  data: {
-    type_th: string;
-    type_en: string;
-    th: string;
-    en: string;
-    content_th: string;
-    content_en: string;
-  }[];
-}
-
-interface Question {
-  th: string;
-  en: string;
-  content_th: string;
-  content_en: string;
-}
 
 const i18nNamespaces = ["common"];
 const kanit = Kanit({
@@ -81,13 +63,14 @@ export default function RelatedCombination({
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
-  const [lockItem, setLockItem] = useState<string[]>([]);
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [randomProductQuestionItem, setRandomProductQuestionItem] =
     useState<any>();
   const [randomServiceQuestionItem, setRandomServiceQuestionItem] =
     useState<any>();
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
+  const textRef1 = useRef(null);
+  const textRef2 = useRef(null);
 
   const generateRandomItems = () => {
     randomQuestion();
@@ -104,36 +87,51 @@ export default function RelatedCombination({
   let previousRandomIndex = -1;
 
   const randomProduct = (relatedCombinationData: any) => {
-    const productDataLength = relatedCombinationData.Product.data.length;
-    let randomIndex;
-    if (productDataLength > 1) {
-      randomIndex = Math.floor(Math.random() * (productDataLength - 1));
-      if (randomIndex >= previousRandomIndex) {
-        randomIndex += 1;
-      }
-    } else {
-      randomIndex = 0;
-    }
-    previousRandomIndex = randomIndex;
-    setRandomProductQuestionItem(
-      relatedCombinationData.Product.data[randomIndex]
-    );
+    gsap.to(textRef1.current, {
+      opacity: 0,
+      duration: 0.3,
+      onComplete: () => {
+        const productDataLength = relatedCombinationData.Product.data.length;
+        let randomIndex;
+        if (productDataLength > 1) {
+          randomIndex = Math.floor(Math.random() * (productDataLength - 1));
+          if (randomIndex >= previousRandomIndex) {
+            randomIndex += 1;
+          }
+        } else {
+          randomIndex = 0;
+        }
+        previousRandomIndex = randomIndex;
+        setRandomProductQuestionItem(
+          relatedCombinationData.Product.data[randomIndex]
+        ); // Fade in the new text
+        gsap.to(textRef1.current, { opacity: 1, duration: 0.3 });
+      },
+    });
   };
   const randomService = (relatedCombinationData: any) => {
-    const serviceDataLength = relatedCombinationData.Service.data.length;
-    let randomIndex;
-    if (serviceDataLength > 1) {
-      randomIndex = Math.floor(Math.random() * (serviceDataLength - 1));
-      if (randomIndex >= previousRandomIndex) {
-        randomIndex += 1;
-      }
-    } else {
-      randomIndex = 0;
-    }
-    previousRandomIndex = randomIndex;
-    setRandomServiceQuestionItem(
-      relatedCombinationData.Service.data[randomIndex]
-    );
+    gsap.to(textRef2.current, {
+      opacity: 0,
+      duration: 0.3,
+      onComplete: () => {
+        const serviceDataLength = relatedCombinationData.Service.data.length;
+        let randomIndex;
+        if (serviceDataLength > 1) {
+          randomIndex = Math.floor(Math.random() * (serviceDataLength - 1));
+          if (randomIndex >= previousRandomIndex) {
+            randomIndex += 1;
+          }
+        } else {
+          randomIndex = 0;
+        }
+        previousRandomIndex = randomIndex;
+        setRandomServiceQuestionItem(
+          relatedCombinationData.Service.data[randomIndex]
+        );
+        // Fade in the new text
+        gsap.to(textRef2.current, { opacity: 1, duration: 0.3 });
+      },
+    });
   };
 
   const randomQuestion = () => {
@@ -217,9 +215,9 @@ export default function RelatedCombination({
             </div>
           </div>
           <div className={styles.TextItemsContainer}>
-            <div className={styles.GroupItem}>
+            <div  className={styles.GroupItem}>
               <React.Fragment>
-                <div className={styles.RandomCardName}>
+                <div ref={textRef1} className={styles.RandomCardName}>
                   <div className={styles.ToolName}>
                     <p className={`${styles.ToolNameText} ${popins.className}`}>
                       {randomProductQuestionItem
@@ -250,9 +248,9 @@ export default function RelatedCombination({
             </div>
           </div>
           <div className={styles.TextItemsContainer}>
-            <div className={styles.GroupItem}>
+            <div  className={styles.GroupItem}>
               <React.Fragment>
-                <div className={styles.RandomCardName}>
+                <div ref={textRef2} className={styles.RandomCardName}>
                   <div className={styles.ToolName}>
                     <p className={`${styles.ToolNameText} ${popins.className}`}>
                       {randomServiceQuestionItem
