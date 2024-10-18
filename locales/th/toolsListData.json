@@ -84,7 +84,7 @@
         "topic2": "Theme",
         "desc": "A tool for thinking outside",
         "desc2": "the box with a \"What if\"",
-        "onlineLink": "",
+        "onlineLink": "/onlinetools/othertools/whatif",
         "productLink": ""
       },
       "related_combination": {
@@ -100,7 +100,7 @@
         "topic2": "strategies",
         "desc": "Oblique strategies that",
         "desc2": "you can practice everyday",
-        "onlineLink": "",
+        "onlineLink": "/onlinetools/othertools/obliquestrategies",
         "productLink": ""
       }
     }

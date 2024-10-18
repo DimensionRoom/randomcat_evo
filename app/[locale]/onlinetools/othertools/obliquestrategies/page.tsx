@@ -6,14 +6,14 @@ import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
-import styles from "./WhatIf.module.scss";
+import styles from "./ObliqueStrategies.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import whatifLoad from "@/public/json/whatifLoading.json";
 import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from "@/i18nConfig";
-import whatifData from "@/public/json/whatifCat.json";
+import obliquestrategiesData from "@/public/json/obliquestrategiesCat.json";
 
 export type SubCategoryProps = {
   name: string;
@@ -71,7 +71,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function WhatIf({
+export default function Obliquestrategies({
   params: { locale },
 }: {
   params: { locale: string };
@@ -86,15 +86,15 @@ export default function WhatIf({
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
 
   const generateRandomItems = () => {
-    randomQuestion(whatifData);
+    randomQuestion(obliquestrategiesData);
   };
 
   let previousRandomIndex = -1;
 
-  const randomQuestion = (whatifData: any) => {
+  const randomQuestion = (obliquestrategiesData: any) => {
     setLoadingRandom(true);
     setTimeout(() => {
-      const dataLength = whatifData.Category.data.length;
+      const dataLength = obliquestrategiesData.Category.data.length;
       let randomIndex;
 
       if (dataLength > 1) {
@@ -111,10 +111,10 @@ export default function WhatIf({
       previousRandomIndex = randomIndex;
 
       // Proceed with your existing logic
-      console.log(whatifData.Category.data[randomIndex][`content_${locale}`]);
+      console.log(obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]);
       setRandomQuestionItem(
         // whatifData.Category.data[randomIndex][`content_${locale}`]
-        whatifData.Category.data[randomIndex][`content_en`]
+        obliquestrategiesData.Category.data[randomIndex][`content_en`]
       );
       setLoadingRandom(false);
     }, 1500);
@@ -141,7 +141,7 @@ export default function WhatIf({
   }, [locale]);
 
   useEffect(() => {
-    randomQuestion(whatifData);
+    randomQuestion(obliquestrategiesData);
   }, []);
   if (loading) {
     return (
@@ -191,7 +191,7 @@ export default function WhatIf({
                 <React.Fragment>
                     <div className={styles.ToolName}>
                 <p className={`${styles.ToolNameText} ${popins.className}`}>
-                  What If ?
+                Oblique Strategies
                 </p>
               </div>
                   <div className={styles.Action}>
