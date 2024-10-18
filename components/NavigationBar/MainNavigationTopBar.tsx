@@ -24,6 +24,7 @@ export type Props = {
   logo?: React.ReactNode;
   locale: string;
   fill?: boolean;
+  absolute?: boolean;
   fillMode?: 'normal' | 'semiTransparent' | 'transparent';
 };
 
@@ -47,6 +48,7 @@ const MainNavigationTopBar = ({
   locale = "en",
   fill = false,
   fillMode = "normal",
+  absolute = false,
   ...props
 }: Props): JSX.Element => {
   const [resources, setResources] = useState<any>(null);
@@ -233,7 +235,7 @@ const MainNavigationTopBar = ({
       <div
         className={`${styles.DesktopHeader} ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
       >
-        <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
+        <header className={`${styles.LayoutHeader} ${styles[currentTheme]} ${absolute&&styles.absolute}`}>
           <Link href="/" className={`${styles.textLink} ${`homeLink`}`}>
             <div className={styles.BrandContainer}>
               <div className={styles.LogoContainer}>{logo}</div>
