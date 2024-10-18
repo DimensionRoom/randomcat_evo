@@ -92,7 +92,7 @@ export default function WhatIf({
   let previousRandomIndex = -1;
 
   const randomQuestion = (whatifData: any) => {
-    setLoadingRandom(true);
+    // setLoadingRandom(true);
     setTimeout(() => {
       const dataLength = whatifData.Category.data.length;
       let randomIndex;
@@ -116,8 +116,8 @@ export default function WhatIf({
         // whatifData.Category.data[randomIndex][`content_${locale}`]
         whatifData.Category.data[randomIndex][`content_en`]
       );
-      setLoadingRandom(false);
-    }, 500);
+      // setLoadingRandom(false);
+    }, 0);
   };
 
   useEffect(() => {}, [randomItems]);
