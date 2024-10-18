@@ -14,6 +14,7 @@ import "../Styles/globals.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
+  display: 'swap',
   weight: ["300", "400", "500", "600", "700"]
 });
 

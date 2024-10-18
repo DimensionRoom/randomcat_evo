@@ -1,27 +1,18 @@
 "use client";
-import React, { useState, useEffect, useRef, use } from "react";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import React, { useState, useEffect, useRef } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
-import CountdownProgressBar from "@/components/Progress/CountdownProgressBar/CountdownProgressBar";
 import styles from "./WhatIf.module.scss";
-import manivigationStyles from "@/components/NavigationBar/MainNavigationTopBar.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
-import ImageCard from "@/components/Card/ImageCard/ImageCard";
-import LottieAnimation from "@/components/Loading/LottieAnimation";
 import whatifLoad from "@/public/json/whatifLoading.json";
-import musicLogo from "@/public/json/musicLogo.json";
+import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
-
 import i18nConfig from "@/i18nConfig";
-import THFlag from "@/public/svgs/thFlag";
-import ENFlag from "@/public/svgs/enFlag";
-
-import musicCardData from "@/public/json/musicCardCat.json";
 import whatifData from "@/public/json/whatifCat.json";
 
 export type SubCategoryProps = {
@@ -86,209 +77,46 @@ export default function MusicCard({
   params: { locale: string };
 }) {
   const [t, setT] = useState<any>(null);
-  const searchParams = useSearchParams();
-  const searchParamsInfo = searchParams.get("info");
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const physicalGridRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const extractMainKeys = (jsonData: JSONData): string[] => {
-    return Object.keys(jsonData);
-  };
-  const mainKeys = extractMainKeys(musicCardData);
-  const cardData: { [key: string]: Category } = musicCardData;
-  const [filteredCategories, setFilteredCategories] =
-    useState<string[]>(mainKeys);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
-  const [flippedCards, setFlippedCards] = useState<number>(0);
-  const [flippedPhysicalCards, setFlippedPhysicalCards] = useState<number>(0);
-  const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
-    useState<number>(0);
-  const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
-  const [resetCountdownTrigger, setResetCountdownTrigger] = useState(false);
   const [randomQuestionItem, setRandomQuestionItem] = useState<string>();
-
-  const router = useRouter();
-  const searchParamsString = useSearchParams().toString();
-  const currentPathname = usePathname();
-
-  const handleChangeLanguage = async (lang: string) => {
-    const newLocale = lang;
-
-    // set cookie for next-i18n-router
-    const days = 30;
-    const date = new Date();
-    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    document.cookie = `NEXT_LOCALE=${newLocale};expires=${date.toUTCString()};path=/`;
-
-    // redirect to the new locale path
-    if (locale === i18nConfig.defaultLocale) {
-      searchParamsString
-        ? router.push(
-            "/" + newLocale + currentPathname + "?" + searchParamsString
-          )
-        : router.push("/" + newLocale + currentPathname);
-    } else {
-      router.push(
-        searchParamsString
-          ? currentPathname.replace(`/${locale}`, `/${newLocale}`) +
-              "?" +
-              searchParamsString
-          : currentPathname.replace(`/${locale}`, `/${newLocale}`)
-      );
-    }
-    router.refresh();
-  };
-
-  const handleLockContentChange = (
-    catItemId: string,
-    newLockContent: boolean
-  ) => {
-    if (newLockContent) {
-      setLockItem([...lockItem, catItemId]);
-    } else {
-      setLockItem(lockItem.filter((item) => item !== catItemId));
-    }
-  };
-
-  const handleSelectedCardChange = (catItem: string, newFlipCard: boolean) => {
-    if (!newFlipCard && !selectedCardItem.includes(catItem)) {
-      const newSelectedCardItem = [...selectedCardItem, catItem];
-      setSelectedCardItem(newSelectedCardItem);
-    } else {
-      const newSelectedCardItem = selectedCardItem.filter(
-        (item) => item !== catItem
-      );
-      setSelectedCardItem(newSelectedCardItem);
-    }
-  };
-
-  const handleComplete = () => {
-    console.log("Countdown finished!");
-  };
-  const resetCountdown = () => {
-    setResetCountdownTrigger((prev) => !prev); // Toggle reset trigger to restart countdown
-  };
-
-  const getRandomItem = (category: any): Item => {
-    const { title, subTitle, key, data } = category;
-    const randomIndex = Math.floor(Math.random() * data.length);
-    const randomData = data[randomIndex];
-    return {
-      title: `${title}`,
-      subTitle: `${subTitle}`,
-      catItemId: key,
-      topic: randomData[locale],
-      dataKey: randomData.dataKey,
-      content: `${randomData[`content_${locale}`]}`,
-    };
-  };
+  const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
 
   const generateRandomItems = () => {
-    const items: Item[] = [];
-    for (const key in cardData) {
-      if (cardData.hasOwnProperty(key)) {
-        const category = cardData[key];
-        items.push(getRandomItem(category));
-      }
-    }
-    const newRandomItems = items
-      .map((item) => {
-        if (lockItem.includes(item.catItemId)) {
-          const originalItem = randomItems.find(
-            (randomItem) => randomItem.catItemId === item.catItemId
-          );
-          return originalItem ? originalItem : item;
-        } else {
-          return item;
-        }
-      })
-      .filter((item) => item !== undefined) as Item[];
-    setRandomItems(newRandomItems);
     randomQuestion(whatifData);
-    resetCountdown();
-    if (flippedCards == items.length) {
-      trigerCardClick("card");
-    }
-    if (flippedPhysicalCards == items.length) {
-      trigerCardClick("physical");
-    }
-    if (flippedPhysicalGridCards == items.length) {
-      trigerCardClick("grid");
-    }
-  };
-
-  const trigerCardClick = (type: string) => {
-    if (type === "card") {
-      cardRefs.current.forEach((ref, index) => {
-        setTimeout(() => {
-          if (ref) {
-            ref.click();
-          }
-        }, index * 150);
-      });
-    }
-    if (type === "physical") {
-      physicalRefs.current.forEach((ref, index) => {
-        setTimeout(() => {
-          if (ref) {
-            ref.click();
-          }
-        }, index * 150);
-      });
-    }
-    if (type === "grid") {
-      physicalGridRefs.current.forEach((ref, index) => {
-        setTimeout(() => {
-          if (ref) {
-            ref.click();
-          }
-        }, index * 150);
-      });
-    }
-  };
-
-  const generateRandomEachItem = (key: string) => {
-    const category = cardData[key];
-    const item = getRandomItem(category);
-    const newRandomItems = randomItems.map((randomItem) => {
-      if (randomItem.catItemId === key) {
-        return lockItem.includes(key) ? randomItem : item;
-      }
-      return randomItem;
-    });
-    setRandomItems(newRandomItems);
   };
 
   let previousRandomIndex = -1;
 
   const randomQuestion = (whatifData: any) => {
-    const dataLength = whatifData.Category.data.length;
-    let randomIndex;
+    setLoadingRandom(true);
+    setTimeout(() => {
+      const dataLength = whatifData.Category.data.length;
+      let randomIndex;
 
-    if (dataLength > 1) {
-      randomIndex = Math.floor(Math.random() * (dataLength - 1));
-      // Adjust the index if it meets or exceeds the previous index
-      if (randomIndex >= previousRandomIndex) {
-        randomIndex += 1;
+      if (dataLength > 1) {
+        randomIndex = Math.floor(Math.random() * (dataLength - 1));
+        // Adjust the index if it meets or exceeds the previous index
+        if (randomIndex >= previousRandomIndex) {
+          randomIndex += 1;
+        }
+      } else {
+        randomIndex = 0; // Only one item is available
       }
-    } else {
-      randomIndex = 0; // Only one item is available
-    }
 
-    // Update the previous index
-    previousRandomIndex = randomIndex;
+      // Update the previous index
+      previousRandomIndex = randomIndex;
 
-    // Proceed with your existing logic
-    console.log(whatifData.Category.data[randomIndex][`content_${locale}`]);
-    setRandomQuestionItem(
-      whatifData.Category.data[randomIndex][`content_${locale}`]
-    );
+      // Proceed with your existing logic
+      console.log(whatifData.Category.data[randomIndex][`content_${locale}`]);
+      setRandomQuestionItem(
+        whatifData.Category.data[randomIndex][`content_${locale}`]
+      );
+      setLoadingRandom(false);
+    }, 1500);
   };
 
   useEffect(() => {}, [randomItems]);
@@ -312,19 +140,7 @@ export default function MusicCard({
   }, [locale]);
 
   useEffect(() => {
-    const items: Item[] = [];
-    for (const key in cardData) {
-      if (cardData.hasOwnProperty(key)) {
-        const category = cardData[key];
-        items.push(getRandomItem(category));
-      }
-    }
-    setRandomItems(items);
     randomQuestion(whatifData);
-    setFlippedCards(items.length);
-    setFlippedPhysicalCards(items.length);
-    setFlippedPhysicalGridCards(items.length);
-    setFlipCardLimit(items.length);
   }, []);
   if (loading) {
     return (
@@ -370,29 +186,40 @@ export default function MusicCard({
         <div className={styles.randomSection}>
           <div className={styles.TextItemsContainer}>
             <div className={styles.GroupItem}>
-              <div className={styles.ToolName}>
+              {!loadingRandom ? (
+                <React.Fragment>
+                    <div className={styles.ToolName}>
                 <p className={`${styles.ToolNameText} ${popins.className}`}>
                   What If ?
                 </p>
               </div>
-              <div className={styles.Action}>
-                <FlatBtn
-                  text="Random"
-                  className={styles.RandomBtn}
-                  onClick={generateRandomItems}
-                />
-              </div>
-              <div className={styles.RandomCardName}>
-                <p
-                  className={`${styles.CardNameText} ${
-                    locale == "th"
-                      ? `${mitr.className} ${styles.thfontlight}`
-                      : null
-                  }`}
-                >
-                  {randomQuestionItem ? randomQuestionItem : "Question"}
-                </p>
-              </div>
+                  <div className={styles.Action}>
+                    <FlatBtn
+                      text="Random"
+                      className={styles.RandomBtn}
+                      onClick={generateRandomItems}
+                    />
+                  </div>
+                  <div className={styles.RandomCardName}>
+                    <p
+                      className={`${styles.CardNameText} ${
+                        locale == "th"
+                          ? `${mitr.className} ${styles.thfontlight}`
+                          : null
+                      }`}
+                    >
+                      {randomQuestionItem ? randomQuestionItem : "Question"}
+                    </p>
+                  </div>
+                </React.Fragment>
+              ) : (
+                <Player
+                  autoplay
+                  loop
+                  src={randomBook}
+                  style={{ width: "50vh" }}
+                ></Player>
+              )}
             </div>
           </div>
         </div>
