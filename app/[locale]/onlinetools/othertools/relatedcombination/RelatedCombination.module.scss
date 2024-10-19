@@ -223,7 +223,7 @@
       .GroupItem {
         .ToolName {
           .ToolNameText {
-            font-size: 3em;
+            font-size: 2.6em;
           }
         }
         .RandomCardName {
@@ -255,7 +255,9 @@
       .GroupItem {
         width: 90%;
         .ToolName {
-          // display: none;
+          .ToolNameText {
+            font-size: 2.2em;
+          }
         }
         .RandomCardName {
           width: 100%;
