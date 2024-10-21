@@ -42,6 +42,7 @@ export type Props = {
   onSelectedCardChange: (key: string, flipContent: boolean) => void;
   onLockContentChange: (key: string, lockContent: boolean) => void;
   onClick?: () => void;
+  onSelectedCardClick?: () => void;
 }
 
 const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
@@ -63,6 +64,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
   onSelectedCardChange,
   onLockContentChange,
   onClick,
+  onSelectedCardClick,
   ...props
 }, ref): JSX.Element => {
   const { showToast } = useToast();
@@ -83,7 +85,13 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
 
   const handleCardClick = (side: string) => {
     if (lockContent) return;
-    if (side === 'back' && !flipContent) return;
+    if (side === 'back' && !flipContent) {
+      return;
+    };
+    if (side === 'text' && !flipContent) {
+      onSelectedCardClick && onSelectedCardClick();
+      return;
+    };
     if (side === 'front') {
       if (flippedCards >= flipLimit) {
         // showToast('This is an info toast!', 'warning');
@@ -134,7 +142,7 @@ const PhysicalCard = forwardRef<HTMLDivElement, Props>(({
         </div>
         <div className={`${styles.CardItemContent}`}>
           <div className={`${styles.CardTextContainer} ${content ? styles.HaveContent : styles.NonContent}`}>
-            <p className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
+            <p onClick={() => handleCardClick('text')} className={`${styles.CardDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{headingContent}</p>
           </div>
           <div className={`${styles.CardItemBodyContent}`}>
             <p className={`${styles.ExpandText} ${locale == 'th' ? `${mitr.className} ${styles.thfontbold}` : null}`}>{content}</p>

@@ -7,7 +7,7 @@ import initTranslations from "../../i18n";
 import Link from "next/link";
 import styles from "../../../Styles/InnovationBoard/page.module.scss";
 import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
-
+import DynamicModal from "@/components/Modal/DynamicModal/DynamicModal";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
@@ -15,7 +15,7 @@ import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
 import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
 import mainLoad from "../../../../public/json/mainload.json";
-import TagFilter from "@/components/Filter/TagFilter/TagFilter";
+import Masonry from "@/components/Masonry/Masonry";
 import PointerIcon from "@/public/svgs/innovationboard/pointer";
 import LightbulbIcon from "@/public/svgs/innovationboard/lightbulb";
 import RocketIcon from "@/public/svgs/innovationboard/rocket";
@@ -43,8 +43,17 @@ interface Item {
   topic: string;
   content: string;
 }
+
+interface MasonryItem {
+  id: number | string;
+  th: string;
+  en: string;
+  content_en: string;
+  contert_th: string;
+}
 interface Category {
   title: string;
+  subTitle: string;
   key: string;
   data: { th: string; en: string; content_th: string; content_en: string }[];
 }
@@ -118,6 +127,11 @@ export default function InnovationBoard({
   const [flippedPhysicalGridCards, setFlippedPhysicalGridCards] =
     useState<number>(0);
   const [flipCardLimit, setFlipCardLimit] = useState<number>(0);
+  const [isCategoryModalOpen, setCategoryModalOpen] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<string>("");
+  const [selectedCategoriesCard, setSelectedCategoriesCard] = useState<
+    { th: string; en: string; content_th: string; content_en: string }[]
+  >([]);
 
   const handleLockContentChange = (
     catItemId: string,
@@ -140,11 +154,6 @@ export default function InnovationBoard({
       );
       setSelectedCardItem(newSelectedCardItem);
     }
-  };
-
-  const handleFilterChange = (selectedCategories: string[]) => {
-    setFilteredCategories(selectedCategories);
-    console.log("Selected Categories:", selectedCategories);
   };
 
   const getRandomItem = (category: any): Item => {
@@ -232,6 +241,43 @@ export default function InnovationBoard({
       return randomItem;
     });
     setRandomItems(newRandomItems);
+  };
+
+  const convertMasonryItems = (
+    items: { th: string; en: string; content_th: string; content_en: string }[]
+  ) => {
+    return items.map((item, index) => {
+      return {
+        index: index,
+        content: item[locale as "th" | "en"],
+      };
+    });
+  };
+
+  const handleCategoryModal = (key: string) => {
+    setCategoryModalOpen(true);
+    setSelectedCategories(key);
+    setSelectedCategoriesCard(cardData[key].data);
+  };
+
+  const updateRandomItemWithKeyAndIndex = (key: string, index: number) => {
+    const category: Category = cardData[key];
+    const dataItem = category.data[index];
+    const item: Item = {
+      title: category.title,
+      subTitle: category.subTitle,
+      catItemId: key,
+      topic: dataItem[locale as keyof typeof dataItem],
+      content: dataItem[`content_${locale as "th" | "en"}`],
+    };
+    const newRandomItems = randomItems.map((randomItem) => {
+      if (randomItem.catItemId === key) {
+        return lockItem.includes(key) ? randomItem : item;
+      }
+      return randomItem;
+    });
+    setRandomItems(newRandomItems);
+    setCategoryModalOpen(false);
   };
 
   useEffect(() => {
@@ -391,6 +437,9 @@ export default function InnovationBoard({
                   content={cardItem.content}
                   setFlippedCards={setFlippedPhysicalCards}
                   onClick={() => generateRandomEachItem(cardItem.catItemId)}
+                  onSelectedCardClick={() =>
+                    handleCategoryModal(cardItem.catItemId)
+                  }
                   lock={lockItem.includes(cardItem.catItemId)}
                   delay={index * 200}
                   flipLimit={flipCardLimit}
@@ -544,6 +593,17 @@ export default function InnovationBoard({
             </div>
           </div>
         </div>
+        <DynamicModal
+          size="full"
+          isOpen={isCategoryModalOpen}
+          onClose={() => setCategoryModalOpen(false)}
+        >
+          <Masonry
+            items={convertMasonryItems(selectedCategoriesCard)}
+            selectedColor={"#7c4be4"}
+            onClickItem={(item: string | number) => updateRandomItemWithKeyAndIndex(selectedCategories, Number(item))}
+          />
+        </DynamicModal>
       </main>
     </TranslationsProvider>
   );
