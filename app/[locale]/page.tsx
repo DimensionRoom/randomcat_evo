@@ -87,7 +87,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       if (sectionTop >= 0 && sectionTop <= mainElement.clientHeight) {
         // console.log('Section in view:', section.id);
         setCurrentSection(section.id);
-        gsap.to(section, { opacity: 1, y: 0, duration: 1, ease: 'power4.out' });
+        gsap.to(section, { opacity: 1, y: 0, duration: 0.2, ease: 'power4.out' });
       }
     });
   };
