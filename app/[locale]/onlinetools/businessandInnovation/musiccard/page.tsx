@@ -3,16 +3,17 @@ import React, { useState, useEffect, useRef, use } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
-import initTranslations from "../i18n";
+import initTranslations from "@/i18n";
+import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import Link from "next/link";
 import CountdownProgressBar from "@/components/Progress/CountdownProgressBar/CountdownProgressBar";
-import styles from "./MusicCard.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import ImageCard from "@/components/Card/ImageCard/ImageCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
 import musicLoad from "@/public/json/musicLoading.json";
-import musicLogo from "@/public/json/musicLogo.json";
+import SiteLogo from "@/public/svgs/siteLogo";
+import styles from "./MusicCard.module.scss";
 
 import i18nConfig from "@/i18nConfig";
 import THFlag from "@/public/svgs/thFlag";
@@ -328,45 +329,20 @@ export default function MusicCard({
       locale={locale}
       resources={resources}
     >
+      <div className={`${styles.MobileHeader}`}>
+          <header className={`${styles.LayoutHeader}`}>
+            <Link href="/" className={`${styles.textLink}`}>
+              <div className={styles.BrandContainer}>
+                <div className={styles.LogoContainer}>
+                  <SiteLogo />
+                </div>
+              </div>
+            </Link>
+          </header>
+        </div>
       <main className={styles.main}>
         <div className={styles.HeaderSection}>
-          <div className={styles.HeaderCatContainer}>
-            <p
-              className={`${styles.HeaderCatContainerText} ${styles.BrandText}  ${popins.className}`}
-            >
-              Random Tool
-            </p>
-            <Player
-              className={styles.BrandLogo}
-              autoplay
-              loop={false}
-              src={musicLoad}
-              style={{ width: "50px" }}
-            ></Player>
-            <div className={styles.ToolContainer}>
-              <p
-                className={`${styles.HeaderCatContainerText} ${popins.className}`}
-              >
-                Music Card Game
-              </p>
-              <div
-                onClick={() => handleChangeLanguage("en")}
-                className={`${styles.FlagContainer} ${
-                  locale == "en" ? styles.active : ""
-                }`}
-              >
-                <ENFlag />
-              </div>
-              <div
-                onClick={() => handleChangeLanguage("th")}
-                className={`${styles.FlagContainer} ${
-                  locale == "th" ? styles.active : ""
-                }`}
-              >
-                <THFlag />
-              </div>
-            </div>
-          </div>
+          <MainNavigationTopBar fill fillMode="transparent" locale={locale} />
         </div>
         <div className={styles.randomSection}>
           <div className={styles.CardItemsContainer}>

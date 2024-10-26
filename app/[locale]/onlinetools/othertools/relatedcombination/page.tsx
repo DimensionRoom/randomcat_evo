@@ -188,18 +188,18 @@ export default function RelatedCombination({
       locale={locale}
       resources={resources}
     >
-      <div className={`${styles.MobileHeader}`}>
-        <header className={`${styles.LayoutHeader}`}>
-          <Link href="/" className={`${styles.textLink}`}>
-            <div className={styles.BrandContainer}>
-              <div className={styles.LogoContainer}>
-                <SiteLogo />
-              </div>
-            </div>
-          </Link>
-        </header>
-      </div>
       <main className={styles.main}>
+        <div className={`${styles.MobileHeader}`}>
+          <header className={`${styles.LayoutHeader}`}>
+            <Link href="/" className={`${styles.textLink}`}>
+              <div className={styles.BrandContainer}>
+                <div className={styles.LogoContainer}>
+                  <SiteLogo />
+                </div>
+              </div>
+            </Link>
+          </header>
+        </div>
         <div className={styles.HeaderSection}>
           <MainNavigationTopBar
             absolute
@@ -215,7 +215,7 @@ export default function RelatedCombination({
             </div>
           </div>
           <div className={styles.TextItemsContainer}>
-            <div  className={styles.GroupItem}>
+            <div className={styles.GroupItem}>
               <React.Fragment>
                 <div ref={textRef1} className={styles.RandomCardName}>
                   <div className={styles.ToolName}>
@@ -248,7 +248,7 @@ export default function RelatedCombination({
             </div>
           </div>
           <div className={styles.TextItemsContainer}>
-            <div  className={styles.GroupItem}>
+            <div className={styles.GroupItem}>
               <React.Fragment>
                 <div ref={textRef2} className={styles.RandomCardName}>
                   <div className={styles.ToolName}>

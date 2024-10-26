@@ -111,7 +111,9 @@ export default function Obliquestrategies({
       previousRandomIndex = randomIndex;
 
       // Proceed with your existing logic
-      console.log(obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]);
+      console.log(
+        obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]
+      );
       setRandomQuestionItem(
         // whatifData.Category.data[randomIndex][`content_${locale}`]
         obliquestrategiesData.Category.data[randomIndex][`content_en`]
@@ -169,18 +171,18 @@ export default function Obliquestrategies({
       locale={locale}
       resources={resources}
     >
-      <div className={`${styles.MobileHeader}`}>
-        <header className={`${styles.LayoutHeader}`}>
-          <Link href="/" className={`${styles.textLink}`}>
-            <div className={styles.BrandContainer}>
-              <div className={styles.LogoContainer}>
-                <SiteLogo />
-              </div>
-            </div>
-          </Link>
-        </header>
-      </div>
       <main className={styles.main}>
+        <div className={`${styles.MobileHeader}`}>
+          <header className={`${styles.LayoutHeader}`}>
+            <Link href="/" className={`${styles.textLink}`}>
+              <div className={styles.BrandContainer}>
+                <div className={styles.LogoContainer}>
+                  <SiteLogo />
+                </div>
+              </div>
+            </Link>
+          </header>
+        </div>
         <div className={styles.HeaderSection}>
           <MainNavigationTopBar fill fillMode="transparent" locale={locale} />
         </div>
@@ -189,11 +191,11 @@ export default function Obliquestrategies({
             <div className={styles.GroupItem}>
               {!loadingRandom ? (
                 <React.Fragment>
-                    <div className={styles.ToolName}>
-                <p className={`${styles.ToolNameText} ${popins.className}`}>
-                Oblique Strategies
-                </p>
-              </div>        
+                  <div className={styles.ToolName}>
+                    <p className={`${styles.ToolNameText} ${popins.className}`}>
+                      Oblique Strategies
+                    </p>
+                  </div>
                   <div className={styles.RandomCardName}>
                     <p
                       className={`${styles.CardNameText} ${
