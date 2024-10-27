@@ -47,7 +47,6 @@
   padding: 60px 0 60px 0;
 }
 
-
 .randomSection {
   display: flex;
   min-height: calc(100vh - 360px);
@@ -195,7 +194,7 @@
   flex: 1;
   padding: 45px 25%;
   /* background: var(--step-bg-color); */
-  background-image: url('../../../public/svgs/svg/footerLayer.svg'), var(--step-bg-color);
+  background-image: url('/public/svgs/svg/footerLayer.svg'), var(--step-bg-color);
   background-position: 100% 80%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -301,7 +300,6 @@
   .HeaderSection {
     display: none;
   }
-
 
   .CardItemsContainer {
     display: none;

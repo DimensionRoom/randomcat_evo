@@ -6,7 +6,7 @@
         "topic2": "Design",
         "desc": "A Tool for creating innovation",
         "desc2": "through WH-questions",
-        "onlineLink": "innovationdesign/innovationboard?info=innodesign",
+        "onlineLink": "onlinetools/creativityandbrainskills/innovationdesign",
         "productLink": ""
       },
       "story_design": {
@@ -14,7 +14,7 @@
         "topic2": "Design",
         "desc": "A tool for writing stories - we",
         "desc2": "provide 6 categories for you",
-        "onlineLink": "storydesign/storyboard?info=storydesign",
+        "onlineLink": "onlinetools/creativityandbrainskills/storydesign",
         "productLink": ""
       },
       "content_design": {
@@ -22,7 +22,7 @@
         "topic2": "Design",
         "desc": "A tool for content creators",
         "desc2": "& practicing content design",
-        "onlineLink": "contentdesign/contentboard?info=contentdesign",
+        "onlineLink": "onlinetools/creativityandbrainskills/contentdesign",
         "productLink": ""
       }
     },
@@ -32,7 +32,7 @@
         "topic2": "Design",
         "desc": "A tool for designing teaching",
         "desc2": "materials",
-        "onlineLink": "/edudesign/educationboard?info=edudesign",
+        "onlineLink": "/onlinetools/businessandInnovation/educationdesign",
         "productLink": ""
       },
       "music_cards_mini_game": {

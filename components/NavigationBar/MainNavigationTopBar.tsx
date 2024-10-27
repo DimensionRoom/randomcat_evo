@@ -93,7 +93,7 @@ const MainNavigationTopBar = ({
       titleEx: "Design",
       description: "Design your own material",
       shortKey: "edu",
-      url: "/edudesign",
+      url: "/educationdesign",
       theme: "ThemePurple",
       header: "false",
       type: "randomTool",

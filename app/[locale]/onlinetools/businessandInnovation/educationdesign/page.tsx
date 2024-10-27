@@ -3,24 +3,25 @@ import React, { useState, useEffect, useRef } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
-import initTranslations from "../../i18n";
-import styles from "../../../Styles/StoryBoard/page.module.scss";
-import manivigationStyles from "../../../../components/NavigationBar/MainNavigationTopBar.module.scss";
-import TranslationsProvider from "@/components/TranslationsProvider";
+import initTranslations from "@/i18n";
 import Link from "next/link";
+import manivigationStyles from "@/components/NavigationBar/MainNavigationTopBar.module.scss";
+
+import TranslationsProvider from "@/components/TranslationsProvider";
 import IconBtn from "@/components/Button/IconBtn/IconBtn";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PhysicalCard from "@/components/Card/PhysicalCard/PhysicalCard";
 import HorizonCard from "@/components/Card/HorizonCard/HorizonCard";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
-import mainLoad from "../../../../public/json/mainload.json";
+import mainLoad from "@/public/json/mainload.json";
 import TagFilter from "@/components/Filter/TagFilter/TagFilter";
-import PointerIcon from "@/public/svgs/storyboard/pointer";
-import LightbulbIcon from "@/public/svgs/storyboard/lightbulb";
-import YoYoIcon from "@/public/svgs/storyboard/yoyo";
+import PointerIcon from "@/public/svgs/educationboard/pointer";
+import LightbulbIcon from "@/public/svgs/educationboard/lightbulb";
+import BookIcon from "@/public/svgs/educationboard/book";
 import SiteLogo from "@/public/svgs/siteLogo";
+import styles from "./EducationDesign.module.scss";
 
-import storydesisgnData from "../../../../public/json/storydesignCat.json";
+import edudesisgnData from "@/public/json/edudesignCat.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 
 export type SubCategoryProps = {
@@ -29,7 +30,6 @@ export type SubCategoryProps = {
   fullDescription: string;
   catItemId: string;
 };
-
 type JSONData = {
   [key: string]: any;
 };
@@ -47,7 +47,7 @@ interface Category {
   data: { th: string; en: string; content_th: string; content_en: string }[];
 }
 
-const i18nNamespaces = ["storyboard"];
+const i18nNamespaces = ["educationboard"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -64,7 +64,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function StoryBoard({
+export default function InnovationBoard({
   params: { locale },
 }: {
   params: { locale: string };
@@ -76,18 +76,13 @@ export default function StoryBoard({
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: "Story",
+      name: "Education",
       nameEx: "Design",
-      fullDescription: '"Start your own story right here."',
-      catItemId: "storydesign",
+      fullDescription: '"Innovate Teaching Materials for Tomorrow."',
+      catItemId: "edudesign",
     },
   ]);
-  const fullCategoryName = subCategory.map((subCat) => {
-    // searchParamsInfo === subCat.catItemId ? subCat.name : ''
-    if (searchParamsInfo === subCat.catItemId) {
-      return subCat.name + " " + subCat.nameEx;
-    }
-  });
+  const fullCategoryName = "Education Design";
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalGridRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -95,8 +90,8 @@ export default function StoryBoard({
   const extractMainKeys = (jsonData: JSONData): string[] => {
     return Object.keys(jsonData);
   };
-  const mainKeys = extractMainKeys(storydesisgnData);
-  const cardData: { [key: string]: Category } = storydesisgnData;
+  const mainKeys = extractMainKeys(edudesisgnData);
+  const cardData: { [key: string]: Category } = edudesisgnData;
   const [filterCategory, setFilterCategory] = useState<string[]>(mainKeys);
   const [defaultSelectedCategories, setDefaultSelectedCategories] =
     useState<string[]>(mainKeys);
@@ -265,7 +260,7 @@ export default function StoryBoard({
       >
         <LottieAnimation
           animationData={mainLoad}
-          // color={["#63058F", "#7C4BE4", "#390455"]}
+          // color={["#c0167a", "#f04ea6", "#730445"]}
         />
         {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
       </div>
@@ -297,13 +292,13 @@ export default function StoryBoard({
               <p
                 className={`${manivigationStyles.HeaderDetailsTitle} ${popins.className}`}
               >
-                Story
+                Edu
                 <span className={manivigationStyles.HeaderDetailsTitleEx}>
                   Design
                 </span>
               </p>
               <p className={manivigationStyles.HeaderDetailsDescription}>
-                Design your own story
+                Design your own material
               </p>
             </div>
             <div className={manivigationStyles.HeaderActionContainer}>
@@ -322,29 +317,17 @@ export default function StoryBoard({
             <p
               className={`${styles.HeaderCatContainerText} ${popins.className}`}
             >
-              {subCategory.map((subCat) =>
-                searchParamsInfo === subCat.catItemId
-                  ? subCat.name.toUpperCase()
-                  : ""
-              )}
+              {subCategory.map((subCat) => subCat.name.toUpperCase())}
             </p>
             <p
               className={`${styles.HeaderCatContainerText} ${popins.className}`}
             >
-              {subCategory.map((subCat) =>
-                searchParamsInfo === subCat.catItemId
-                  ? subCat.nameEx.toUpperCase()
-                  : ""
-              )}
+              {subCategory.map((subCat) => subCat.nameEx.toUpperCase())}
             </p>
           </div>
           <div className={styles.HeaderCatDescContainer}>
             <p className={`${styles.HeaderCatContainerDescText}`}>
-              {subCategory.map((subCat) =>
-                searchParamsInfo === subCat.catItemId
-                  ? subCat.fullDescription
-                  : ""
-              )}
+              {subCategory.map((subCat) => subCat.fullDescription)}
             </p>
             <FlatBtn
               className={`${styles.randomAllBtn}`}
@@ -369,7 +352,7 @@ export default function StoryBoard({
                   locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
-                  categoryName={fullCategoryName[0]}
+                  categoryName={fullCategoryName}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedPhysicalCards}
@@ -402,7 +385,7 @@ export default function StoryBoard({
                   locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
-                  categoryName={fullCategoryName[0]}
+                  categoryName={fullCategoryName}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedPhysicalGridCards}
@@ -435,7 +418,7 @@ export default function StoryBoard({
                   locale={"en"}
                   title={cardItem.title}
                   subTitle={cardItem.subTitle}
-                  categoryName={fullCategoryName[0]}
+                  categoryName={fullCategoryName}
                   headingContent={cardItem.topic}
                   content={cardItem.content}
                   setFlippedCards={setFlippedCards}
@@ -505,7 +488,7 @@ export default function StoryBoard({
             </div>
             <div className={styles.item}>
               <div className={styles.itemIcon}>
-                <YoYoIcon width={40} height={40} />
+                <BookIcon width={40} height={40} />
               </div>
               <div className={styles.itemHeader}>
                 <p className={`${styles.itemHeaderText}`}>
