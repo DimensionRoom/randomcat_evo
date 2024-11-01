@@ -13,7 +13,8 @@ import whatifLoad from "@/public/json/whatifLoading.json";
 import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from "@/i18nConfig";
-import obliquestrategiesData from "@/public/json/obliquestrategiesCat.json";
+import obliquestrategiesEnData from "@/public/json/obliquestrategiesEnCat.json";
+import obliquestrategiesThData from "@/public/json/obliquestrategiesThCat.json";
 
 export type SubCategoryProps = {
   name: string;
@@ -84,6 +85,12 @@ export default function Obliquestrategies({
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [randomQuestionItem, setRandomQuestionItem] = useState<string>();
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
+  const obliquestrategiesData =
+    locale === "en"
+      ? obliquestrategiesEnData
+      : locale === "th"
+      ? obliquestrategiesThData
+      : obliquestrategiesEnData;
 
   const generateRandomItems = () => {
     randomQuestion(obliquestrategiesData);
@@ -115,8 +122,8 @@ export default function Obliquestrategies({
         obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]
       );
       setRandomQuestionItem(
-        // whatifData.Category.data[randomIndex][`content_${locale}`]
-        obliquestrategiesData.Category.data[randomIndex][`content_en`]
+        obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]
+        // obliquestrategiesData.Category.data[randomIndex][`content_en`]
       );
       // setLoadingRandom(false);
     }, 0);

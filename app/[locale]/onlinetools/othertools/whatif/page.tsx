@@ -13,7 +13,8 @@ import whatifLoad from "@/public/json/whatifLoading.json";
 import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from "@/i18nConfig";
-import whatifData from "@/public/json/whatifCat.json";
+import whatifEnData from "@/public/json/whatifEnCat.json";
+import whatifThData from "@/public/json/whatifThCat.json";
 
 export type SubCategoryProps = {
   name: string;
@@ -84,8 +85,15 @@ export default function WhatIf({
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [randomQuestionItem, setRandomQuestionItem] = useState<string>();
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
+  const whatifData =
+    locale === "en"
+      ? whatifEnData
+      : locale === "th"
+      ? whatifThData
+      : whatifEnData;
 
   const generateRandomItems = () => {
+    console.log('x',whatifData)
     randomQuestion(whatifData);
   };
 
@@ -113,8 +121,8 @@ export default function WhatIf({
       // Proceed with your existing logic
       console.log(whatifData.Category.data[randomIndex][`content_${locale}`]);
       setRandomQuestionItem(
-        // whatifData.Category.data[randomIndex][`content_${locale}`]
-        whatifData.Category.data[randomIndex][`content_en`]
+        whatifData.Category.data[randomIndex][`content_${locale}`]
+        // whatifData.Category.data[randomIndex][`content_en`]
       );
       // setLoadingRandom(false);
     }, 0);
