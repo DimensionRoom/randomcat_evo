@@ -32,7 +32,7 @@
         "topic2": "Design",
         "desc": "A tool for designing teaching",
         "desc2": "materials",
-        "onlineLink": "/onlinetools/businessandInnovation/educationdesign",
+        "onlineLink": "/onlinetools/educationandparent/educationdesign",
         "productLink": ""
       },
       "music_cards_mini_game": {
@@ -40,7 +40,7 @@
         "topic2": "Mini Game",
         "desc": "A random game for ",
         "desc2": "kids who study music",
-        "onlineLink": "/onlinetools/businessandInnovation/musiccard",
+        "onlineLink": "/onlinetools/educationandparent/musiccard",
         "productLink": ""
       },
       "re_design_innovation": {
@@ -48,7 +48,7 @@
         "topic2": "Innovation",
         "desc": "A tool that helps you develop",
         "desc2": "& enhance your product",
-        "onlineLink": "",
+        "onlineLink": "/onlinetools/educationandparent/redesign",
         "productLink": ""
       }
     },

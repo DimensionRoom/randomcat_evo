@@ -58,15 +58,15 @@ export default function OnlineToolsScreen({
     setPresentPlaying(!presentPlaying);
   };
 
-  const transformJsonTemplateData = () => {
-    const toolsListData = require(`/locales/${locale}/toolsListData.json`);
+  const transformToolsData = async () => {
+    const toolsListData = await import(`/locales/${locale}/toolsListData.json`);
     if (!toolsListData?.tools) {
       return [];
     }
 
-    const tools = toolsListData.tools;
-    const data = Object.keys(tools).map((categoryKey) => {
-      const categoryItems = tools[categoryKey];
+    const toolsData = toolsListData.tools;
+    const transformedToolsData = Object.keys(toolsData).map((categoryKey) => {
+      const categoryItems = toolsData[categoryKey];
       const itemsArray = Object.keys(categoryItems).map((itemKey, idx) => {
         const item = categoryItems[itemKey];
         return {
@@ -86,7 +86,7 @@ export default function OnlineToolsScreen({
         item: itemsArray,
       };
     });
-    setTools(data);
+    setTools(transformedToolsData);
   };
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function OnlineToolsScreen({
   }, [locale]);
 
   useEffect(() => {
-    transformJsonTemplateData();
+    transformToolsData();
   }, []);
 
   if (loading) {

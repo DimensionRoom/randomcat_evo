@@ -1,0 +1,99 @@
+{
+  "Category": {
+    "title": "ReDesign",
+    "subTitle": "",
+    "key": "ReDesign",
+   "data": [
+  {
+    "th": "",
+    "en": "Decomposition",
+    "content_th": "การแยกและวิเคราะห์องค์ประกอบของนวัตกรรมอย่างละเอียด เพื่อนำสิ่งที่น่าสนใจมาปรับปรุงหรือพัฒนา",
+    "content_en": "The process of breaking down an element or object into smaller components to facilitate understanding or analysis."
+  },
+  {
+    "th": "",
+    "en": "Component Improvement",
+    "content_th": "การเลือกส่วนประกอบของนวัตกรรมที่มีอยู่ จากนั้นนำมาพัฒนาให้ดียิ่งขึ้น",
+    "content_en": "Analyze and select components within the innovation for further development, which may include mechanisms, usage, methods, materials, etc."
+  },
+  {
+    "th": "",
+    "en": "Combination",
+    "content_th": "การนำองค์ประกอบหรือแนวคิดที่แตกต่างมารวมเข้าหากันอาจจะเป็นส่วนใด ส่วนหนึ่งหรือทั้งหมด เพื่อสร้างนวัตกรรมใหม่ เช่น การรวมกันของวัสดุ, วิธีการ, ไอเดียเป็นต้น",
+    "content_en": "Combine multiple items or methods, along with materials, to achieve better results according to the established objectives, such as creating a box set of educational tools that includes cards, worksheets, and clay all in one package."
+  },
+  {
+    "th": "",
+    "en": "Constraint",
+    "content_th": "การนำข้อจำกัดและปัญหาของผู้ใช้มาเป็นแรงบันดาลใจในการออกแบบโซลูชันที่แก้ปัญหาอย่างตรงจุด",
+    "content_en": "Try thinking creatively within boundaries by focusing on the limitations and using them to your advantage in creating or developing educational tools."
+  },
+  {
+    "th": "",
+    "en": "Finding Patterns",
+    "content_th": "การศึกษาและวิเคราะห์รูปแบบจากนวัตกรรมที่มีอยู่ซ้ำๆ เพื่อนำ pattern นั้นมาใช้ในการออกแบบนวัตกรรม",
+    "content_en": "Exploring, studying, or experimenting with various similar educational tools or children's toys helps our brain recognize patterns in their mechanisms, design, and functionality, allowing us to extract interesting aspects and further develop them into innovations."
+  },
+  {
+    "th": "",
+    "en": "Metaphor",
+    "content_th": "ใช้หลักการอุปมาอุปไมยเพื่อแปลี่ยนแนวคิดที่ซับซ้อนให้เข้าใจได้ง่ายและน่าสนใจ",
+    "content_en": "Using teaching methods or educational tools to aid in making comparisons can help simplify abstract concepts by making them more concrete, such as when discussing germs or dangers."
+  },
+  {
+    "th": "",
+    "en": "Task Unification",
+    "content_th": "การรวมหน้าที่ของสองสิ่งเข้าด้วยกันเพื่อสร้างประโยชน์ที่เชื่อมโยงถึงกัน",
+    "content_en": "Combine tasks with the goal of integrating multiple functions or missions into a single product to enhance efficiency, reduce complexity, or create new value for users."
+  },
+  {
+    "th": "",
+    "en": "Narrative",
+    "content_th": "การออกแบบหรือใช้เรื่องเล่าเพื่อสร้างความน่าสนใจให้กับผู้ใช้นวัตกรรม",
+    "content_en": "Incorporating stories or parts of stories into educational innovations can enhance engagement and make learners more interested in following along."
+  },
+  {
+    "th": "",
+    "en": "Re-Defined",
+    "content_th": "การนิยาม ให้ความหมายใหม่กับนวัตกรรมที่มีอยู่เพื่อสร้างมุมมองที่แตกต่าง",
+    "content_en": "Transform or improve existing concepts, products, or services to give them new or distinct meanings."
+  },
+  {
+    "th": "",
+    "en": "Creative Variations",
+    "content_th": "กระบวนการสร้างสรรค์ที่นำแนวคิดหรือสิ่งเดิมมาดัดแปลง, พัฒนา, หรือตีความใหม่ด้วยมุมมองที่แตกต่าง",
+    "content_en": "Develop innovations by creating differences or changes in existing products, services, or concepts to enhance value and appeal."
+  },
+  {
+    "th": "",
+    "en": "Boosting Awareness",
+    "content_th": "การออกแบบนวัตกรรมโดยมุ่งเน้นการสร้างความตระหนักให้กับผู้ใช้งาน",
+    "content_en": "In addition to developing knowledge and skills through teaching innovations, we can also incorporate processes or mechanisms that promote awareness."
+  },
+  {
+    "th": "",
+    "en": "Enhancing Innovation",
+    "content_th": "การพัฒนาประสิทธิภาพเฉพาะด้านของนวัตกรรมให้ดียิ่งกว่าเดิม",
+    "content_en": "Enhance the effectiveness of the innovation in any aspect, whether by focusing on the outcomes for learners or by refining the innovation itself."
+  },
+  {
+    "th": "",
+    "en": "Changing the Target",
+    "content_th": "การปรับเปลี่ยนนวัตกรรมให้เข้ากับกลุ่มเป้าหมายใหม่ๆ",
+    "content_en": "Take existing innovations and adapt them for a different user group. For example, children's educational tools can be modified in terms of usage, mechanisms, or conditions to suit adults."
+  },
+  {
+    "th": "",
+    "en": "Re-Design",
+    "content_th": "การออกแบบหน้าตา ความสวยงามของนวัตกรรมใหม่",
+    "content_en": "Redesign existing educational tools, such as updating the graphics of teaching materials from 20 years ago to make them more modern, or enhancing the design of previously created materials to make them more engaging for learners."
+  },
+  {
+    "th": "",
+    "en": "Universal Design",
+    "content_th": "การออกแบบนวัตกรรมให้สามารถใช้งานได้อย่างทั่วถึงและเป็นมิตรกับผู้ใช้หลายกลุ่ม",
+    "content_en": "Design the environment and innovations to be inclusive for all groups, such as games that children can play while also allowing parents or guardians to enjoy them together."
+  }
+]
+  }
+}

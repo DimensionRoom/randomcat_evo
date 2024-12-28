@@ -6,16 +6,14 @@ import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
-import styles from "./ObliqueStrategies.module.scss";
+import styles from "./ReDesign.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import whatifLoad from "@/public/json/whatifLoading.json";
 import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from "@/i18nConfig";
-import obliquestrategiesEnData from "@/public/json/obliquestrategiesEnCat.json";
-import obliquestrategiesThData from "@/public/json/obliquestrategiesThCat.json";
-import CountdownTimer from "@/components/CountdownTimer/CountdownTimer";
+import redesignData from "@/public/json/redesignCat.json";
 
 export type SubCategoryProps = {
   name: string;
@@ -50,10 +48,8 @@ interface Category {
 }
 
 interface Question {
-  th: string;
-  en: string;
-  content_th: string;
-  content_en: string;
+  header: string;
+  content: string;
 }
 
 const i18nNamespaces = ["common"];
@@ -73,7 +69,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function Obliquestrategies({
+export default function ReDesign({
   params: { locale },
 }: {
   params: { locale: string };
@@ -84,49 +80,33 @@ export default function Obliquestrategies({
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
-  const [randomQuestionItem, setRandomQuestionItem] = useState<string>();
+  const [randomQuestionItem, setRandomQuestionItem] = useState<Question>();
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
-  const obliquestrategiesData =
-    locale === "en"
-      ? obliquestrategiesEnData
-      : locale === "th"
-      ? obliquestrategiesThData
-      : obliquestrategiesEnData;
 
   const generateRandomItems = () => {
-    randomQuestion(obliquestrategiesData);
+    randomQuestion(redesignData);
   };
 
-  let previousRandomIndex = -1;
-
-  const randomQuestion = (obliquestrategiesData: any) => {
-    // setLoadingRandom(true);
+  
+  const randomQuestion = (redesignData: any) => {
+    let previousRandomIndex = -1;
     setTimeout(() => {
-      const dataLength = obliquestrategiesData.Category.data.length;
+      const dataLength = redesignData.Category.data.length;
       let randomIndex;
-
+  
       if (dataLength > 1) {
-        randomIndex = Math.floor(Math.random() * (dataLength - 1));
-        // Adjust the index if it meets or exceeds the previous index
-        if (randomIndex >= previousRandomIndex) {
-          randomIndex += 1;
-        }
+        do {
+          randomIndex = Math.floor(Math.random() * dataLength);
+        } while (randomIndex === previousRandomIndex); 
       } else {
-        randomIndex = 0; // Only one item is available
+        randomIndex = 0; 
       }
-
-      // Update the previous index
       previousRandomIndex = randomIndex;
-
-      // Proceed with your existing logic
-      // console.log(
-      //   obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]
-      // );
-      setRandomQuestionItem(
-        obliquestrategiesData.Category.data[randomIndex][`content_${locale}`]
-        // obliquestrategiesData.Category.data[randomIndex][`content_en`]
-      );
-      // setLoadingRandom(false);
+  
+      setRandomQuestionItem({
+        header: redesignData.Category.data[randomIndex][`en`],
+        content: redesignData.Category.data[randomIndex][`content_${locale}`],
+      });
     }, 0);
   };
 
@@ -151,7 +131,7 @@ export default function Obliquestrategies({
   }, [locale]);
 
   useEffect(() => {
-    randomQuestion(obliquestrategiesData);
+    randomQuestion(redesignData);
   }, []);
   if (loading) {
     return (
@@ -201,7 +181,7 @@ export default function Obliquestrategies({
                 <React.Fragment>
                   <div className={styles.ToolName}>
                     <p className={`${styles.ToolNameText} ${popins.className}`}>
-                      Oblique Strategies
+                      Re-Design
                     </p>
                   </div>
                   <div className={styles.RandomCardName}>
@@ -212,7 +192,16 @@ export default function Obliquestrategies({
                           : null
                       }`}
                     >
-                      {randomQuestionItem ? randomQuestionItem : "Question"}
+                      {randomQuestionItem ? randomQuestionItem.header : "Question"}
+                    </p>
+                    <p
+                      className={`${styles.CardContentText} ${
+                        locale == "th"
+                          ? `${mitr.className} ${styles.thfontlight}`
+                          : null
+                      }`}
+                    >
+                      {randomQuestionItem ? randomQuestionItem.content : "Content"}
                     </p>
                   </div>
                   <div className={styles.Action}>
@@ -222,7 +211,7 @@ export default function Obliquestrategies({
                       onClick={generateRandomItems}
                     />
                   </div>
-                    {/* <CountdownTimer/> */}
+                  {/* <CountdownTimer/> */}
                 </React.Fragment>
               ) : (
                 <Player

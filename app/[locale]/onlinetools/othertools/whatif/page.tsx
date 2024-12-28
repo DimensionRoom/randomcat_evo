@@ -119,7 +119,7 @@ export default function WhatIf({
       previousRandomIndex = randomIndex;
 
       // Proceed with your existing logic
-      console.log(whatifData.Category.data[randomIndex][`content_${locale}`]);
+      // console.log(whatifData.Category.data[randomIndex][`content_${locale}`]);
       setRandomQuestionItem(
         whatifData.Category.data[randomIndex][`content_${locale}`]
         // whatifData.Category.data[randomIndex][`content_en`]
