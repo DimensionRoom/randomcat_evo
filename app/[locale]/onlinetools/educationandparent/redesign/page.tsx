@@ -82,32 +82,32 @@ export default function ReDesign({
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [randomQuestionItem, setRandomQuestionItem] = useState<Question>();
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
+  const [previousRandomData, setPreviousRandomData] = useState<string>("");
 
   const generateRandomItems = () => {
     randomQuestion(redesignData);
   };
 
-  
   const randomQuestion = (redesignData: any) => {
-    let previousRandomIndex = -1;
-    setTimeout(() => {
-      const dataLength = redesignData.Category.data.length;
-      let randomIndex;
-  
-      if (dataLength > 1) {
-        do {
-          randomIndex = Math.floor(Math.random() * dataLength);
-        } while (randomIndex === previousRandomIndex); 
-      } else {
-        randomIndex = 0; 
-      }
-      previousRandomIndex = randomIndex;
-  
+    const dataLength = redesignData.Category.data.length;
+
+    let randomIndex = Math.floor(Math.random() * (dataLength - 1));
+    if (previousRandomData === redesignData.Category.data[randomIndex].en) {
+      // console.log("same data");
+      randomIndex = Math.floor(Math.random() * (dataLength - 1));
       setRandomQuestionItem({
-        header: redesignData.Category.data[randomIndex][`en`],
+        header: redesignData.Category.data[randomIndex].en,
         content: redesignData.Category.data[randomIndex][`content_${locale}`],
       });
-    }, 0);
+    } else {
+      // console.log("data", redesignData.Category.data[randomIndex].en),previousRandomData;
+      setRandomQuestionItem({
+        header: redesignData.Category.data[randomIndex].en,
+        content: redesignData.Category.data[randomIndex][`content_${locale}`],
+      });
+      setPreviousRandomData(redesignData.Category.data[randomIndex].en);
+    }
+    
   };
 
   useEffect(() => {}, [randomItems]);
@@ -179,11 +179,17 @@ export default function ReDesign({
             <div className={styles.GroupItem}>
               {!loadingRandom ? (
                 <React.Fragment>
-                  <div className={styles.ToolName}>
-                    <p className={`${styles.ToolNameText} ${popins.className}`}>
-                      Re-Design
+                  {/* <div className={styles.ToolName}>
+                     <p
+                      className={`${styles.ToolNameText} ${
+                        locale == "th"
+                          ? `${mitr.className} ${styles.thfontlight}`
+                          : null
+                      }`}
+                    >
+                      {randomQuestionItem ? randomQuestionItem.header : "Question"}
                     </p>
-                  </div>
+                  </div> */}
                   <div className={styles.RandomCardName}>
                     <p
                       className={`${styles.CardNameText} ${
@@ -192,7 +198,9 @@ export default function ReDesign({
                           : null
                       }`}
                     >
-                      {randomQuestionItem ? randomQuestionItem.header : "Question"}
+                      {randomQuestionItem
+                        ? randomQuestionItem.header
+                        : "Question"}
                     </p>
                     <p
                       className={`${styles.CardContentText} ${
@@ -201,7 +209,9 @@ export default function ReDesign({
                           : null
                       }`}
                     >
-                      {randomQuestionItem ? randomQuestionItem.content : "Content"}
+                      {randomQuestionItem
+                        ? randomQuestionItem.content
+                        : "Content"}
                     </p>
                   </div>
                   <div className={styles.Action}>
