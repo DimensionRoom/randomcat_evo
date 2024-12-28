@@ -179,7 +179,7 @@ export default function ReDesign({
             <div className={styles.GroupItem}>
               {!loadingRandom ? (
                 <React.Fragment>
-                  {/* <div className={styles.ToolName}>
+                  <div className={styles.ToolName}>
                      <p
                       className={`${styles.ToolNameText} ${
                         locale == "th"
@@ -189,9 +189,9 @@ export default function ReDesign({
                     >
                       {randomQuestionItem ? randomQuestionItem.header : "Question"}
                     </p>
-                  </div> */}
+                  </div>
                   <div className={styles.RandomCardName}>
-                    <p
+                    {/* <p
                       className={`${styles.CardNameText} ${
                         locale == "th"
                           ? `${mitr.className} ${styles.thfontlight}`
@@ -201,7 +201,7 @@ export default function ReDesign({
                       {randomQuestionItem
                         ? randomQuestionItem.header
                         : "Question"}
-                    </p>
+                    </p> */}
                     <p
                       className={`${styles.CardContentText} ${
                         locale == "th"
