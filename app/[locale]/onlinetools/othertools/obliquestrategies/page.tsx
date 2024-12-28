@@ -15,7 +15,6 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from "@/i18nConfig";
 import obliquestrategiesEnData from "@/public/json/obliquestrategiesEnCat.json";
 import obliquestrategiesThData from "@/public/json/obliquestrategiesThCat.json";
-import CountdownTimer from "@/components/CountdownTimer/CountdownTimer";
 
 export type SubCategoryProps = {
   name: string;
