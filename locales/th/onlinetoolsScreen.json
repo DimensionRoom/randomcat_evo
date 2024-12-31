@@ -7,32 +7,32 @@
     "whiteSection": {
       "creativity": {
         "title": "Creativity and Brain skills",
-        "subtitle": "Expand your horizon of brain skills with incredible tools."
+        "subtitle": "พัฒนาทักษะทางสมองทั้งสองด้าน ด้วยชุดการ์ดจากThink-Tool"
       },
       "education": {
         "title": "Education and Parent",
-        "subtitle": "Suit for teacher, parent to explore new skill of you and your kids."
+        "subtitle": "ชุดการ์ดหมวดการศึกษาที่อัพเดตสดใหม่ เด็กใช้ได้ ผู้ใหญ่ใช้ดี"
       },
       "business": {
         "title": "Business and Innovation",
-        "subtitle": "Training and working gonna be ease with our innovation."
+        "subtitle": "การสอนเรื่องธุรกิจจะไม่ใช่เรื่องยากอีกต่อไป ด้วยชุดการ์ดเหล่านี้"
       },
       "other": {
         "title": "Other Tools",
-        "subtitle": "A digital tool without card try this category it is free and fun."
+        "subtitle": "รวมเครื่องมือทรงพลังที่จะช่วยให้คุณ Upskill, Reskill ได้ในทุกวัน"
       }
     },
     "gradientSection":{
       "items":{
         "showWork": {
           "title": "Show your work",
-          "desc": "Click the bottom and",
-          "desc2": "submit your amazing work"
+          "desc": "ผลงานเจ๋งๆ อย่าเก็บไว้",
+          "desc2": "ร่วมแบ่งปันกันได้ที่นี่เลย"
         },
         "downloadMaterial": {
           "title": "Download Material",
-          "desc": "Free templates to enhance",
-          "desc2": "your creative thinking"
+          "desc": "เทมเพลตฟรีที่จะช่วยให้",
+          "desc2": "คุณคิดงานได้ง่ายขึ้น"
         }
       }
     }

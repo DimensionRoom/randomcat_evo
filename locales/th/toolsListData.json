@@ -4,24 +4,24 @@
       "innovation_design": {
         "topic": "Innovation",
         "topic2": "Design",
-        "desc": "A Tool for creating innovation",
-        "desc2": "through WH-questions",
+        "desc": "พัฒนาความคิดสร้างสรรค์",
+        "desc2": "ด้วยชุดการ์ดนวัตกรรมจากโจทย์ WH-Question",
         "onlineLink": "onlinetools/creativityandbrainskills/innovationdesign",
         "productLink": ""
       },
       "story_design": {
         "topic": "Story",
         "topic2": "Design",
-        "desc": "A tool for writing stories - we",
-        "desc2": "provide 6 categories for you",
+        "desc": "ฝึกเขียนเรื่องเล่าสดใหม่ได้ทุกวัน",
+        "desc2": "กับ Story Design ใช้ง่าย สนุก ต่อยอดได้จริง",
         "onlineLink": "onlinetools/creativityandbrainskills/storydesign",
         "productLink": ""
       },
       "content_design": {
         "topic": "Content",
         "topic2": "Design",
-        "desc": "A tool for content creators",
-        "desc2": "& practicing content design",
+        "desc": "ค้นหาไอเดียใหม่ๆ ในการ ออกแบบ",
+        "desc2": "Content Marketing คลิกที่นี่เลย",
         "onlineLink": "onlinetools/creativityandbrainskills/contentdesign",
         "productLink": ""
       }
@@ -30,24 +30,24 @@
       "education_design": {
         "topic": "Education",
         "topic2": "Design",
-        "desc": "A tool for designing teaching",
-        "desc2": "materials",
+        "desc": "สร้างนวัตกรรมการศึกษาที่แปลกใหม่",
+        "desc2": "ให้น่าสนใจด้วยการสุ่มโจทย์จากการ์ด",
         "onlineLink": "/onlinetools/educationandparent/educationdesign",
         "productLink": ""
       },
       "music_cards_mini_game": {
         "topic": "Music Cards",
         "topic2": "Mini Game",
-        "desc": "A random game for ",
-        "desc2": "kids who study music",
+        "desc": "ชวนเด็กๆ มาทบทวนเนื้อหา",
+        "desc2": "เรื่องเครื่องดนตรีสากล ด้วยเกมแสนสนุก",
         "onlineLink": "/onlinetools/educationandparent/musiccard",
         "productLink": ""
       },
       "re_design_innovation": {
         "topic": "Re-Design",
         "topic2": "Innovation",
-        "desc": "A tool that helps you develop",
-        "desc2": "& enhance your product",
+        "desc": "หาไอเดียสร้างสื่อการสอน หรือ",
+        "desc2": "ผลิตภัณฑ์ใหม่ๆ จาก Keyword บนการ์ด",
         "onlineLink": "/onlinetools/educationandparent/redesign",
         "productLink": ""
       }
@@ -56,24 +56,24 @@
       "business_design": {
         "topic": "Business(BMC)",
         "topic2": "Design",
-        "desc": "An introductory tool for",
-        "desc2": "understanding business",
+        "desc": "แตกประเด็นไอเดียทั้ง 9 ช่องบน",
+        "desc2": "Business Model Canvas พร้อมคำอธิบาย",
         "onlineLink": "",
         "productLink": ""
       },
       "pitching_design": {
         "topic": "Pitching",
         "topic2": "Design",
-        "desc": "A tool for practicing to deliver",
-        "desc2": "a perfect pitch on stage",
+        "desc": "พูดไม่เก่ง เรียบเรียงไม่ได้ ปัญหาเหล่านี้จะหมดไป",
+        "desc2": "เมื่อคุณได้ลองใช้การ์ดชุดนี้",
         "onlineLink": "",
         "productLink": ""
       },
       "gamification_in_business": {
         "topic": "Gamification",
         "topic2": "In Business",
-        "desc": "A tool to integrate",
-        "desc2": "gamification into business",
+        "desc": "ประยุกต์ใช้เกมมิฟิเคชั่น ในสถานการณ์ต่างๆ",
+        "desc2": "เพื่อพิชิตเป้าหมายของคุณ",
         "onlineLink": "",
         "productLink": ""
       }
@@ -82,24 +82,24 @@
       "what_if_theme": {
         "topic": "What if",
         "topic2": "Theme",
-        "desc": "A tool for thinking outside",
-        "desc2": "the box with a \"What if\"",
+        "desc": "สุ่มคำถาม What if",
+        "desc2": "เพื่อกระตุ้นความคิดสร้างสรรค์",
         "onlineLink": "/onlinetools/othertools/whatif",
         "productLink": ""
       },
       "related_combination": {
         "topic": "Related",
         "topic2": "Combination",
-        "desc": "A creative tool that lets you",
-        "desc2": "combine 2 things together",
+        "desc": "เมื่อสินค้าและบริการที่ต่างกัน",
+        "desc2": "มาผสมผสานจะออกมาเป็นอย่างไร",
         "onlineLink": "/onlinetools/othertools/relatedcombination",
         "productLink": ""
       },
       "oblique_strategies": {
         "topic": "Oblique",
         "topic2": "strategies",
-        "desc": "Oblique strategies that",
-        "desc2": "you can practice everyday",
+        "desc": "มาลองใช้ประโยคที่สุ่มได้",
+        "desc2": "เพื่อคิดสร้างสรรค์หรือแก้ปัญหาที่เจอ",
         "onlineLink": "/onlinetools/othertools/obliquestrategies",
         "productLink": ""
       }

@@ -242,17 +242,32 @@ export default function OnlineToolsScreen({
                 <p className={styles.title}>
                   {t("section.gradientSection.items.showWork.title")}
                 </p>
-                <p className={styles.subtitle}>
+                <p
+                  className={`${styles.subtitle} ${
+                    locale == "th"
+                      ? `${mitr.className} ${styles.thfontbold}`
+                      : null
+                  }`}
+                >
                   {t("section.gradientSection.items.showWork.desc")}
                 </p>
-                <p className={styles.subtitle}>
+                <p
+                  className={`${styles.subtitle} ${
+                    locale == "th"
+                      ? `${mitr.className} ${styles.thfontbold}`
+                      : null
+                  }`}
+                >
                   {t("section.gradientSection.items.showWork.desc2")}
                 </p>
                 <FlatBtn
                   className={`${styles.moreBtn}`}
                   text={"Let's share!"}
                   onClick={() => {
-                    window.open("https://www.instagram.com/thinktool_official", "_blank");
+                    window.open(
+                      "https://www.instagram.com/thinktool_official",
+                      "_blank"
+                    );
                   }}
                 />
               </div>
@@ -273,10 +288,22 @@ export default function OnlineToolsScreen({
                 <p className={styles.title}>
                   {t("section.gradientSection.items.downloadMaterial.title")}
                 </p>
-                <p className={styles.subtitle}>
+                <p
+                  className={`${styles.subtitle} ${
+                    locale == "th"
+                      ? `${mitr.className} ${styles.thfontbold}`
+                      : null
+                  }`}
+                >
                   {t("section.gradientSection.items.downloadMaterial.desc")}
                 </p>
-                <p className={styles.subtitle}>
+                <p
+                  className={`${styles.subtitle} ${
+                    locale == "th"
+                      ? `${mitr.className} ${styles.thfontbold}`
+                      : null
+                  }`}
+                >
                   {t("section.gradientSection.items.downloadMaterial.desc2")}
                 </p>
                 <FlatBtn
