@@ -18,5 +18,15 @@
   },
   "button": {
     "random": "สุ่ม"
+  },
+  "note": {
+    "half": "Half",
+    "whole": "Whole",
+    "quarter": "Quarter",
+    "eighth": "Eighth",
+    "halfRest": "HalfRest",
+    "wholeRest": "WholeRest",
+    "quarterRest": "QuarterRest",
+    "eighthRest": "EighthRest"
   }
 }

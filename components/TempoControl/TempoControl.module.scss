@@ -1,0 +1,97 @@
+.tempoControler {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: inherit;
+  .bpmDisplay {
+    display: flex;
+    background: white;
+    color: #5c1c85;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    min-width: 80px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .tempoContainer {
+    display: flex;
+    width: 30vw;
+    align-items: center;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    gap: 10px;
+    width: fit-content;
+    height: inherit;
+  }
+
+  .controlButton {
+    background: #d3b0e0;
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5c1c85;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s ease-in-out;
+  }
+
+  .controlButton:hover {
+    background: #b78bd6;
+  }
+
+  .slider {
+    flex: 1;
+    min-width: 150px;
+    appearance: none;
+    height: 6px;
+    border-radius: 5px;
+    background: #5c1c85;
+    outline: none;
+    transition: 0.2s ease-in-out;
+  }
+
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #5c1c85;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .slider::-webkit-slider-thumb:hover {
+    background: #7b2cbf;
+  }
+
+  .playButton {
+    background: #d3b0e0;
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #5c1c85;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s ease-in-out;
+  }
+
+  .playButton:hover {
+    background: #b78bd6;
+  }
+}

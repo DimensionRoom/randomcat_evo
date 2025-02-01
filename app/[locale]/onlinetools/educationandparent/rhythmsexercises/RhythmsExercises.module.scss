@@ -1,0 +1,118 @@
+.main {
+  --background-color: linear-gradient(90deg, #8a14d1, #f629c4);
+  --primary-color: #d2b5ed;
+  --secondary-color: #a447bc;
+  --third-color: #7d29a3;
+
+  display: flex;
+  min-height: calc(100dvh);
+  overflow-y: scroll;
+  flex-direction: column;
+  background: url("/svgs/svg/blob-scene-haikei.svg"), var(--background-color);
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+.HeaderSection {
+  z-index: 1;
+}
+
+.MobileHeader {
+  --logo-color: #ffffff;
+  display: none;
+  .LayoutHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    height: 60px;
+    padding: 1rem 1.2rem !important;
+    .textLink {
+      .BrandContainer {
+        width: 30px;
+        height: 30px;
+        .LogoContainer svg {
+          fill: var(--logo-color);
+        }
+      }
+    }
+  }
+}
+
+.randomSection {
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 50px;
+  // animation: scale-in-hor-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.ToolName {
+  display: flex;
+  justify-content: center;
+  .ToolNameText {
+    font-size: 4em;
+    font-weight: 600;
+  }
+}
+
+.noteOptionsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+.generatedNotesContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  .noteContainer {
+    background-color: var(--primary-color);
+    color: #000;
+    width: 60%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+    min-width: 450px;
+    .noteDisplay {
+      .icon {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+.tempoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  height: 70px;
+  .tempoControl {
+    height: inherit;
+  }
+}
