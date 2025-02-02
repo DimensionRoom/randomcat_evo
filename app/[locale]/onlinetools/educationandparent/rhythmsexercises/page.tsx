@@ -254,15 +254,14 @@ export default function RhythmsExercises({
             </div>
           </div>
           <div className={styles.tempoContainer}>
-            <div className={styles.tempoControl}>
               <TempoControl
                 tempo={tempo}
                 setTempo={setTempo}
                 togglePlay={togglePlay}
                 isPlaying={isPlaying}
               />
-            </div>
             <FlatBtn
+              className={styles.generateBtn}
               onClick={() => generateNewSequence()}
               text="สุ่ม"
               icon={<SiteLogo />}

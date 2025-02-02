@@ -49,7 +49,6 @@
 }
 
 .randomSection {
-  z-index: 1;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -71,6 +70,7 @@
 
 .noteOptionsContainer {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -114,5 +114,67 @@
   height: 70px;
   .tempoControl {
     height: inherit;
+  }
+}
+
+
+@media (max-width: 1250px) and (min-width: 560px) {
+  .main {
+    --btn--bg-hover: #dc53d6;
+    min-height: 100dvh;
+  }
+  .main::before {
+    background-position: right;
+  }
+}
+
+@media (max-width: 1250px) {
+  .randomSection {
+    min-height: auto;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .randomSection {
+    padding: 20px;
+  }
+  .ToolName {
+    .ToolNameText {
+      font-size: 2.4em;
+    }
+  }
+  .noteOptionsContainer {
+    gap: 5px;
+    font-size: 0.8em;
+  }
+  .generatedNotesContainer {
+    .noteContainer {
+      width: 100%;
+      padding: 10px;
+      min-width: 350px;
+    }
+  }
+  .tempoContainer{
+    height: 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .MobileHeader {
+    display: flex;
+  }
+  .main {
+    --btn--bg-hover: #dc53d6;
+    min-height: 100dvh;
+  }
+  .main::before {
+    background-position: right;
+  }
+  .tempoContainer{
+    gap: 5px;
+    .generateBtn {
+      padding: 8px;
+      min-width: 50px;
+    }
   }
 }

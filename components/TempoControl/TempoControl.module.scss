@@ -18,13 +18,11 @@
   }
   .tempoContainer {
     display: flex;
-    width: 30vw;
     align-items: center;
     background: white;
     padding: 8px 15px;
     border-radius: 10px;
     gap: 10px;
-    width: fit-content;
     height: inherit;
   }
 
@@ -93,5 +91,38 @@
 
   .playButton:hover {
     background: #b78bd6;
+  }
+}
+
+@media (max-width: 560px) {
+  .tempoControler {
+    .bpmDisplay {
+      font-size: 1.5rem;
+      padding: 6px 10px;
+    }
+    .tempoContainer {
+      padding: 8px 10px;
+      gap: 5px;
+    }
+    .controlButton {
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
+    }
+    .slider {
+      min-width: 0;
+      width: 100px;
+    }
+
+    .slider::-webkit-slider-thumb {
+      width: 16px;
+      height: 16px;
+    }
+
+    .playButton {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
   }
 }
