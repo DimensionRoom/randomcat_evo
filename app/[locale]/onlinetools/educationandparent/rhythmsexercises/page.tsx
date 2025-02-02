@@ -94,6 +94,7 @@ export default function RhythmsExercises({
   const toggleNote = (noteType: NoteType) => {
     setSelectedNotes((prev) => {
       if (prev.some((note) => note.id === noteType)) {
+        if (prev.length === 1) return prev;
         return prev.filter((note) => note.id !== noteType);
       } else {
         return [...prev, noteOptions.find((note) => note.id === noteType)!];
