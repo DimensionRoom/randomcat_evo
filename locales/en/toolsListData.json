@@ -50,6 +50,14 @@
         "desc2": "& enhance your product",
         "onlineLink": "/onlinetools/educationandparent/redesign",
         "productLink": ""
+      },
+      "beat_master": {
+        "topic": "Beat Master",
+        "topic2": "Mini Game",
+        "desc": "Music Rhythm Training",
+        "desc2": "with Beat Master",
+        "onlineLink": "/onlinetools/educationandparent/beatmaster",
+        "productLink": ""
       }
     },
     "business": {

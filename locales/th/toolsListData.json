@@ -50,6 +50,14 @@
         "desc2": "ผลิตภัณฑ์ใหม่ๆ จาก Keyword บนการ์ด",
         "onlineLink": "/onlinetools/educationandparent/redesign",
         "productLink": ""
+      },
+      "beat_master": {
+        "topic": "Beat Master",
+        "topic2": "Mini Game",
+        "desc": "ฝึกทักษะด้านจังหวะในดนตรีสากล",
+        "desc2": "ด้วย Beat Master",
+        "onlineLink": "/onlinetools/educationandparent/beatmaster",
+        "productLink": ""
       }
     },
     "business": {
