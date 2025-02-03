@@ -117,15 +117,23 @@ export default function BeatMaster({
 
   const scheduleNote = (time: number) => {
     if (!audioContext.current) return;
-    const oscillator = audioContext.current.createOscillator();
-    const gainNode = audioContext.current.createGain();
-    oscillator.connect(gainNode);
-    gainNode.connect(audioContext.current.destination);
-    oscillator.frequency.value = 440;
-    gainNode.gain.value = 0.1;
-    oscillator.start(time);
-    oscillator.stop(time + 0.1);
-  };
+    
+    // Create two oscillators for woodblock sound
+    const osc1 = audioContext.current.createOscillator();
+    const gain1 = audioContext.current.createGain();
+    
+    osc1.connect(gain1);
+    gain1.connect(audioContext.current.destination);
+    osc1.type = 'square';
+    osc1.frequency.value = 1400;
+    gain1.gain.setValueAtTime(0, time);
+    gain1.gain.linearRampToValueAtTime(0.3, time + 0.001);
+    gain1.gain.exponentialRampToValueAtTime(0.001, time + 0.03);
+  
+    osc1.start(time);
+    osc1.stop(time + 0.03);
+
+   };
 
   const scheduler = () => {
     if (!audioContext.current) return;
@@ -150,10 +158,8 @@ export default function BeatMaster({
   };
 
   const generateNewSequence = (quantity:number) => {
-    console.log("gg");
     if (selectedNotes.length === 0) return;
     const availableNotes = selectedNotes;
-    console.log("availableNotes", availableNotes, selectedNotes);
     setGeneratedNotes(
       Array.from(
         { length: quantity },
@@ -162,6 +168,11 @@ export default function BeatMaster({
       )
     );
   };
+
+  const ChangeNoteQuantity = async (value: number) => {
+    await generateNewSequence(value);
+    await setNoteQuantity(value);
+  }
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -251,7 +262,7 @@ export default function BeatMaster({
               labelPosition="left"
               options={noteQuantityOption}
               defaultValue={noteQuantity}
-              onChange={(value: string) => generateNewSequence(parseInt(value))}
+              onChange={(value: string) => ChangeNoteQuantity(parseInt(value))}
             />
           </div>
           <div className={styles.generatedNotesContainer}>
