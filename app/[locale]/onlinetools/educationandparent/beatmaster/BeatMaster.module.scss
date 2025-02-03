@@ -55,7 +55,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 50px;
+  padding: 20px 100px;
   // animation: scale-in-hor-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -63,7 +63,7 @@
   display: flex;
   justify-content: center;
   .ToolNameText {
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 600;
   }
 }
@@ -76,6 +76,9 @@
   justify-content: center;
   width: 100%;
   gap: 10px;
+  .noteOption{
+    font-size: 1.5em;
+  }
 }
 .generatedNotesContainer {
   display: flex;
@@ -87,7 +90,7 @@
   .noteContainer {
     background-color: var(--primary-color);
     color: #000;
-    width: 60%;
+    width: 100%;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -106,6 +109,7 @@
 }
 .tempoContainer {
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -137,6 +141,7 @@
 @media screen and (max-width: 768px) {
   .randomSection {
     padding: 20px;
+    gap: 10px;
   }
   .ToolName {
     .ToolNameText {
@@ -146,6 +151,9 @@
   .noteOptionsContainer {
     gap: 5px;
     font-size: 0.8em;
+    .noteOption{
+      font-size: 1.2em;
+    }
   }
   .generatedNotesContainer {
     .noteContainer {

@@ -27,7 +27,7 @@ export default function TempoControl({
         <input
           type="range"
           min="40"
-          max="240"
+          max="200"
           step="1"
           value={tempo}
           onChange={(e) => setTempo(Number(e.target.value))}

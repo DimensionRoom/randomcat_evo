@@ -223,6 +223,7 @@ export default function BeatMaster({
             {noteOptions.map((note) => (
               <ToggleBtn
                 key={note.id}
+                className={styles.noteOption}
                 locale={locale}
                 pressed={selectedNotes.some(
                   (selectedNote) => selectedNote.id === note.id
