@@ -10,6 +10,7 @@ import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import ToggleBtn from "@/components/Button/ToggleBtn/toggleBtn";
 import TempoControl from "@/components/TempoControl/TempoControl";
+import CustomSelect from "@/components/Select/CustomSelect/CustomSelect";
 import musicLoad from "@/public/json/musicLoading.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import styles from "./BeatMaster.module.scss";
@@ -46,6 +47,17 @@ interface NoteOption {
   id: NoteType;
   symbol: string;
 }
+
+const noteQuantityOption = [
+  { value: '1', label: '1' },
+  { value: '2', label: '2' },
+  { value: '3', label: '3' },
+  { value: '4', label: '4' },
+  { value: '5', label: '5' },
+  { value: '6', label: '6' },
+  { value: '7', label: '7' },
+  { value: '8', label: '8' },
+];
 
 export default function BeatMaster({
   params: { locale },
@@ -85,6 +97,7 @@ export default function BeatMaster({
   ]);
   const [selectedNotes, setSelectedNotes] = useState<NoteOption[]>(noteOptions);
   const [generatedNotes, setGeneratedNotes] = useState<NoteType[]>([]);
+  const [noteQuantity, setNoteQuantity] = useState<number>(8);
   const [tempo, setTempo] = useState(120);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioContext = useRef<AudioContext | null>(null);
@@ -136,14 +149,14 @@ export default function BeatMaster({
     }
   };
 
-  const generateNewSequence = () => {
+  const generateNewSequence = (quantity:number) => {
     console.log("gg");
     if (selectedNotes.length === 0) return;
     const availableNotes = selectedNotes;
     console.log("availableNotes", availableNotes, selectedNotes);
     setGeneratedNotes(
       Array.from(
-        { length: 8 },
+        { length: quantity },
         () =>
           availableNotes[Math.floor(Math.random() * availableNotes.length)].id
       )
@@ -160,7 +173,7 @@ export default function BeatMaster({
       }, 1000);
     }
     fetchTranslations();
-    generateNewSequence();
+    generateNewSequence(noteQuantity);
     audioContext.current = new AudioContext();
     return () => {
       audioContext.current?.close();
@@ -233,6 +246,13 @@ export default function BeatMaster({
                 <span className="mr-2">{t(`note.${note.symbol}`)}</span>
               </ToggleBtn>
             ))}
+            <CustomSelect
+              label="Note: "
+              labelPosition="left"
+              options={noteQuantityOption}
+              defaultValue={noteQuantity}
+              onChange={(value: string) => generateNewSequence(parseInt(value))}
+            />
           </div>
           <div className={styles.generatedNotesContainer}>
             <div className={styles.noteContainer}>
@@ -256,15 +276,15 @@ export default function BeatMaster({
             </div>
           </div>
           <div className={styles.tempoContainer}>
-              <TempoControl
-                tempo={tempo}
-                setTempo={setTempo}
-                togglePlay={togglePlay}
-                isPlaying={isPlaying}
-              />
+            <TempoControl
+              tempo={tempo}
+              setTempo={setTempo}
+              togglePlay={togglePlay}
+              isPlaying={isPlaying}
+            />
             <FlatBtn
               className={styles.generateBtn}
-              onClick={() => generateNewSequence()}
+              onClick={() => generateNewSequence(noteQuantity)}
               text="สุ่ม"
               icon={<SiteLogo />}
             />
