@@ -1,0 +1,1210 @@
+{
+    "Category": {
+      "title": "Public Speaking",
+      "subTitle": "",
+      "key": "Public Speaking",
+      "data": [
+        {
+          "en": "Amusement Park",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "สวนสนุก",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Thai Cuisine",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "อาหารไทย",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        },
+        {
+          "en": "Beach",
+          "content_en": "Relaxation, water activities, beach safety, sunsets, marine life, beach conservation",
+          "th": "ทะเล",
+          "content_th": "การผ่อนคลาย, กิจกรรมทางน้ำ, ความปลอดภัยที่ชายหาด, พระอาทิตย์ตก, สิ่งมีชีวิตทางทะเล, การอนุรักษ์ชายหาด"
+        },
+        {
+          "en": "Beauty",
+          "content_en": "Definition of beauty, cultural perceptions, skincare tips, self-confidence, beauty products",
+          "th": "ความงาม",
+          "content_th": "ความหมายของความงาม, การรับรู้ทางวัฒนธรรม, เคล็ดลับการดูแลผิว, ความมั่นใจในตนเอง, ผลิตภัณฑ์ความงาม"
+        },
+        {
+          "en": "Hot Air Balloon",
+          "content_en": "History of hot air balloons, experience of flying, safety tips, festivals, scenic views",
+          "th": "บอลลูน",
+          "content_th": "ประวัติศาสตร์ของบอลลูน, ประสบการณ์การบิน, เคล็ดลับความปลอดภัย, เทศกาล, ทิวทัศน์ที่สวยงาม"
+        },
+        {
+          "en": "Mountains",
+          "content_en": "Adventure, breathtaking views, physical challenge, weather conditions, flora and fauna",
+          "th": "ภูเขา",
+          "content_th": "การผจญภัย, ทิวทัศน์ที่สวยงาม, ความท้าทายทางกาย, สภาพอากาศ, พืชและสัตว์"
+        },
+        {
+          "en": "Camping",
+          "content_en": "Setting up tents, campfire stories, survival skills, bonding with nature, stargazing",
+          "th": "ตั้งแคมป์",
+          "content_th": "การตั้งแคมป์, เรื่องเล่ารอบกองไฟ, ทักษะการเอาตัวรอด, การเชื่อมต่อกับธรรมชาติ, การดูดาว"
+        },
+        {
+          "en": "Space Exploration",
+          "content_en": "Human exploration, space technology, unknown universe, scientific discovery, astronaut life",
+          "th": "การสำรวจอวกาศ",
+          "content_th": "การสำรวจอวกาศ, เทคโนโลยีอวกาศ, จักรวาลที่ไม่รู้จัก, การค้นพบทางวิทยาศาสตร์, ชีวิตของนักบินอวกาศ"
+        },
+        {
+          "en": "Art and Culture",
+          "content_en": "Appreciation for art, cultural diversity, artistic expressions, community engagement, inspiration",
+          "th": "ศิลปะและวัฒนธรรม",
+          "content_th": "การชื่นชมศิลปะ, ความหลากหลายทางวัฒนธรรม, การแสดงออกทางศิลปะ, การมีส่วนร่วมของชุมชน, แรงบันดาลใจ"
+        },
+        {
+          "en": "Meditation",
+          "content_en": "Importance of meditation, techniques, mental clarity, stress relief, positive mindset",
+          "th": "การทำสมาธิ",
+          "content_th": "ความสำคัญของการทำสมาธิ, เทคนิคการทำสมาธิ, ความชัดเจนทางจิตใจ, การบรรเทาความเครียด, จิตใจที่เป็นบวก"
+        },
+        {
+          "en": "Fashion Trends",
+          "content_en": "Fashion evolution, seasonal trends, self-expression, sustainability in fashion, style tips",
+          "th": "แนวโน้มแฟชั่น",
+          "content_th": "การเปลี่ยนแปลงแฟชั่น, แนวโน้มตามฤดูกาล, การแสดงออกทางตนเอง, ความยั่งยืนในแฟชั่น, เคล็ดลับสไตล์"
+        },
+        {
+          "en": "Global Warming",
+          "content_en": "Causes and effects, global impact, carbon footprint, reduction strategies, role of individuals",
+          "th": "ภาวะโลกร้อน",
+          "content_th": "สาเหตุและผลกระทบ, ผลกระทบทั่วโลก, รอยเท้าคาร์บอน, กลยุทธ์การลด, บทบาทของบุคคล"
+        },
+        {
+          "en": "Renewable Energy",
+          "content_en": "Types of renewable energy, solar, wind, benefits, future potential, environment",
+          "th": "พลังงานหมุนเวียน",
+          "content_th": "ประเภทของพลังงานทดแทน, พลังงานแสงอาทิตย์, พลังงานลม, ประโยชน์, ศักยภาพในอนาคต, สิ่งแวดล้อม"
+        },
+        {
+          "en": "Public Speaking",
+          "content_en": "Overcoming stage fright, connecting with audience, storytelling, voice control, body language",
+          "th": "การพูดในที่สาธารณะ",
+          "content_th": "การเอาชนะความกลัว, การเชื่อมต่อกับผู้ฟัง, การเล่าเรื่อง, การควบคุมเสียง, ภาษากาย"
+        },
+        {
+          "en": "Leadership",
+          "content_en": "Qualities of a leader, decision making, teamwork, motivation, effective communication",
+          "th": "ความเป็นผู้นำ",
+          "content_th": "คุณสมบัติของผู้นำ, การตัดสินใจ, การทำงานเป็นทีม, การกระตุ้น, การสื่อสารที่มีประสิทธิภาพ"
+        },
+        {
+          "en": "Entrepreneurship",
+          "content_en": "Business innovation, risk-taking, resilience, success stories, economic impact",
+          "th": "การเป็นผู้ประกอบการ",
+          "content_th": "นวัตกรรมทางธุรกิจ, การเสี่ยง, ความยืดหยุ่น, เรื่องราวความสำเร็จ, ผลกระทบทางเศรษฐกิจ"
+        },
+        {
+          "en": "Digital Transformation",
+          "content_en": "Transition to digital, new technologies, challenges, benefits, skill development",
+          "th": "การเปลี่ยนแปลงทางดิจิทัล",
+          "content_th": "การเปลี่ยนแปลงสู่ดิจิทัล, เทคโนโลยีใหม่, ความท้าทาย, ประโยชน์, การพัฒนาทักษะ"
+        },
+        {
+          "en": "Artificial Intelligence",
+          "content_en": "AI advancements, potential, ethical implications, impact on jobs, future applications",
+          "th": "ปัญญาประดิษฐ์",
+          "content_th": "ความก้าวหน้าของ AI, ศักยภาพ, ผลกระทบทางจริยธรรม, ผลกระทบต่อการทำงาน, การใช้งานในอนาคต"
+        },
+        {
+          "en": "Climate Change",
+          "content_en": "Weather patterns, global impact, prevention strategies, role of individuals, government policies",
+          "th": "การเปลี่ยนแปลงสภาพภูมิอากาศ",
+          "content_th": "รูปแบบอากาศ, ผลกระทบทั่วโลก, กลยุทธ์การป้องกัน, บทบาทของบุคคล, นโยบายของรัฐบาล"
+        },
+        {
+          "en": "Healthy Living",
+          "content_en": "Healthy lifestyle, exercise, balanced diet, mental health, importance of rest",
+          "th": "การใช้ชีวิตที่ดีต่อสุขภาพ",
+          "content_th": "การใช้ชีวิตที่ดีต่อสุขภาพ, การออกกำลังกาย, อาหารที่สมดุล, สุขภาพจิต, ความสำคัญของการพักผ่อน"
+        },
+        {
+          "en": "Sustainable Living",
+          "content_en": "Eco-friendly habits, reducing waste, sustainable products, impact on future generations",
+          "th": "การใช้ชีวิตอย่างยั่งยืน",
+          "content_th": "นิสัยที่เป็นมิตรกับสิ่งแวดล้อม, การลดขยะ, ผลิตภัณฑ์ที่ยั่งยืน, ผลกระทบต่ออนาคต"
+        },
+        {
+          "en": "History",
+          "content_en": "Historical events, famous figures, learning from the past, cultural heritage, lessons",
+          "th": "ประวัติศาสตร์",
+          "content_th": "เหตุการณ์ในประวัติศาสตร์, บุคคลที่มีชื่อเสียง, การเรียนรู้จากอดีต, มรดกทางวัฒนธรรม"
+        },
+        {
+          "en": "Architecture",
+          "content_en": "Types of architecture, famous structures, architectural styles, design inspiration",
+          "th": "สถาปัตยกรรม",
+          "content_th": "ประเภทสถาปัตยกรรม, โครงสร้างที่มีชื่อเสียง, รูปแบบสถาปัตยกรรม, แรงบันดาลใจในการออกแบบ"
+        },
+        {
+          "en": "Music",
+          "content_en": "Genres of music, famous artists, cultural impact, emotional expression, musical evolution",
+          "th": "ดนตรี",
+          "content_th": "แนวดนตรี, ศิลปินที่มีชื่อเสียง, ผลกระทบทางวัฒนธรรม, การแสดงออกทางอารมณ์, พัฒนาการของดนตรี"
+        },
+        {
+          "en": "Education",
+          "content_en": "Importance of education, lifelong learning, skill development, future of education",
+          "th": "การศึกษา",
+          "content_th": "ความสำคัญของการศึกษา, การเรียนรู้ตลอดชีวิต, การพัฒนาทักษะ, อนาคตของการศึกษา"
+        },
+        {
+          "en": "Social Media",
+          "content_en": "Positive and negative impacts, influencer culture, responsible use, trends, connectivity",
+          "th": "โซเชียลมีเดีย",
+          "content_th": "ผลกระทบทางบวกและลบ, วัฒนธรรมอินฟลูเอนเซอร์, การใช้งานที่รับผิดชอบ, แนวโน้ม, การเชื่อมต่อ"
+        },
+        {
+          "en": "Photography",
+          "content_en": "Capturing moments, photography tips, types of photography, storytelling, editing tools",
+          "th": "การถ่ายภาพ",
+          "content_th": "การจับภาพช่วงเวลา, เคล็ดลับการถ่ายภาพ, ประเภทการถ่ายภาพ, การเล่าเรื่อง, เครื่องมือการแก้ไข"
+        },
+        {
+          "en": "Dance",
+          "content_en": "Dance as art, cultural dance forms, benefits, famous dancers, dance therapy",
+          "th": "การเต้นรำ",
+          "content_th": "การเต้นรำในฐานะศิลปะ, การเต้นรำในวัฒนธรรม, ประโยชน์, นักเต้นที่มีชื่อเสียง, การบำบัดด้วยการเต้นรำ"
+        },
+        {
+          "en": "Gardening",
+          "content_en": "Gardening benefits, plant care, landscaping, organic farming, sustainable gardening",
+          "th": "การทำสวน",
+          "content_th": "ประโยชน์ของการทำสวน, การดูแลพืช, การจัดสวน, การทำฟาร์มอินทรีย์, การทำสวนอย่างยั่งยืน"
+        },
+        {
+          "en": "Cooking",
+          "content_en": "Culinary arts, cooking techniques, healthy recipes, food cultures, cooking as therapy",
+          "th": "การทำอาหาร",
+          "content_th": "ศิลปะการทำอาหาร, เทคนิคการทำอาหาร, สูตรอาหารเพื่อสุขภาพ, วัฒนธรรมอาหาร, การทำอาหารเป็นการบำบัด"
+        },
+        {
+          "en": "Travel",
+          "content_en": "Exploring new places, cultural experiences, travel planning, safety tips, adventure",
+          "th": "การเดินทาง",
+          "content_th": "การสำรวจสถานที่ใหม่ๆ, ประสบการณ์ทางวัฒนธรรม, การวางแผนการเดินทาง, เคล็ดลับความปลอดภัย, การผจญภัย"
+        },
+        {
+          "en": "Language Learning",
+          "content_en": "Benefits of multilingualism, language acquisition, cognitive benefits, cultural exposure",
+          "th": "การเรียนรู้ภาษา",
+          "content_th": "ประโยชน์ของการเรียนรู้หลายภาษา, การเรียนรู้ภาษา, ประโยชน์ทางสติปัญญา, การเปิดเผยวัฒนธรรม"
+        },
+        {
+          "en": "Volunteering",
+          "content_en": "Giving back, helping communities, personal growth, networking, meaningful impact",
+          "th": "การเป็นอาสาสมัคร",
+          "content_th": "การให้กลับ, การช่วยเหลือชุมชน, การเติบโตส่วนบุคคล, การสร้างเครือข่าย, ผลกระทบที่มีความหมาย"
+        },
+        {
+          "en": "Sports",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "กีฬา",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Literature",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "วรรณกรรม",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        },
+        {
+          "en": "Wildlife",
+          "content_en": "Relaxation, water activities, beach safety, sunsets, marine life, beach conservation",
+          "th": "สัตว์ป่า",
+          "content_th": "การผ่อนคลาย, กิจกรรมทางน้ำ, ความปลอดภัยที่ชายหาด, พระอาทิตย์ตก, สิ่งมีชีวิตทางทะเล, การอนุรักษ์ชายหาด"
+        },
+        {
+          "en": "Mindfulness",
+          "content_en": "Definition of beauty, cultural perceptions, skincare tips, self-confidence, beauty products",
+          "th": "การมีสติ",
+          "content_th": "ความหมายของความงาม, การรับรู้ทางวัฒนธรรม, เคล็ดลับการดูแลผิว, ความมั่นใจในตนเอง, ผลิตภัณฑ์ความงาม"
+        },
+        {
+          "en": "Career Development",
+          "content_en": "History of hot air balloons, experience of flying, safety tips, festivals, scenic views",
+          "th": "การพัฒนาอาชีพ",
+          "content_th": "ประวัติศาสตร์ของบอลลูน, ประสบการณ์การบิน, เคล็ดลับความปลอดภัย, เทศกาล, ทิวทัศน์ที่สวยงาม"
+        },
+        {
+          "en": "Time Management",
+          "content_en": "Adventure, breathtaking views, physical challenge, weather conditions, flora and fauna",
+          "th": "การจัดการเวลา",
+          "content_th": "การผจญภัย, ทิวทัศน์ที่สวยงาม, ความท้าทายทางกาย, สภาพอากาศ, พืชและสัตว์"
+        },
+        {
+          "en": "Cybersecurity",
+          "content_en": "Setting up tents, campfire stories, survival skills, bonding with nature, stargazing",
+          "th": "ความปลอดภัยทางไซเบอร์",
+          "content_th": "การตั้งแคมป์, เรื่องเล่ารอบกองไฟ, ทักษะการเอาตัวรอด, การเชื่อมต่อกับธรรมชาติ, การดูดาว"
+        },
+        {
+          "en": "Networking",
+          "content_en": "Human exploration, space technology, unknown universe, scientific discovery, astronaut life",
+          "th": "การสร้างเครือข่าย",
+          "content_th": "การสำรวจอวกาศ, เทคโนโลยีอวกาศ, จักรวาลที่ไม่รู้จัก, การค้นพบทางวิทยาศาสตร์, ชีวิตของนักบินอวกาศ"
+        },
+        {
+          "en": "Friendship",
+          "content_en": "Appreciation for art, cultural diversity, artistic expressions, community engagement, inspiration",
+          "th": "มิตรภาพ",
+          "content_th": "การชื่นชมศิลปะ, ความหลากหลายทางวัฒนธรรม, การแสดงออกทางศิลปะ, การมีส่วนร่วมของชุมชน, แรงบันดาลใจ"
+        },
+        {
+          "en": "Family",
+          "content_en": "Importance of meditation, techniques, mental clarity, stress relief, positive mindset",
+          "th": "ครอบครัว",
+          "content_th": "ความสำคัญของการทำสมาธิ, เทคนิคการทำสมาธิ, ความชัดเจนทางจิตใจ, การบรรเทาความเครียด, จิตใจที่เป็นบวก"
+        },
+        {
+          "en": "Self-Improvement",
+          "content_en": "Fashion evolution, seasonal trends, self-expression, sustainability in fashion, style tips",
+          "th": "การพัฒนาตนเอง",
+          "content_th": "การเปลี่ยนแปลงแฟชั่น, แนวโน้มตามฤดูกาล, การแสดงออกทางตนเอง, ความยั่งยืนในแฟชั่น, เคล็ดลับสไตล์"
+        },
+        {
+          "en": "Hiking",
+          "content_en": "Causes and effects, global impact, carbon footprint, reduction strategies, role of individuals",
+          "th": "เดินป่า",
+          "content_th": "สาเหตุและผลกระทบ, ผลกระทบทั่วโลก, รอยเท้าคาร์บอน, กลยุทธ์การลด, บทบาทของบุคคล"
+        },
+        {
+          "en": "Financial Literacy",
+          "content_en": "Types of renewable energy, solar, wind, benefits, future potential, environment",
+          "th": "การรู้การเงิน",
+          "content_th": "ประเภทของพลังงานทดแทน, พลังงานแสงอาทิตย์, พลังงานลม, ประโยชน์, ศักยภาพในอนาคต, สิ่งแวดล้อม"
+        },
+        {
+          "en": "Minimalism",
+          "content_en": "Overcoming stage fright, connecting with audience, storytelling, voice control, body language",
+          "th": "มินิมอล",
+          "content_th": "การเอาชนะความกลัว, การเชื่อมต่อกับผู้ฟัง, การเล่าเรื่อง, การควบคุมเสียง, ภาษากาย"
+        },
+        {
+          "en": "Home Decor",
+          "content_en": "Qualities of a leader, decision making, teamwork, motivation, effective communication",
+          "th": "ตกแต่งบ้าน",
+          "content_th": "คุณสมบัติของผู้นำ, การตัดสินใจ, การทำงานเป็นทีม, การกระตุ้น, การสื่อสารที่มีประสิทธิภาพ"
+        },
+        {
+          "en": "Pet Care",
+          "content_en": "Business innovation, risk-taking, resilience, success stories, economic impact",
+          "th": "การดูแลสัตว์เลี้ยง",
+          "content_th": "นวัตกรรมทางธุรกิจ, การเสี่ยง, ความยืดหยุ่น, เรื่องราวความสำเร็จ, ผลกระทบทางเศรษฐกิจ"
+        },
+        {
+          "en": "Personal Branding",
+          "content_en": "Transition to digital, new technologies, challenges, benefits, skill development",
+          "th": "การสร้างแบรนด์ส่วนบุคคล",
+          "content_th": "การเปลี่ยนแปลงสู่ดิจิทัล, เทคโนโลยีใหม่, ความท้าทาย, ประโยชน์, การพัฒนาทักษะ"
+        },
+        {
+          "en": "Coding",
+          "content_en": "AI advancements, potential, ethical implications, impact on jobs, future applications",
+          "th": "การเขียนโค้ด",
+          "content_th": "ความก้าวหน้าของ AI, ศักยภาพ, ผลกระทบทางจริยธรรม, ผลกระทบต่อการทำงาน, การใช้งานในอนาคต"
+        },
+        {
+          "en": "Gaming",
+          "content_en": "Weather patterns, global impact, prevention strategies, role of individuals, government policies",
+          "th": "การเล่นเกม",
+          "content_th": "รูปแบบอากาศ, ผลกระทบทั่วโลก, กลยุทธ์การป้องกัน, บทบาทของบุคคล, นโยบายของรัฐบาล"
+        },
+        {
+          "en": "Storytelling",
+          "content_en": "Healthy lifestyle, exercise, balanced diet, mental health, importance of rest",
+          "th": "การเล่าเรื่อง",
+          "content_th": "การใช้ชีวิตที่ดีต่อสุขภาพ, การออกกำลังกาย, อาหารที่สมดุล, สุขภาพจิต, ความสำคัญของการพักผ่อน"
+        },
+        {
+          "en": "Space",
+          "content_en": "Eco-friendly habits, reducing waste, sustainable products, impact on future generations",
+          "th": "อวกาศ",
+          "content_th": "นิสัยที่เป็นมิตรกับสิ่งแวดล้อม, การลดขยะ, ผลิตภัณฑ์ที่ยั่งยืน, ผลกระทบต่ออนาคต"
+        },
+        {
+          "en": "Robotics",
+          "content_en": "Historical events, famous figures, learning from the past, cultural heritage, lessons",
+          "th": "หุ่นยนต์",
+          "content_th": "เหตุการณ์ในประวัติศาสตร์, บุคคลที่มีชื่อเสียง, การเรียนรู้จากอดีต, มรดกทางวัฒนธรรม"
+        },
+        {
+          "en": "Movies",
+          "content_en": "Types of architecture, famous structures, architectural styles, design inspiration",
+          "th": "ภาพยนตร์",
+          "content_th": "ประเภทสถาปัตยกรรม, โครงสร้างที่มีชื่อเสียง, รูปแบบสถาปัตยกรรม, แรงบันดาลใจในการออกแบบ"
+        },
+        {
+          "en": "Documentaries",
+          "content_en": "Genres of music, famous artists, cultural impact, emotional expression, musical evolution",
+          "th": "สารคดี",
+          "content_th": "แนวดนตรี, ศิลปินที่มีชื่อเสียง, ผลกระทบทางวัฒนธรรม, การแสดงออกทางอารมณ์, พัฒนาการของดนตรี"
+        },
+        {
+          "en": "Virtual Reality",
+          "content_en": "Importance of education, lifelong learning, skill development, future of education",
+          "th": "ความจริงเสมือน",
+          "content_th": "ความสำคัญของการศึกษา, การเรียนรู้ตลอดชีวิต, การพัฒนาทักษะ, อนาคตของการศึกษา"
+        },
+        {
+          "en": "Augmented Reality",
+          "content_en": "Positive and negative impacts, influencer culture, responsible use, trends, connectivity",
+          "th": "ความเป็นจริงเสริม",
+          "content_th": "ผลกระทบทางบวกและลบ, วัฒนธรรมอินฟลูเอนเซอร์, การใช้งานที่รับผิดชอบ, แนวโน้ม, การเชื่อมต่อ"
+        },
+        {
+          "en": "Graphic Design",
+          "content_en": "Capturing moments, photography tips, types of photography, storytelling, editing tools",
+          "th": "การออกแบบกราฟิก",
+          "content_th": "การจับภาพช่วงเวลา, เคล็ดลับการถ่ายภาพ, ประเภทการถ่ายภาพ, การเล่าเรื่อง, เครื่องมือการแก้ไข"
+        },
+        {
+          "en": "Painting",
+          "content_en": "Dance as art, cultural dance forms, benefits, famous dancers, dance therapy",
+          "th": "การวาดภาพ",
+          "content_th": "การเต้นรำในฐานะศิลปะ, การเต้นรำในวัฒนธรรม, ประโยชน์, นักเต้นที่มีชื่อเสียง, การบำบัดด้วยการเต้นรำ"
+        },
+        {
+          "en": "Public Health",
+          "content_en": "Gardening benefits, plant care, landscaping, organic farming, sustainable gardening",
+          "th": "สาธารณสุข",
+          "content_th": "ประโยชน์ของการทำสวน, การดูแลพืช, การจัดสวน, การทำฟาร์มอินทรีย์, การทำสวนอย่างยั่งยืน"
+        },
+        {
+          "en": "Nutrition",
+          "content_en": "Culinary arts, cooking techniques, healthy recipes, food cultures, cooking as therapy",
+          "th": "โภชนาการ",
+          "content_th": "ศิลปะการทำอาหาร, เทคนิคการทำอาหาร, สูตรอาหารเพื่อสุขภาพ, วัฒนธรรมอาหาร, การทำอาหารเป็นการบำบัด"
+        },
+        {
+          "en": "Yoga",
+          "content_en": "Exploring new places, cultural experiences, travel planning, safety tips, adventure",
+          "th": "โยคะ",
+          "content_th": "การสำรวจสถานที่ใหม่ๆ, ประสบการณ์ทางวัฒนธรรม, การวางแผนการเดินทาง, เคล็ดลับความปลอดภัย, การผจญภัย"
+        },
+        {
+          "en": "Mindset",
+          "content_en": "Benefits of multilingualism, language acquisition, cognitive benefits, cultural exposure",
+          "th": "ความคิด",
+          "content_th": "ประโยชน์ของการเรียนรู้หลายภาษา, การเรียนรู้ภาษา, ประโยชน์ทางสติปัญญา, การเปิดเผยวัฒนธรรม"
+        },
+        {
+          "en": "Motivation",
+          "content_en": "Giving back, helping communities, personal growth, networking, meaningful impact",
+          "th": "แรงบันดาลใจ",
+          "content_th": "การให้กลับ, การช่วยเหลือชุมชน, การเติบโตส่วนบุคคล, การสร้างเครือข่าย, ผลกระทบที่มีความหมาย"
+        },
+        {
+          "en": "Inspiration",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "กำลังใจ",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Work-Life Balance",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "ความสมดุลในชีวิตการทำงาน",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        },
+        {
+          "en": "Environmental Protection",
+          "content_en": "Relaxation, water activities, beach safety, sunsets, marine life, beach conservation",
+          "th": "การปกป้องสิ่งแวดล้อม",
+          "content_th": "การผ่อนคลาย, กิจกรรมทางน้ำ, ความปลอดภัยที่ชายหาด, พระอาทิตย์ตก, สิ่งมีชีวิตทางทะเล, การอนุรักษ์ชายหาด"
+        },
+        {
+          "en": "Community",
+          "content_en": "Definition of beauty, cultural perceptions, skincare tips, self-confidence, beauty products",
+          "th": "ชุมชน",
+          "content_th": "ความหมายของความงาม, การรับรู้ทางวัฒนธรรม, เคล็ดลับการดูแลผิว, ความมั่นใจในตนเอง, ผลิตภัณฑ์ความงาม"
+        },
+        {
+          "en": "Mental Health",
+          "content_en": "History of hot air balloons, experience of flying, safety tips, festivals, scenic views",
+          "th": "สุขภาพจิต",
+          "content_th": "ประวัติศาสตร์ของบอลลูน, ประสบการณ์การบิน, เคล็ดลับความปลอดภัย, เทศกาล, ทิวทัศน์ที่สวยงาม"
+        },
+        {
+          "en": "Self-Care",
+          "content_en": "Adventure, breathtaking views, physical challenge, weather conditions, flora and fauna",
+          "th": "การดูแลตนเอง",
+          "content_th": "การผจญภัย, ทิวทัศน์ที่สวยงาม, ความท้าทายทางกาย, สภาพอากาศ, พืชและสัตว์"
+        },
+        {
+          "en": "Empathy",
+          "content_en": "Setting up tents, campfire stories, survival skills, bonding with nature, stargazing",
+          "th": "ความเห็นอกเห็นใจ",
+          "content_th": "การตั้งแคมป์, เรื่องเล่ารอบกองไฟ, ทักษะการเอาตัวรอด, การเชื่อมต่อกับธรรมชาติ, การดูดาว"
+        },
+        {
+          "en": "Creativity",
+          "content_en": "Human exploration, space technology, unknown universe, scientific discovery, astronaut life",
+          "th": "ความคิดสร้างสรรค์",
+          "content_th": "การสำรวจอวกาศ, เทคโนโลยีอวกาศ, จักรวาลที่ไม่รู้จัก, การค้นพบทางวิทยาศาสตร์, ชีวิตของนักบินอวกาศ"
+        },
+        {
+          "en": "Productivity",
+          "content_en": "Appreciation for art, cultural diversity, artistic expressions, community engagement, inspiration",
+          "th": "ประสิทธิภาพ",
+          "content_th": "การชื่นชมศิลปะ, ความหลากหลายทางวัฒนธรรม, การแสดงออกทางศิลปะ, การมีส่วนร่วมของชุมชน, แรงบันดาลใจ"
+        },
+        {
+          "en": "Innovation",
+          "content_en": "Importance of meditation, techniques, mental clarity, stress relief, positive mindset",
+          "th": "นวัตกรรม",
+          "content_th": "ความสำคัญของการทำสมาธิ, เทคนิคการทำสมาธิ, ความชัดเจนทางจิตใจ, การบรรเทาความเครียด, จิตใจที่เป็นบวก"
+        },
+        {
+          "en": "Parenting",
+          "content_en": "Fashion evolution, seasonal trends, self-expression, sustainability in fashion, style tips",
+          "th": "การเลี้ยงลูก",
+          "content_th": "การเปลี่ยนแปลงแฟชั่น, แนวโน้มตามฤดูกาล, การแสดงออกทางตนเอง, ความยั่งยืนในแฟชั่น, เคล็ดลับสไตล์"
+        },
+        {
+          "en": "Digital Privacy",
+          "content_en": "Causes and effects, global impact, carbon footprint, reduction strategies, role of individuals",
+          "th": "ความเป็นส่วนตัวในโลกดิจิทัล",
+          "content_th": "สาเหตุและผลกระทบ, ผลกระทบทั่วโลก, รอยเท้าคาร์บอน, กลยุทธ์การลด, บทบาทของบุคคล"
+        },
+        {
+          "en": "E-commerce",
+          "content_en": "Types of renewable energy, solar, wind, benefits, future potential, environment",
+          "th": "อีคอมเมิร์ซ",
+          "content_th": "ประเภทของพลังงานทดแทน, พลังงานแสงอาทิตย์, พลังงานลม, ประโยชน์, ศักยภาพในอนาคต, สิ่งแวดล้อม"
+        },
+        {
+          "en": "Communication Skills",
+          "content_en": "Overcoming stage fright, connecting with audience, storytelling, voice control, body language",
+          "th": "ทักษะการสื่อสาร",
+          "content_th": "การเอาชนะความกลัว, การเชื่อมต่อกับผู้ฟัง, การเล่าเรื่อง, การควบคุมเสียง, ภาษากาย"
+        },
+        {
+          "en": "Emotional Intelligence",
+          "content_en": "Qualities of a leader, decision making, teamwork, motivation, effective communication",
+          "th": "ความฉลาดทางอารมณ์",
+          "content_th": "คุณสมบัติของผู้นำ, การตัดสินใจ, การทำงานเป็นทีม, การกระตุ้น, การสื่อสารที่มีประสิทธิภาพ"
+        },
+        {
+          "en": "Resilience",
+          "content_en": "Business innovation, risk-taking, resilience, success stories, economic impact",
+          "th": "ความยืดหยุ่น",
+          "content_th": "นวัตกรรมทางธุรกิจ, การเสี่ยง, ความยืดหยุ่น, เรื่องราวความสำเร็จ, ผลกระทบทางเศรษฐกิจ"
+        },
+        {
+          "en": "Goal Setting",
+          "content_en": "Transition to digital, new technologies, challenges, benefits, skill development",
+          "th": "การตั้งเป้าหมาย",
+          "content_th": "การเปลี่ยนแปลงสู่ดิจิทัล, เทคโนโลยีใหม่, ความท้าทาย, ประโยชน์, การพัฒนาทักษะ"
+        },
+        {
+          "en": "Teamwork",
+          "content_en": "AI advancements, potential, ethical implications, impact on jobs, future applications",
+          "th": "การทำงานเป็นทีม",
+          "content_th": "ความก้าวหน้าของ AI, ศักยภาพ, ผลกระทบทางจริยธรรม, ผลกระทบต่อการทำงาน, การใช้งานในอนาคต"
+        },
+        {
+          "en": "Conflict Resolution",
+          "content_en": "Weather patterns, global impact, prevention strategies, role of individuals, government policies",
+          "th": "การแก้ไขข้อขัดแย้ง",
+          "content_th": "รูปแบบอากาศ, ผลกระทบทั่วโลก, กลยุทธ์การป้องกัน, บทบาทของบุคคล, นโยบายของรัฐบาล"
+        },
+        {
+          "en": "Public Transport",
+          "content_en": "Healthy lifestyle, exercise, balanced diet, mental health, importance of rest",
+          "th": "ขนส่งสาธารณะ",
+          "content_th": "การใช้ชีวิตที่ดีต่อสุขภาพ, การออกกำลังกาย, อาหารที่สมดุล, สุขภาพจิต, ความสำคัญของการพักผ่อน"
+        },
+        {
+          "en": "Green Energy",
+          "content_en": "Eco-friendly habits, reducing waste, sustainable products, impact on future generations",
+          "th": "พลังงานสีเขียว",
+          "content_th": "นิสัยที่เป็นมิตรกับสิ่งแวดล้อม, การลดขยะ, ผลิตภัณฑ์ที่ยั่งยืน, ผลกระทบต่ออนาคต"
+        },
+        {
+          "en": "Ethics",
+          "content_en": "Historical events, famous figures, learning from the past, cultural heritage, lessons",
+          "th": "จริยธรรม",
+          "content_th": "เหตุการณ์ในประวัติศาสตร์, บุคคลที่มีชื่อเสียง, การเรียนรู้จากอดีต, มรดกทางวัฒนธรรม"
+        },
+        {
+          "en": "Artificial Intelligence in Education",
+          "content_en": "Types of architecture, famous structures, architectural styles, design inspiration",
+          "th": "ปัญญาประดิษฐ์ในการศึกษา",
+          "content_th": "ประเภทสถาปัตยกรรม, โครงสร้างที่มีชื่อเสียง, รูปแบบสถาปัตยกรรม, แรงบันดาลใจในการออกแบบ"
+        },
+        {
+          "en": "Social Justice",
+          "content_en": "Genres of music, famous artists, cultural impact, emotional expression, musical evolution",
+          "th": "ความยุติธรรมทางสังคม",
+          "content_th": "แนวดนตรี, ศิลปินที่มีชื่อเสียง, ผลกระทบทางวัฒนธรรม, การแสดงออกทางอารมณ์, พัฒนาการของดนตรี"
+        },
+        {
+          "en": "Diversity and Inclusion",
+          "content_en": "Importance of education, lifelong learning, skill development, future of education",
+          "th": "ความหลากหลายและการยอมรับ",
+          "content_th": "ความสำคัญของการศึกษา, การเรียนรู้ตลอดชีวิต, การพัฒนาทักษะ, อนาคตของการศึกษา"
+        },
+        {
+          "en": "Ecosystems",
+          "content_en": "Positive and negative impacts, influencer culture, responsible use, trends, connectivity",
+          "th": "ระบบนิเวศ",
+          "content_th": "ผลกระทบทางบวกและลบ, วัฒนธรรมอินฟลูเอนเซอร์, การใช้งานที่รับผิดชอบ, แนวโน้ม, การเชื่อมต่อ"
+        },
+        {
+          "en": "Marine Biology",
+          "content_en": "Capturing moments, photography tips, types of photography, storytelling, editing tools",
+          "th": "ชีววิทยาทางทะเล",
+          "content_th": "การจับภาพช่วงเวลา, เคล็ดลับการถ่ายภาพ, ประเภทการถ่ายภาพ, การเล่าเรื่อง, เครื่องมือการแก้ไข"
+        },
+        {
+          "en": "Digital Literacy",
+          "content_en": "Dance as art, cultural dance forms, benefits, famous dancers, dance therapy",
+          "th": "ความรู้ดิจิทัล",
+          "content_th": "การเต้นรำในฐานะศิลปะ, การเต้นรำในวัฒนธรรม, ประโยชน์, นักเต้นที่มีชื่อเสียง, การบำบัดด้วยการเต้นรำ"
+        },
+        {
+          "en": "Cultural Awareness",
+          "content_en": "Gardening benefits, plant care, landscaping, organic farming, sustainable gardening",
+          "th": "ความตระหนักรู้ทางวัฒนธรรม",
+          "content_th": "ประโยชน์ของการทำสวน, การดูแลพืช, การจัดสวน, การทำฟาร์มอินทรีย์, การทำสวนอย่างยั่งยืน"
+        },
+        {
+          "en": "Human Rights",
+          "content_en": "Culinary arts, cooking techniques, healthy recipes, food cultures, cooking as therapy",
+          "th": "สิทธิมนุษยชน",
+          "content_th": "ศิลปะการทำอาหาร, เทคนิคการทำอาหาร, สูตรอาหารเพื่อสุขภาพ, วัฒนธรรมอาหาร, การทำอาหารเป็นการบำบัด"
+        },
+        {
+          "en": "Women's Empowerment",
+          "content_en": "Exploring new places, cultural experiences, travel planning, safety tips, adventure",
+          "th": "การเสริมพลังสตรี",
+          "content_th": "การสำรวจสถานที่ใหม่ๆ, ประสบการณ์ทางวัฒนธรรม, การวางแผนการเดินทาง, เคล็ดลับความปลอดภัย, การผจญภัย"
+        },
+        {
+          "en": "Disaster Preparedness",
+          "content_en": "Benefits of multilingualism, language acquisition, cognitive benefits, cultural exposure",
+          "th": "การเตรียมความพร้อมในภาวะภัยพิบัติ",
+          "content_th": "ประโยชน์ของการเรียนรู้หลายภาษา, การเรียนรู้ภาษา, ประโยชน์ทางสติปัญญา, การเปิดเผยวัฒนธรรม"
+        },
+        {
+          "en": "Philanthropy",
+          "content_en": "Giving back, helping communities, personal growth, networking, meaningful impact",
+          "th": "การทำบุญ",
+          "content_th": "การให้กลับ, การช่วยเหลือชุมชน, การเติบโตส่วนบุคคล, การสร้างเครือข่าย, ผลกระทบที่มีความหมาย"
+        },
+        {
+          "en": "Elderly Care",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "การดูแลผู้สูงอายุ",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Urban Gardening",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "การทำสวนในเมือง",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        },
+        {
+          "en": "Crisis Management",
+          "content_en": "Relaxation, water activities, beach safety, sunsets, marine life, beach conservation",
+          "th": "การจัดการวิกฤต",
+          "content_th": "การผ่อนคลาย, กิจกรรมทางน้ำ, ความปลอดภัยที่ชายหาด, พระอาทิตย์ตก, สิ่งมีชีวิตทางทะเล, การอนุรักษ์ชายหาด"
+        },
+        {
+          "en": "Negotiation",
+          "content_en": "Definition of beauty, cultural perceptions, skincare tips, self-confidence, beauty products",
+          "th": "การเจรจาต่อรอง",
+          "content_th": "ความหมายของความงาม, การรับรู้ทางวัฒนธรรม, เคล็ดลับการดูแลผิว, ความมั่นใจในตนเอง, ผลิตภัณฑ์ความงาม"
+        },
+        {
+          "en": "Rural Development",
+          "content_en": "History of hot air balloons, experience of flying, safety tips, festivals, scenic views",
+          "th": "การพัฒนาชนบท",
+          "content_th": "ประวัติศาสตร์ของบอลลูน, ประสบการณ์การบิน, เคล็ดลับความปลอดภัย, เทศกาล, ทิวทัศน์ที่สวยงาม"
+        },
+        {
+          "en": "Renewable Resources",
+          "content_en": "Adventure, breathtaking views, physical challenge, weather conditions, flora and fauna",
+          "th": "ทรัพยากรหมุนเวียน",
+          "content_th": "การผจญภัย, ทิวทัศน์ที่สวยงาม, ความท้าทายทางกาย, สภาพอากาศ, พืชและสัตว์"
+        },
+        {
+          "en": "Biodegradable Products",
+          "content_en": "Setting up tents, campfire stories, survival skills, bonding with nature, stargazing",
+          "th": "ผลิตภัณฑ์ย่อยสลายได้",
+          "content_th": "การตั้งแคมป์, เรื่องเล่ารอบกองไฟ, ทักษะการเอาตัวรอด, การเชื่อมต่อกับธรรมชาติ, การดูดาว"
+        },
+        {
+          "en": "Waste Management",
+          "content_en": "Human exploration, space technology, unknown universe, scientific discovery, astronaut life",
+          "th": "การจัดการขยะ",
+          "content_th": "การสำรวจอวกาศ, เทคโนโลยีอวกาศ, จักรวาลที่ไม่รู้จัก, การค้นพบทางวิทยาศาสตร์, ชีวิตของนักบินอวกาศ"
+        },
+        {
+          "en": "Blockchain Technology",
+          "content_en": "Appreciation for art, cultural diversity, artistic expressions, community engagement, inspiration",
+          "th": "เทคโนโลยีบล็อกเชน",
+          "content_th": "การชื่นชมศิลปะ, ความหลากหลายทางวัฒนธรรม, การแสดงออกทางศิลปะ, การมีส่วนร่วมของชุมชน, แรงบันดาลใจ"
+        },
+        {
+          "en": "Freelancing",
+          "content_en": "Importance of meditation, techniques, mental clarity, stress relief, positive mindset",
+          "th": "การทำงานอิสระ",
+          "content_th": "ความสำคัญของการทำสมาธิ, เทคนิคการทำสมาธิ, ความชัดเจนทางจิตใจ, การบรรเทาความเครียด, จิตใจที่เป็นบวก"
+        },
+        {
+          "en": "Digital Nomad",
+          "content_en": "Fashion evolution, seasonal trends, self-expression, sustainability in fashion, style tips",
+          "th": "คนเร่ร่อนดิจิทัล",
+          "content_th": "การเปลี่ยนแปลงแฟชั่น, แนวโน้มตามฤดูกาล, การแสดงออกทางตนเอง, ความยั่งยืนในแฟชั่น, เคล็ดลับสไตล์"
+        },
+        {
+          "en": "Smart Cities",
+          "content_en": "Causes and effects, global impact, carbon footprint, reduction strategies, role of individuals",
+          "th": "เมืองอัจฉริยะ",
+          "content_th": "สาเหตุและผลกระทบ, ผลกระทบทั่วโลก, รอยเท้าคาร์บอน, กลยุทธ์การลด, บทบาทของบุคคล"
+        },
+        {
+          "en": "Customer Experience",
+          "content_en": "Types of renewable energy, solar, wind, benefits, future potential, environment",
+          "th": "ประสบการณ์ลูกค้า",
+          "content_th": "ประเภทของพลังงานทดแทน, พลังงานแสงอาทิตย์, พลังงานลม, ประโยชน์, ศักยภาพในอนาคต, สิ่งแวดล้อม"
+        },
+        {
+          "en": "Brand Loyalty",
+          "content_en": "Overcoming stage fright, connecting with audience, storytelling, voice control, body language",
+          "th": "ความภักดีต่อแบรนด์",
+          "content_th": "การเอาชนะความกลัว, การเชื่อมต่อกับผู้ฟัง, การเล่าเรื่อง, การควบคุมเสียง, ภาษากาย"
+        },
+        {
+          "en": "Quality Assurance",
+          "content_en": "Qualities of a leader, decision making, teamwork, motivation, effective communication",
+          "th": "การประกันคุณภาพ",
+          "content_th": "คุณสมบัติของผู้นำ, การตัดสินใจ, การทำงานเป็นทีม, การกระตุ้น, การสื่อสารที่มีประสิทธิภาพ"
+        },
+        {
+          "en": "Supply Chain Management",
+          "content_en": "Business innovation, risk-taking, resilience, success stories, economic impact",
+          "th": "การจัดการห่วงโซ่อุปทาน",
+          "content_th": "นวัตกรรมทางธุรกิจ, การเสี่ยง, ความยืดหยุ่น, เรื่องราวความสำเร็จ, ผลกระทบทางเศรษฐกิจ"
+        },
+        {
+          "en": "Problem Solving",
+          "content_en": "Transition to digital, new technologies, challenges, benefits, skill development",
+          "th": "การแก้ปัญหา",
+          "content_th": "การเปลี่ยนแปลงสู่ดิจิทัล, เทคโนโลยีใหม่, ความท้าทาย, ประโยชน์, การพัฒนาทักษะ"
+        },
+        {
+          "en": "Risk Management",
+          "content_en": "AI advancements, potential, ethical implications, impact on jobs, future applications",
+          "th": "การจัดการความเสี่ยง",
+          "content_th": "ความก้าวหน้าของ AI, ศักยภาพ, ผลกระทบทางจริยธรรม, ผลกระทบต่อการทำงาน, การใช้งานในอนาคต"
+        },
+        {
+          "en": "Insurance",
+          "content_en": "Weather patterns, global impact, prevention strategies, role of individuals, government policies",
+          "th": "การประกันภัย",
+          "content_th": "รูปแบบอากาศ, ผลกระทบทั่วโลก, กลยุทธ์การป้องกัน, บทบาทของบุคคล, นโยบายของรัฐบาล"
+        },
+        {
+          "en": "Investing",
+          "content_en": "Healthy lifestyle, exercise, balanced diet, mental health, importance of rest",
+          "th": "การลงทุน",
+          "content_th": "การใช้ชีวิตที่ดีต่อสุขภาพ, การออกกำลังกาย, อาหารที่สมดุล, สุขภาพจิต, ความสำคัญของการพักผ่อน"
+        },
+        {
+          "en": "Stock Market",
+          "content_en": "Eco-friendly habits, reducing waste, sustainable products, impact on future generations",
+          "th": "ตลาดหลักทรัพย์",
+          "content_th": "นิสัยที่เป็นมิตรกับสิ่งแวดล้อม, การลดขยะ, ผลิตภัณฑ์ที่ยั่งยืน, ผลกระทบต่ออนาคต"
+        },
+        {
+          "en": "Tourism Industry",
+          "content_en": "Historical events, famous figures, learning from the past, cultural heritage, lessons",
+          "th": "อุตสาหกรรมการท่องเที่ยว",
+          "content_th": "เหตุการณ์ในประวัติศาสตร์, บุคคลที่มีชื่อเสียง, การเรียนรู้จากอดีต, มรดกทางวัฒนธรรม"
+        },
+        {
+          "en": "Human Resources",
+          "content_en": "Types of architecture, famous structures, architectural styles, design inspiration",
+          "th": "ทรัพยากรบุคคล",
+          "content_th": "ประเภทสถาปัตยกรรม, โครงสร้างที่มีชื่อเสียง, รูปแบบสถาปัตยกรรม, แรงบันดาลใจในการออกแบบ"
+        },
+        {
+          "en": "Mental Wellness",
+          "content_en": "Genres of music, famous artists, cultural impact, emotional expression, musical evolution",
+          "th": "สุขภาพจิต",
+          "content_th": "แนวดนตรี, ศิลปินที่มีชื่อเสียง, ผลกระทบทางวัฒนธรรม, การแสดงออกทางอารมณ์, พัฒนาการของดนตรี"
+        },
+        {
+          "en": "Ethical Fashion",
+          "content_en": "Importance of education, lifelong learning, skill development, future of education",
+          "th": "แฟชั่นที่มีจริยธรรม",
+          "content_th": "ความสำคัญของการศึกษา, การเรียนรู้ตลอดชีวิต, การพัฒนาทักษะ, อนาคตของการศึกษา"
+        },
+        {
+          "en": "Minimalist Lifestyle",
+          "content_en": "Positive and negative impacts, influencer culture, responsible use, trends, connectivity",
+          "th": "ไลฟ์สไตล์มินิมอล",
+          "content_th": "ผลกระทบทางบวกและลบ, วัฒนธรรมอินฟลูเอนเซอร์, การใช้งานที่รับผิดชอบ, แนวโน้ม, การเชื่อมต่อ"
+        },
+        {
+          "en": "Fitness",
+          "content_en": "Capturing moments, photography tips, types of photography, storytelling, editing tools",
+          "th": "การออกกำลังกาย",
+          "content_th": "การจับภาพช่วงเวลา, เคล็ดลับการถ่ายภาพ, ประเภทการถ่ายภาพ, การเล่าเรื่อง, เครื่องมือการแก้ไข"
+        },
+        {
+          "en": "Running",
+          "content_en": "Dance as art, cultural dance forms, benefits, famous dancers, dance therapy",
+          "th": "การวิ่ง",
+          "content_th": "การเต้นรำในฐานะศิลปะ, การเต้นรำในวัฒนธรรม, ประโยชน์, นักเต้นที่มีชื่อเสียง, การบำบัดด้วยการเต้นรำ"
+        },
+        {
+          "en": "Cycling",
+          "content_en": "Gardening benefits, plant care, landscaping, organic farming, sustainable gardening",
+          "th": "การปั่นจักรยาน",
+          "content_th": "ประโยชน์ของการทำสวน, การดูแลพืช, การจัดสวน, การทำฟาร์มอินทรีย์, การทำสวนอย่างยั่งยืน"
+        },
+        {
+          "en": "Digital Detox",
+          "content_en": "Culinary arts, cooking techniques, healthy recipes, food cultures, cooking as therapy",
+          "th": "การล้างพิษดิจิทัล",
+          "content_th": "ศิลปะการทำอาหาร, เทคนิคการทำอาหาร, สูตรอาหารเพื่อสุขภาพ, วัฒนธรรมอาหาร, การทำอาหารเป็นการบำบัด"
+        },
+        {
+          "en": "Environmental Science",
+          "content_en": "Exploring new places, cultural experiences, travel planning, safety tips, adventure",
+          "th": "วิทยาศาสตร์สิ่งแวดล้อม",
+          "content_th": "การสำรวจสถานที่ใหม่ๆ, ประสบการณ์ทางวัฒนธรรม, การวางแผนการเดินทาง, เคล็ดลับความปลอดภัย, การผจญภัย"
+        },
+        {
+          "en": "Mathematics",
+          "content_en": "Benefits of multilingualism, language acquisition, cognitive benefits, cultural exposure",
+          "th": "คณิตศาสตร์",
+          "content_th": "ประโยชน์ของการเรียนรู้หลายภาษา, การเรียนรู้ภาษา, ประโยชน์ทางสติปัญญา, การเปิดเผยวัฒนธรรม"
+        },
+        {
+          "en": "Technology Trends",
+          "content_en": "Giving back, helping communities, personal growth, networking, meaningful impact",
+          "th": "แนวโน้มเทคโนโลยี",
+          "content_th": "การให้กลับ, การช่วยเหลือชุมชน, การเติบโตส่วนบุคคล, การสร้างเครือข่าย, ผลกระทบที่มีความหมาย"
+        },
+        {
+          "en": "Biotechnology",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "เทคโนโลยีชีวภาพ",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Green Economy",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "เศรษฐกิจสีเขียว",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        },
+        {
+          "en": "Cryptocurrency",
+          "content_en": "Relaxation, water activities, beach safety, sunsets, marine life, beach conservation",
+          "th": "สกุลเงินดิจิทัล",
+          "content_th": "การผ่อนคลาย, กิจกรรมทางน้ำ, ความปลอดภัยที่ชายหาด, พระอาทิตย์ตก, สิ่งมีชีวิตทางทะเล, การอนุรักษ์ชายหาด"
+        },
+        {
+          "en": "Self-Love",
+          "content_en": "Definition of beauty, cultural perceptions, skincare tips, self-confidence, beauty products",
+          "th": "ความรักตนเอง",
+          "content_th": "ความหมายของความงาม, การรับรู้ทางวัฒนธรรม, เคล็ดลับการดูแลผิว, ความมั่นใจในตนเอง, ผลิตภัณฑ์ความงาม"
+        },
+        {
+          "en": "Positivity",
+          "content_en": "History of hot air balloons, experience of flying, safety tips, festivals, scenic views",
+          "th": "ทัศนคติเชิงบวก",
+          "content_th": "ประวัติศาสตร์ของบอลลูน, ประสบการณ์การบิน, เคล็ดลับความปลอดภัย, เทศกาล, ทิวทัศน์ที่สวยงาม"
+        },
+        {
+          "en": "Gratitude",
+          "content_en": "Adventure, breathtaking views, physical challenge, weather conditions, flora and fauna",
+          "th": "ความกตัญญู",
+          "content_th": "การผจญภัย, ทิวทัศน์ที่สวยงาม, ความท้าทายทางกาย, สภาพอากาศ, พืชและสัตว์"
+        },
+        {
+          "en": "Recycling",
+          "content_en": "Setting up tents, campfire stories, survival skills, bonding with nature, stargazing",
+          "th": "การรีไซเคิล",
+          "content_th": "การตั้งแคมป์, เรื่องเล่ารอบกองไฟ, ทักษะการเอาตัวรอด, การเชื่อมต่อกับธรรมชาติ, การดูดาว"
+        },
+        {
+          "en": "Agriculture",
+          "content_en": "Human exploration, space technology, unknown universe, scientific discovery, astronaut life",
+          "th": "การเกษตร",
+          "content_th": "การสำรวจอวกาศ, เทคโนโลยีอวกาศ, จักรวาลที่ไม่รู้จัก, การค้นพบทางวิทยาศาสตร์, ชีวิตของนักบินอวกาศ"
+        },
+        {
+          "en": "Animal Welfare",
+          "content_en": "Appreciation for art, cultural diversity, artistic expressions, community engagement, inspiration",
+          "th": "สวัสดิภาพสัตว์",
+          "content_th": "การชื่นชมศิลปะ, ความหลากหลายทางวัฒนธรรม, การแสดงออกทางศิลปะ, การมีส่วนร่วมของชุมชน, แรงบันดาลใจ"
+        },
+        {
+          "en": "Poetry",
+          "content_en": "Importance of meditation, techniques, mental clarity, stress relief, positive mindset",
+          "th": "บทกวี",
+          "content_th": "ความสำคัญของการทำสมาธิ, เทคนิคการทำสมาธิ, ความชัดเจนทางจิตใจ, การบรรเทาความเครียด, จิตใจที่เป็นบวก"
+        },
+        {
+          "en": "Astronomy",
+          "content_en": "Fashion evolution, seasonal trends, self-expression, sustainability in fashion, style tips",
+          "th": "ดาราศาสตร์",
+          "content_th": "การเปลี่ยนแปลงแฟชั่น, แนวโน้มตามฤดูกาล, การแสดงออกทางตนเอง, ความยั่งยืนในแฟชั่น, เคล็ดลับสไตล์"
+        },
+        {
+          "en": "Marine Conservation",
+          "content_en": "Causes and effects, global impact, carbon footprint, reduction strategies, role of individuals",
+          "th": "การอนุรักษ์ทางทะเล",
+          "content_th": "สาเหตุและผลกระทบ, ผลกระทบทั่วโลก, รอยเท้าคาร์บอน, กลยุทธ์การลด, บทบาทของบุคคล"
+        },
+        {
+          "en": "Social Impact",
+          "content_en": "Types of renewable energy, solar, wind, benefits, future potential, environment",
+          "th": "ผลกระทบทางสังคม",
+          "content_th": "ประเภทของพลังงานทดแทน, พลังงานแสงอาทิตย์, พลังงานลม, ประโยชน์, ศักยภาพในอนาคต, สิ่งแวดล้อม"
+        },
+        {
+          "en": "Urban Planning",
+          "content_en": "Overcoming stage fright, connecting with audience, storytelling, voice control, body language",
+          "th": "การวางแผนเมือง",
+          "content_th": "การเอาชนะความกลัว, การเชื่อมต่อกับผู้ฟัง, การเล่าเรื่อง, การควบคุมเสียง, ภาษากาย"
+        },
+        {
+          "en": "Botany",
+          "content_en": "Qualities of a leader, decision making, teamwork, motivation, effective communication",
+          "th": "พฤกษศาสตร์",
+          "content_th": "คุณสมบัติของผู้นำ, การตัดสินใจ, การทำงานเป็นทีม, การกระตุ้น, การสื่อสารที่มีประสิทธิภาพ"
+        },
+        {
+          "en": "Ecotourism",
+          "content_en": "Business innovation, risk-taking, resilience, success stories, economic impact",
+          "th": "การท่องเที่ยวเชิงอนุรักษ์",
+          "content_th": "นวัตกรรมทางธุรกิจ, การเสี่ยง, ความยืดหยุ่น, เรื่องราวความสำเร็จ, ผลกระทบทางเศรษฐกิจ"
+        },
+        {
+          "en": "Global Citizenship",
+          "content_en": "Transition to digital, new technologies, challenges, benefits, skill development",
+          "th": "พลเมืองโลก",
+          "content_th": "การเปลี่ยนแปลงสู่ดิจิทัล, เทคโนโลยีใหม่, ความท้าทาย, ประโยชน์, การพัฒนาทักษะ"
+        },
+        {
+          "en": "Water Conservation",
+          "content_en": "AI advancements, potential, ethical implications, impact on jobs, future applications",
+          "th": "การอนุรักษ์น้ำ",
+          "content_th": "ความก้าวหน้าของ AI, ศักยภาพ, ผลกระทบทางจริยธรรม, ผลกระทบต่อการทำงาน, การใช้งานในอนาคต"
+        },
+        {
+          "en": "Zero Waste",
+          "content_en": "Weather patterns, global impact, prevention strategies, role of individuals, government policies",
+          "th": "ขยะเป็นศูนย์",
+          "content_th": "รูปแบบอากาศ, ผลกระทบทั่วโลก, กลยุทธ์การป้องกัน, บทบาทของบุคคล, นโยบายของรัฐบาล"
+        },
+        {
+          "en": "Plastic Pollution",
+          "content_en": "Healthy lifestyle, exercise, balanced diet, mental health, importance of rest",
+          "th": "มลพิษพลาสติก",
+          "content_th": "การใช้ชีวิตที่ดีต่อสุขภาพ, การออกกำลังกาย, อาหารที่สมดุล, สุขภาพจิต, ความสำคัญของการพักผ่อน"
+        },
+        {
+          "en": "Clean Eating",
+          "content_en": "Eco-friendly habits, reducing waste, sustainable products, impact on future generations",
+          "th": "การกินเพื่อสุขภาพ",
+          "content_th": "นิสัยที่เป็นมิตรกับสิ่งแวดล้อม, การลดขยะ, ผลิตภัณฑ์ที่ยั่งยืน, ผลกระทบต่ออนาคต"
+        },
+        {
+          "en": "Healthy Habits",
+          "content_en": "Historical events, famous figures, learning from the past, cultural heritage, lessons",
+          "th": "นิสัยที่ดีต่อสุขภาพ",
+          "content_th": "เหตุการณ์ในประวัติศาสตร์, บุคคลที่มีชื่อเสียง, การเรียนรู้จากอดีต, มรดกทางวัฒนธรรม"
+        },
+        {
+          "en": "Self-Discipline",
+          "content_en": "Types of architecture, famous structures, architectural styles, design inspiration",
+          "th": "วินัยในตนเอง",
+          "content_th": "ประเภทสถาปัตยกรรม, โครงสร้างที่มีชื่อเสียง, รูปแบบสถาปัตยกรรม, แรงบันดาลใจในการออกแบบ"
+        },
+        {
+          "en": "Overcoming Challenges",
+          "content_en": "Genres of music, famous artists, cultural impact, emotional expression, musical evolution",
+          "th": "การเอาชนะความท้าทาย",
+          "content_th": "แนวดนตรี, ศิลปินที่มีชื่อเสียง, ผลกระทบทางวัฒนธรรม, การแสดงออกทางอารมณ์, พัฒนาการของดนตรี"
+        },
+        {
+          "en": "Building Confidence",
+          "content_en": "Importance of education, lifelong learning, skill development, future of education",
+          "th": "การสร้างความมั่นใจ",
+          "content_th": "ความสำคัญของการศึกษา, การเรียนรู้ตลอดชีวิต, การพัฒนาทักษะ, อนาคตของการศึกษา"
+        },
+        {
+          "en": "Curiosity",
+          "content_en": "Positive and negative impacts, influencer culture, responsible use, trends, connectivity",
+          "th": "ความอยากรู้อยากเห็น",
+          "content_th": "ผลกระทบทางบวกและลบ, วัฒนธรรมอินฟลูเอนเซอร์, การใช้งานที่รับผิดชอบ, แนวโน้ม, การเชื่อมต่อ"
+        },
+        {
+          "en": "Child Development",
+          "content_en": "Capturing moments, photography tips, types of photography, storytelling, editing tools",
+          "th": "การพัฒนาเด็ก",
+          "content_th": "การจับภาพช่วงเวลา, เคล็ดลับการถ่ายภาพ, ประเภทการถ่ายภาพ, การเล่าเรื่อง, เครื่องมือการแก้ไข"
+        },
+        {
+          "en": "Language Preservation",
+          "content_en": "Dance as art, cultural dance forms, benefits, famous dancers, dance therapy",
+          "th": "การอนุรักษ์ภาษา",
+          "content_th": "การเต้นรำในฐานะศิลปะ, การเต้นรำในวัฒนธรรม, ประโยชน์, นักเต้นที่มีชื่อเสียง, การบำบัดด้วยการเต้นรำ"
+        },
+        {
+          "en": "Literacy",
+          "content_en": "Gardening benefits, plant care, landscaping, organic farming, sustainable gardening",
+          "th": "การรู้หนังสือ",
+          "content_th": "ประโยชน์ของการทำสวน, การดูแลพืช, การจัดสวน, การทำฟาร์มอินทรีย์, การทำสวนอย่างยั่งยืน"
+        },
+        {
+          "en": "Dance Therapy",
+          "content_en": "Culinary arts, cooking techniques, healthy recipes, food cultures, cooking as therapy",
+          "th": "การบำบัดด้วยการเต้นรำ",
+          "content_th": "ศิลปะการทำอาหาร, เทคนิคการทำอาหาร, สูตรอาหารเพื่อสุขภาพ, วัฒนธรรมอาหาร, การทำอาหารเป็นการบำบัด"
+        },
+        {
+          "en": "Human Connection",
+          "content_en": "Exploring new places, cultural experiences, travel planning, safety tips, adventure",
+          "th": "การเชื่อมโยงมนุษย์",
+          "content_th": "การสำรวจสถานที่ใหม่ๆ, ประสบการณ์ทางวัฒนธรรม, การวางแผนการเดินทาง, เคล็ดลับความปลอดภัย, การผจญภัย"
+        },
+        {
+          "en": "Body Language",
+          "content_en": "Benefits of multilingualism, language acquisition, cognitive benefits, cultural exposure",
+          "th": "ภาษากาย",
+          "content_th": "ประโยชน์ของการเรียนรู้หลายภาษา, การเรียนรู้ภาษา, ประโยชน์ทางสติปัญญา, การเปิดเผยวัฒนธรรม"
+        },
+        {
+          "en": "Interior Design",
+          "content_en": "Giving back, helping communities, personal growth, networking, meaningful impact",
+          "th": "การออกแบบภายใน",
+          "content_th": "การให้กลับ, การช่วยเหลือชุมชน, การเติบโตส่วนบุคคล, การสร้างเครือข่าย, ผลกระทบที่มีความหมาย"
+        },
+        {
+          "en": "Digital Marketing",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "การตลาดดิจิทัล",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Consumer Behavior",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "พฤติกรรมผู้บริโภค",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        },
+        {
+          "en": "Innovation in Technology",
+          "content_en": "Relaxation, water activities, beach safety, sunsets, marine life, beach conservation",
+          "th": "นวัตกรรมทางเทคโนโลยี",
+          "content_th": "การผ่อนคลาย, กิจกรรมทางน้ำ, ความปลอดภัยที่ชายหาด, พระอาทิตย์ตก, สิ่งมีชีวิตทางทะเล, การอนุรักษ์ชายหาด"
+        },
+        {
+          "en": "Quantum Computing",
+          "content_en": "Definition of beauty, cultural perceptions, skincare tips, self-confidence, beauty products",
+          "th": "ควอนตัมคอมพิวเตอร์",
+          "content_th": "ความหมายของความงาม, การรับรู้ทางวัฒนธรรม, เคล็ดลับการดูแลผิว, ความมั่นใจในตนเอง, ผลิตภัณฑ์ความงาม"
+        },
+        {
+          "en": "Aerospace",
+          "content_en": "History of hot air balloons, experience of flying, safety tips, festivals, scenic views",
+          "th": "อวกาศ",
+          "content_th": "ประวัติศาสตร์ของบอลลูน, ประสบการณ์การบิน, เคล็ดลับความปลอดภัย, เทศกาล, ทิวทัศน์ที่สวยงาม"
+        },
+        {
+          "en": "Renewable Materials",
+          "content_en": "Adventure, breathtaking views, physical challenge, weather conditions, flora and fauna",
+          "th": "วัสดุหมุนเวียน",
+          "content_th": "การผจญภัย, ทิวทัศน์ที่สวยงาม, ความท้าทายทางกาย, สภาพอากาศ, พืชและสัตว์"
+        },
+        {
+          "en": "Self-Reflection",
+          "content_en": "Setting up tents, campfire stories, survival skills, bonding with nature, stargazing",
+          "th": "การสะท้อนตนเอง",
+          "content_th": "การตั้งแคมป์, เรื่องเล่ารอบกองไฟ, ทักษะการเอาตัวรอด, การเชื่อมต่อกับธรรมชาติ, การดูดาว"
+        },
+        {
+          "en": "Mentorship",
+          "content_en": "Human exploration, space technology, unknown universe, scientific discovery, astronaut life",
+          "th": "การให้คำปรึกษา",
+          "content_th": "การสำรวจอวกาศ, เทคโนโลยีอวกาศ, จักรวาลที่ไม่รู้จัก, การค้นพบทางวิทยาศาสตร์, ชีวิตของนักบินอวกาศ"
+        },
+        {
+          "en": "Workplace Ethics",
+          "content_en": "Appreciation for art, cultural diversity, artistic expressions, community engagement, inspiration",
+          "th": "จริยธรรมในที่ทำงาน",
+          "content_th": "การชื่นชมศิลปะ, ความหลากหลายทางวัฒนธรรม, การแสดงออกทางศิลปะ, การมีส่วนร่วมของชุมชน, แรงบันดาลใจ"
+        },
+        {
+          "en": "Policy Making",
+          "content_en": "Importance of meditation, techniques, mental clarity, stress relief, positive mindset",
+          "th": "การกำหนดนโยบาย",
+          "content_th": "ความสำคัญของการทำสมาธิ, เทคนิคการทำสมาธิ, ความชัดเจนทางจิตใจ, การบรรเทาความเครียด, จิตใจที่เป็นบวก"
+        },
+        {
+          "en": "Remote Work",
+          "content_en": "Fashion evolution, seasonal trends, self-expression, sustainability in fashion, style tips",
+          "th": "การทำงานจากระยะไกล",
+          "content_th": "การเปลี่ยนแปลงแฟชั่น, แนวโน้มตามฤดูกาล, การแสดงออกทางตนเอง, ความยั่งยืนในแฟชั่น, เคล็ดลับสไตล์"
+        },
+        {
+          "en": "Sustainable Agriculture",
+          "content_en": "Causes and effects, global impact, carbon footprint, reduction strategies, role of individuals",
+          "th": "การเกษตรที่ยั่งยืน",
+          "content_th": "สาเหตุและผลกระทบ, ผลกระทบทั่วโลก, รอยเท้าคาร์บอน, กลยุทธ์การลด, บทบาทของบุคคล"
+        },
+        {
+          "en": "Environmental Law",
+          "content_en": "Types of renewable energy, solar, wind, benefits, future potential, environment",
+          "th": "กฎหมายสิ่งแวดล้อม",
+          "content_th": "ประเภทของพลังงานทดแทน, พลังงานแสงอาทิตย์, พลังงานลม, ประโยชน์, ศักยภาพในอนาคต, สิ่งแวดล้อม"
+        },
+        {
+          "en": "Food Security",
+          "content_en": "Overcoming stage fright, connecting with audience, storytelling, voice control, body language",
+          "th": "ความมั่นคงด้านอาหาร",
+          "content_th": "การเอาชนะความกลัว, การเชื่อมต่อกับผู้ฟัง, การเล่าเรื่อง, การควบคุมเสียง, ภาษากาย"
+        },
+        {
+          "en": "Alternative Medicine",
+          "content_en": "Qualities of a leader, decision making, teamwork, motivation, effective communication",
+          "th": "การแพทย์ทางเลือก",
+          "content_th": "คุณสมบัติของผู้นำ, การตัดสินใจ, การทำงานเป็นทีม, การกระตุ้น, การสื่อสารที่มีประสิทธิภาพ"
+        },
+        {
+          "en": "Holistic Health",
+          "content_en": "Business innovation, risk-taking, resilience, success stories, economic impact",
+          "th": "สุขภาพองค์รวม",
+          "content_th": "นวัตกรรมทางธุรกิจ, การเสี่ยง, ความยืดหยุ่น, เรื่องราวความสำเร็จ, ผลกระทบทางเศรษฐกิจ"
+        },
+        {
+          "en": "Music Therapy",
+          "content_en": "Transition to digital, new technologies, challenges, benefits, skill development",
+          "th": "การบำบัดด้วยดนตรี",
+          "content_th": "การเปลี่ยนแปลงสู่ดิจิทัล, เทคโนโลยีใหม่, ความท้าทาย, ประโยชน์, การพัฒนาทักษะ"
+        },
+        {
+          "en": "Astronauts",
+          "content_en": "AI advancements, potential, ethical implications, impact on jobs, future applications",
+          "th": "นักบินอวกาศ",
+          "content_th": "ความก้าวหน้าของ AI, ศักยภาพ, ผลกระทบทางจริยธรรม, ผลกระทบต่อการทำงาน, การใช้งานในอนาคต"
+        },
+        {
+          "en": "Virtual Teams",
+          "content_en": "Weather patterns, global impact, prevention strategies, role of individuals, government policies",
+          "th": "ทีมเสมือนจริง",
+          "content_th": "รูปแบบอากาศ, ผลกระทบทั่วโลก, กลยุทธ์การป้องกัน, บทบาทของบุคคล, นโยบายของรัฐบาล"
+        },
+        {
+          "en": "Circular Economy",
+          "content_en": "Healthy lifestyle, exercise, balanced diet, mental health, importance of rest",
+          "th": "เศรษฐกิจหมุนเวียน",
+          "content_th": "การใช้ชีวิตที่ดีต่อสุขภาพ, การออกกำลังกาย, อาหารที่สมดุล, สุขภาพจิต, ความสำคัญของการพักผ่อน"
+        },
+        {
+          "en": "Bioengineering",
+          "content_en": "Eco-friendly habits, reducing waste, sustainable products, impact on future generations",
+          "th": "วิศวกรรมชีวภาพ",
+          "content_th": "นิสัยที่เป็นมิตรกับสิ่งแวดล้อม, การลดขยะ, ผลิตภัณฑ์ที่ยั่งยืน, ผลกระทบต่ออนาคต"
+        },
+        {
+          "en": "Gender Equality",
+          "content_en": "Historical events, famous figures, learning from the past, cultural heritage, lessons",
+          "th": "ความเท่าเทียมทางเพศ",
+          "content_th": "เหตุการณ์ในประวัติศาสตร์, บุคคลที่มีชื่อเสียง, การเรียนรู้จากอดีต, มรดกทางวัฒนธรรม"
+        },
+        {
+          "en": "Personal Finance",
+          "content_en": "Types of architecture, famous structures, architectural styles, design inspiration",
+          "th": "การเงินส่วนบุคคล",
+          "content_th": "ประเภทสถาปัตยกรรม, โครงสร้างที่มีชื่อเสียง, รูปแบบสถาปัตยกรรม, แรงบันดาลใจในการออกแบบ"
+        },
+        {
+          "en": "Self-Expression",
+          "content_en": "Genres of music, famous artists, cultural impact, emotional expression, musical evolution",
+          "th": "การแสดงออกทางตนเอง",
+          "content_th": "แนวดนตรี, ศิลปินที่มีชื่อเสียง, ผลกระทบทางวัฒนธรรม, การแสดงออกทางอารมณ์, พัฒนาการของดนตรี"
+        },
+        {
+          "en": "Journaling",
+          "content_en": "Importance of education, lifelong learning, skill development, future of education",
+          "th": "การเขียนไดอารี่",
+          "content_th": "ความสำคัญของการศึกษา, การเรียนรู้ตลอดชีวิต, การพัฒนาทักษะ, อนาคตของการศึกษา"
+        },
+        {
+          "en": "Habits",
+          "content_en": "Positive and negative impacts, influencer culture, responsible use, trends, connectivity",
+          "th": "นิสัย",
+          "content_th": "ผลกระทบทางบวกและลบ, วัฒนธรรมอินฟลูเอนเซอร์, การใช้งานที่รับผิดชอบ, แนวโน้ม, การเชื่อมต่อ"
+        },
+        {
+          "en": "Artificial Intelligence and Society",
+          "content_en": "Capturing moments, photography tips, types of photography, storytelling, editing tools",
+          "th": "ปัญญาประดิษฐ์และสังคม",
+          "content_th": "การจับภาพช่วงเวลา, เคล็ดลับการถ่ายภาพ, ประเภทการถ่ายภาพ, การเล่าเรื่อง, เครื่องมือการแก้ไข"
+        },
+        {
+          "en": "Genetics",
+          "content_en": "Dance as art, cultural dance forms, benefits, famous dancers, dance therapy",
+          "th": "พันธุศาสตร์",
+          "content_th": "การเต้นรำในฐานะศิลปะ, การเต้นรำในวัฒนธรรม, ประโยชน์, นักเต้นที่มีชื่อเสียง, การบำบัดด้วยการเต้นรำ"
+        },
+        {
+          "en": "Oceanography",
+          "content_en": "Gardening benefits, plant care, landscaping, organic farming, sustainable gardening",
+          "th": "สมุทรศาสตร์",
+          "content_th": "ประโยชน์ของการทำสวน, การดูแลพืช, การจัดสวน, การทำฟาร์มอินทรีย์, การทำสวนอย่างยั่งยืน"
+        },
+        {
+          "en": "Marine Conservation",
+          "content_en": "Culinary arts, cooking techniques, healthy recipes, food cultures, cooking as therapy",
+          "th": "การอนุรักษ์ทางทะเล",
+          "content_th": "ศิลปะการทำอาหาร, เทคนิคการทำอาหาร, สูตรอาหารเพื่อสุขภาพ, วัฒนธรรมอาหาร, การทำอาหารเป็นการบำบัด"
+        },
+        {
+          "en": "Habitat Restoration",
+          "content_en": "Exploring new places, cultural experiences, travel planning, safety tips, adventure",
+          "th": "การฟื้นฟูถิ่นที่อยู่",
+          "content_th": "การสำรวจสถานที่ใหม่ๆ, ประสบการณ์ทางวัฒนธรรม, การวางแผนการเดินทาง, เคล็ดลับความปลอดภัย, การผจญภัย"
+        },
+        {
+          "en": "Natural Disasters",
+          "content_en": "Benefits of multilingualism, language acquisition, cognitive benefits, cultural exposure",
+          "th": "ภัยธรรมชาติ",
+          "content_th": "ประโยชน์ของการเรียนรู้หลายภาษา, การเรียนรู้ภาษา, ประโยชน์ทางสติปัญญา, การเปิดเผยวัฒนธรรม"
+        },
+        {
+          "en": "Astronomy",
+          "content_en": "Giving back, helping communities, personal growth, networking, meaningful impact",
+          "th": "ดาราศาสตร์",
+          "content_th": "การให้กลับ, การช่วยเหลือชุมชน, การเติบโตส่วนบุคคล, การสร้างเครือข่าย, ผลกระทบที่มีความหมาย"
+        },
+        {
+          "en": "Economic Development",
+          "content_en": "Fun experiences, thrilling rides, safety tips, memorable moments, the joy of family time",
+          "th": "การพัฒนาเศรษฐกิจ",
+          "content_th": "ประสบการณ์ที่สนุกสนาน, เครื่องเล่นที่น่าตื่นเต้น, เคล็ดลับความปลอดภัย, ช่วงเวลาที่น่าจดจำ, ความสุขของการใช้เวลาร่วมกับครอบครัว"
+        },
+        {
+          "en": "Social Impact of Technology",
+          "content_en": "Flavors of Thai food, popular dishes, spices and ingredients, cultural significance, dining etiquette",
+          "th": "ผลกระทบทางสังคมของเทคโนโลยี",
+          "content_th": "รสชาติของอาหารไทย, อาหารยอดนิยม, เครื่องเทศและส่วนประกอบ, ความสำคัญทางวัฒนธรรม, มารยาทในการทานอาหาร"
+        }
+      ]
+    }
+  }
+  

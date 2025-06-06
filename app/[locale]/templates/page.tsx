@@ -9,6 +9,7 @@ import TranslationsProvider from "@/components/TranslationsProvider";
 import templateLoad from "@/public/json/templateload.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
+import Pagination from "@/components/Pagination/Pagination";
 import styles from "./Template.module.scss";
 
 type DocumentItem = {
@@ -63,7 +64,13 @@ export default function TemplateScreen({
   const searchParamsInfo = searchParams.get("info");
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [documents,setDocuments] =  useState<DocumentItem[]>([]);
+  const [documents, setDocuments] = useState<DocumentItem[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 9;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentDocuments = documents.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(documents.length / itemsPerPage);
 
   const transformJsonTemplateData = () => {
     const templateData = require(`@/locales/${locale}/documentTemplateData.json`);
@@ -102,8 +109,7 @@ export default function TemplateScreen({
 
   useEffect(() => {
     transformJsonTemplateData();
-  }
-  , []);
+  }, []);
 
   if (loading) {
     return (
@@ -155,7 +161,7 @@ export default function TemplateScreen({
         </section>
         <section className={`${styles.section} ${styles.documentSection}`}>
           <div className={styles.documentContainer}>
-            {documents.map((document: DocumentItem) => (
+            {currentDocuments.map((document: DocumentItem) => (
               <TemplateCard
                 key={document.id}
                 locale={locale}
@@ -169,6 +175,16 @@ export default function TemplateScreen({
               />
             ))}
           </div>
+        </section>
+        <section className={`${styles.section} ${styles.paginationSection}`}>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(documents.length / itemsPerPage)}
+            itemsPerPage={itemsPerPage}
+            totalItems={documents.length}
+            onPageChange={(page) => setCurrentPage(page)}
+            locale={locale}
+          />
         </section>
         <section className={`${styles.section} ${styles.footerSection}`}>
           <PageFooter locale={locale} />

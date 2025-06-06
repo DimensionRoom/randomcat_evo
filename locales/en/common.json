@@ -17,7 +17,9 @@
     }
   },
   "button": {
-    "random": "สุ่ม"
+    "random": "Random",
+    "next": "Next",
+    "previous": "Previous"
   },
   "note": {
     "half": "Half",

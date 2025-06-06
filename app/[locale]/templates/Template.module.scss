@@ -105,7 +105,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0px 40px 120px 40px;
+  padding: 0px 40px 40px 40px;
   background-color: #ffffff;
   .documentContainer {
     display: grid;
@@ -122,6 +122,11 @@
       grid-template-columns: repeat(1, 1fr);
     }
   }
+}
+
+.paginationSection {
+  background-color: #ffffff;
+    padding: 20px 40px 20px 40px;
 }
 
 .footerSection {

@@ -1,0 +1,1028 @@
+{
+  "Personality": {
+    "title": "Design",
+    "subTitle": "Personality",
+    "key": "Personality",
+    "data": [
+      {
+        "th": "กล้าหาญ",
+        "en": "Courageous",
+        "content_th": "กล้าตัดสินใจเผชิญสิ่งท้าทายโดยไม่หวาดกลัว",
+        "content_en": "Confronts danger calmly and without hesitation."
+      },
+      {
+        "th": "เมตตา",
+        "en": "Compassionate",
+        "content_th": "เห็นอกเห็นใจและช่วยเหลือผู้อื่นอย่างจริงใจ",
+        "content_en": "Feels others’ pain and responds with caring action."
+      },
+      {
+        "th": "ซื่อสัตย์",
+        "en": "Honest",
+        "content_th": "พูดและทำตรงตามความจริงไม่บิดเบือน",
+        "content_en": "Speaks and acts with clear, unwavering truth."
+      },
+      {
+        "th": "ใจกว้าง",
+        "en": "Generous",
+        "content_th": "พร้อมแบ่งปันทรัพยากรและเวลาแก่ผู้อื่น",
+        "content_en": "Freely shares time, resources, and encouragement."
+      },
+      {
+        "th": "มองโลกในแง่ดี",
+        "en": "Optimistic",
+        "content_th": "เชื่อว่าผลลัพธ์จะออกมาดีเสมอ",
+        "content_en": "Expects good outcomes and spreads hopeful energy."
+      },
+      {
+        "th": "อดทน",
+        "en": "Patient",
+        "content_th": "ทนต่อความยากลำบากหรือการรอคอยได้ดี",
+        "content_en": "Waits calmly through delays and frustrations."
+      },
+      {
+        "th": "ขยัน",
+        "en": "Diligent",
+        "content_th": "ทำงานด้วยความเพียรสม่ำเสมอไม่ย่อท้อ",
+        "content_en": "Works persistently and carefully toward goals."
+      },
+      {
+        "th": "ใส่ใจรายละเอียด",
+        "en": "Detail-oriented",
+        "content_th": "ตรวจทานจุดเล็ก ๆ เพื่อความสมบูรณ์",
+        "content_en": "Notices small elements to ensure accuracy and quality."
+      },
+      {
+        "th": "ยืดหยุ่น",
+        "en": "Adaptable",
+        "content_th": "ปรับตัวเข้ากับการเปลี่ยนแปลงได้รวดเร็ว",
+        "content_en": "Adjusts quickly to new circumstances and change."
+      },
+      {
+        "th": "สร้างสรรค์",
+        "en": "Creative",
+        "content_th": "คิดไอเดียใหม่อย่างต่อเนื่อง",
+        "content_en": "Produces fresh ideas and inventive solutions."
+      },
+      {
+        "th": "จริงจัง",
+        "en": "Serious",
+        "content_th": "ให้ความสำคัญและตั้งใจทำสิ่งต่าง ๆ อย่างเต็มที่",
+        "content_en": "Approaches tasks with focused gravity and intent."
+      },
+      {
+        "th": "ร่าเริง",
+        "en": "Cheerful",
+        "content_th": "แสดงความสุขและพลังบวกอยู่เสมอ",
+        "content_en": "Maintains bright mood and lifts others’ spirits."
+      },
+      {
+        "th": "สงบ",
+        "en": "Calm",
+        "content_th": "ควบคุมอารมณ์และรักษาความนิ่งได้ดี",
+        "content_en": "Keeps steady composure even under pressure."
+      },
+      {
+        "th": "มีเหตุผล",
+        "en": "Rational",
+        "content_th": "ตัดสินใจบนพื้นฐานข้อมูลและตรรกะ",
+        "content_en": "Bases decisions on logic and solid evidence."
+      },
+      {
+        "th": "พูดจาฉะฉาน",
+        "en": "Articulate",
+        "content_th": "สื่อสารความคิดได้ชัดเจนและคล่องแคล่ว",
+        "content_en": "Expresses thoughts clearly, fluently, and persuasively."
+      },
+      {
+        "th": "มีเสน่ห์",
+        "en": "Charming",
+        "content_th": "ดึงดูดใจคนอื่นด้วยท่าทีและคำพูด",
+        "content_en": "Wins people over with natural charisma."
+      },
+      {
+        "th": "มั่นใจ",
+        "en": "Confident",
+        "content_th": "เชื่อมั่นในตนเองและความสามารถ",
+        "content_en": "Trusts personal abilities and judgments firmly."
+      },
+      {
+        "th": "ขี้สงสัย",
+        "en": "Curious",
+        "content_th": "ชอบตั้งคำถามเพื่อค้นหาความรู้",
+        "content_en": "Eagerly seeks new information and experiences."
+      },
+      {
+        "th": "รอบคอบ",
+        "en": "Cautious",
+        "content_th": "พิจารณาความเสี่ยงก่อนลงมือทำ",
+        "content_en": "Evaluates risks carefully before acting."
+      },
+      {
+        "th": "อ่อนไหว",
+        "en": "Sensitive",
+        "content_th": "รับรู้ความรู้สึกตนเองและผู้อื่นได้ง่าย",
+        "content_en": "Quickly perceives and feels subtle emotions."
+      },
+      {
+        "th": "สันโดษ",
+        "en": "Introverted",
+        "content_th": "พึงพอใจในการใช้เวลาเพียงลำพัง",
+        "content_en": "Recharges alone and enjoys reflective solitude."
+      },
+      {
+        "th": "เข้าสังคม",
+        "en": "Extroverted",
+        "content_th": "ชอบพบปะพูดคุยกับผู้คนหลากหลาย",
+        "content_en": "Draws energy from social contact and crowds."
+      },
+      {
+        "th": "มุ่งมั่น",
+        "en": "Determined",
+        "content_th": "ยืนหยัดทำตามเป้าหมายจนสำเร็จ",
+        "content_en": "Pursues objectives relentlessly despite obstacles."
+      },
+      {
+        "th": "รับผิดชอบ",
+        "en": "Responsible",
+        "content_th": "รับภาระงานและผลลัพธ์ด้วยตนเอง",
+        "content_en": "Accepts duties and honors commitments reliably."
+      },
+      {
+        "th": "มีวินัย",
+        "en": "Disciplined",
+        "content_th": "ปฏิบัติตามกฎเกณฑ์และตารางเวลาเคร่งครัด",
+        "content_en": "Maintains self-control and consistent routines."
+      },
+      {
+        "th": "ช่างฝัน",
+        "en": "Dreamer",
+        "content_th": "จินตนาการอนาคตและความเป็นไปได้ใหม่",
+        "content_en": "Imagines vivid possibilities beyond present reality."
+      },
+      {
+        "th": "ตลก",
+        "en": "Humorous",
+        "content_th": "มีไหวพริบสร้างเสียงหัวเราะได้เสมอ",
+        "content_en": "Finds and shares laughter in everyday moments."
+      },
+      {
+        "th": "เจ้าระเบียบ",
+        "en": "Organized",
+        "content_th": "จัดการสิ่งของและงานอย่างมีระบบ",
+        "content_en": "Structures tasks and spaces for efficiency."
+      },
+      {
+        "th": "ใจร้อน",
+        "en": "Impulsive",
+        "content_th": "ตัดสินใจรวดเร็วโดยไม่คิดมาก",
+        "content_en": "Acts quickly on instincts without forethought."
+      },
+      {
+        "th": "ปรับตัวเก่ง",
+        "en": "Resourceful",
+        "content_th": "ใช้ทรัพยากรจำกัดแก้ปัญหาได้คล่อง",
+        "content_en": "Uses available resources cleverly to solve problems."
+      }
+    ]
+  },
+  "Appearance": {
+    "title": "Design",
+    "subTitle": "Appearance",
+    "key": "Appearance",
+    "data": [
+      {
+        "th": "สูงโปร่ง",
+        "en": "Tall & Slim",
+        "content_th": "มีรูปร่างสูงและผอมเพรียวดูสง่า",
+        "content_en": "Slender height, graceful elongated frame."
+      },
+      {
+        "th": "เตี้ยล่ำ",
+        "en": "Short & Stocky",
+        "content_th": "ตัวเตี้ยแต่กล้ามเนื้อแน่นแข็งแรง",
+        "content_en": "Compact build, dense powerful muscles."
+      },
+      {
+        "th": "ผมยาวสลวย",
+        "en": "Long Silky Hair",
+        "content_th": "เส้นผมยาวนุ่มลื่นพลิ้วสวย",
+        "content_en": "Flowing smooth locks, soft sheen."
+      },
+      {
+        "th": "ผมสั้นกะทัดรัด",
+        "en": "Short Cropped Hair",
+        "content_th": "ทรงผมสั้นดูคล่องตัว",
+        "content_en": "Neatly trimmed hair, agile impression."
+      },
+      {
+        "th": "ดวงตาคมกริบ",
+        "en": "Sharp Eyes",
+        "content_th": "สายตาเฉียบคมดูลึกซึ้ง",
+        "content_en": "Piercing gaze noticing every detail."
+      },
+      {
+        "th": "ดวงตากลมโต",
+        "en": "Large Round Eyes",
+        "content_th": "ตากลมใหญ่ดูสดใส",
+        "content_en": "Wide eyes radiating wonder and innocence."
+      },
+      {
+        "th": "ยิ้มกว้างเป็นมิตร",
+        "en": "Warm Broad Smile",
+        "content_th": "มุมปากยกสูงเผยรอยยิ้มอบอุ่น",
+        "content_en": "Welcoming wide grin brightening atmosphere."
+      },
+      {
+        "th": "หน้าตาหล่อเหลา",
+        "en": "Handsome Face",
+        "content_th": "โครงหน้าคมเข้มสะดุดตา",
+        "content_en": "Strikingly proportioned, attractive features."
+      },
+      {
+        "th": "รูปร่างกำยำ",
+        "en": "Muscular Build",
+        "content_th": "มีกล้ามเนื้อชัดเด่น",
+        "content_en": "Defined muscles showcasing disciplined strength."
+      },
+      {
+        "th": "ผิวขาวซีด",
+        "en": "Pale Skin",
+        "content_th": "สีผิวขาวเกือบไร้สีเลือด",
+        "content_en": "Porcelain complexion with delicate tone."
+      },
+      {
+        "th": "ผิวสีแทน",
+        "en": "Tanned Skin",
+        "content_th": "ผิวทองคำประกายแดด",
+        "content_en": "Sun-kissed golden complexion suggesting outdoors."
+      },
+      {
+        "th": "มีรอยกระ",
+        "en": "Freckled",
+        "content_th": "จุดกระสีน้ำตาลกระจายบนผิว",
+        "content_en": "Skin dotted with charming brown specks."
+      },
+      {
+        "th": "ตาสองสี",
+        "en": "Heterochromia",
+        "content_th": "ลูกตาแต่ละข้างคนละสี",
+        "content_en": "Eyes of two distinctly different colors."
+      },
+      {
+        "th": "ผิวเผือก",
+        "en": "Albinism",
+        "content_th": "ขาดเม็ดสีทำให้ขาวจัด",
+        "content_en": "Pigmentless skin and hair, light-sensitive."
+      },
+      {
+        "th": "มีรอยสักเต็มตัว",
+        "en": "Full-Body Tattoos",
+        "content_th": "ลายสักปกคลุมส่วนใหญ่ของร่าง",
+        "content_en": "Ink artwork covering nearly entire skin."
+      },
+      {
+        "th": "ใส่ต่างหูหลายรู",
+        "en": "Multiple Piercings",
+        "content_th": "เจาะหูหลายตำแหน่งประดับเครื่องประดับ",
+        "content_en": "Numerous studs and rings adorning ears."
+      },
+      {
+        "th": "มีแผลเป็นเด่นชัด",
+        "en": "Prominent Scar",
+        "content_th": "รอยแผลเก่าสะดุดสายตา",
+        "content_en": "Noticeable healed mark implying past ordeal."
+      },
+      {
+        "th": "แขนกลไซเบอร์",
+        "en": "Cybernetic Arm",
+        "content_th": "แขนเทียมโลหะล้ำยุค",
+        "content_en": "Futuristic mechanical limb replacing arm."
+      },
+      {
+        "th": "สวมแว่นตากลม",
+        "en": "Round Glasses",
+        "content_th": "กรอบแว่นทรงกลมสไตล์คลาสสิก",
+        "content_en": "Classic circular frames emphasizing eyes."
+      },
+      {
+        "th": "หนวดเคราเนี้ยบ",
+        "en": "Groomed Beard",
+        "content_th": "โกนตัดหนวดเคราเข้ารูป",
+        "content_en": "Precisely shaped facial hair, polished look."
+      },
+      {
+        "th": "ท่าทางสง่างาม",
+        "en": "Elegant Posture",
+        "content_th": "การยืนเดินดูภูมิฐาน",
+        "content_en": "Upright, poised stance exuding refinement."
+      },
+      {
+        "th": "สไตล์กอธ",
+        "en": "Gothic Style",
+        "content_th": "เสื้อผ้าทึบสีและเครื่องประดับโทนมืด",
+        "content_en": "Dark dramatic attire with occult accessories."
+      },
+      {
+        "th": "ลุคไซเบอร์พังก์",
+        "en": "Cyberpunk Look",
+        "content_th": "การแต่งตัวสะท้อนอนาคตผสานพังก์",
+        "content_en": "Neon-edged, tech-infused rebellious fashion."
+      },
+      {
+        "th": "ผมหลากสีรุ้ง",
+        "en": "Rainbow Hair",
+        "content_th": "ย้อมผมสีหลายเฉดสดใส",
+        "content_en": "Vibrant multicolored strands, bold statement."
+      },
+      {
+        "th": "แฟชันวินเทจ",
+        "en": "Vintage Fashion",
+        "content_th": "เสื้อผ้าแนวคลาสสิกย้อนยุค",
+        "content_en": "Retro garments echoing bygone charm."
+      },
+      {
+        "th": "รูปร่างอวบอิ่ม",
+        "en": "Curvy Figure",
+        "content_th": "ส่วนโค้งเว้าชัดเจนอิ่มเอิบ",
+        "content_en": "Pronounced, soft contours emphasizing femininity."
+      },
+      {
+        "th": "ดวงตาเอเชียคมลึก",
+        "en": "Almond Eyes",
+        "content_th": "รูปตาเรียวยาวดูลึกลับ",
+        "content_en": "Slightly slanted eyes offering subtle depth."
+      },
+      {
+        "th": "ผิวนวลเปล่งประกาย",
+        "en": "Radiant Skin",
+        "content_th": "ผิวเนียนและดูมีออร่า",
+        "content_en": "Healthy glowing complexion, luminous sheen."
+      }
+    ]
+  },
+  "Goal": {
+    "title": "Design",
+    "subTitle": "Goal",
+    "key": "Goal",
+    "data": [
+      {
+        "th": "อำนาจ",
+        "en": "Power",
+        "content_th": "มุ่งครอบครองอำนาจควบคุมผู้อื่น",
+        "content_en": "Authority to control and direct others."
+      },
+      {
+        "th": "การล้างแค้น",
+        "en": "Revenge",
+        "content_th": "ต้องการตอบโต้ผู้ที่ทำร้าย",
+        "content_en": "Retaliation to balance perceived wrongs."
+      },
+      {
+        "th": "ความมั่งคั่ง",
+        "en": "Wealth",
+        "content_th": "สะสมทรัพย์สินและเงินทองเพิ่มขึ้น",
+        "content_en": "Accumulating abundant material and financial resources."
+      },
+      {
+        "th": "ความรู้",
+        "en": "Knowledge",
+        "content_th": "แสวงหาข้อมูลและความเข้าใจใหม่ ๆ",
+        "content_en": "Comprehensive understanding through learning and experience."
+      },
+      {
+        "th": "ความรัก",
+        "en": "Love",
+        "content_th": "ใฝ่หาความสัมพันธ์อบอุ่นและห่วงใย",
+        "content_en": "Deep affection and caring connection with others."
+      },
+      {
+        "th": "เสรีภาพ",
+        "en": "Freedom",
+        "content_th": "ปรารถนาปลดปล่อยจากข้อจำกัด",
+        "content_en": "Ability to act without external restraints."
+      },
+      {
+        "th": "ความปลอดภัย",
+        "en": "Security",
+        "content_th": "แสวงหาความมั่นคงและไร้ภัย",
+        "content_en": "Condition of safety, stability, and protection."
+      },
+      {
+        "th": "ชื่อเสียง",
+        "en": "Fame",
+        "content_th": "ต้องการเป็นที่รู้จักและยอมรับ",
+        "content_en": "Widespread public recognition and renown."
+      },
+      {
+        "th": "ความยุติธรรม",
+        "en": "Justice",
+        "content_th": "มุ่งทำให้เกิดความเป็นธรรมต่อทุกฝ่าย",
+        "content_en": "Fair treatment and moral rightness for all."
+      },
+      {
+        "th": "การผจญภัย",
+        "en": "Adventure",
+        "content_th": "แสวงหาประสบการณ์ใหม่ตื่นเต้น",
+        "content_en": "Exciting pursuit of novel, risky experiences."
+      },
+      {
+        "th": "สุขภาพ",
+        "en": "Health",
+        "content_th": "มุ่งรักษาร่างกายและจิตใจให้แข็งแรง",
+        "content_en": "Physical and mental well-being maintained."
+      },
+      {
+        "th": "ความสร้างสรรค์",
+        "en": "Creativity",
+        "content_th": "ต้องการคิดและสร้างสิ่งใหม่",
+        "content_en": "Capacity to generate original, valuable ideas."
+      },
+      {
+        "th": "มรดกตกทอด",
+        "en": "Legacy",
+        "content_th": "ปรารถนาทิ้งสิ่งดีให้คนรุ่นหลัง",
+        "content_en": "Enduring impact left for future generations."
+      },
+      {
+        "th": "ความสุข",
+        "en": "Happiness",
+        "content_th": "แสวงหาความพึงพอใจและความรื่นรมย์",
+        "content_en": "Sustained feeling of joy and contentment."
+      },
+      {
+        "th": "ความเคารพ",
+        "en": "Respect",
+        "content_th": "ต้องการได้รับการยกย่องจากผู้อื่น",
+        "content_en": "Esteem earned through qualities and actions."
+      },
+      {
+        "th": "ความเท่าเทียม",
+        "en": "Equality",
+        "content_th": "มุ่งให้ทุกคนมีสิทธิเท่าเทียม",
+        "content_en": "Identical rights and opportunities for everyone."
+      },
+      {
+        "th": "การตรัสรู้ทางจิตวิญญาณ",
+        "en": "Enlightenment",
+        "content_th": "แสวงหาความเข้าใจลึกซึ้งทางจิต",
+        "content_en": "Profound awakening leading to clarity and wisdom."
+      },
+      {
+        "th": "การอยู่รอด",
+        "en": "Survival",
+        "content_th": "มุ่งคงอยู่ในสภาวะยากลำบาก",
+        "content_en": "Continuing existence despite threats or hardship."
+      },
+      {
+        "th": "นวัตกรรม",
+        "en": "Innovation",
+        "content_th": "ผลักดันการเปลี่ยนแปลงผ่านเทคโนโลยี",
+        "content_en": "Pioneering ideas that transform current reality."
+      },
+      {
+        "th": "ประสิทธิภาพ",
+        "en": "Efficiency",
+        "content_th": "ทำงานให้ได้ผลสูงใช้ทรัพยากรต่ำ",
+        "content_en": "Maximizing output while minimizing wasted resources."
+      },
+      {
+        "th": "ความยั่งยืน",
+        "en": "Sustainability",
+        "content_th": "รักษาทรัพยากรเพื่ออนาคต",
+        "content_en": "Meeting needs without harming future resources."
+      },
+      {
+        "th": "ความโดดเด่นเหนือผู้อื่น",
+        "en": "Dominance",
+        "content_th": "ต้องการเหนือกว่าในทุกด้าน",
+        "content_en": "Asserting superior status over all competitors."
+      },
+      {
+        "th": "อิทธิพล",
+        "en": "Influence",
+        "content_th": "มีผลต่อการตัดสินใจของผู้อื่น",
+        "content_en": "Shaping others’ beliefs, decisions, or behavior."
+      },
+      {
+        "th": "ความเป็นระเบียบ",
+        "en": "Order",
+        "content_th": "สร้างโครงสร้างและกฎเกณฑ์ชัดเจน",
+        "content_en": "Structured stability maintained through clear rules."
+      },
+      {
+        "th": "การสำรวจ",
+        "en": "Exploration",
+        "content_th": "ค้นหาดินแดนหรือแนวคิดใหม่",
+        "content_en": "Investigating unknown places, ideas, or possibilities."
+      },
+      {
+        "th": "ความชำนาญ",
+        "en": "Mastery",
+        "content_th": "พัฒนาทักษะจนถึงขั้นเชี่ยวชาญ",
+        "content_en": "Expert skill achieved through relentless practice."
+      },
+      {
+        "th": "ความพึงพอใจ",
+        "en": "Pleasure",
+        "content_th": "มุ่งรับความสุขจากประสบการณ์สัมผัส",
+        "content_en": "Sensory or emotional enjoyment of experiences."
+      },
+      {
+        "th": "สันติภาพ",
+        "en": "Peace",
+        "content_th": "ตั้งใจลดความขัดแย้งและสงคราม",
+        "content_en": "State of tranquility free from conflict."
+      }
+    ]
+  },
+  "Weakness": {
+    "title": "Design",
+    "subTitle": "Weakness",
+    "key": "Weakness",
+    "data": [
+      {
+        "th": "ความโลภ",
+        "en": "Greed",
+        "content_th": "ปรารถนาครอบครองเกินความจำเป็น",
+        "content_en": "Insatiable drive to accumulate more."
+      },
+      {
+        "th": "ความขี้เกียจ",
+        "en": "Laziness",
+        "content_th": "หลีกเลี่ยงงานและความพยายามเสมอ",
+        "content_en": "Habitually avoids effort and work."
+      },
+      {
+        "th": "ความอิจฉา",
+        "en": "Envy",
+        "content_th": "ไม่พอใจเมื่อผู้อื่นมีสิ่งดี",
+        "content_en": "Resents others’ success or possessions."
+      },
+      {
+        "th": "ความหยิ่งยโส",
+        "en": "Arrogance",
+        "content_th": "มองตนเหนือกว่าผู้อื่นตลอดเวลา",
+        "content_en": "Inflated belief in personal superiority."
+      },
+      {
+        "th": "ความดื้อรั้น",
+        "en": "Stubbornness",
+        "content_th": "ปฏิเสธปรับเปลี่ยนแม้เห็นหลักฐาน",
+        "content_en": "Refuses to adjust views or plans."
+      },
+      {
+        "th": "ใจร้อน",
+        "en": "Impatience",
+        "content_th": "ตัดสินใจไวเกินไปจนก่อปัญหา",
+        "content_en": "Struggles to wait or endure delays."
+      },
+      {
+        "th": "ความขลาด",
+        "en": "Cowardice",
+        "content_th": "หลีกเลี่ยงเผชิญสิ่งน่ากลัวทุกครั้ง",
+        "content_en": "Shrinks from danger or confrontation."
+      },
+      {
+        "th": "ความลังเล",
+        "en": "Indecision",
+        "content_th": "ไม่กล้าตัดสินใจเด็ดขาด",
+        "content_en": "Unable to choose promptly or firmly."
+      },
+      {
+        "th": "ความหุนหัน",
+        "en": "Recklessness",
+        "content_th": "ทำสิ่งเสี่ยงโดยไม่คิดรอบคอบ",
+        "content_en": "Acts impulsively, ignoring serious risk."
+      },
+      {
+        "th": "ความระแวง",
+        "en": "Paranoia",
+        "content_th": "ไม่ไว้ใจใครง่าย ๆ แม้ไร้เหตุ",
+        "content_en": "Sees hidden threats in harmless actions."
+      },
+      {
+        "th": "ความขี้ลืม",
+        "en": "Forgetfulness",
+        "content_th": "จำเรื่องสำคัญไม่ได้บ่อยครั้ง",
+        "content_en": "Regularly fails to recall key details."
+      },
+      {
+        "th": "ขาดสมาธิ",
+        "en": "Distractibility",
+        "content_th": "ฟุ้งซ่านง่ายทำงานไม่ต่อเนื่อง",
+        "content_en": "Attention drifts easily from tasks."
+      },
+      {
+        "th": "ความวิตกกังวล",
+        "en": "Anxiety",
+        "content_th": "กังวลเกินควรต่อเหตุการณ์อนาคต",
+        "content_en": "Persistent worry about future harm."
+      },
+      {
+        "th": "มองโลกในแง่ร้าย",
+        "en": "Pessimism",
+        "content_th": "คาดหวังผลลัพธ์แย่เสมอ",
+        "content_en": "Consistently expects negative outcomes."
+      },
+      {
+        "th": "ความไม่มั่นใจ",
+        "en": "Insecurity",
+        "content_th": "เชื่อว่าตนไร้ความสามารถ",
+        "content_en": "Doubts own worth and abilities."
+      },
+      {
+        "th": "หลงตัวเอง",
+        "en": "Narcissism",
+        "content_th": "หมกมุ่นกับภาพลักษณ์ของตน",
+        "content_en": "Obsessed with self-image and praise."
+      },
+      {
+        "th": "ความดันทุรัง",
+        "en": "Bullheadedness",
+        "content_th": "ฝืนทำต่อแม้ชัดว่าผิดพลาด",
+        "content_en": "Pushes ahead despite clear errors."
+      },
+      {
+        "th": "เจ้าอารมณ์",
+        "en": "Moody",
+        "content_th": "อารมณ์เปลี่ยนรวดเร็วยากควบคุม",
+        "content_en": "Emotions swing unpredictably and fast."
+      },
+      {
+        "th": "ไร้วินัย",
+        "en": "Undisciplined",
+        "content_th": "ไม่รักษากฎหรือแผนที่วางไว้",
+        "content_en": "Lacks self-control and structure."
+      },
+      {
+        "th": "ใจแคบ",
+        "en": "Intolerance",
+        "content_th": "ยอมรับความเห็นต่างได้ยาก",
+        "content_en": "Rejects differing beliefs or lifestyles."
+      },
+      {
+        "th": "ไวต่อคำวิจารณ์",
+        "en": "Oversensitive",
+        "content_th": "เจ็บปวดเมื่อถูกติติงเล็กน้อย",
+        "content_en": "Takes mild remarks as deep slights."
+      },
+      {
+        "th": "ยึดติดอดีต",
+        "en": "Dwelling on Past",
+        "content_th": "ไม่ปล่อยผ่านเรื่องเก่า ๆ ง่าย",
+        "content_en": "Fixates on bygone mistakes or loss."
+      },
+      {
+        "th": "ละโมบอำนาจ",
+        "en": "Power-hungry",
+        "content_th": "ปรารถนาควบคุมเหนือทุกคน",
+        "content_en": "Craves control over others at any cost."
+      },
+      {
+        "th": "ชอบเอาชนะ",
+        "en": "Competitive to Fault",
+        "content_th": "ต้องชนะทุกสถานการณ์",
+        "content_en": "Needs to win, harming relationships."
+      },
+      {
+        "th": "หมกมุ่น",
+        "en": "Obsessive",
+        "content_th": "ใส่ใจกับสิ่งเดียวเกินความเหมาะสม",
+        "content_en": "Over-focuses on one idea or task."
+      },
+      {
+        "th": "ขาดความเห็นอกเห็นใจ",
+        "en": "Lack of Empathy",
+        "content_th": "ไม่รับรู้ความรู้สึกผู้อื่น",
+        "content_en": "Fails to feel or share others’ emotions."
+      }
+    ]
+  },
+  "Strength": {
+    "title": "Design",
+    "subTitle": "Strength",
+    "key": "Strength",
+    "data": [
+      {
+        "th": "ความเป็นผู้นำ",
+        "en": "Leadership",
+        "content_th": "นำทางและสร้างแรงบันดาลใจผู้อื่น",
+        "content_en": "Guides groups toward shared goals."
+      },
+      {
+        "th": "ความเห็นอกเห็นใจ",
+        "en": "Empathy",
+        "content_th": "เข้าใจและรับรู้ความรู้สึกคนอื่น",
+        "content_en": "Feels and understands others’ emotions."
+      },
+      {
+        "th": "ความมุ่งมั่น",
+        "en": "Perseverance",
+        "content_th": "ทำต่อเนื่องจนบรรลุเป้าหมาย",
+        "content_en": "Pushes on despite obstacles."
+      },
+      {
+        "th": "ความซื่อสัตย์สุจริต",
+        "en": "Integrity",
+        "content_th": "ยืนหยัดทำสิ่งถูกต้องเสมอ",
+        "content_en": "Aligns actions with strong ethics."
+      },
+      {
+        "th": "การคิดวิเคราะห์",
+        "en": "Analytical Thinking",
+        "content_th": "แยกแยะข้อมูลอย่างมีเหตุผล",
+        "content_en": "Dissects problems into logical parts."
+      },
+      {
+        "th": "ความคิดสร้างสรรค์",
+        "en": "Creativity",
+        "content_th": "ผลิตไอเดียใหม่แก้ปัญหา",
+        "content_en": "Generates novel, valuable ideas."
+      },
+      {
+        "th": "สามารถสื่อสารได้ดี",
+        "en": "Clear Communication",
+        "content_th": "ถ่ายทอดข้อมูลเข้าใจง่าย",
+        "content_en": "Conveys messages simply and precisely."
+      },
+      {
+        "th": "การทำงานร่วมทีม",
+        "en": "Teamwork",
+        "content_th": "ประสานงานผู้อื่นได้ราบรื่น",
+        "content_en": "Cooperates smoothly with colleagues."
+      },
+      {
+        "th": "สมาธิแน่วแน่",
+        "en": "Focus",
+        "content_th": "จดจ่อสิ่งใดสิ่งหนึ่งอย่างลึกซึ้ง",
+        "content_en": "Sustains deep concentration on tasks."
+      },
+      {
+        "th": "การวางแผนเชิงกลยุทธ์",
+        "en": "Strategic Planning",
+        "content_th": "กำหนดเส้นทางสู่เป้าหมายระยะยาว",
+        "content_en": "Charts long-term paths to success."
+      },
+      {
+        "th": "พลังโน้มน้าว",
+        "en": "Persuasion",
+        "content_th": "ชักจูงใจให้ผู้อื่นคล้อยตาม",
+        "content_en": "Influences decisions with compelling reason."
+      },
+      {
+        "th": "การจัดการเวลา",
+        "en": "Time Management",
+        "content_th": "ใช้เวลาคุ้มค่าตามลำดับความสำคัญ",
+        "content_en": "Uses hours efficiently and purposefully."
+      },
+      {
+        "th": "ความยุติธรรม",
+        "en": "Fairness",
+        "content_th": "ตัดสินโดยไม่ลำเอียง",
+        "content_en": "Treats everyone impartially and justly."
+      },
+      {
+        "th": "ความกล้าหาญ",
+        "en": "Courage",
+        "content_th": "เผชิญความเสี่ยงด้วยใจมั่น",
+        "content_en": "Acts bravely in risky moments."
+      },
+      {
+        "th": "แก้ปัญหาเชิงสร้างสรรค์",
+        "en": "Creative Problem-Solving",
+        "content_th": "หาทางออกใหม่ ๆ ต่อข้อจำกัด",
+        "content_en": "Invents fresh fixes to challenges."
+      },
+      {
+        "th": "ความรับผิดชอบ",
+        "en": "Accountability",
+        "content_th": "รับผลจากการกระทำของตนเต็มที่",
+        "content_en": "Owns actions and their outcomes."
+      },
+      {
+        "th": "วิจารณญาณดี",
+        "en": "Good Judgment",
+        "content_th": "เลือกทางที่เหมาะสมตามข้อมูล",
+        "content_en": "Chooses wisely using sound reason."
+      },
+      {
+        "th": "ความใจกว้าง",
+        "en": "Generosity",
+        "content_th": "แบ่งปันทรัพยากรและโอกาส",
+        "content_en": "Shares resources freely and kindly."
+      },
+      {
+        "th": "การฟังอย่างตั้งใจ",
+        "en": "Active Listening",
+        "content_th": "รับฟังโดยไม่ขัดจังหวะ",
+        "content_en": "Gives full attention and understanding."
+      },
+      {
+        "th": "ความยืดหยุ่นทางความคิด",
+        "en": "Mental Flexibility",
+        "content_th": "ปรับมุมมองเมื่อได้รับข้อมูลใหม่",
+        "content_en": "Adapts thinking as conditions change."
+      },
+      {
+        "th": "ความรอบคอบ",
+        "en": "Prudence",
+        "content_th": "ประเมินความเสี่ยงก่อนลงมือ",
+        "content_en": "Weighs risks before deciding."
+      },
+      {
+        "th": "พลังงานเชิงบวก",
+        "en": "Positive Energy",
+        "content_th": "ส่งต่อแรงบันดาลใจและกำลังใจ",
+        "content_en": "Radiates enthusiasm and optimism."
+      },
+      {
+        "th": "การสังเกตรายละเอียด",
+        "en": "Attention to Detail",
+        "content_th": "ตรวจจับจุดเล็กที่คนอื่นพลาด",
+        "content_en": "Spots small but crucial elements."
+      },
+      {
+        "th": "การบริหารความเครียด",
+        "en": "Stress Management",
+        "content_th": "ควบคุมอารมณ์ภายใต้แรงกดดัน",
+        "content_en": "Stays calm under heavy pressure."
+      },
+      {
+        "th": "ความรู้รอบด้าน",
+        "en": "Broad Knowledge",
+        "content_th": "เข้าใจหลากหลายสาขาวิชา",
+        "content_en": "Knows widely across many fields."
+      }
+    ]
+  },
+  "Superpower": {
+    "title": "Design",
+    "subTitle": "Superpower",
+    "key": "Superpower",
+    "data": [
+      {
+        "th": "พละกำลังเหนือมนุษย์",
+        "en": "Super Strength",
+        "content_th": "ยกหรือทลายสิ่งมหึมาได้ด้วยกำลังเดียว",
+        "content_en": "Lifts and strikes with immense force."
+      },
+      {
+        "th": "ความเร็วเหนือเสียง",
+        "en": "Super Speed",
+        "content_th": "เคลื่อนที่เร็วกว่าสิ่งใดจนมองไม่ทัน",
+        "content_en": "Moves faster than the eye can track."
+      },
+      {
+        "th": "ล่องหน",
+        "en": "Invisibility",
+        "content_th": "ทำให้ร่างกายหายไปจากสายตาผู้คน",
+        "content_en": "Vanishes completely from view."
+      },
+      {
+        "th": "ควบคุมเวลา",
+        "en": "Time Manipulation",
+        "content_th": "หยุด ย้อน หรือเร่งเวลาตามต้องการ",
+        "content_en": "Stops, rewinds, or accelerates time."
+      },
+      {
+        "th": "แปลงร่าง",
+        "en": "Shape-shifting",
+        "content_th": "เปลี่ยนรูปร่างเป็นสิ่งใดก็ได้",
+        "content_en": "Alters physical form at will."
+      },
+      {
+        "th": "พลังรักษาตัว",
+        "en": "Regeneration",
+        "content_th": "ฟื้นบาดแผลรวดเร็วกว่าปกติ",
+        "content_en": "Rapidly heals any bodily damage."
+      },
+      {
+        "th": "ความเป็นอมตะ",
+        "en": "Immortality",
+        "content_th": "ไม่มีวันแก่หรือเสียชีวิตตามวัย",
+        "content_en": "Never ages and defies death."
+      },
+      {
+        "th": "ยิงพลังงาน",
+        "en": "Energy Projection",
+        "content_th": "ปล่อยลำแสงหรือคลื่นทำลายศัตรู",
+        "content_en": "Fires destructive energy blasts."
+      },
+      {
+        "th": "สร้างโล่พลังงาน",
+        "en": "Force-Field Generation",
+        "content_th": "กางกำแพงล่องหนป้องกันอันตราย",
+        "content_en": "Creates protective energy barriers."
+      },
+      {
+        "th": "ควบคุมไฟ",
+        "en": "Pyrokinesis",
+        "content_th": "จุดและบังคับเปลวเพลิงตามใจ",
+        "content_en": "Generates and controls intense flames."
+      },
+      {
+        "th": "ควบคุมน้ำ",
+        "en": "Hydrokinesis",
+        "content_th": "เรียกและปั้นสายน้ำได้ดั่งใจ",
+        "content_en": "Commands water in all states."
+      },
+      {
+        "th": "ควบคุมลม",
+        "en": "Aerokinesis",
+        "content_th": "สร้างกระแสลมหรือพายุแรงกล้า",
+        "content_en": "Manipulates air currents and wind."
+      },
+      {
+        "th": "ควบคุมดิน",
+        "en": "Geokinesis",
+        "content_th": "สั่งการหินและแผ่นดินให้เคลื่อน",
+        "content_en": "Shifts earth, rock, and stone."
+      },
+      {
+        "th": "ควบคุมสภาพอากาศ",
+        "en": "Weather Manipulation",
+        "content_th": "เปลี่ยนฝนฟ้าลมพายุได้ทั่วท้องฟ้า",
+        "content_en": "Alters climate and summons storms."
+      },
+      {
+        "th": "ญาณทิพย์ล่วงรู้อนาคต",
+        "en": "Precognition",
+        "content_th": "มองเห็นเหตุการณ์ก่อนเกิดจริง",
+        "content_en": "Foresees future events in advance."
+      },
+      {
+        "th": "มองเห็นจากระยะไกล",
+        "en": "Clairvoyance",
+        "content_th": "รับภาพเหตุการณ์ไกลเกินสายตา",
+        "content_en": "Sees distant places or hidden scenes."
+      },
+      {
+        "th": "ควบคุมเครื่องจักร",
+        "en": "Technopathy",
+        "content_th": "สั่งงานอุปกรณ์อิเล็กทรอนิกส์ด้วยจิต",
+        "content_en": "Controls and communicates with technology."
+      },
+      {
+        "th": "สื่อสารกับสัตว์",
+        "en": "Animal Communication",
+        "content_th": "เข้าใจและสนทนากับสรรพสัตว์",
+        "content_en": "Understands and converses with animals."
+      },
+      {
+        "th": "ขยายหรือย่อขนาด",
+        "en": "Size Manipulation",
+        "content_th": "เปลี่ยนร่างให้ใหญ่หรือเล็กได้",
+        "content_en": "Grows giant or shrinks tiny instantly."
+      },
+      {
+        "th": "ผ่านสสารได้",
+        "en": "Intangibility",
+        "content_th": "เดินทะลุสิ่งกีดขวางโดยไม่ติด",
+        "content_en": "Phases through solid matter unharmed."
+      },
+      {
+        "th": "ควบคุมแม่เหล็ก",
+        "en": "Magnetism Control",
+        "content_th": "ดึงหรือผลักโลหะและสนามแม่เหล็ก",
+        "content_en": "Attracts or repels metal and fields."
+      },
+      {
+        "th": "ควบคุมแรงโน้มถ่วง",
+        "en": "Gravity Manipulation",
+        "content_th": "เพิ่มหรือลดแรงดึงดูดรอบตัว",
+        "content_en": "Increases or nullifies gravitational pull."
+      },
+      {
+        "th": "แยกร่าง",
+        "en": "Duplication",
+        "content_th": "แยกร่างกายออกเป็นหลายตัวตน",
+        "content_en": "Creates identical physical copies of self."
+      },
+      {
+        "th": "ควบคุมเสียง",
+        "en": "Sonic Manipulation",
+        "content_th": "สร้างคลื่นเสียงทำลายหรือป้องกัน",
+        "content_en": "Generates powerful sound waves."
+      },
+      {
+        "th": "สร้างภาพมายา",
+        "en": "Illusion Casting",
+        "content_th": "หลอกประสาทให้เห็นสิ่งไม่จริง",
+        "content_en": "Projects convincing sensory deceptions."
+      },
+      {
+        "th": "ควบคุมพืช",
+        "en": "Chlorokinesis",
+        "content_th": "เร่งการเติบโตและสั่งการพฤกษา",
+        "content_en": "Accelerates and directs plant growth."
+      },
+      {
+        "th": "ดูดซับพลัง",
+        "en": "Power Absorption",
+        "content_th": "รับและใช้พลังของผู้อื่นชั่วคราว",
+        "content_en": "Temporarily takes others’ abilities."
+      }
+    ]
+  }
+}

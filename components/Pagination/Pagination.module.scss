@@ -1,0 +1,41 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+
+  .info {
+    margin-right: auto;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  button {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid #ccc;
+    background: white;
+    color: #821dbf;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background: #f3e9fb;
+      border-color: #821dbf;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
+
+  .activePage {
+    background: #821dbf;
+    color: white;
+    font-weight: 500;
+    border-color: #821dbf;
+  }
+}

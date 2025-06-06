@@ -54,6 +54,42 @@
         "topic": "Character Design",
         "desc": "มีเรื่องเล่าแล้ว แต่ตัวละครไม่ชัดเจน",
         "desc2": "มาขยายไอเดียด้วยเทมเพลตนี้"
+      },
+      "alternative_use":{
+        "type": "pdf",
+        "topic": "Alternative Use",
+        "desc": "หาวิธีประยุกต์ใช้สิ่งของที่",
+        "desc2": "กำหนดให้ ในรูปแบบใหม่ๆ"
+      },
+      "gamification":{
+        "type": "pdf",
+        "topic": "Gamification",
+        "desc": "มาลองประยุกต์ใช้หลักการของ",
+        "desc2": "เกมมิฟิเคชันในการแก้ไขปัญหากันเถอะ"
+      },
+      "multipurpose":{
+        "type": "pdf",
+        "topic": "Multipurpose",
+        "desc": "คิดอย่างสร้างสรรค์เพื่อทำให้สิ่งของ",
+        "desc2": "ที่มีอยู่สามารถใช้งานได้หลากหลาย"
+      },
+      "relating_the_unrelated":{
+        "type": "pdf",
+        "topic": "Relating The Unrelated",
+        "desc": "จะเป็นยังไง หากนำของสองสิ่งที่ไม่",
+        "desc2": "เกี่ยวข้องกันมาผสานให้เป็นสิ่งใหม่"
+      },
+      "storytelling":{
+        "type": "pdf",
+        "topic": "Storytelling",
+        "desc": "มาเล่าเรื่องให้น่าสนใจเพื่อ",
+        "desc2": "ดึงดูด ผู้ฟังของคุณกันเถอะ"
+      },
+      "substitute":{
+        "type": "pdf",
+        "topic": "Substitute",
+        "desc": "มีอะไรบ้างนะ ที่สามารถนำมา",
+        "desc2": "แทนที่ผลิตภัณฑ์เดิมด้วยสิ่งอื่น"
       }
     }
   }

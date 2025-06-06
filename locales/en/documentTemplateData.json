@@ -54,6 +54,42 @@
         "topic": "Character Design",
         "desc": "Can’t think of a character for",
         "desc2": "your story? look at this tool."
+      },
+      "alternative_use":{
+        "type": "pdf",
+        "topic": "Alternative Use",
+        "desc": "Find ways to apply the",
+        "desc2": "given items in new methods."
+      },
+      "gamification":{
+        "type": "pdf",
+        "topic": "Gamification",
+        "desc": "Applying Gamification",
+        "desc2": "to solve problem."
+      },
+      "multipurpose":{
+        "type": "pdf",
+        "topic": "Multipurpose",
+        "desc": "Think creatively to",
+        "desc2": "make things versatile."
+      },
+      "relating_the_unrelated":{
+        "type": "pdf",
+        "topic": "Relating The Unrelated",
+        "desc": "Combine two things or objects",
+        "desc2": "to build a new product."
+      },
+      "storytelling":{
+        "type": "pdf",
+        "topic": "Storytelling",
+        "desc": "Let's make your story",
+        "desc2": "attract your audience."
+      },
+      "substitute":{
+        "type": "pdf",
+        "topic": "Substitute",
+        "desc": "Find a way to substitute",
+        "desc2": "the original product."
       }
     }
   }

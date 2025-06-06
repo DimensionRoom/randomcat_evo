@@ -1,0 +1,285 @@
+.main {
+  --primary-color: #8a14d1;
+  --background-color: linear-gradient(90deg, #8a14d1, #f629c4);
+  --item-background-color: #1d2b84;
+  --border-color: #ffffff;
+  --text-color-title: #ffffff;
+  --text-color-title-ex: #4471c1;
+  --text-color-content: #0d93ff;
+  --btn--bg-color: #ffffff;
+  --btn--text-color: #411874;
+  --btn--text-color-hover: #ffffff;
+  --btn--bg-hover: #970090;
+  --btn--bg-active: #4b4b4b5c;
+  display: flex;
+  min-height: calc(100dvh);
+  overflow-y: scroll;
+  flex-direction: column;
+  background: url("/svgs/svg/blob-scene-haikei.svg"), var(--background-color);
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+.MobileHeader {
+  --logo-color: #ffffff;
+  display: none;
+  .LayoutHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    height: 60px;
+    padding: 1rem 1.2rem !important;
+    .textLink{
+      .BrandContainer{
+        width: 30px;
+        height: 30px;
+        .LogoContainer svg {
+          fill: var(--logo-color);
+        }
+      }
+    }
+  }
+}
+
+.randomSection {
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  padding: 100px;
+  // animation: scale-in-hor-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.CardItemsContainer {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  overflow-x: auto;
+  overflow: visible;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.CardItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 30px;
+  background: #362375;
+  background-image: linear-gradient(
+    320deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  cursor: pointer;
+}
+
+.TextItemsContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  // padding: 0px 30px;
+  .GroupItem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .ToolName {
+      text-align: center;
+      .ToolNameText {
+        font-size: 5em;
+        font-weight: 700;
+        color: var(--text-color-title);
+      }
+    }
+    .RandomCardName {
+      display: flex;
+      flex: 1;
+      width: 50%;
+      justify-content: center;
+      .CardNameText {
+        text-align: center;
+        font-size: 2.8em;
+        font-weight: 500;
+        color: var(--text-color-title);
+      }
+    }
+    .Countdown {
+      width: 100%;
+    }
+    .Action {
+      .RandomBtn {
+        background-color: var(--btn--bg-color);
+        color: var(--btn--text-color);
+        padding: 10px 25px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      .RandomBtn:hover {
+        background-color: var(--btn--bg-hover);
+        color: var(--btn--text-color-hover);
+      }
+      .RandomBtn:active {
+        background-color: var(--btn--bg-active);
+        color: var(--btn--text-color-hover);
+      }
+    }
+  }
+}
+
+@media (max-width: 1250px) and (min-width: 560px) {
+  .main {
+    --btn--bg-hover: #dc53d6;
+    min-height: 100dvh;
+  }
+  .main::before {
+    background-position: right;
+  }
+  .randomSection {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    .CardItemsContainer {
+      justify-content: center;
+      .CardItemConfig {
+        width: 200px;
+        height: 275px;
+      }
+    }
+    .TextItemsContainer {
+      align-items: center;
+      .GroupItem {
+        width: 90%;
+        .ToolName {
+          .ToolNameText {
+            font-size: 3em;
+          }
+        }
+        .RandomCardName {
+          .CardNameText {
+            font-size: 1.5em;
+          }
+        }
+        .Action {
+          .RandomBtn {
+            padding: 10px 20px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .randomSection {
+    min-height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 790px) {
+  .randomSection {
+    .TextItemsContainer {
+      .GroupItem {
+        .ToolName {
+          .ToolNameText {
+            font-size: 3em;
+          }
+        }
+        .RandomCardName {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .MobileHeader {
+    display: flex;
+  }
+  .main {
+    --btn--bg-hover: #dc53d6;
+    min-height: 100dvh;
+  }
+  .main::before {
+    background-position: right;
+  }
+  .randomSection {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    .CardItemsContainer {
+      justify-content: center;
+      .CardItemConfig {
+        width: 200px;
+        height: 275px;
+      }
+    }
+    .TextItemsContainer {
+      align-items: center;
+      .GroupItem {
+        width: 90%;
+        .ToolName {
+          // display: none;
+        }
+        .RandomCardName {
+          width: 100%;
+          .CardNameText {
+            font-size: 1.6em;
+          }
+        }
+        .Action {
+          .RandomBtn {
+            padding: 10px 20px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes scale-in-hor-left {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+}

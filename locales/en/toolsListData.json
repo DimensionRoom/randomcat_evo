@@ -24,6 +24,14 @@
         "desc2": "& practicing content design",
         "onlineLink": "onlinetools/creativityandbrainskills/contentdesign",
         "productLink": ""
+      },
+      "character_design": {
+        "topic": "Character",
+        "topic2": "Design",
+        "desc": "Let’s create characters for your story",
+        "desc2": "with the Character Design card set.",
+        "onlineLink": "onlinetools/creativityandbrainskills/characterdesign",
+        "productLink": ""
       }
     },
     "education": {
@@ -109,6 +117,14 @@
         "desc": "Oblique strategies that",
         "desc2": "you can practice everyday",
         "onlineLink": "/onlinetools/othertools/obliquestrategies",
+        "productLink": ""
+      },
+      "public_speaking": {
+        "topic": "Public",
+        "topic2": "Speaking",
+        "desc": "A tool for practicing public",
+        "desc2": "speaking skills",
+        "onlineLink": "/onlinetools/othertools/publicspeaking",
         "productLink": ""
       }
     }

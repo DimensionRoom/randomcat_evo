@@ -24,6 +24,14 @@
         "desc2": "Content Marketing คลิกที่นี่เลย",
         "onlineLink": "onlinetools/creativityandbrainskills/contentdesign",
         "productLink": ""
+      },
+       "character_design": {
+        "topic": "Character",
+        "topic2": "Design",
+        "desc": "ชวนสร้างตัวละครในเรื่อง",
+        "desc2": "เล่าของคุณ ด้วยการ์ดชุด",
+        "onlineLink": "onlinetools/creativityandbrainskills/characterdesign",
+        "productLink": ""
       }
     },
     "education": {
@@ -109,6 +117,14 @@
         "desc": "มาลองใช้ประโยคที่สุ่มได้",
         "desc2": "เพื่อคิดสร้างสรรค์หรือแก้ปัญหาที่เจอ",
         "onlineLink": "/onlinetools/othertools/obliquestrategies",
+        "productLink": ""
+      },
+      "public_speaking": {
+        "topic": "Public",
+        "topic2": "Speaking",
+        "desc": "ฝึกทักษะการพูด",
+        "desc2": "ให้เป็นเสมือนนักประชาสัมพันธ์",
+        "onlineLink": "/onlinetools/othertools/publicspeaking",
         "productLink": ""
       }
     }
