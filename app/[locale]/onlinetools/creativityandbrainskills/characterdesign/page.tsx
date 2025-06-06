@@ -288,13 +288,13 @@ export default function ContentBoard({
               <p
                 className={`${manivigationStyles.HeaderDetailsTitle} ${popins.className}`}
               >
-                Content
+                Character
                 <span className={manivigationStyles.HeaderDetailsTitleEx}>
                   Design
                 </span>
               </p>
               <p className={manivigationStyles.HeaderDetailsDescription}>
-                Design your own Content
+                Design your own Character
               </p>
             </div>
             <div className={manivigationStyles.HeaderActionContainer}>
