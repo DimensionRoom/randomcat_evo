@@ -3,6 +3,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useRouter } from "next/navigation";
+import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import styles from "./OnlineLearningCard.module.scss";
 
 type ContentItem = {
@@ -19,6 +20,11 @@ type OnlineLearningCardProps = {
   videoPlayAnimation: any;
 };
 
+const mitr = Mitr({
+  subsets: ["thai"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+});
+
 const OnlineLearningCard = ({
   content,
   playing,
@@ -30,7 +36,7 @@ const OnlineLearningCard = ({
     router.push(`/onlineleaning/${content.id}`);
   };
   return (
-    <div className={styles.contentBox}>
+    <div className={`${styles.contentBox} ${mitr.className}`}>
       <div className={styles.videoBox}>
         <ReactPlayer
           url={content.url}
@@ -53,11 +59,11 @@ const OnlineLearningCard = ({
       </div>
       <div className={styles.details}>
         <div className={styles.textDetails}>
-          <p className={styles.header}>{content.topic}</p>
-          <p className={styles.body}>{content.desc}</p>
+          <p className={`${styles.header} ${styles.thfontbold}`}>{content.topic}</p>
+          <p className={`${styles.body} ${styles.thfontlight}`}>{content.desc}</p>
         </div>
         <div className={styles.action}>
-          <p onClick={handleLearnClick}>
+          <p onClick={handleLearnClick} className={`${styles.thfontbold}`}>
             เรียนเลย <span>{`>`}</span>
           </p>
         </div>

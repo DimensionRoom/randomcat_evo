@@ -131,7 +131,9 @@ export default function OnlineLeaningScreen({
         </section>
         <section className={`${styles.section} ${styles.whiteSection}`}>
           <div className={styles.textContainer}>
-            <p className={styles.title}>{t("section.whiteSection.title")}</p>
+            <p   className={`${styles.title} ${
+                locale == "th" ? `${mitr.className} ${styles.thfontbold}` : null
+              }`}>{t("section.whiteSection.title")}</p>
             <p
               className={`${styles.subtitle} ${
                 locale == "th" ? `${mitr.className} ${styles.thfontbold}` : null

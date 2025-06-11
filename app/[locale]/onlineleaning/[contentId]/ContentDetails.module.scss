@@ -5,6 +5,14 @@
   background-color: #ffffff;
 }
 
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
 .parallaxSection {
   display: flex;
   position: relative;
@@ -76,11 +84,11 @@
 
   .buttons {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     gap: 20px;
 
     button {
-      background-color: #691392;
+      background-color: #811a96;
       color: white;
       border: none;
       padding: 10px 20px;

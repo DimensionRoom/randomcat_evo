@@ -137,8 +137,11 @@ export default function OnlineLearningDetailPage({
           </p>
 
           <div className={styles.buttons}>
-            <button onClick={goBack}>หน้ารวมคอร์ส</button>
+            <button onClick={goBack} className={`${mitr.className} ${styles.thfontbold}`}>
+              หน้ารวมคอร์ส
+            </button>
             <button
+              className={`${mitr.className} ${styles.thfontbold}`}
               onClick={goToNext}
               disabled={
                 contents.findIndex((i) => i.id === params.contentId) ===

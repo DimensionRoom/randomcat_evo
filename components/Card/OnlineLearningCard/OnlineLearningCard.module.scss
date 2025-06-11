@@ -1,63 +1,72 @@
-    .customPlayButton {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #000000a1;
-      border-radius: 20px 20px 0px 0px;
-      pointer-events: none;
-    }
-    .contentBox {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      // height: 5vw;
-      // box-shadow: 0px 1px 12px 0px #b8b8b8;
-      border-radius: 20px;
+.thfontlight {
+  font-weight: 200 !important;
+}
 
-      .videoBox {
-        display: flex;
-        position: relative;
+.thfontbold {
+  font-weight: 300 !important;
+}
+.customPlayButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000a1;
+  border-radius: 20px 20px 0px 0px;
+  pointer-events: none;
+}
+.contentBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  // height: 5vw;
+  // box-shadow: 0px 1px 12px 0px #b8b8b8;
+  border-radius: 20px;
+
+  .videoBox {
+    display: flex;
+    position: relative;
+  }
+  iframe {
+    border-radius: 20px 20px 0px 0px;
+    pointer-events: none;
+  }
+  .details {
+    border: 1px solid #e0e0e0;
+    border-radius: 0px 0px 20px 20px;
+    padding: 20px;
+    .textDetails {
+      color: #000;
+      text-align: left;
+      .header {
+        font-weight: bold;
+        font-size: 1.4em;
+        // overflow: hidden;
+        // white-space: nowrap;
+        // text-overflow: ellipsis;
       }
-      iframe {
-        border-radius: 20px 20px 0px 0px;
-              pointer-events: none;
-      }
-      .details {
-        border: 1px solid #e0e0e0;
-        border-radius: 0px 0px 20px 20px;
-        padding: 20px;
-        .textDetails {
-          color: #000;
-          text-align: left;
-          .header {
-            font-weight: bold;
-            // overflow: hidden;
-            // white-space: nowrap;
-            // text-overflow: ellipsis;
-          }
-          .body {
-            min-height: 5vw;
-            overflow: scroll;
-          }
-        }
-        .action {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: flex-end;
-          color: #8645ff;
-          text-align: right;
-          p {
-            cursor: pointer;
-          }
-        }
+      .body {
+        font-size: 1.1em;
+        min-height: 5vw;
+        overflow: scroll;
       }
     }
+    .action {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      color: #8645ff;
+      text-align: right;
+      p {
+        cursor: pointer;
+      }
+    }
+  }
+}
