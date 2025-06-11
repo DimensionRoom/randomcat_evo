@@ -64,7 +64,7 @@ const OnlineLearningCard = ({
         </div>
         <div className={styles.action}>
           <p onClick={handleLearnClick} className={`${styles.thfontbold}`}>
-            เรียนเลย <span>{`>`}</span>
+            เข้าสู่บทเรียน <span>{`>`}</span>
           </p>
         </div>
       </div>

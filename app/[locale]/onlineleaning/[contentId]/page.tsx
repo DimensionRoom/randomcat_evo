@@ -148,7 +148,7 @@ export default function OnlineLearningDetailPage({
                 contents.length - 1
               }
             >
-              มอดูลถัดไป
+              เนื้อหาต่อไป
             </button>
           </div>
         </section>

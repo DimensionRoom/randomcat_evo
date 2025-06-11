@@ -4,12 +4,12 @@
       "type": "youtube",
       "url": "https://youtu.be/SjInxavWpK0?si=_ialu-Fw7L_j0Rer",
       "topic": {
-        "th": "Intro",
-        "en": "Intro"
+        "th": "Introduction",
+        "en": "Introduction"
       },
       "desc": {
-        "th": "Intro",
-        "en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        "th": "ความคิดสร้างสรรค์ไม่ได้ช่วยให้เราสร้างสิ่งใหม่ได้เท่านั้น แต่ยังช่วยในด้านของแก้ปัญหาได้อย่างชาญฉลาด ในคอร์สนี้ อาจารย์เปิ้ลและอาจารย์สุ นักออกแบบนวัตกรรมทางการศึกษาผู้ที่ได้รับรางวัลมามากมาย จะมาแชร์ประสบการณ์และแนวคิดที่น่าสนใจ เพื่อปูพื้นฐานให้กับทุกท่าน ได้นำความรู้ไปประยุกต์ใช้จริง",
+        "en": "ความคิดสร้างสรรค์ไม่ได้ช่วยให้เราสร้างสิ่งใหม่ได้เท่านั้น แต่ยังช่วยในด้านของแก้ปัญหาได้อย่างชาญฉลาด ในคอร์สนี้ อาจารย์เปิ้ลและอาจารย์สุ นักออกแบบนวัตกรรมทางการศึกษาผู้ที่ได้รับรางวัลมามากมาย จะมาแชร์ประสบการณ์และแนวคิดที่น่าสนใจ เพื่อปูพื้นฐานให้กับทุกท่าน ได้นำความรู้ไปประยุกต์ใช้จริง"
       }
     },
     "EP1": {
@@ -20,8 +20,8 @@
         "en": "EP 1 ความหมายของความคิดสร้างสรรค์"
       },
       "desc": {
-        "th": "ep1",
-        "en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        "th": "เรียนรู้ความหมายของความคิดสร้างสรรค์",
+        "en": "เรียนรู้ความหมายของความคิดสร้างสรรค์"
       }
     },
     "EP2": {
@@ -32,8 +32,8 @@
         "en": "EP 2  ทดสอบความคิดสร้างสรรค์ในตัวคุณ"
       },
       "desc": {
-        "th": "ep2",
-        "en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        "th": "มาร่วมกันทดสอบกันดูว่า คุณมีความคิดสร้างสรรค์ในการแก้ปัญหาได้มากน้อยแค่ไหน กับเกมสนุกๆ และแนวคิดของ Limitation forces creativity ผ่านคลิปนี้ได้เลยค่ะ",
+        "en": "มาร่วมกันทดสอบกันดูว่า คุณมีความคิดสร้างสรรค์ในการแก้ปัญหาได้มากน้อยแค่ไหน กับเกมสนุกๆ และแนวคิดของ Limitation forces creativity ผ่านคลิปนี้ได้เลยค่ะ"
       }
     },
     "EP3": {
