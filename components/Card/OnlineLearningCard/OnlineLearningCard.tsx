@@ -2,6 +2,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useRouter } from "next/navigation";
 import styles from "./OnlineLearningCard.module.scss";
 
 type ContentItem = {
@@ -24,6 +25,10 @@ const OnlineLearningCard = ({
   onPlayToggle,
   videoPlayAnimation,
 }: OnlineLearningCardProps) => {
+  const router = useRouter();
+  const handleLearnClick = () => {
+    router.push(`/onlineleaning/${content.id}`);
+  };
   return (
     <div className={styles.contentBox}>
       <div className={styles.videoBox}>
@@ -52,7 +57,7 @@ const OnlineLearningCard = ({
           <p className={styles.body}>{content.desc}</p>
         </div>
         <div className={styles.action}>
-          <p>
+          <p onClick={handleLearnClick}>
             เรียนเลย <span>{`>`}</span>
           </p>
         </div>
