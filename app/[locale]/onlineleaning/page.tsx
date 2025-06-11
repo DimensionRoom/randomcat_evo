@@ -7,9 +7,10 @@ import ReactPlayer from "react-player";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
-import templateLoad from "@/public/json/templateload.json";
+import onlinelearningLoad from "@/public/json/onlinelearningLoad.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
+import OnlineLearningCard from "@/components/Card/OnlineLearningCard/OnlineLearningCard"
 import videoPlay from "@/public/json/videoPlay.json";
 import styles from "./OnlineLeaning.module.scss";
 
@@ -105,7 +106,7 @@ export default function OnlineLeaningScreen({
         <Player
           autoplay
           loop
-          src={templateLoad}
+          src={onlinelearningLoad}
           style={{ width: "25vh" }}
         ></Player>
       </div>
@@ -143,43 +144,50 @@ export default function OnlineLeaningScreen({
         <section className={`${styles.section} ${styles.contentSection}`}>
           <div className={styles.contentContainer}>
             {contents.map((content: contenttItem) => (
-              <div className={styles.contentBox}>
-                <div className={styles.videoBox}>
-                  <ReactPlayer
-                    ref={presentPlayerRef}
-                    url={content.url}
-                    playing={presentPlaying}
-                    onPause={() => setPresentPlaying(false)}
-                    controls={presentPlaying}
-                    width="100%"
-                    height="100%"
-                    style={{ display: "flex" }}
-                  />
-                  {!presentPlaying && (
-                    <div
-                      className={styles.customPlayButton}
-                      onClick={togglePlayPresentVideo}
-                    >
-                      <Player
-                        autoplay={false}
-                        // loop
-                        src={videoPlay}
-                        style={{ width: "22vh" }}
-                      ></Player>
-                    </div>
-                  )}
-                </div>
+              <OnlineLearningCard
+                key={content.id}
+                content={content}
+                playing={presentPlaying}
+                onPlayToggle={togglePlayPresentVideo}
+                videoPlayAnimation={videoPlay}
+              />
+              // <div className={styles.contentBox}>
+              //   <div className={styles.videoBox}>
+              //     <ReactPlayer
+              //       ref={presentPlayerRef}
+              //       url={content.url}
+              //       playing={presentPlaying}
+              //       onPause={() => setPresentPlaying(false)}
+              //       controls={presentPlaying}
+              //       width="100%"
+              //       height="22vh"
+              //       style={{ display: "flex" }}
+              //     />
+              //     {!presentPlaying && (
+              //       <div
+              //         className={styles.customPlayButton}
+              //         onClick={togglePlayPresentVideo}
+              //       >
+              //         <Player
+              //           autoplay={false}
+              //           // loop
+              //           src={videoPlay}
+              //           style={{ width: "22vh" }}
+              //         ></Player>
+              //       </div>
+              //     )}
+              //   </div>
 
-                <div className={styles.details}>
-                  <div className={styles.textDetails}>
-                    <p className={styles.header}>{content.topic}</p>
-                    <p className={styles.body}>{content.desc}</p>
-                  </div>
-                  <div className={styles.action}>
-                    <p>เรียนเลย  <span>{`>`}</span></p>
-                  </div>
-                </div>
-              </div>
+              //   <div className={styles.details}>
+              //     <div className={styles.textDetails}>
+              //       <p className={styles.header}>{content.topic}</p>
+              //       <p className={styles.body}>{content.desc}</p>
+              //     </div>
+              //     <div className={styles.action}>
+              //       <p>เรียนเลย  <span>{`>`}</span></p>
+              //     </div>
+              //   </div>
+              // </div>
             ))}
           </div>
         </section>
