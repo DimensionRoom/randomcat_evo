@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./Masonry.module.scss";
 
 interface MasonryProps {
-  items: Array<{ index: number | string; content: string }>;
+  items: Array<{
+    index: number | string;
+    content: string;
+    imageUrl?: string;
+  }>;
   randomColor?: boolean;
   selectedColor?: string;
   onClickItem?: (index: number | string) => void;
@@ -28,11 +32,21 @@ const Masonry: React.FC<MasonryProps> = ({
           key={item.index}
           className={`${styles.item} ${
             selectedColor ? styles.selectedColor : styles.randomColor
+          } ${
+            item.imageUrl ? styles.imageOnly : null
           }`}
           style={{ backgroundColor: getColor() }}
           onClick={() => onClickItem && onClickItem(item.index)}
         >
-          {item.content}
+          {item.imageUrl ? (
+            <img
+              src={item.imageUrl}
+              alt={`Item ${item.index}`}
+              className={styles.image}
+            />
+          ) : (
+            item.content
+          )}
         </div>
       ))}
     </div>

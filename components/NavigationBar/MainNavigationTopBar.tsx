@@ -164,6 +164,19 @@ const MainNavigationTopBar = ({
       type: "page",
       show: true,
     },
+    {
+      name: "Showcase",
+      key: "showcase",
+      title: "Showcase",
+      titleEx: "",
+      description: "Showcase of anyone",
+      shortKey: "showcase",
+      url: "/showcase",
+      theme: "",
+      header: "false",
+      type: "page",
+      show: true,
+    },
   ];
 
   const findTheme = (pop: string[], mainMenu: MenuItem[]): string | null => {
@@ -391,7 +404,9 @@ const MainNavigationTopBar = ({
           (popCurrentPathname[0] == "" ||
             popCurrentPathname[0] == "th" ||
             popCurrentPathname[popCurrentPathname.length - 1] == "templates" ||
-            popCurrentPathname[popCurrentPathname.length - 1] == "onlineleaning" ||
+            popCurrentPathname[popCurrentPathname.length - 1] ==
+              "onlineleaning" ||
+            popCurrentPathname[popCurrentPathname.length - 1] == "showcase" ||
             popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
