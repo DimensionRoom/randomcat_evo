@@ -6,7 +6,7 @@ import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
-import templateLoad from "@/public/json/templateload.json";
+import showcaseLoad from "@/public/json/showcaseLoad.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import ShowcaseMasonry from "@/components/Masonry/Showcase/ShowcaseMasonry";
 import styles from "./Showcase.module.scss";
@@ -80,8 +80,8 @@ export default function ShowcaseScreen({
         <Player
           autoplay
           loop
-          src={templateLoad}
-          style={{ width: "25vh" }}
+          src={showcaseLoad}
+          style={{ width: "20vh" }}
         ></Player>
       </div>
     );
