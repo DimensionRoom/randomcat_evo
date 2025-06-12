@@ -33,6 +33,7 @@ const ShowcaseMasonry: React.FC<ShowcaseMasonryProps> = ({
           {displayedItems.map((item, index) => (
             <img
               key={index}
+              className={styles.masonryImage}
               src={item.picture}
               alt={item.topic}
               onClick={() => setSelectedImage(item.picture)}
