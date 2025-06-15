@@ -388,8 +388,12 @@ export default function Home({ params: { locale } }: { params: { locale: string 
           </div>
           <div className={styles.itemsContainer}>
             <div className={styles.item}>
-              <Link
+              {/* <Link
                 href={{ pathname: `innovationandbusiness/innovationboard`, query: { info: 'innodesign' } }}
+                className='toolsSectionInnoDesignLink'
+              > */}
+              <Link
+                href={{ pathname: `onlinetools/creativityandbrainskills/innovationdesign`}}
                 className='toolsSectionInnoDesignLink'
               >
                 <div className={styles.itemImage}>
@@ -407,7 +411,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
             <div className={styles.item}>
               <Link
-                href={{ pathname: `storydesign/storyboard`, query: { info: 'storydesign' } }}
+                href={{ pathname: `onlinetools/creativityandbrainskills/storydesign`}}
                 className='toolsSectionStoryDesignLink'
               >
                 <div className={styles.itemImage}>
@@ -424,7 +428,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
             <div className={styles.item}>
               <Link
-                href={{ pathname: `edudesign/educationboard`, query: { info: 'edudesign' } }}
+                href={{ pathname: `onlinetools/educationandparent/educationdesign`}}
                 className='toolsSectionEduDesignLink'
               >
                 <div className={styles.itemImage}>
