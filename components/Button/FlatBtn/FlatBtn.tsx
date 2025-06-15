@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Quicksand } from "next/font/google";
+import { Quicksand, Mitr } from "next/font/google";
 import styles from "./FlatBtn.module.css";
 
 // const promt = Prompt({
@@ -9,10 +9,13 @@ import styles from "./FlatBtn.module.css";
 // });
 
 const quicksand = Quicksand({
-  // subsets: ["thai"],
-  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const mitr = Mitr({
+  subsets: ["thai"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 export type Props = {
@@ -22,6 +25,7 @@ export type Props = {
   onClick?: () => void;
   disabled?: boolean;
   icon?: React.ReactNode;
+  locale?: string;
 };
 
 const FlatBtn = ({
@@ -31,6 +35,7 @@ const FlatBtn = ({
   onClick,
   disabled = false,
   icon,
+  locale = "en",
   ...props
 }: Props): JSX.Element => {
   const handleClick = async () => {
@@ -40,8 +45,8 @@ const FlatBtn = ({
   return (
     <button
       disabled={disabled}
-      className={`${styles.FlatBtn} ${className}`}
-      style={{ ...quicksand.style, ...style }}
+      className={`${styles.FlatBtn} ${className} ${locale == "th" ? `${mitr.className} ${styles.thfontbold}` : `${quicksand.className}`}`}
+      style={{...style }}
       onClick={onClick}
     >
       {icon ? (

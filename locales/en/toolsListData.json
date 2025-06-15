@@ -126,6 +126,14 @@
         "desc2": "speaking skills",
         "onlineLink": "/onlinetools/othertools/publicspeaking",
         "productLink": ""
+      },
+      "give_me_one_sentence": {
+        "topic": "Give me",
+        "topic2": "one sentence",
+        "desc": "Describe the cartoon story",
+        "desc2": "in one sentence",
+        "onlineLink": "/onlinetools/othertools/givemeonesentence",
+        "productLink": ""
       }
     }
   }

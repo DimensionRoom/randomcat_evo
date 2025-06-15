@@ -5,19 +5,23 @@ type ModalSize = "small" | "medium" | "full";
 
 interface ModalProps {
   size: ModalSize;
+  className?: string;
   isOpen: boolean;
   onClose?: () => void;
   children: ReactNode;
   confirmLabel?: string;
+  backdrop?: boolean;
   onConfirm?: () => void;
 }
 
 const DynamicModal: React.FC<ModalProps> = ({
   size,
+  className,
   isOpen,
   onClose,
   children,
   confirmLabel = "Confirm",
+  backdrop = true,
   onConfirm,
 }) => {
   if (!isOpen) return null;
@@ -34,7 +38,7 @@ const DynamicModal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className={styles.modalBackdrop} onClick={onCloseHandler}>
+    <div className={`${styles.modalBackdrop} ${!backdrop?styles.backdropNone:null}  ${className}`} onClick={onCloseHandler}>
       <div
         className={`${styles.modal} ${styles[size]}`}
         onClick={(e) => e.stopPropagation()}

@@ -1,0 +1,149 @@
+{
+  "Category": {
+    "title": "Give me One Sentence",
+    "subTitle": "",
+    "key": "Give me One Sentence",
+    "data": [
+      {
+        "en": "Snow White",
+        "content_en": "The short-haired heroine who met the prince in the forest.",
+        "th": "สโนว์ไวท์",
+        "content_th": "นางเอกผมสั้นที่เจอเจ้าชายในป่า",
+        "challenge_event": [
+          {
+            "en": "What if the prince died before meeting her?",
+            "th": "ถ้าหากพระเอกตายก่อนจะเจอเธอจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the dwarfs never helped her?",
+            "th": "ถ้าหากคนแคระไม่ช่วยเธอจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the queen turned good?",
+            "th": "ถ้าราชินีกลายเป็นคนดีจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if Snow White ate a different magical fruit?",
+            "th": "ถ้าสโนว์ไวท์กินผลไม้วิเศษชนิดอื่นจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the mirror told the queen a lie?",
+            "th": "ถ้ากระจกโกหกราชินีจะเกิดอะไรขึ้น"
+          }
+        ]
+      },
+      {
+        "en": "Cinderella",
+        "content_en": "A kind girl with glass slippers who escaped the ball before midnight.",
+        "th": "ซินเดอเรลล่า",
+        "content_th": "สาวใจดีผู้สวมรองเท้าแก้วและหนีออกจากงานเต้นรำก่อนเที่ยงคืน",
+        "challenge_event": [
+          {
+            "en": "What if the glass slipper broke on the stairs?",
+            "th": "ถ้ารองเท้าแก้วแตกบนบันไดจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if she arrived late and missed the ball?",
+            "th": "ถ้าเธอมาสายและพลาดงานเต้นรำจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the stepsisters were kind to her?",
+            "th": "ถ้าน้องเลี้ยงใจดีต่อเธอจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the prince never found the shoe?",
+            "th": "ถ้าเจ้าชายไม่เจอรองเท้าแก้วจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if Cinderella decided not to go to the ball?",
+            "th": "ถ้าเธอตัดสินใจไม่ไปงานเต้นรำจะเกิดอะไรขึ้น"
+          }
+        ]
+      },
+      {
+        "en": "Rapunzel",
+        "content_en": "The girl with the magical long hair who was locked in a tower.",
+        "th": "ราพันเซล",
+        "content_th": "สาวผมยาววิเศษที่ถูกขังอยู่ในหอคอย",
+        "challenge_event": [
+          {
+            "en": "What if she cut her hair and escaped alone?",
+            "th": "ถ้าเธอตัดผมตัวเองแล้วหนีออกมาเองจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the witch turned her into a frog?",
+            "th": "ถ้าแม่มดเสกให้เธอกลายเป็นกบจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the tower had stairs?",
+            "th": "ถ้าหอคอยมีบันไดจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if Rapunzel had a twin sister?",
+            "th": "ถ้าราพันเซลมีฝาแฝดจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if her hair lost its magic?",
+            "th": "ถ้าผมของเธอหมดพลังวิเศษจะเกิดอะไรขึ้น"
+          }
+        ]
+      },
+      {
+        "en": "Little Red Riding Hood",
+        "content_en": "A brave girl in a red cloak who encountered a cunning wolf.",
+        "th": "หนูน้อยหมวกแดง",
+        "content_th": "เด็กหญิงผู้กล้าหาญสวมหมวกสีแดงที่เจอกับหมาป่าจอมเจ้าเล่ห์",
+        "challenge_event": [
+          {
+            "en": "What if she got lost in a different forest?",
+            "th": "ถ้าเธอหลงป่าอื่นจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the wolf was her pet?",
+            "th": "ถ้าหมาป่าเป็นสัตว์เลี้ยงของเธอจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if she brought a map?",
+            "th": "ถ้าเธอพาแผนที่ไปด้วยจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if grandma was a witch?",
+            "th": "ถ้ายายเป็นแม่มดจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the hunter never showed up?",
+            "th": "ถ้านายพรานไม่มาจะเกิดอะไรขึ้น"
+          }
+        ]
+      },
+      {
+        "en": "The Little Mermaid",
+        "content_en": "A curious mermaid who dreamed of living on land and found true love.",
+        "th": "เงือกน้อย",
+        "content_th": "เงือกสาวผู้ใฝ่ฝันอยากมีชีวิตบนบกและได้พบรักแท้",
+        "challenge_event": [
+          {
+            "en": "What if she kept her voice and never became human?",
+            "th": "ถ้าเธอไม่เสียเสียงและไม่กลายเป็นมนุษย์จะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the sea witch was her sister?",
+            "th": "ถ้าแม่มดทะเลเป็นพี่สาวของเธอจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if she fell in love with a sailor instead?",
+            "th": "ถ้าเธอไปรักกะลาสีแทนเจ้าชายจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if she became queen of the sea?",
+            "th": "ถ้าเธอกลายเป็นราชินีแห่งท้องทะเลจะเกิดอะไรขึ้น"
+          },
+          {
+            "en": "What if the prince loved the sea more than her?",
+            "th": "ถ้าเจ้าชายรักทะเลมากกว่าเธอจะเกิดอะไรขึ้น"
+          }
+        ]
+      }
+    ]
+  }
+}

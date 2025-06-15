@@ -5,13 +5,14 @@ import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
-import styles from "./PublicSpeaking.module.scss";
+import styles from "./GiveMeOneSentence.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import whatifLoad from "@/public/json/whatifLoading.json";
 import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
-import publicSpeakingData from "@/public/json/publicSpeaking.json";
+import giveMeOneSentenceData from "@/public/json/givemeonesentenceCat.json";
+import DynamicModal from "@/components/Modal/DynamicModal/DynamicModal";
 
 export type SubCategoryProps = {
   name: string;
@@ -42,6 +43,10 @@ interface Category {
     en: string;
     content_th: string;
     content_en: string;
+    challenge_event: {
+      en: string;
+      th: string;
+    }[];
   }[];
 }
 
@@ -50,7 +55,7 @@ interface Question {
   content: string;
 }
 
-const i18nNamespaces = ["common"];
+const i18nNamespaces = ["givemeonesentenceScreen"];
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -67,7 +72,8 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function PublicSpeaking({
+
+export default function GiveMeOneSentence({
   params: { locale },
 }: {
   params: { locale: string };
@@ -80,28 +86,99 @@ export default function PublicSpeaking({
   const [randomQuestionItem, setRandomQuestionItem] = useState<Question>();
   const [previousRandomData, setPreviousRandomData] = useState<string>("");
   const [loadingRandom, setLoadingRandom] = useState<boolean>(false);
+  const [challengeText, setChallengeText] = useState<string | null>(null);
+  const [previousChallenge, setPreviousChallenge] = useState<string | null>(
+    null
+  );
+  const [isHowtoPlayModalOpen, setHowtoPlayModalOpen] = useState(false);
 
   const generateRandomItems = () => {
-    randomQuestion(publicSpeakingData);
+    randomQuestion(giveMeOneSentenceData);
+  };
+  const showHowToPlayOncePerDay = () => {
+    const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+    const lastShownDate = localStorage.getItem("howToPlayShownDate");
+
+    if (lastShownDate !== today) {
+      localStorage.setItem("howToPlayShownDate", today);
+
+      setHowtoPlayModalOpen(true);
+    }
+  };
+  const randomQuestion = (giveMeOneSentenceData: any) => {
+    const data = giveMeOneSentenceData.Category.data;
+    const dataLength = data.length;
+
+    let randomIndex = Math.floor(Math.random() * dataLength);
+    let newItem = data[randomIndex];
+
+    // ป้องกันซ้ำ
+    let loopCount = 0;
+    while (newItem.en === previousRandomData && loopCount < 10) {
+      randomIndex = Math.floor(Math.random() * dataLength);
+      newItem = data[randomIndex];
+      loopCount++;
+    }
+
+    setRandomQuestionItem({
+      header: newItem[locale],
+      content: newItem[`content_${locale}`],
+    });
+
+    setPreviousRandomData(newItem.en);
+    setChallengeText(null); // reset challenge
+    setPreviousChallenge(null); // reset previous challenge
   };
 
-  const randomQuestion = (publicSpeakingData: any) => {
-    const dataLength = publicSpeakingData.Category.data.length;
+  const showChallenge = () => {
+    if (!randomQuestionItem) return;
 
-    let randomIndex = Math.floor(Math.random() * (dataLength - 1));
-    if (previousRandomData === publicSpeakingData.Category.data[randomIndex].en) {
-      randomIndex = Math.floor(Math.random() * (dataLength - 1));
-      setRandomQuestionItem({
-        header: publicSpeakingData.Category.data[randomIndex][locale],
-        content: publicSpeakingData.Category.data[randomIndex][`content_${locale}`],
-      });
-    } else {
-      setRandomQuestionItem({
-        header: publicSpeakingData.Category.data[randomIndex][locale],
-        content: publicSpeakingData.Category.data[randomIndex][`content_${locale}`],
-      });
-      setPreviousRandomData(publicSpeakingData.Category.data[randomIndex].en);
+    const currentItem = giveMeOneSentenceData.Category.data.find(
+      (item: any) => item[locale] === randomQuestionItem.header
+    );
+
+    if (currentItem && currentItem.challenge_event?.length > 0) {
+      const challenges = currentItem.challenge_event;
+
+      let randIndex = Math.floor(Math.random() * challenges.length);
+      let selectedChallenge = challenges[randIndex];
+
+      let selectedText = selectedChallenge[locale as "en" | "th"];
+
+      let attempts = 0;
+      while (
+        selectedText === previousChallenge &&
+        attempts < 10 &&
+        challenges.length > 1
+      ) {
+        randIndex = Math.floor(Math.random() * challenges.length);
+        selectedChallenge = challenges[randIndex];
+        selectedText = selectedChallenge[locale as "en" | "th"];
+        attempts++;
+      }
+
+      setChallengeText(selectedText);
+      setPreviousChallenge(selectedText);
     }
+  };
+
+  const renderParagraphList = (t: any): JSX.Element[] => {
+    const list = t("modal.howtoplay.paragraph", {
+      returnObjects: true,
+    }) as string[];
+
+    if (!Array.isArray(list)) return [<p key="0">Error loading content</p>];
+
+    return list.map((line, idx) => (
+      <p
+        className={`${styles.modalParagraph} ${
+          locale == "th" ? `${mitr.className} ${styles.thfontbold}` : null
+        }`}
+        key={idx}
+      >
+        {line}
+      </p>
+    ));
   };
 
   useEffect(() => {}, [randomItems]);
@@ -125,8 +202,15 @@ export default function PublicSpeaking({
   }, [locale]);
 
   useEffect(() => {
-    randomQuestion(publicSpeakingData);
+    if (!loading) {
+      showHowToPlayOncePerDay();
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    randomQuestion(giveMeOneSentenceData);
   }, []);
+
   if (loading) {
     return (
       <div
@@ -137,12 +221,7 @@ export default function PublicSpeaking({
           alignItems: "center",
         }}
       >
-        <Player
-          autoplay
-          loop
-          src={whatifLoad}
-          style={{ width: "30vh" }}
-        ></Player>
+        <Player autoplay loop src={whatifLoad} style={{ width: "30vh" }} />
       </div>
     );
   }
@@ -173,6 +252,18 @@ export default function PublicSpeaking({
             <div className={styles.GroupItem}>
               {!loadingRandom ? (
                 <React.Fragment>
+                  <div
+                    className={styles.ActionText}
+                    onClick={generateRandomItems}
+                  >
+                    <SiteLogo />
+                    <p>RANDOM HERE</p>
+                    {/* <FlatBtn
+                      text="Random"
+                      className={styles.RandomBtn}
+                      onClick={generateRandomItems}
+                    /> */}
+                  </div>
                   <div className={styles.ToolName}>
                     <p
                       className={`${styles.ToolNameText} ${
@@ -201,9 +292,14 @@ export default function PublicSpeaking({
                   </div>
                   <div className={styles.Action}>
                     <FlatBtn
-                      text="Random"
-                      className={styles.RandomBtn}
-                      onClick={generateRandomItems}
+                      text={
+                        challengeText ? challengeText : "CLICK FOR CHALLENGE"
+                      }
+                      className={`${styles.RandomEventBtn} ${
+                        locale == "th" ? styles.thfont : null
+                      }`}
+                      onClick={showChallenge}
+                      locale={locale}
                     />
                   </div>
                 </React.Fragment>
@@ -213,11 +309,22 @@ export default function PublicSpeaking({
                   loop
                   src={randomBook}
                   style={{ width: "50vh" }}
-                ></Player>
+                />
               )}
             </div>
           </div>
         </div>
+        <DynamicModal
+          backdrop={false}
+          className={`${styles.modalHeadLess} ${styles.backdropNone}`}
+          size="medium"
+          isOpen={isHowtoPlayModalOpen}
+          onClose={() => setHowtoPlayModalOpen(false)}
+        >
+          <p className={styles.modalTitle}>{t("modal.howtoplay.title")}</p>
+          <div className={styles.modalLine} />
+          <div className={styles.listContainer}>{renderParagraphList(t)}</div>
+        </DynamicModal>
       </main>
     </TranslationsProvider>
   );

@@ -34,3 +34,7 @@
 .Icon {
     height: 100%;
 }
+
+.thfontbold {
+  font-weight: 300 !important;
+}

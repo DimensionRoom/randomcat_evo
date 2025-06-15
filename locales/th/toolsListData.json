@@ -126,6 +126,14 @@
         "desc2": "ให้เป็นเสมือนนักประชาสัมพันธ์",
         "onlineLink": "/onlinetools/othertools/publicspeaking",
         "productLink": ""
+      },
+      "give_me_one_sentence": {
+        "topic": "Give me",
+        "topic2": "one sentence",
+        "desc": "เล่าการ์ตูนภายใน 1 ประโยค",
+        "desc2": "โดยไม่พูดถึงชื่อตัวละคร",
+        "onlineLink": "/onlinetools/othertools/givemeonesentence",
+        "productLink": ""
       }
     }
   }

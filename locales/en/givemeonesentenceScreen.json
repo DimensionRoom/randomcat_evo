@@ -1,0 +1,12 @@
+{
+  "modal": {
+    "howtoplay": {
+      "title": "How to play",
+      "paragraph": [
+        "\u00a01. Press \"Random here\" to get a random prompt.",
+        "2. The player should summarize the story in a short sentence. For example, if the word is \"Snow White\" = A short-haired girl who enters a forest, meets seven dwarfs, and accidentally eats a poisoned apple from a witch, causing her to fall unconscious.",
+        "3. Press the \"Challenge\" button to continue building creative ideas"
+      ]
+    }
+  }
+}
