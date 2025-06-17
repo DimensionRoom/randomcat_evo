@@ -1,0 +1,253 @@
+// -------------------------
+// 🎨 COLOR VARIABLES
+// -------------------------
+$primary-color: #7c8cfd;
+$secondary-color: #5271ff;
+$text-purple01: #362d64;
+$bg-purple01: #3000ad;
+$text-color: #ffffff;
+$alert-color: #ff0000;
+
+// -------------------------
+// 🧱 GLOBAL STYLES
+// -------------------------
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  overflow-y: scroll;
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+// ==================================================
+// 🌐 SECTION: HEADER / PARALLAX
+// ==================================================
+.parallaxSection {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  flex-direction: row;
+  align-items: center;
+  background-color: $primary-color;
+}
+
+.headerContainer {
+  flex: 1;
+  padding: 0 0 0 10rem;
+  color: $text-color;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.specialCredit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  .icon {
+    width: 120px;
+  }
+  .specialText {
+    font-size: 1.8rem;
+    max-width: 500px;
+    line-height: 1.2;
+  }
+}
+
+.learnButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: $text-color;
+  color: $text-purple01;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color: $secondary-color !important;
+  }
+}
+
+.backHome,
+.colorCode {
+  margin-top: 1rem;
+  color: $alert-color;
+}
+
+.headerImage {
+  flex: 1;
+  padding: 0 5rem 0 0;
+}
+
+// ==================================================
+// 📦 SECTION: ELEMENTS TYPE GRID
+// ==================================================
+.elementsTypeSection {
+  background-color: #ffffff;
+}
+
+.centerText {
+  color: #000;
+  padding: 3rem 0 1rem 0;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.2rem;
+  max-width: 700px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 3rem 4rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-color;
+  color: $text-color;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 1.5s ease-out;
+
+  .typeEN {
+    font-weight: 500;
+  }
+
+  .typeTH {
+    font-weight: 300;
+  }
+
+  &:hover {
+    background-color: $bg-purple01;
+    transition: background-color 0s;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// ==================================================
+// 👣 SECTION: FOOTER
+// ==================================================
+.footerSection {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-color;
+  color: $text-color;
+  text-align: left;
+  padding: 0 5rem 0 5rem;
+  .details {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1.2em;
+    .icon {
+      width: 120px;
+    }
+    .detail {
+      .credit {
+        font-weight: 700;
+      }
+    }
+  }
+  .animate {
+    overflow: hidden;
+    div {
+      width: 260px;
+    }
+  }
+}
+@media (max-width: 1250px) and (min-width: 760px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 1090px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 690px) {
+  .parallaxSection {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    background-color: $primary-color;
+    .headerContainer {
+      padding: 0 2rem;
+    }
+    .headerImage {
+      display: flex;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .specialCredit {
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    .icon {
+      width: 120px;
+    }
+    .specialText {
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+  }
+  .learnButton {
+    margin: 1.5rem auto;
+  }
+  .centerText {
+    padding: 2rem 2rem 1rem 2rem;
+    margin: 0 auto;
+  }
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .footerSection {
+    justify-content: center;
+    padding: 2rem;
+    .animate {
+      display: none;
+    }
+  }
+}
