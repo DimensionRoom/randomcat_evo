@@ -7,6 +7,7 @@ import TranslationsProvider from "@/components/TranslationsProvider";
 import templateLoad from "@/public/json/templateload.json";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
 import signatureAnimate from "@/public/json/animate/signature.json";
+import webelementLoad from "@/public/json/webelementLoad.json";
 import teamwork from "@/public/json/animate/teamwork.json";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./WebElements.module.scss";
@@ -70,7 +71,7 @@ export default function TemplateScreen({
         <Player
           autoplay
           loop
-          src={templateLoad}
+          src={webelementLoad}
           style={{ width: "25vh" }}
         ></Player>
       </div>
