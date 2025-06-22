@@ -137,7 +137,7 @@ $alert-color: #ff0000;
   transition: transform 0.2s ease;
   h3 {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 1rem;
     color: #222;
   }
@@ -309,6 +309,9 @@ $alert-color: #ff0000;
     max-width: 800px;
     margin: 0 auto;
     overflow-y: scroll;
+  }
+  .gridItem{
+    padding: 0;
   }
   .footerSection {
     justify-content: center;
