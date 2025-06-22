@@ -24,6 +24,7 @@ export type Props = {
   logo?: React.ReactNode;
   locale: string;
   fill?: boolean;
+  fixed?: boolean;
   absolute?: boolean;
   fillMode?: "normal" | "semiTransparent" | "transparent";
 };
@@ -47,6 +48,7 @@ const MainNavigationTopBar = ({
   logo = <SiteLogo width={45} height={45} />,
   locale = "en",
   fill = false,
+  fixed = false,
   fillMode = "normal",
   absolute = false,
   ...props
@@ -272,9 +274,11 @@ const MainNavigationTopBar = ({
     >
       {/* Desktop Size */}
       <div
-        className={`${styles.DesktopHeader} ${fill ? styles.FillColor : null} ${
-          styles[fillMode]
-        }`}
+        className={`
+          ${styles.DesktopHeader} 
+          ${fixed ? styles.fixed : null} 
+          ${fill ? styles.FillColor : null} 
+          ${styles[fillMode]}`}
       >
         <header
           className={`${styles.LayoutHeader} ${styles[currentTheme]} ${
@@ -410,7 +414,7 @@ const MainNavigationTopBar = ({
             popCurrentPathname[popCurrentPathname.length - 1] == "onlinetools")
             ? styles.SimpleMobileHeader
             : styles.SimpleMobileHeaderHide
-        } ${fill ? styles.FillColor : null} ${styles[fillMode]}`}
+        } ${fill ? styles.FillColor : null}  ${fixed ? styles.fixed : null}  ${styles[fillMode]}`}
       >
         <header className={`${styles.LayoutHeader} ${styles[currentTheme]}`}>
           <div className={styles.HeaderTopContainer}>

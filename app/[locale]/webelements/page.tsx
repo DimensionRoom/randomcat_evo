@@ -4,7 +4,6 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
-import templateLoad from "@/public/json/templateload.json";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
 import signatureAnimate from "@/public/json/animate/signature.json";
 import webelementLoad from "@/public/json/webelementLoad.json";
@@ -142,23 +141,31 @@ export default function TemplateScreen({
         </p>
         <div className={styles.gridContainer}>
           {[
-            { en: "Chart", th: "แผนภูมิ" },
-            { en: "Form", th: "แบบฟอร์ม" },
-            { en: "Pagination", th: "การแบ่งหน้า" },
-            { en: "Progress", th: "ความคืบหน้า" },
-            { en: "Checkbox", th: "ช่องทำเครื่องหมาย" },
-            { en: "Dropdown", th: "เมนูแบบเลื่อนลง" },
-            { en: "Filter", th: "ตัวกรอง" },
-            { en: "Menu", th: "เมนู" },
-            { en: "Button", th: "ปุ่ม" },
-            { en: "Animation", th: "การเคลื่อนไหว" },
-            { en: "Notification", th: "การแจ้งเตือน" },
-            { en: "Modal", th: "หน้าต่างป็อปอัพ" },
-            { en: "Table", th: "ตาราง" },
-            { en: "Website Layout", th: "โครงสร้างเว็บไซต์" },
-            { en: "Search Field", th: "ช่องค้นหา" },
+            { en: "Chart", th: "แผนภูมิ", url: "chart" },
+            { en: "Form", th: "แบบฟอร์ม", url: "form" },
+            { en: "Pagination", th: "การแบ่งหน้า", url: "pagination" },
+            { en: "Progress", th: "ความคืบหน้า", url: "progress" },
+            { en: "Checkbox", th: "ช่องทำเครื่องหมาย", url: "checkbox" },
+            { en: "Dropdown", th: "เมนูแบบเลื่อนลง", url: "dropdown" },
+            { en: "Filter", th: "ตัวกรอง", url: "filter" },
+            { en: "Menu", th: "เมนู", url: "menu" },
+            { en: "Button", th: "ปุ่ม", url: "button" },
+            { en: "Animation", th: "การเคลื่อนไหว", url: "animation" },
+            { en: "Notification", th: "การแจ้งเตือน", url: "notification" },
+            { en: "Modal", th: "หน้าต่างป็อปอัพ", url: "modal" },
+            { en: "Table", th: "ตาราง", url: "table" },
+            {
+              en: "Website Layout",
+              th: "โครงสร้างเว็บไซต์",
+              url: "website-layout",
+            },
+            { en: "Search Field", th: "ช่องค้นหา", url: "search-field" },
           ].map((el, index) => (
-            <div key={index} className={styles.gridItem}>
+            <div
+              key={index}
+              className={styles.gridItem}
+              onClick={() => window.open(`/webelements/${el.url}`, '_blank')}
+            >
               <p className={styles.typeEN}>{el.en}</p>
               <p className={styles.typeTH}>{el.th}</p>
             </div>

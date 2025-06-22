@@ -38,6 +38,12 @@
   --nav-menu-active-color: #c05dff;
 }
 
+.DesktopHeader.fixed{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
 .DesktopHeader {
   .LayoutHeader {
     display: flex;
@@ -89,6 +95,12 @@
   --background-color: linear-gradient(135deg, #811a96, #302e76);
   --logo-color: #ffffff;
   --font-color: #ffffff;
+}
+
+.SimpleMobileHeader.fixed{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .SimpleMobileHeaderHide {

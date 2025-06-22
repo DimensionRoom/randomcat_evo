@@ -25,6 +25,7 @@ import LetterIcon from '@/public/svgs/home/letter';
 import FacebookIcon from '@/public/svgs/home/facebook';
 import InstagramIcon from '@/public/svgs/home/instagram';
 import SiteLogo from "@/public/svgs/siteLogo";
+import BackToTopBtn from '@/components/Button/BackToTopBtn/BackToTopBtn'
 import styles from "./../Styles/Home/page.module.css";
 
 
@@ -159,7 +160,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-      <MainNavigationTopBar locale={locale} />
+      <MainNavigationTopBar locale={locale} fixed/>
       <main ref={mainRef} className={styles.main}>
         <section id='parallaxSection' className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>
@@ -481,6 +482,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
         <section id='footerSection' className={`${styles.section} ${styles.animationSection} ${styles.footerSection}`}>
           <PageFooter locale={locale}/>  
         </section>
+         <BackToTopBtn text="↑" />
       </main>
     </TranslationsProvider >
   );
