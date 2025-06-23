@@ -109,7 +109,7 @@ $alert-color: #ff0000;
   font-weight: 300;
   font-size: 1.2rem;
   max-width: 700px;
-  .elementName{
+  .elementName {
     font-size: 2.5rem;
     font-weight: 400;
   }
@@ -159,7 +159,7 @@ $alert-color: #ff0000;
 
 .previewBox {
   width: 100%;
-  height: 220px; 
+  height: 220px;
   padding: 10px;
   background-color: #edf2f8;
   border-radius: 12px;
@@ -190,7 +190,7 @@ $alert-color: #ff0000;
     padding: 0.4rem 0.9rem;
     font-size: 0.75rem;
     cursor: pointer;
-   transition: background 0.3s ease;
+    transition: background 0.3s ease;
 
     &:hover {
       background: #4053e2;
@@ -251,7 +251,7 @@ $alert-color: #ff0000;
   .title {
     font-size: 4rem;
   }
-    .gridContainer {
+  .gridContainer {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     padding: 1rem 2rem 2rem 2rem;
@@ -262,12 +262,10 @@ $alert-color: #ff0000;
 }
 @media screen and (max-width: 690px) {
   .parallaxSection {
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    background-color: $primary-color;
+    min-height: 0;
     .headerContainer {
-      padding: 0 2rem;
+      display: none;
+      // padding: 0 2rem;
     }
     .headerImage {
       display: flex;
@@ -310,12 +308,12 @@ $alert-color: #ff0000;
     margin: 0 auto;
     overflow-y: scroll;
   }
-  .gridItem{
+  .gridItem {
     padding: 0;
   }
   .footerSection {
     justify-content: center;
-    padding: 2rem;
+    padding: 0.5rem;
     .animate {
       display: none;
     }

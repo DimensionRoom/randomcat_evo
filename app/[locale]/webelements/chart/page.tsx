@@ -54,11 +54,12 @@ export default function TemplateScreen({
     {
       id: "bar",
       name: "Bar Chart",
-      description: "เหมาะสำหรับ: เปรียบเทียบค่าระหว่างหมวดหมู่",
+      description:
+        "เหมาะสำหรับ: เปรียบเทียบข้อมูลระหว่างหมวดหมู่ เช่น วิชาต่างๆ",
       detail:
-        "แสดงผลข้อมูลด้วยแท่งที่มีความยาวสัมพันธ์กับค่าที่วัดได้ เหมาะสำหรับการเปรียบเทียบระหว่างกลุ่ม",
+        "กราฟแท่งแนวนอนแสดงค่าที่เปรียบเทียบกันในแต่ละหมวดหมู่ เหมาะสำหรับการมองเห็นความแตกต่างอย่างชัดเจนระหว่างกลุ่ม",
       prompt:
-        "สร้างกราฟแท่งแนวนอนสำหรับเปรียบเทียบยอดขายรายเดือน โดยให้แต่ละแท่งแสดงชื่อเดือน เช่น Jan, Feb, Mar, Apr, May และแสดงค่ายอดขายเป็นหน่วยพัน (K) ที่ปลายแท่ง ใช้สีไล่เฉดจากฟ้าอ่อนถึงฟ้าเข้ม พร้อมแสดง label ชื่อเดือนด้านซ้ายมือและความยาวแท่งสัมพันธ์กับยอดขาย",
+        "สร้างกราฟแท่งแนวนอนเพื่อเปรียบเทียบคะแนนเฉลี่ยของนักเรียนในแต่ละวิชา ได้แก่ คณิตศาสตร์ วิทยาศาสตร์ ภาษาไทย ภาษาอังกฤษ และสังคมศึกษา โดยแสดงชื่อวิชาทางด้านซ้าย และความยาวของแท่งแสดงถึงระดับคะแนน ใช้สีไล่เฉดจากม่วง พร้อมแสดงตัวเลขคะแนนอยู่ภายในแท่งกราฟด้านขวา",
       example: (
         <div
           style={{
@@ -72,38 +73,43 @@ export default function TemplateScreen({
           }}
         >
           {[
-            { month: "Jan", value: 180 },
-            { month: "Feb", value: 130 },
-            { month: "Mar", value: 200 },
-            { month: "Apr", value: 100 },
-            { month: "May", value: 160 },
+            { subject: "คณิตศาสตร์", value: 82 },
+            { subject: "วิทยาศาสตร์", value: 75 },
+            { subject: "ภาษาไทย", value: 90 },
+            { subject: "ภาษาอังกฤษ", value: 70 },
+            { subject: "สังคมศึกษา", value: 78 },
           ].map((data, index) => (
             <div
               key={index}
               style={{ display: "flex", alignItems: "center", gap: "8px" }}
             >
               <div
-                style={{ width: "40px", fontSize: "0.85rem", color: "#374151" }}
+                style={{ width: "80px", fontSize: "0.85rem", color: "#374151" }}
               >
-                {data.month}
+                {data.subject}
               </div>
               <div
                 style={{
                   height: "20px",
-                  width: `${data.value}px`,
+                  width: `${data.value * 2}px`,
                   background: "linear-gradient(to right, #3f29ab, #7c8cfd)",
                   borderRadius: "6px",
                   boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-                }}
-              ></div>
-              <div
-                style={{
-                  fontSize: "0.8rem",
-                  marginLeft: "8px",
-                  color: "#6b7280",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                  paddingRight: "8px",
                 }}
               >
-                {data.value}K
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "#ffffff",
+                    fontWeight: 500,
+                  }}
+                >
+                  {data.value} คะแนน
+                </span>
               </div>
             </div>
           ))}
@@ -115,9 +121,9 @@ export default function TemplateScreen({
       name: "Line Chart",
       description: "เหมาะสำหรับ: แนวโน้มของข้อมูลตามเวลา",
       detail:
-        "แสดงแนวโน้มการเปลี่ยนแปลงของข้อมูลแบบต่อเนื่อง เช่น ยอดขายในแต่ละเดือน",
+        "แสดงแนวโน้มการเปลี่ยนแปลงของข้อมูลแบบต่อเนื่อง เช่น คะแนนสอบรายวัน หรือการเข้าเรียนของนักเรียนในแต่ละวัน",
       prompt:
-        "สร้างกราฟเส้นแสดงแนวโน้มอุณหภูมิรายวันตลอดสัปดาห์ โดยมีเส้นกริดแนวนอนเพื่อบอกระดับอุณหภูมิ และจุดแต่ละวัน (จันทร์ถึงอาทิตย์) แสดงเป็นจุดวงกลมสีแดงบนเส้น พร้อม label ชื่อวันอยู่ด้านล่างของแต่ละจุด ใช้เส้นสีม่วงเข้มขนาด 3px",
+        "สร้างกราฟเส้นแสดงแนวโน้มคะแนนสอบรายวันตลอดสัปดาห์ โดยมีเส้นกริดแนวนอนเพื่อแสดงระดับคะแนน และจุดแต่ละวัน (จันทร์ถึงอาทิตย์) แสดงเป็นจุดวงกลมสีแดงบนเส้น พร้อม label ชื่อวันอยู่ด้านล่างของแต่ละจุด ใช้เส้นสีม่วงเข้มขนาด 3px",
       example: (
         <svg width="100%" height="200" viewBox="0 0 240 160">
           <g stroke="#d1d5db" strokeWidth="1">
@@ -171,9 +177,10 @@ export default function TemplateScreen({
       id: "pie",
       name: "Pie Chart",
       description: "เหมาะสำหรับ: แสดงสัดส่วนหรือเปอร์เซ็นต์",
-      detail: "แสดงข้อมูลเป็นส่วนๆ ของวงกลมเพื่อเปรียบเทียบสัดส่วนแต่ละกลุ่ม",
+      detail:
+        "แสดงข้อมูลเป็นส่วนๆ ของวงกลมเพื่อเปรียบเทียบสัดส่วนแต่ละกลุ่ม เช่น การใช้เวลาเรียนรู้ในแต่ละกิจกรรม",
       prompt:
-        "สร้างกราฟวงกลมแสดงการแบ่งงบประมาณเป็นเปอร์เซ็นต์ 3 หมวดหมู่ ได้แก่ พัฒนาระบบ 50%, การตลาด 30%, ค่าใช้จ่ายอื่นๆ 20% โดยใช้สี #3f29ab, #7c8cfd, และ #e85a71 ตามลำดับ พร้อมแสดงเปอร์เซ็นต์ตัวเลขสีขาวอยู่ภายในแต่ละส่วนของวงกลม และมี legend อยู่ด้านขวาพร้อมสีและชื่อหมวดหมู่แต่ละรายการ",
+        "สร้างกราฟวงกลมแสดงการใช้เวลาเรียนรู้ของนักเรียน แบ่งเป็น 3 กิจกรรม ได้แก่ การเรียนในห้อง 50%, แบบฝึกหัด 30%, และกิจกรรมเสริม 20% โดยใช้สี #3f29ab, #7c8cfd, และ #e6a8ff ตามลำดับ พร้อมแสดงเปอร์เซ็นต์ตัวเลขสีขาวอยู่ภายในแต่ละส่วนของวงกลม และมี legend อยู่ด้านขวาพร้อมสีและชื่อกิจกรรมแต่ละรายการ",
       example: (
         <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
           <div
@@ -187,7 +194,6 @@ export default function TemplateScreen({
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
             }}
           >
-            {" "}
             <div
               style={{
                 position: "absolute",
@@ -243,7 +249,7 @@ export default function TemplateScreen({
                   borderRadius: "3px",
                 }}
               />
-              พัฒนาระบบ (50%)
+              การเรียนในห้อง (50%)
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span
@@ -254,7 +260,7 @@ export default function TemplateScreen({
                   borderRadius: "3px",
                 }}
               />
-              การตลาด (30%)
+              แบบฝึกหัด (30%)
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <span
@@ -265,7 +271,7 @@ export default function TemplateScreen({
                   borderRadius: "3px",
                 }}
               />
-              ค่าใช้จ่ายอื่นๆ (20%)
+              กิจกรรมเสริม (20%)
             </div>
           </div>
         </div>
@@ -277,9 +283,9 @@ export default function TemplateScreen({
       description:
         "เหมาะสำหรับ: แสดงปริมาณสะสมหรือความเปลี่ยนแปลงเมื่อเทียบกับเวลา",
       detail:
-        "คล้ายกับกราฟเส้น แต่มีพื้นที่ใต้เส้นถูกเติมสี เหมาะสำหรับแสดงแนวโน้มและขนาดรวม",
+        "คล้ายกับกราฟเส้น แต่มีพื้นที่ใต้เส้นถูกเติมสี เหมาะสำหรับแสดงแนวโน้มและขนาดรวม เช่น การเข้าเรียนของนักเรียนในช่วงเวลา",
       prompt:
-        "สร้าง Area Chart แสดงแนวโน้มจำนวนผู้ใช้งานแอปพลิเคชันรายวันในสัปดาห์ โดยมีสีพื้นแบบไล่เฉดใต้กราฟและจุดวงกลมแสดงค่าบนเส้น ใช้ชื่อวันเป็น label ด้านล่าง",
+        "สร้าง Area Chart แสดงแนวโน้มการเข้าเรียนรายวันของนักเรียนในช่วงสัปดาห์ โดยมีสีพื้นแบบไล่เฉดใต้กราฟและจุดวงกลมแสดงค่าบนเส้น ใช้ชื่อวันเป็น label ด้านล่าง",
       example: (
         <svg width="100%" height="200" viewBox="0 0 240 160">
           <defs>
@@ -342,13 +348,13 @@ export default function TemplateScreen({
       prompt:
         "สร้าง Radar Chart แสดงทักษะของผู้เรียนใน 6 หมวด ได้แก่ Coding, Creativity, Collaboration, Critical Thinking, Communication และ Leadership โดยมีรูปทรงหกเหลี่ยมเป็นเส้นกรอบ พร้อมสีพื้นอ่อนใต้กราฟ ใช้จุดสีแสดงแต่ละมิติ",
       example: (
-        <svg viewBox="0 0 250 250" width="100%" height="auto">
+        <svg viewBox="0 0 200 200" width="100%" height="auto">
           {[1, 2, 3].map((level) => {
-            const r = level * 40;
+            const r = level * 30; // ลดรัศมีลงจาก 40 เป็น 30
             const points = Array.from({ length: 6 }, (_, i) => {
               const angle = (Math.PI / 3) * i - Math.PI / 2;
-              const x = 125 + r * Math.cos(angle);
-              const y = 125 + r * Math.sin(angle);
+              const x = 100 + r * Math.cos(angle); // center = 100
+              const y = 100 + r * Math.sin(angle);
               return `${x},${y}`;
             }).join(" ");
             return (
@@ -363,13 +369,13 @@ export default function TemplateScreen({
           })}
           {Array.from({ length: 6 }, (_, i) => {
             const angle = (Math.PI / 3) * i - Math.PI / 2;
-            const x = 125 + 120 * Math.cos(angle);
-            const y = 125 + 120 * Math.sin(angle);
+            const x = 100 + 90 * Math.cos(angle); // r = 90
+            const y = 100 + 90 * Math.sin(angle);
             return (
               <line
                 key={i}
-                x1="125"
-                y1="125"
+                x1="100"
+                y1="100"
                 x2={x}
                 y2={y}
                 stroke="#d1d5db"
@@ -379,42 +385,42 @@ export default function TemplateScreen({
           })}
           <polygon
             points="
-              125,65
-              170,95
-              160,150
-              125,185
-              90,150
-              80,95
-            "
+      100,40
+      140,70
+      135,130
+      100,160
+      65,130
+      60,70
+    "
             fill="rgba(59, 212, 246, 0.3)"
             stroke="#7c8cfd"
             strokeWidth="2"
           />
           <g fill="#3f29ab">
-            <circle cx="125" cy="65" r="4" />
-            <circle cx="170" cy="95" r="4" />
-            <circle cx="160" cy="150" r="4" />
-            <circle cx="125" cy="185" r="4" />
-            <circle cx="90" cy="150" r="4" />
-            <circle cx="80" cy="95" r="4" />
+            <circle cx="100" cy="40" r="4" />
+            <circle cx="140" cy="70" r="4" />
+            <circle cx="135" cy="130" r="4" />
+            <circle cx="100" cy="160" r="4" />
+            <circle cx="65" cy="130" r="4" />
+            <circle cx="60" cy="70" r="4" />
           </g>
-          <g fontSize="12" fill="#374151" fontWeight="500" textAnchor="middle">
-            <text x="125" y="40">
+          <g fontSize="10" fill="#374151" fontWeight="500" textAnchor="middle">
+            <text x="100" y="25">
               Coding
             </text>
-            <text x="190" y="85">
+            <text x="155" y="65">
               Creativity
             </text>
-            <text x="175" y="170">
+            <text x="140" y="165">
               Collaboration
             </text>
-            <text x="125" y="210">
+            <text x="100" y="185">
               Critical Thinking
             </text>
-            <text x="75" y="170">
+            <text x="60" y="165">
               Communication
             </text>
-            <text x="60" y="85">
+            <text x="45" y="65">
               Leadership
             </text>
           </g>
@@ -426,9 +432,9 @@ export default function TemplateScreen({
       name: "Scatter Chart",
       description: "เหมาะสำหรับ: วิเคราะห์ความสัมพันธ์ระหว่างตัวแปร",
       detail:
-        "แต่ละจุดแสดงข้อมูลคู่ เช่น ความสัมพันธ์ระหว่างอายุและรายได้ เหมาะสำหรับการวิเคราะห์เชิงสถิติ",
+        "แต่ละจุดแสดงข้อมูลคู่ เช่น ความสัมพันธ์ระหว่างเวลาเรียนกับคะแนนสอบ เหมาะสำหรับการวิเคราะห์เชิงสถิติหรือหาความสัมพันธ์เชิงพฤติกรรม",
       prompt:
-        "สร้าง Scatter Chart เพื่อแสดงความสัมพันธ์ระหว่างอายุและรายได้ โดยแต่ละจุดแทนผู้ใช้งาน 1 คน ใช้สีฟ้าเข้ม ขนาดจุดเท่ากัน และแสดงในพื้นที่ พร้อมเส้นกริดแนวตั้งและแนวนอนสีเทา",
+        "สร้าง Scatter Chart เพื่อแสดงความสัมพันธ์ระหว่างเวลาเรียน (แกนนอน) กับคะแนนสอบ (แกนตั้ง) โดยแต่ละจุดแทนนักเรียน 1 คน ใช้สีที่หลากหลาย แสดงในพื้นที่ พร้อมเส้นกริดแนวตั้งและแนวนอนสีเทาเพื่อให้อ่านค่าได้ง่าย",
       example: (
         <svg width="100%" height="180" viewBox="0 0 260 180">
           <g stroke="#d1d5db" strokeWidth="1">
@@ -461,30 +467,30 @@ export default function TemplateScreen({
           </g>
           <g fontSize="12" fill="#374151" textAnchor="middle">
             <text x="50" y="170">
-              20
+              1 ชม.
             </text>
             <text x="90" y="170">
-              30
+              2 ชม.
             </text>
             <text x="130" y="170">
-              40
+              3 ชม.
             </text>
             <text x="170" y="170">
-              50
+              4 ชม.
             </text>
             <text x="210" y="170">
-              60
+              5 ชม.
             </text>
           </g>
           <g fontSize="12" fill="#374151" textAnchor="end">
             <text x="25" y="125">
-              น้อย
+              ต่ำ
             </text>
             <text x="25" y="95">
-              กลาง
+              ปานกลาง
             </text>
             <text x="25" y="65">
-              มาก
+              สูง
             </text>
           </g>
         </svg>
