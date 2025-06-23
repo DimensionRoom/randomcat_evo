@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ReactNode } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
 import initTranslations from "@/i18n";
@@ -14,9 +14,11 @@ import styles from "./Chart.module.scss";
 
 type ElementTypeItem = {
   id: string;
-  nameEN: string;
-  nameTH: string;
-  link: string;
+  name: string;
+  description: string;
+  detail: string;
+  prompt: string;
+  example: ReactNode;
 };
 
 const i18nNamespaces = ["webElementsScreen"];
@@ -45,12 +47,14 @@ export default function TemplateScreen({
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [elementsType, setElementsType] = useState<ElementTypeItem[]>([]);
+  const [elementsItems, setElementsItems] = useState<ElementTypeItem[]>([]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const gridRef = useRef<HTMLDivElement>(null); // ✅ reference to scroll
 
-  const chartItems = [
+
+  useEffect(()=>{
+    setElementsItems([
     {
       id: "bar",
       name: "Bar Chart",
@@ -348,7 +352,7 @@ export default function TemplateScreen({
       prompt:
         "สร้าง Radar Chart แสดงทักษะของผู้เรียนใน 6 หมวด ได้แก่ Coding, Creativity, Collaboration, Critical Thinking, Communication และ Leadership โดยมีรูปทรงหกเหลี่ยมเป็นเส้นกรอบ พร้อมสีพื้นอ่อนใต้กราฟ ใช้จุดสีแสดงแต่ละมิติ",
       example: (
-        <svg viewBox="0 0 200 200" width="100%" height="auto">
+        <svg viewBox="0 0 200 200" width="100%" height="100%">
           {[1, 2, 3].map((level) => {
             const r = level * 30; // ลดรัศมีลงจาก 40 เป็น 30
             const points = Array.from({ length: 6 }, (_, i) => {
@@ -496,7 +500,9 @@ export default function TemplateScreen({
         </svg>
       ),
     },
-  ];
+  ]
+    )
+  },[])
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -592,7 +598,7 @@ export default function TemplateScreen({
           เช่น กราฟแท่ง, กราฟเส้น, กราฟวงกลม
         </p>
         <div className={styles.gridContainer} ref={gridRef}>
-          {chartItems.map((item) => (
+          {elementsItems.map((item) => (
             <div key={item.id} className={styles.gridItem}>
               <div className={styles.previewBox}>{item.example}</div>
               <h3>{item.name}</h3>
