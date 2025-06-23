@@ -511,7 +511,7 @@ export default function TemplateScreen({
       >
         <p className={styles.centerText}>
           <span className={styles.elementName}>
-            Progress UI element website
+            Progress UI
           </span>
           <br />
           รูปแบบการแสดงผลความคืบหน้าเหมาะสำหรับการเรียนรู้

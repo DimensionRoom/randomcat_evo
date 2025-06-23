@@ -591,7 +591,7 @@ export default function TemplateScreen({
         className={`${styles.section} ${styles.elementsTypeSection} ${mitr.className}`}
       >
         <p className={styles.centerText}>
-          <span className={styles.elementName}>Chart UI element website</span>
+          <span className={styles.elementName}>Chart UI</span>
           <br />
           แผนภูมิรูปแบบต่างๆเพื่อใช้แสดงข้อมูล, เปรียบเทียบ ในด้านต่างๆ
           <br />
