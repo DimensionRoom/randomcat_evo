@@ -109,6 +109,10 @@ $alert-color: #ff0000;
   font-weight: 300;
   font-size: 1.2rem;
   max-width: 700px;
+  .elementName {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
 }
 
 .gridContainer {
@@ -116,41 +120,92 @@ $alert-color: #ff0000;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   padding: 2rem 3rem 4rem 3rem;
-  max-width: 800px;
+  max-width: 1600px;
   margin: 0 auto;
   overflow-y: scroll;
 }
 
 .gridItem {
+  background: #f9fbfd;
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  background-color: $secondary-color;
-  color: $text-color;
-  padding: 1.5rem;
-  border-radius: 12px;
+  align-items: center;
   text-align: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 1.5s ease-out;
-
-  .typeEN {
-    font-weight: 500;
+  transition: transform 0.2s ease;
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #222;
   }
 
-  .typeTH {
-    font-weight: 300;
+  .sub {
+    font-size: 0.95rem;
+    color: #3f29ab;
+    font-weight: 600;
+    margin: 0.5rem 0;
   }
 
-  &:hover {
-    background-color: $bg-purple01;
-    transition: background-color 0s;
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  .detail {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
   }
 }
-.gridItem.deactive{
-  background-color: #abaebf;
-  pointer-events: none;
+
+.previewBox {
+  width: 100%;
+  height: 220px;
+  padding: 10px;
+  background-color: #edf2f8;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promptSection {
+  background: #edf2f8;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #333;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .copyBtn {
+    align-self: flex-end;
+    background: #7c8cfd;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #4053e2;
+    }
+  }
+
+  .prompt {
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 0.6rem 0.8rem;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #d2e3f5;
+  }
 }
 
 // ==================================================
@@ -196,15 +251,21 @@ $alert-color: #ff0000;
   .title {
     font-size: 4rem;
   }
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
 }
 @media screen and (max-width: 690px) {
   .parallaxSection {
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    background-color: $primary-color;
+    min-height: 0;
     .headerContainer {
-      padding: 0 2rem;
+      display: none;
+      // padding: 0 2rem;
     }
     .headerImage {
       display: flex;
@@ -240,12 +301,15 @@ $alert-color: #ff0000;
     margin: 0 auto;
   }
   .gridContainer {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5rem;
     padding: 1rem 2rem 2rem 2rem;
     max-width: 800px;
     margin: 0 auto;
     overflow-y: scroll;
+  }
+  .gridItem {
+    padding: 0;
   }
   .footerSection {
     justify-content: center;

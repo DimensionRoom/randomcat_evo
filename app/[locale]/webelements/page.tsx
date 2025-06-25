@@ -141,30 +141,66 @@ export default function TemplateScreen({
         </p>
         <div className={styles.gridContainer}>
           {[
-            { en: "Chart", th: "แผนภูมิ", url: "chart" },
-            { en: "Form", th: "แบบฟอร์ม", url: "form" },
-            { en: "Pagination", th: "การแบ่งหน้า", url: "pagination" },
-            { en: "Progress", th: "ความคืบหน้า", url: "progress" },
-            { en: "Checkbox", th: "ช่องทำเครื่องหมาย", url: "checkbox" },
-            { en: "Dropdown", th: "เมนูแบบเลื่อนลง", url: "dropdown" },
-            { en: "Filter", th: "ตัวกรอง", url: "filter" },
-            { en: "Menu", th: "เมนู", url: "menu" },
-            { en: "Button", th: "ปุ่ม", url: "button" },
-            { en: "Animation", th: "การเคลื่อนไหว", url: "animation" },
-            { en: "Notification", th: "การแจ้งเตือน", url: "notification" },
-            { en: "Modal", th: "หน้าต่างป็อปอัพ", url: "modal" },
-            { en: "Table", th: "ตาราง", url: "table" },
+            { en: "Chart", th: "แผนภูมิ", url: "chart", active: true },
+            { en: "Form", th: "แบบฟอร์ม", url: "form", active: false },
+            {
+              en: "Pagination",
+              th: "การแบ่งหน้า",
+              url: "pagination",
+              active: false,
+            },
+            {
+              en: "Progress",
+              th: "ความคืบหน้า",
+              url: "progress",
+              active: true,
+            },
+            {
+              en: "Checkbox",
+              th: "ช่องทำเครื่องหมาย",
+              url: "checkbox",
+              active: false,
+            },
+            {
+              en: "Dropdown",
+              th: "เมนูแบบเลื่อนลง",
+              url: "dropdown",
+              active: false,
+            },
+            { en: "Filter", th: "ตัวกรอง", url: "filter", active: false },
+            { en: "Menu", th: "เมนู", url: "menu", active: false },
+            { en: "Button", th: "ปุ่ม", url: "button", active: true },
+            {
+              en: "Animation",
+              th: "การเคลื่อนไหว",
+              url: "animation",
+              active: false,
+            },
+            {
+              en: "Notification",
+              th: "การแจ้งเตือน",
+              url: "notification",
+              active: false,
+            },
+            { en: "Modal", th: "หน้าต่างป็อปอัพ", url: "modal", active: false },
+            { en: "Table", th: "ตาราง", url: "table", active: false },
             {
               en: "Website Layout",
               th: "โครงสร้างเว็บไซต์",
               url: "website-layout",
+              active: false,
             },
-            { en: "Search Field", th: "ช่องค้นหา", url: "search-field" },
+            {
+              en: "Search Field",
+              th: "ช่องค้นหา",
+              url: "search-field",
+              active: false,
+            },
           ].map((el, index) => (
             <div
               key={index}
-              className={styles.gridItem}
-              onClick={() => window.open(`/webelements/${el.url}`, '_blank')}
+              className={`${styles.gridItem} ${el.active ? styles.active : styles.deactive}`}
+              onClick={() => window.open(`/webelements/${el.url}`, "_blank")}
             >
               <p className={styles.typeEN}>{el.en}</p>
               <p className={styles.typeTH}>{el.th}</p>
