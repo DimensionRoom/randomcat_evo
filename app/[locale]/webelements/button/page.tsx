@@ -452,10 +452,7 @@ export default function TemplateScreen({
           <span className={styles.elementName}>Button UI</span>
           <br />
           รูปแบบปุ่มที่เหมาะสำหรับการโต้ตอบกับผู้ใช้ เช่น การส่งข้อมูล
-          การยืนยันคำสั่ง และการนำทางไปยังหน้าต่าง ๆ
-          <br />
-          ปุ่มสามารถออกแบบให้สื่อสารสถานะ เช่น ปุ่มปกติ ปุ่มกำลังโหลด
-          หรือปุ่มสำเร็จ
+          <br />การยืนยันคำสั่ง และ การนำทางไปยังหน้าต่าง ๆ
         </p>
         <div className={styles.gridContainer} ref={gridRef}>
           {elementsItems.map((item) => (

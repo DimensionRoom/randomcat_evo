@@ -165,7 +165,7 @@ export default function TemplateScreen({
               en: "Dropdown",
               th: "เมนูแบบเลื่อนลง",
               url: "dropdown",
-              active: false,
+              active: true,
             },
             { en: "Filter", th: "ตัวกรอง", url: "filter", active: false },
             { en: "Menu", th: "เมนู", url: "menu", active: false },
