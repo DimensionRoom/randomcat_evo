@@ -147,7 +147,7 @@ export default function TemplateScreen({
               en: "Pagination",
               th: "การแบ่งหน้า",
               url: "pagination",
-              active: false,
+              active: true,
             },
             {
               en: "Progress",
