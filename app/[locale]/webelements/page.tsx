@@ -183,7 +183,7 @@ export default function TemplateScreen({
               active: false,
             },
             { en: "Modal", th: "หน้าต่างป็อปอัพ", url: "modal", active: false },
-            { en: "Table", th: "ตาราง", url: "table", active: false },
+            { en: "Table", th: "ตาราง", url: "table", active: true },
             {
               en: "Website Layout",
               th: "โครงสร้างเว็บไซต์",

@@ -52,330 +52,257 @@ export default function TemplateScreen({
 
   const gridRef = useRef<HTMLDivElement>(null); // ✅ reference to scroll
 
-  const BasicPagination = () => {
-    const [currentPage, setCurrentPage] = React.useState(2);
-    const totalPages = 4;
-
-    const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-    return (
-      <div
-        style={{
-          display: "flex",
-          gap: "8px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-          style={{
-            padding: "6px 12px",
-            backgroundColor: currentPage === 1 ? "#f3f4f6" : "#e0e7ff",
-            color: currentPage === 1 ? "#9ca3af" : "#3730a3",
-            border: "none",
-            borderRadius: "6px",
-            fontSize: "0.95rem",
-            cursor: currentPage === 1 ? "not-allowed" : "pointer",
-          }}
-        >
-          Previous
-        </button>
-
-        {pages.map((page) => (
-          <button
-            key={page}
-            onClick={() => setCurrentPage(page)}
+  useEffect(() => {
+    setElementsItems([
+      {
+        id: "layout1",
+        name: "Feature Grid",
+        description: "แสดงกล่องคุณสมบัติในรูปแบบกริด",
+        detail: "เหมาะสำหรับแสดงจุดเด่นของเว็บไซต์การศึกษา",
+        prompt:
+          "ออกแบบกริดคุณสมบัติ (Feature) ให้แสดงในแนวกริดพร้อมขนาดกล่องเท่าๆ กัน",
+        example: (
+          <div
             style={{
-              padding: "6px 12px",
-              backgroundColor: currentPage === page ? "#6366f1" : "#ffffff",
-              color: currentPage === page ? "#ffffff" : "#374151",
-              border: currentPage === page ? "none" : "1px solid #d1d5db",
-              borderRadius: "6px",
-              fontWeight: currentPage === page ? "600" : "400",
-              cursor: "pointer",
-              transition: "all 0.2s",
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "1rem",
+              width: "100%",
+              height: "100%",
             }}
           >
-            {page}
-          </button>
-        ))}
-
-        <button
-          onClick={() =>
-            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-          }
-          disabled={currentPage === totalPages}
-          style={{
-            padding: "6px 12px",
-            backgroundColor: currentPage === totalPages ? "#f3f4f6" : "#e0e7ff",
-            color: currentPage === totalPages ? "#9ca3af" : "#3730a3",
-            border: "none",
-            borderRadius: "6px",
-            fontSize: "0.95rem",
-            cursor: currentPage === totalPages ? "not-allowed" : "pointer",
-          }}
-        >
-          Next
-        </button>
-      </div>
-    );
-  };
-
-useEffect(() => {
-  const exampleLayouts: ElementTypeItem[] = [
-    {
-  id: "layout1",
-  name: "Feature Grid",
-  description: "แสดงกล่องคุณสมบัติในรูปแบบกริด",
-  detail: "เหมาะสำหรับแสดงจุดเด่นของเว็บไซต์การศึกษา",
-  prompt:
-    "ออกแบบกริดคุณสมบัติ (Feature) ให้แสดงในแนวกริดพร้อมขนาดกล่องเท่าๆ กัน",
-  example: (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gap: "1rem",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      {["#abf7f2", "#d0e4ff", "#e6a8ff"].map((color, i) => (
-        <div
-          key={i}
-          style={{
-            background: "#ffffff",
-            borderRadius: "8px",
-            padding: "1rem",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1)",
-          }}
-        >
-          {/* Mock Title */}
-          <div
-            style={{
-              background: color,
-              height: "20px",
-              width: "60%",
-              borderRadius: "4px",
-              marginBottom: "0.5rem",
-            }}
-          />
-          {/* Mock Detail */}
-          <div
-            style={{
-              background: color,
-              height: "10px",
-              width: "100%",
-              borderRadius: "4px",
-              marginBottom: "0.25rem",
-            }}
-          />
-          <div
-            style={{
-              background: color,
-              height: "10px",
-              width: "90%",
-              borderRadius: "4px",
-              marginBottom: "0.25rem",
-            }}
-          />
-          <div
-            style={{
-              background: color,
-              height: "10px",
-              width: "75%",
-              borderRadius: "4px",
-            }}
-          />
-        </div>
-      ))}
-    </div>
-  ),
-},
-    {
-      id: "layout2",
-      name: "Responsive Grid",
-      description: "กล่องกริดที่ปรับจำนวนคอลัมน์ตามขนาดหน้าจอ",
-      detail: "เหมาะสำหรับแสดงคอนเทนต์บนทุกอุปกรณ์",
-      prompt:
-        "สร้างเลย์เอาท์ที่ใช้กริดปรับคอลัมน์อัตโนมัติตามขนาดหน้าจอผู้ใช้",
-      example: (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-            gap: "1rem",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          {[
-            { color: "#abf7f2", label: "กล่องที่ 1" },
-            { color: "#cbb9ff", label: "กล่องที่ 2" },
-            { color: "#7c8cfd", label: "กล่องที่ 3" },
-            { color: "#e6a8ff", label: "กล่องที่ 4" },
-          ].map((box, i) => (
-            <div
-              key={i}
-              style={{
-                background: box.color,
-                borderRadius: "6px",
-                padding: "1rem",
-                color: "#1f2937",
-                textAlign: "center",
-                minHeight: "100px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {box.label}
-            </div>
-          ))}
-        </div>
-      ),
-    },
-    {
-      id: "layout3",
-      name: "Card Grid",
-      description: "แสดงข้อมูลแบบการ์ด เช่น คอร์ส หรือทรัพยากร",
-      detail: "เหมาะสำหรับรายการที่มีข้อมูลภาพรวม",
-      prompt:
-        "สร้างกริดที่แสดงการ์ดของแต่ละคอร์ส พร้อมพื้นที่แสดงหัวข้อ รายละเอียด และปุ่ม",
-      example: (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1rem",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          {[1, 2, 3, 4, 5, 6].map((n) => (
-            <div
-              key={n}
-              style={{
-                background: "#ffffff",
-                border: "1px solid #d1d5db",
-                borderRadius: "8px",
-                padding: "1rem",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                height: "100%",
-              }}
-            >
-              <div>
+            {["#abf7f2", "#d0e4ff", "#e6a8ff"].map((color, i) => (
+              <div
+                key={i}
+                style={{
+                  background: "#ffffff",
+                  borderRadius: "8px",
+                  padding: "1rem",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  boxShadow: "0 1px 4px rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                {/* Mock Title */}
                 <div
                   style={{
-                    background: "#7c8cfd",
-                    height: "16px",
+                    background: color,
+                    height: "20px",
                     width: "60%",
-                    marginBottom: "0.5rem",
                     borderRadius: "4px",
+                    marginBottom: "0.5rem",
+                  }}
+                />
+                {/* Mock Detail */}
+                <div
+                  style={{
+                    background: color,
+                    height: "10px",
+                    width: "100%",
+                    borderRadius: "4px",
+                    marginBottom: "0.25rem",
                   }}
                 />
                 <div
                   style={{
-                    background: "#dcdfff",
-                    height: "12px",
-                    width: "100%",
+                    background: color,
+                    height: "10px",
+                    width: "90%",
+                    borderRadius: "4px",
+                    marginBottom: "0.25rem",
+                  }}
+                />
+                <div
+                  style={{
+                    background: color,
+                    height: "10px",
+                    width: "75%",
                     borderRadius: "4px",
                   }}
                 />
               </div>
-              <div
-                style={{
-                  marginTop: "1rem",
-                  height: "30px",
-                  background: "#3f29ab",
-                  borderRadius: "4px",
-                }}
-              />
-            </div>
-          ))}
-        </div>
-      ),
-    },
-    {
-      id: "layout4",
-      name: "Dashboard Layout",
-      description: "แดชบอร์ดแบบ 2 คอลัมน์ แสดงกล่องข้อมูลขนาดต่างกัน",
-      detail: "ฝั่งซ้ายมี 1 กล่องใหญ่ ฝั่งขวามี 4 กล่องย่อย เรียงแบบกริด",
-      prompt:
-        "ออกแบบแดชบอร์ดแบบ 2 คอลัมน์ โดยฝั่งซ้ายมีกล่องข้อมูล 1 กล่องใหญ่ และฝั่งขวามีกล่องย่อย 4 กล่องเรียงในรูปแบบกริด",
-      example: (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 3fr",
-            gap: "1rem",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          {/* คอลัมน์ซ้าย: 1 กล่องใหญ่ */}
-          <div
-            style={{
-              background: "#abf7f2",
-              borderRadius: "6px",
-              height: "100%",
-            }}
-          />
-
-          {/* คอลัมน์ขวา: 4 กล่องย่อย */}
+            ))}
+          </div>
+        ),
+      },
+      {
+        id: "layout2",
+        name: "Responsive Grid",
+        description: "กล่องกริดที่ปรับจำนวนคอลัมน์ตามขนาดหน้าจอ",
+        detail: "เหมาะสำหรับแสดงคอนเทนต์บนทุกอุปกรณ์",
+        prompt:
+          "สร้างเลย์เอาท์ที่ใช้กริดปรับคอลัมน์อัตโนมัติตามขนาดหน้าจอผู้ใช้",
+        example: (
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gridTemplateRows: "1fr 1fr",
+              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
               gap: "1rem",
+              width: "100%",
               height: "100%",
             }}
           >
-            <div
-              style={{
-                background: "#e6a8ff",
-                borderRadius: "6px",
-                height: "100%",
-              }}
-            />
-            <div
-              style={{
-                background: "#cbb9ff",
-                borderRadius: "6px",
-                height: "100%",
-              }}
-            />
-            <div
-              style={{
-                background: "#7c8cfd",
-                borderRadius: "6px",
-                height: "100%",
-              }}
-            />
-            <div
-              style={{
-                background: "#3f29ab",
-                borderRadius: "6px",
-                height: "100%",
-              }}
-            />
+            {[
+              { color: "#abf7f2", label: "กล่องที่ 1" },
+              { color: "#cbb9ff", label: "กล่องที่ 2" },
+              { color: "#7c8cfd", label: "กล่องที่ 3" },
+              { color: "#e6a8ff", label: "กล่องที่ 4" },
+            ].map((box, i) => (
+              <div
+                key={i}
+                style={{
+                  background: box.color,
+                  borderRadius: "6px",
+                  padding: "1rem",
+                  color: "#1f2937",
+                  textAlign: "center",
+                  minHeight: "100px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {box.label}
+              </div>
+            ))}
           </div>
-        </div>
-      ),
-    },
-  ];
+        ),
+      },
+      {
+        id: "layout3",
+        name: "Card Grid",
+        description: "แสดงข้อมูลแบบการ์ด เช่น คอร์ส หรือทรัพยากร",
+        detail: "เหมาะสำหรับรายการที่มีข้อมูลภาพรวม",
+        prompt:
+          "สร้างกริดที่แสดงการ์ดของแต่ละคอร์ส พร้อมพื้นที่แสดงหัวข้อ รายละเอียด และปุ่ม",
+        example: (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "1rem",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <div
+                key={n}
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "8px",
+                  padding: "1rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  height: "100%",
+                }}
+              >
+                <div>
+                  <div
+                    style={{
+                      background: "#7c8cfd",
+                      height: "16px",
+                      width: "60%",
+                      marginBottom: "0.5rem",
+                      borderRadius: "4px",
+                    }}
+                  />
+                  <div
+                    style={{
+                      background: "#dcdfff",
+                      height: "12px",
+                      width: "100%",
+                      borderRadius: "4px",
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    height: "30px",
+                    background: "#3f29ab",
+                    borderRadius: "4px",
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        ),
+      },
+      {
+        id: "layout4",
+        name: "Dashboard Layout",
+        description: "แดชบอร์ดแบบ 2 คอลัมน์ แสดงกล่องข้อมูลขนาดต่างกัน",
+        detail: "ฝั่งซ้ายมี 1 กล่องใหญ่ ฝั่งขวามี 4 กล่องย่อย เรียงแบบกริด",
+        prompt:
+          "ออกแบบแดชบอร์ดแบบ 2 คอลัมน์ โดยฝั่งซ้ายมีกล่องข้อมูล 1 กล่องใหญ่ และฝั่งขวามีกล่องย่อย 4 กล่องเรียงในรูปแบบกริด",
+        example: (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "2fr 3fr",
+              gap: "1rem",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            {/* คอลัมน์ซ้าย: 1 กล่องใหญ่ */}
+            <div
+              style={{
+                background: "#abf7f2",
+                borderRadius: "6px",
+                height: "100%",
+              }}
+            />
 
-  setElementsItems(exampleLayouts);
-}, []);
+            {/* คอลัมน์ขวา: 4 กล่องย่อย */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gridTemplateRows: "1fr 1fr",
+                gap: "1rem",
+                height: "100%",
+              }}
+            >
+              <div
+                style={{
+                  background: "#e6a8ff",
+                  borderRadius: "6px",
+                  height: "100%",
+                }}
+              />
+              <div
+                style={{
+                  background: "#cbb9ff",
+                  borderRadius: "6px",
+                  height: "100%",
+                }}
+              />
+              <div
+                style={{
+                  background: "#7c8cfd",
+                  borderRadius: "6px",
+                  height: "100%",
+                }}
+              />
+              <div
+                style={{
+                  background: "#3f29ab",
+                  borderRadius: "6px",
+                  height: "100%",
+                }}
+              />
+            </div>
+          </div>
+        ),
+      },
+    ]);
+  }, []);
 
   useEffect(() => {
     async function fetchTranslations() {
