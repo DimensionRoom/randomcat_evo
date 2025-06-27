@@ -152,7 +152,7 @@ export default function PaginationUiScreen({
           gap: "12px",
         }}
       >
-        <ul style={{ paddingLeft: "20px", margin: 0 }}>
+        <ul style={{  margin: 0 }}>
           {items.map((item, index) => (
             <p key={index} style={{ color: "#374151", fontSize: "0.95rem" }}>
               {item}
