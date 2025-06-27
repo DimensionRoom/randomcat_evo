@@ -180,7 +180,7 @@ export default function TemplateScreen({
               en: "Notification",
               th: "การแจ้งเตือน",
               url: "notification",
-              active: false,
+              active: true,
             },
             { en: "Modal", th: "หน้าต่างป็อปอัพ", url: "modal", active: true },
             { en: "Table", th: "ตาราง", url: "table", active: true },
