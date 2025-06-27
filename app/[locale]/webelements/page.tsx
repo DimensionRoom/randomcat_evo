@@ -194,7 +194,7 @@ export default function TemplateScreen({
               en: "Search Field",
               th: "ช่องค้นหา",
               url: "search-field",
-              active: false,
+              active: true,
             },
           ].map((el, index) => (
             <div
