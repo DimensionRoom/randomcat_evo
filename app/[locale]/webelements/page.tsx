@@ -174,7 +174,7 @@ export default function TemplateScreen({
               en: "Animation",
               th: "การเคลื่อนไหว",
               url: "animation",
-              active: false,
+              active: true,
             },
             {
               en: "Notification",
