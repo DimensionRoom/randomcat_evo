@@ -1,0 +1,214 @@
+.menuBox {
+  padding: 16px;
+  border-radius: 12px;
+  font-family: "Mitr", sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  background-color: #7c8cfd;
+}
+
+.menuHorizontal,
+.menuTab,
+.menuHamburger {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+
+  button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+  }
+}
+
+.menuHorizontal {
+  gap: 0px;
+  button {
+    flex: 1;
+    border-radius: 0px;
+  }
+  .menuContent{
+    width: 350px;
+  }
+}
+
+.menuSidebarWrapper {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  min-height: 140px;
+}
+
+.menuSidebar {
+  list-style: none;
+  padding: 0;
+  min-width: 160px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .menuButton {
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    font-size: 16px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  }
+}
+
+.menuMainContent {
+  flex: 1;
+  padding: 16px;
+  color: #fff;
+}
+
+.menuVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menuButton {
+  display: flex;
+  height: 34px;
+  align-items: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+}
+
+.activeBtn {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.menuContent {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+
+.activeBtn {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+.menuHamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.menuButton {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+}
+
+.subMenu {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 4px;
+  color: #fff;
+
+  li {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+}
+
+.activeBtn {
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+// TabMenu.module.scss
+.tabContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabHeader {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 10px;
+  border-bottom: 2px solid transparent;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tabButton:hover {
+  background-color: #e9faf9;
+}
+
+.inActiveTab{
+  background-color: #b2fffa;
+  border-bottom: 2px solid #51c9c1;
+  cursor: pointer;
+
+}
+
+.activeTab {
+  background-color: white;
+  border-bottom: 2px solid transparent;
+}
+
+.tabPanel {
+  background-color: white;
+  color: #000;
+  padding: 16px;
+  border-radius: 0 0 4px 4px;
+//   border-top: 1px solid #ccc;
+}

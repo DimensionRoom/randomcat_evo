@@ -168,7 +168,7 @@ export default function TemplateScreen({
               active: true,
             },
             { en: "Filter", th: "ตัวกรอง", url: "filter", active: false },
-            { en: "Menu", th: "เมนู", url: "menu", active: false },
+            { en: "Menu", th: "เมนู", url: "menu", active: true },
             { en: "Button", th: "ปุ่ม", url: "button", active: true },
             {
               en: "Animation",
