@@ -159,7 +159,7 @@ export default function TemplateScreen({
               en: "Checkbox",
               th: "ช่องทำเครื่องหมาย",
               url: "checkbox",
-              active: false,
+              active: true,
             },
             {
               en: "Dropdown",

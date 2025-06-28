@@ -1,0 +1,597 @@
+// -------------------------
+// 🎨 COLOR VARIABLES
+// -------------------------
+$primary-color: #7c8cfd;
+$secondary-color: #5271ff;
+$text-purple01: #362d64;
+$bg-purple01: #3000ad;
+$text-color: #ffffff;
+$alert-color: #ff0000;
+
+// -------------------------
+// 🧱 GLOBAL STYLES
+// -------------------------
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  overflow-y: scroll;
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+// ==================================================
+// 🌐 SECTION: HEADER / PARALLAX
+// ==================================================
+.parallaxSection {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  flex-direction: row;
+  align-items: center;
+  background-color: $primary-color;
+}
+
+.headerContainer {
+  flex: 1;
+  padding: 0 0 0 10rem;
+  color: $text-color;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.specialCredit {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  .icon {
+    width: 120px;
+  }
+  .specialText {
+    font-size: 1.8rem;
+    max-width: 500px;
+    line-height: 1.2;
+  }
+}
+
+.learnButton {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: $text-color;
+  color: $text-purple01;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color: $secondary-color !important;
+  }
+}
+
+.backHome,
+.colorCode {
+  margin-top: 1rem;
+  color: $alert-color;
+}
+
+.headerImage {
+  flex: 1;
+  padding: 0 5rem 0 0;
+}
+
+// ==================================================
+// 📦 SECTION: ELEMENTS TYPE GRID
+// ==================================================
+.elementsTypeSection {
+  background-color: #ffffff;
+}
+
+.centerText {
+  color: #000;
+  padding: 3rem 0 1rem 0;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.2rem;
+  max-width: 700px;
+  .elementName {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 3rem 4rem 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+.gridItem {
+  background: #f9fbfd;
+  border-radius: 16px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #222;
+  }
+
+  .sub {
+    font-size: 0.95rem;
+    color: #3f29ab;
+    font-weight: 600;
+    margin: 0.5rem 0;
+  }
+
+  .detail {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+  }
+}
+
+.previewBox {
+  width: 100%;
+  height: 220px;
+  padding: 10px;
+  background-color: #edf2f8;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.promptSection {
+  background: #edf2f8;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #333;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .copyBtn {
+    align-self: flex-end;
+    background: #7c8cfd;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #4053e2;
+    }
+  }
+
+  .prompt {
+    display: block;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 0.6rem 0.8rem;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #d2e3f5;
+  }
+}
+
+// ==================================================
+// 👣 SECTION: FOOTER
+// ==================================================
+.footerSection {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-color;
+  color: $text-color;
+  text-align: left;
+  padding: 0 5rem 0 5rem;
+  .details {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1.2em;
+    .icon {
+      width: 120px;
+    }
+    .detail {
+      .credit {
+        font-weight: 700;
+      }
+    }
+  }
+  .animate {
+    overflow: hidden;
+    div {
+      width: 260px;
+    }
+  }
+}
+@media (max-width: 1250px) and (min-width: 760px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 1090px) {
+  .title {
+    font-size: 4rem;
+  }
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 690px) {
+  .parallaxSection {
+    min-height: 0;
+    .headerContainer {
+      display: none;
+      // padding: 0 2rem;
+    }
+    .headerImage {
+      display: flex;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .specialCredit {
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    .icon {
+      width: 120px;
+    }
+    .specialText {
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+  }
+  .learnButton {
+    margin: 1.5rem auto;
+  }
+  .centerText {
+    padding: 2rem 2rem 1rem 2rem;
+    margin: 0 auto;
+  }
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-y: scroll;
+  }
+  .gridItem {
+    padding: 0;
+  }
+  .footerSection {
+    justify-content: center;
+    padding: 0.5rem;
+    .animate {
+      display: none;
+    }
+  }
+}
+
+// สีหลัก
+$primary: #3f29ab;
+$highlight: #abf7f2;
+$pastel1: #7c8cfd;
+$pastel2: #e6a8ff;
+$text-dark: #000;
+$text-light: #fff;
+
+.customCheckboxBox {
+  padding: 1rem;
+}
+
+.customCheckbox {
+  position: relative;
+  padding-left: 2.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  color: $text-dark;
+  display: inline-block;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0.1rem;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #f0f0f0;
+    border-radius: 0.4rem;
+    border: 2px solid #ccc;
+    transition: all 0.2s ease;
+  }
+
+  input:checked ~ .checkmark {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid $text-light;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  input:checked ~ .checkmark::after {
+    display: block;
+  }
+}
+
+// Icon Checkbox (หัวใจ)
+.iconCheckbox {
+  display: inline-block;
+  width: 15%; // หรือปรับตามที่ต้องการ เช่น 10%, 20%, etc.
+  max-width: 80px;
+  aspect-ratio: 1 / 1;
+
+  input {
+    display: none;
+  }
+
+  svg.heartIcon {
+    width: 100%;
+    height: 100%;
+    stroke: #aaa;
+    fill: none;
+    transition: all 0.3s ease;
+  }
+
+  input:checked + svg.heartIcon {
+    fill: #ff4d6d;
+    stroke: #ff4d6d;
+    transform: scale(1.1);
+  }
+
+  &:hover svg.heartIcon {
+    stroke: #ff4d6d;
+  }
+}
+
+// Color-only checkboxes (ไม่มีข้อความ)
+.colorOptions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .colorBox {
+    position: relative;
+    display: inline-block;
+
+    input {
+      display: none;
+    }
+
+    span {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      background-color: transparent;
+      transition: transform 0.3s ease;
+
+      // ลูกกลมสี
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 4px; // หดเข้ามาเพื่อให้มีระยะขอบ
+        border-radius: 50%;
+        background-color: currentColor;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      // ขอบภายนอกเมื่อ checked
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+    }
+
+    input:checked + span::after {
+      border-color: currentColor;
+    }
+
+    input:checked + span {
+      transform: scale(1.05);
+    }
+
+    input:focus-visible + span::after {
+      outline: 2px solid rgba(0, 0, 0, 0.3);
+    }
+
+    span:hover::before {
+      opacity: 0.9;
+    }
+  }
+}
+
+//Card Checkbox
+.cardCheckbox {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  label {
+    display: block;
+    background: #f0faff;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      border: 2px solid #bbb;
+      background: white;
+      transition: all 0.2s ease;
+    }
+  }
+
+  input:checked + label {
+    border-color: #3f29ab;
+    background: #ede9ff;
+  }
+
+  input:checked + label::before {
+    background: #3f29ab;
+    border-color: #3f29ab;
+  }
+
+  .cardContent {
+    h4 {
+      margin: 0 0 0.25rem;
+      color: #3f29ab;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
+  }
+}
+
+// Toggle Switch
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+}
+
+.toggleLabel {
+  color: #333;
+  font-weight: 500;
+}
+
+// สวิตช์ Toggle
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: #5cd692; // เขียวพาสเทล
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(24px);
+  }
+}
+
