@@ -196,6 +196,12 @@ export default function TemplateScreen({
               url: "search-field",
               active: true,
             },
+            {
+              en: "Card",
+              th: "การ์ด",
+              url: "card",
+              active: true,
+            }
           ].map((el, index) => (
             <div
               key={index}

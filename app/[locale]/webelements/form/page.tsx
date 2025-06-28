@@ -45,7 +45,7 @@ const mitr = Mitr({
   weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-export default function TemplateScreen({
+export default function FormUiScreen({
   params: { locale },
 }: {
   params: { locale: string };
