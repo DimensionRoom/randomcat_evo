@@ -1,7 +1,7 @@
 /* Sign Up form */ 
 .formBoxSignup {
   max-width: 300px;
-  background: #f1f7fe;
+  background: #f9faff;
   overflow: hidden;
   border-radius: 16px;
   color: #010101;
@@ -52,7 +52,7 @@
 
 .formSectionSignup a {
   font-weight: bold;
-  color: #0066ff;
+  color: #5271ff;
   transition: color .3s ease;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .formSignup button {
-  background-color: #0066ff;
+  background-color: #5271ff;
   color: #fff;
   border: 0;
   border-radius: 24px;
@@ -74,12 +74,11 @@
 }
 
 .formSignup button:hover {
-  background-color: #005ce6;
+  background-color: #5271ff;
 }
 }
 
 /* Login */ 
-/* From Uiverse.io by Yaya12085 */
 .formSignin {
   background-color: #fff;
   display: block;
@@ -95,7 +94,7 @@
   line-height: 1.75rem;
   font-weight: 600;
   text-align: center;
-  color: #000;
+  color: #3000ad;
 }
 
 .inputContainerSignin {
@@ -296,6 +295,7 @@
 
 .formContact {
   position: relative;
+  border: 1px solid #5271ff;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -304,11 +304,10 @@
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
 }
 
 .formContact .title {
-  color: royalblue;
+  color: #5271ff;
   font-size: 30px;
   font-weight: 500;
   letter-spacing: -1px;
@@ -345,7 +344,7 @@
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
-  background-color: royalblue;
+  background-color: #3000ad;
   color: #fff;
   cursor: pointer;
 }

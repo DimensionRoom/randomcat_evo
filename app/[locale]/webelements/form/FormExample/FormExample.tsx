@@ -99,38 +99,6 @@ export const RegisterFormExample = () => (
 
 export const UploadFormExample = () => (
   <div className={styles.modalUpload}>
-    <div className={styles.modalHeader}>
-      <div className={styles.modalLogo}>
-        <span className={styles.logoCircle}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            viewBox="0 0 512 419.116"
-          >
-            <path
-              d="M16.991,419.116A16.989,16.989,0,0,1,0,402.125V16.991A16.989,16.989,0,0,1,16.991,0H146.124a17,17,0,0,1,10.342,3.513L227.217,57.77H437.805A16.989,16.989,0,0,1,454.8,74.761v53.244h40.213A16.992,16.992,0,0,1,511.6,148.657L454.966,405.222a17,17,0,0,1-16.6,13.332H410.053v.562ZM63.06,384.573H424.722L473.86,161.988H112.2Z"
-              fill="var(--c-action-primary)"
-            />
-          </svg>
-        </span>
-      </div>
-      <button className={styles.btnClose}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path fill="none" d="M0 0h24v24H0V0z" />
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-            fill="var(--c-text-secondary)"
-          />
-        </svg>
-      </button>
-    </div>
-
     <div className={styles.modalBody}>
       <p className={styles.modalTitle}>อัปโหลดไฟล์การบ้าน</p>
       <p className={styles.modalDescription}>แนบไฟล์ด้านล่าง</p>
