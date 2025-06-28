@@ -142,7 +142,7 @@ export default function TemplateScreen({
         <div className={styles.gridContainer}>
           {[
             { en: "Chart", th: "แผนภูมิ", url: "chart", active: true },
-            { en: "Form", th: "แบบฟอร์ม", url: "form", active: false },
+            { en: "Form", th: "แบบฟอร์ม", url: "form", active: true },
             {
               en: "Pagination",
               th: "การแบ่งหน้า",
@@ -167,7 +167,7 @@ export default function TemplateScreen({
               url: "dropdown",
               active: true,
             },
-            { en: "Filter", th: "ตัวกรอง", url: "filter", active: false },
+            // { en: "Filter", th: "ตัวกรอง", url: "filter", active: false },
             { en: "Menu", th: "เมนู", url: "menu", active: true },
             { en: "Button", th: "ปุ่ม", url: "button", active: true },
             {

@@ -1,0 +1,352 @@
+/* Sign Up form */ 
+.formBoxSignup {
+  max-width: 300px;
+  background: #f1f7fe;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #010101;
+  .formSignup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+}
+
+.titleSignup {
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.subtitleSignup {
+  font-size: 1rem;
+  color: #666;
+}
+
+.formContainerSignup {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 1rem 0 .5rem;
+  width: 100%;
+}
+
+.inputSignup {
+  background: none;
+  border: 0;
+  outline: 0;
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  font-size: .9rem;
+  padding: 8px 15px;
+}
+
+.formSectionSignup {
+  padding: 16px;
+  font-size: .85rem;
+  background-color: #e0ecfb;
+  box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+}
+
+.formSectionSignup a {
+  font-weight: bold;
+  color: #0066ff;
+  transition: color .3s ease;
+}
+
+.formSectionSignup a:hover {
+  color: #005ce6;
+  text-decoration: underline;
+}
+
+.formSignup button {
+  background-color: #0066ff;
+  color: #fff;
+  border: 0;
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+.formSignup button:hover {
+  background-color: #005ce6;
+}
+}
+
+/* Login */ 
+/* From Uiverse.io by Yaya12085 */
+.formSignin {
+  background-color: #fff;
+  display: block;
+  padding: 1rem;
+  max-width: 350px;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.formTitleSignin {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+}
+
+.inputContainerSignin {
+  position: relative;
+}
+
+.inputContainerSignin input,
+.submitSignin {
+  outline: none;
+  border: 1px solid #e5e7eb;
+  margin: 8px 0;
+}
+
+.inputContainerSignin input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.inputContainerSignin span {
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  place-content: center;
+}
+
+.inputContainerSignin span svg {
+  color: #9ca3af;
+  width: 1rem;
+  height: 1rem;
+}
+
+.submitSignin {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.signupLinkSignin {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: center;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+// upload form
+/* From Uiverse.io by Jerome-W-90 */
+.modalUpload {
+  width: 90%;
+  max-width: 500px;
+  margin: 10px auto;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  .modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+.logoCircle {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #e9e5ff;
+  fill: #7c8cfd;
+}
+
+.btnClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #e9e5ff;
+  }
+}
+
+.modalBody {
+  padding: 1rem 1.5rem;
+}
+
+.modalTitle {
+  color: #6a6b76;
+  font-weight: 500;
+}
+
+.modalDescription {
+  color: #6a6b76;
+}
+
+.uploadArea {
+  margin-top: 1.25rem;
+  background-color: transparent;
+  padding: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed #6a6b76;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    border: 1px solid #6a6b76;
+
+    .uploadAreaIcon {
+      transform: scale(1.3);
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+.uploadAreaIcon {
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  fill: #7c8cfd;
+}
+
+.uploadAreaTitle {
+  margin-top: 1rem;
+  display: block;
+  font-weight: 700;
+  color: #0d0f21;
+}
+
+.uploadAreaDescription {
+  display: block;
+  color: #6a6b76;
+
+  strong {
+    color: #7c8cfd;
+    font-weight: 700;
+  }
+}
+
+.modalFooter {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+
+  [class*="btn"] {
+    margin-left: 0.75rem;
+  }
+}
+
+.btnSecondary,
+.btnPrimary {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border: 2px solid #e5e5e5;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  color: #fff;
+  background-color: #7c8cfd;
+  border-color: #7c8cfd;
+}
+
+}
+
+// contact form
+
+.formContact {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+}
+
+.formContact .title {
+  color: royalblue;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContact input {
+  outline: 0;
+  border: 1px solid rgb(219, 213, 213);
+  padding: 8px 14px;
+  border-radius: 8px;
+  width: 100%;
+  height: 50px;
+}
+
+.formContact textarea {
+  border-radius: 8px;
+  height: 100px;
+  width: 100%;
+  resize: none;
+  outline: 0;
+  padding: 8px 14px;
+  border: 1px solid rgb(219, 213, 213);
+}
+
+.formContact button {
+  align-self: flex-end;
+  padding: 8px;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: royalblue;
+  color: #fff;
+  cursor: pointer;
+}
+    
