@@ -170,6 +170,51 @@ $alert-color: #ff0000;
   color: $text-color;
   text-align: left;
   padding: 0 5rem 0 5rem;
+  .createContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .credit {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    .imageContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      .itemFrame {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        background-color: white;
+        border: 5px solid white;
+        perspective: 1000px;
+        border-radius: 50%;
+        transition: transform 0.2s;
+        .image {
+          display: block;
+          width: 100%;
+          height: max-content;
+        }
+      }
+      .profileData {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        p {
+          font-size: 1rem;
+          font-weight: 300;
+        }
+        P:nth-child(1) {
+          font-size: 1.2rem;
+          font-weight: 400;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
   .details {
     display: flex;
     align-items: center;
@@ -266,6 +311,13 @@ $alert-color: #ff0000;
   .footerSection {
     justify-content: center;
     padding: 0.5rem;
+    .createContainer{
+      padding: 0.5rem;
+      .imageContainer{
+        gap: 4px;
+        flex-direction: column;
+      }
+    }
     .animate {
       display: none;
     }

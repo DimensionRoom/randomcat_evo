@@ -2,6 +2,7 @@
 import React, { useState, useEffect, use } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+import Image from "next/image";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
@@ -110,11 +111,11 @@ export default function TemplateScreen({
             <br />
             ออกแบบเว็บไซต์พร้อม prompt สำหรับนำไปใช้งาน
           </p>
-           <p className={styles.subtitleMobile}>
+          <p className={styles.subtitleMobile}>
             เว็บไซต์ที่รวบรวมชื่อของส่วนประกอบ
             <br />
             หน้าตาการออกแบบเว็บไซต์
-            <br/>
+            <br />
             พร้อม prompt สำหรับนำไปใช้งาน
           </p>
           <FlatBtn
@@ -208,11 +209,13 @@ export default function TemplateScreen({
               th: "การ์ด",
               url: "card",
               active: true,
-            }
+            },
           ].map((el, index) => (
             <div
               key={index}
-              className={`${styles.gridItem} ${el.active ? styles.active : styles.deactive}`}
+              className={`${styles.gridItem} ${
+                el.active ? styles.active : styles.deactive
+              }`}
               onClick={() => window.open(`/webelements/${el.url}`, "_blank")}
             >
               <p className={styles.typeEN}>{el.en}</p>
@@ -223,8 +226,49 @@ export default function TemplateScreen({
       </section>
 
       {/* Footer */}
-      <section className={`${styles.section} ${styles.footerSection}`}>
-        <div className={styles.details}>
+      <section className={`${styles.section} ${styles.footerSection} ${mitr.className} `}>
+        <div className={styles.createContainer}>
+          <p className={styles.credit}>Created by</p>
+          <div className={styles.imageContainer}>
+            <div
+              className={styles.itemFrame}
+              style={{ width: 120, height: 120 }}
+            >
+              <Image
+                className={styles.image}
+                src="/image/team/natchaya.jpg"
+                width={150}
+                height={150}
+                alt=""
+              />
+            </div>
+            <div className={styles.profileData}>
+              <p className={styles.credit}>ณัฐชยา นรารัตน์</p>
+              <p className={styles.credit}>อาจารย์พิเศษมหาลัยและ</p>
+              <p className={styles.credit}>นักออกแบบการเรียนรู้</p>
+              <p className={styles.credit}>ผู้ร่วมออกแบบเว็บไซต์</p>
+            </div>
+            <div
+              className={styles.itemFrame}
+              style={{ width: 120, height: 120 }}
+            >
+              <Image
+                className={styles.image}
+                src="/image/team/tada.jpg"
+                width={150}
+                height={150}
+                alt=""
+              />
+            </div>
+            <div className={styles.profileData}>
+              <p className={styles.credit}>ธาดา สามงามทอง</p>
+              <p className={styles.credit}>นักพัฒนาและ</p>
+              <p className={styles.credit}>ผู้ร่วมออกแบบเว็บไซต์</p>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className={styles.details}>
           <div className={styles.icon}>
             <Player
               keepLastFrame
@@ -238,7 +282,7 @@ export default function TemplateScreen({
             <p>Natchaya N.</p>
             <p>Tada S.</p>
           </div>
-        </div>
+        </div> */}
         <div className={styles.animate}>
           <Player autoplay loop src={teamwork} />
         </div>
