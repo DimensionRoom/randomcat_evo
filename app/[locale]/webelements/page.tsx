@@ -110,6 +110,13 @@ export default function TemplateScreen({
             <br />
             ออกแบบเว็บไซต์พร้อม prompt สำหรับนำไปใช้งาน
           </p>
+           <p className={styles.subtitleMobile}>
+            เว็บไซต์ที่รวบรวมชื่อของส่วนประกอบ
+            <br />
+            หน้าตาการออกแบบเว็บไซต์
+            <br/>
+            พร้อม prompt สำหรับนำไปใช้งาน
+          </p>
           <FlatBtn
             className={styles.learnButton}
             text="LEARN MORE ABOUT US "
