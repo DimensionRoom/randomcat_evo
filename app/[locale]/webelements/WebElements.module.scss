@@ -49,6 +49,9 @@ $alert-color: #ff0000;
   font-weight: 400;
   line-height: 1;
 }
+.titleMobile {
+  display: none;
+}
 
 .subtitle {
   margin-top: 1rem;
@@ -122,7 +125,7 @@ $alert-color: #ff0000;
   padding: 2rem 3rem 4rem 3rem;
   max-width: 800px;
   margin: 0 auto;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .gridItem {
@@ -164,12 +167,12 @@ $alert-color: #ff0000;
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: $primary-color;
   color: $text-color;
   text-align: left;
-  padding: 0 5rem 0 5rem;
+  padding: 1rem 5rem 2rem 5rem;
   .createContainer {
     display: flex;
     flex-direction: column;
@@ -276,6 +279,13 @@ $alert-color: #ff0000;
   .subtitle {
     display: none;
   }
+  .titleDesktop{
+    display: none;
+  }
+  .titleMobile {
+    display: flex;
+      font-size: 1.6rem;
+  }
   .subtitleMobile {
     display: flex;
     margin-top: 1rem;
@@ -311,9 +321,9 @@ $alert-color: #ff0000;
   .footerSection {
     justify-content: center;
     padding: 0.5rem;
-    .createContainer{
+    .createContainer {
       padding: 0.5rem;
-      .imageContainer{
+      .imageContainer {
         gap: 4px;
         flex-direction: column;
       }

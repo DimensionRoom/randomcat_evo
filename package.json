@@ -12,7 +12,7 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@next/third-parties": "^14.2.4",
     "axios": "^1.7.2",
-    "gsap": "^3.12.5",
+    "gsap": "^3.13.0",
     "i18next": "^23.10.1",
     "i18next-resources-to-backend": "^1.2.0",
     "lottie-web": "^5.12.2",

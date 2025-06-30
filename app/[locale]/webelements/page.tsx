@@ -2,6 +2,9 @@
 import React, { useState, useEffect, use } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import Image from "next/image";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -11,6 +14,8 @@ import webelementLoad from "@/public/json/webelementLoad.json";
 import teamwork from "@/public/json/animate/teamwork.json";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./WebElements.module.scss";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type ElementTypeItem = {
   id: string;
@@ -46,6 +51,9 @@ export default function TemplateScreen({
   const [loading, setLoading] = useState<boolean>(true);
   const [elementsType, setElementsType] = useState<ElementTypeItem[]>([]);
 
+  const gridRef = useRef<HTMLDivElement>(null);
+
+
   useEffect(() => {
     async function fetchTranslations() {
       const { t, resources } = await initTranslations(locale, i18nNamespaces);
@@ -57,6 +65,31 @@ export default function TemplateScreen({
     }
     fetchTranslations();
   }, [locale]);
+
+    useEffect(() => {
+  if (gridRef.current) {
+    const items = gridRef.current.querySelectorAll(`.${styles.gridItem}`);
+
+    items.forEach((item, i) => {
+      gsap.fromTo(
+        item,
+        { autoAlpha: 0, y: 50, scale: 0.9 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }
+}, [loading]); 
 
   if (loading) {
     return (
@@ -103,9 +136,11 @@ export default function TemplateScreen({
               <br /> Speacial Project
             </p>
           </div>
-          <h1 className={styles.title}>AI WEBSITE</h1>
-          <h1 className={styles.title}>Elements &</h1>
-          <h1 className={styles.title}>Prompts</h1>
+          <h1 className={`${styles.title} ${styles.titleDesktop}`}>AI WEBSITE</h1>
+          <h1 className={`${styles.title} ${styles.titleDesktop}`}>Elements &</h1>
+          <h1 className={`${styles.title} ${styles.titleDesktop}`}>Prompts</h1>
+          <h1 className={`${styles.title} ${styles.titleMobile}`}>AI WEBSITE</h1>
+          <h1 className={`${styles.title} ${styles.titleMobile}`}>Elements & Prompts</h1>
           <p className={styles.subtitle}>
             เว็บไซต์ที่รวบรวมชื่อของส่วนประกอบหน้าตาการ
             <br />
@@ -147,7 +182,7 @@ export default function TemplateScreen({
           <br />
           จะช่วยให้คุณออกแบบเว็บไซต์ได้อย่างตรงใจ”
         </p>
-        <div className={styles.gridContainer}>
+       <div className={styles.gridContainer} ref={gridRef}>
           {[
             { en: "Chart", th: "แผนภูมิ", url: "chart", active: true },
             { en: "Form", th: "แบบฟอร์ม", url: "form", active: true },
@@ -283,9 +318,9 @@ export default function TemplateScreen({
             <p>Tada S.</p>
           </div>
         </div> */}
-        <div className={styles.animate}>
+        {/* <div className={styles.animate}>
           <Player autoplay loop src={teamwork} />
-        </div>
+        </div> */}
       </section>
     </TranslationsProvider>
   );
