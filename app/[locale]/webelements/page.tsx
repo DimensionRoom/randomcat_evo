@@ -52,7 +52,9 @@ export default function TemplateScreen({
   const [elementsType, setElementsType] = useState<ElementTypeItem[]>([]);
 
   const gridRef = useRef<HTMLDivElement>(null);
-
+  const leftProfileRef = useRef<HTMLDivElement>(null);
+  const rightProfileRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchTranslations() {
@@ -66,30 +68,71 @@ export default function TemplateScreen({
     fetchTranslations();
   }, [locale]);
 
-    useEffect(() => {
-  if (gridRef.current) {
-    const items = gridRef.current.querySelectorAll(`.${styles.gridItem}`);
+  useEffect(() => {
+    if (gridRef.current) {
+      const items = gridRef.current.querySelectorAll(`.${styles.gridItem}`);
 
-    items.forEach((item, i) => {
-      gsap.fromTo(
-        item,
-        { autoAlpha: 0, y: 50, scale: 0.9 },
-        {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-  }
-}, [loading]); 
+      items.forEach((item, i) => {
+        gsap.fromTo(
+          item,
+          { autoAlpha: 0, y: 50, scale: 0.9 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    if (
+      !footerRef.current ||
+      !leftProfileRef.current ||
+      !rightProfileRef.current
+    )
+      return;
+
+    gsap.fromTo(
+      leftProfileRef.current,
+      { x: "-100%", autoAlpha: 0 },
+      {
+        x: "0%",
+        autoAlpha: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      rightProfileRef.current,
+      { x: "100%", autoAlpha: 0 },
+      {
+        x: "0%",
+        autoAlpha: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, [loading]);
 
   if (loading) {
     return (
@@ -136,11 +179,19 @@ export default function TemplateScreen({
               <br /> Speacial Project
             </p>
           </div>
-          <h1 className={`${styles.title} ${styles.titleDesktop}`}>AI WEBSITE</h1>
-          <h1 className={`${styles.title} ${styles.titleDesktop}`}>Elements &</h1>
+          <h1 className={`${styles.title} ${styles.titleDesktop}`}>
+            AI WEBSITE
+          </h1>
+          <h1 className={`${styles.title} ${styles.titleDesktop}`}>
+            Elements &
+          </h1>
           <h1 className={`${styles.title} ${styles.titleDesktop}`}>Prompts</h1>
-          <h1 className={`${styles.title} ${styles.titleMobile}`}>AI WEBSITE</h1>
-          <h1 className={`${styles.title} ${styles.titleMobile}`}>Elements & Prompts</h1>
+          <h1 className={`${styles.title} ${styles.titleMobile}`}>
+            AI WEBSITE
+          </h1>
+          <h1 className={`${styles.title} ${styles.titleMobile}`}>
+            Elements & Prompts
+          </h1>
           <p className={styles.subtitle}>
             เว็บไซต์ที่รวบรวมชื่อของส่วนประกอบหน้าตาการ
             <br />
@@ -182,7 +233,7 @@ export default function TemplateScreen({
           <br />
           จะช่วยให้คุณออกแบบเว็บไซต์ได้อย่างตรงใจ”
         </p>
-       <div className={styles.gridContainer} ref={gridRef}>
+        <div className={styles.gridContainer} ref={gridRef}>
           {[
             { en: "Chart", th: "แผนภูมิ", url: "chart", active: true },
             { en: "Form", th: "แบบฟอร์ม", url: "form", active: true },
@@ -261,44 +312,51 @@ export default function TemplateScreen({
       </section>
 
       {/* Footer */}
-      <section className={`${styles.section} ${styles.footerSection} ${mitr.className} `}>
+      <section
+        className={`${styles.section} ${styles.footerSection} ${mitr.className} `}
+        ref={footerRef}
+      >
         <div className={styles.createContainer}>
           <p className={styles.credit}>Created by</p>
           <div className={styles.imageContainer}>
-            <div
-              className={styles.itemFrame}
-              style={{ width: 120, height: 120 }}
-            >
-              <Image
-                className={styles.image}
-                src="/image/team/natchaya.jpg"
-                width={150}
-                height={150}
-                alt=""
-              />
+            <div className={styles.profileItem} ref={leftProfileRef}>
+              <div
+                className={styles.itemFrame}
+                style={{ width: 120, height: 120 }}
+              >
+                <Image
+                  className={styles.image}
+                  src="/image/team/natchaya.jpg"
+                  width={150}
+                  height={150}
+                  alt=""
+                />
+              </div>
+              <div className={styles.profileData}>
+                <p className={styles.credit}>ณัฐชยา นรารัตน์</p>
+                <p className={styles.credit}>อาจารย์พิเศษมหาลัยและ</p>
+                <p className={styles.credit}>นักออกแบบการเรียนรู้</p>
+                <p className={styles.credit}>ผู้ร่วมออกแบบเว็บไซต์</p>
+              </div>
             </div>
-            <div className={styles.profileData}>
-              <p className={styles.credit}>ณัฐชยา นรารัตน์</p>
-              <p className={styles.credit}>อาจารย์พิเศษมหาลัยและ</p>
-              <p className={styles.credit}>นักออกแบบการเรียนรู้</p>
-              <p className={styles.credit}>ผู้ร่วมออกแบบเว็บไซต์</p>
-            </div>
-            <div
-              className={styles.itemFrame}
-              style={{ width: 120, height: 120 }}
-            >
-              <Image
-                className={styles.image}
-                src="/image/team/tada.jpg"
-                width={150}
-                height={150}
-                alt=""
-              />
-            </div>
-            <div className={styles.profileData}>
-              <p className={styles.credit}>ธาดา สามงามทอง</p>
-              <p className={styles.credit}>นักพัฒนาและ</p>
-              <p className={styles.credit}>ผู้ร่วมออกแบบเว็บไซต์</p>
+            <div className={styles.profileItem} ref={rightProfileRef}>
+              <div
+                className={styles.itemFrame}
+                style={{ width: 120, height: 120 }}
+              >
+                <Image
+                  className={styles.image}
+                  src="/image/team/tada.jpg"
+                  width={150}
+                  height={150}
+                  alt=""
+                />
+              </div>
+              <div className={styles.profileData}>
+                <p className={styles.credit}>ธาดา สามงามทอง</p>
+                <p className={styles.credit}>นักพัฒนาและ</p>
+                <p className={styles.credit}>ผู้ร่วมออกแบบเว็บไซต์</p>
+              </div>
             </div>
           </div>
         </div>

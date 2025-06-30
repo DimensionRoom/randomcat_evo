@@ -187,33 +187,40 @@ $alert-color: #ff0000;
       justify-content: center;
       align-items: center;
       gap: 20px;
-      .itemFrame {
+      .profileItem {
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        overflow: hidden;
-        background-color: white;
-        border: 5px solid white;
-        perspective: 1000px;
-        border-radius: 50%;
-        transition: transform 0.2s;
-        .image {
-          display: block;
-          width: 100%;
-          height: max-content;
+        align-items: center;
+        gap: 10px;
+        .itemFrame {
+          display: flex;
+          justify-content: center;
+          overflow: hidden;
+          background-color: white;
+          border: 5px solid white;
+          perspective: 1000px;
+          border-radius: 50%;
+          transition: transform 0.2s;
+          .image {
+            display: block;
+            width: 100%;
+            height: max-content;
+          }
         }
-      }
-      .profileData {
-        display: flex;
-        flex-direction: column;
-        line-height: 1.2;
-        p {
-          font-size: 1rem;
-          font-weight: 300;
-        }
-        P:nth-child(1) {
-          font-size: 1.2rem;
-          font-weight: 400;
-          margin-bottom: 5px;
+        .profileData {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.2;
+          p {
+            font-size: 1rem;
+            font-weight: 300;
+          }
+          P:nth-child(1) {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+          }
         }
       }
     }
@@ -279,12 +286,12 @@ $alert-color: #ff0000;
   .subtitle {
     display: none;
   }
-  .titleDesktop{
+  .titleDesktop {
     display: none;
   }
   .titleMobile {
     display: flex;
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
   .subtitleMobile {
     display: flex;
@@ -324,7 +331,7 @@ $alert-color: #ff0000;
     .createContainer {
       padding: 0.5rem;
       .imageContainer {
-        gap: 4px;
+        gap: 10px;
         flex-direction: column;
       }
     }
