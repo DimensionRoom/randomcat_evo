@@ -1,0 +1,132 @@
+.sidebarCard {
+  perspective: 1000px;
+  min-height: 96px;
+  display: flex;
+  justify-content: center;
+
+  // โหมดบังคับด้านหน้าเท่านั้น
+  &.no-flip-front-only {
+    .cardInner {
+      transform: none !important;
+
+      // 🔹 บังคับลูกทั้งหมดไม่กลับด้าน (แก้ mirrored text)
+      * {
+        transform: scaleX(1) !important;
+        backface-visibility: visible !important;
+      }
+    }
+
+    .cardBack {
+      display: none !important;
+    }
+
+    .cardFront {
+      display: block !important;
+      z-index: 2 !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+
+  &.isFlipped {
+    transform: rotateY(180deg);
+  }
+}
+
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.3s ease, z-index 0.3s ease;
+}
+
+.cardFront {
+  z-index: 2;
+  opacity: 1;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+.cardBack {
+  z-index: 1;
+  opacity: 0;
+  background: #333;
+  transform: rotateY(180deg);
+}
+
+.cardInner.isFlipped {
+  .cardFront {
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .cardBack {
+    z-index: 2;
+    opacity: 1;
+  }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.frontTitle {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipHint {
+  text-align: center;
+  color: white;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.backTitle {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.backContent {
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding-right: 0.25rem;
+  overflow-y: auto;
+}

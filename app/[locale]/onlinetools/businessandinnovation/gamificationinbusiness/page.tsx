@@ -18,7 +18,7 @@ import PointerIcon from "@/public/svgs/storyboard/pointer";
 import LightbulbIcon from "@/public/svgs/storyboard/lightbulb";
 import ContentIcon from "@/public/svgs/contentboard/content";
 import SiteLogo from "@/public/svgs/siteLogo";
-import styles from "./CharacterDesign.module.scss";
+import styles from "./GamificationInBusiness.module.scss";
 
 import characterdesisgnData from "@/public/json/characterdesignCat.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -64,7 +64,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function CharacterBoard({
+export default function ContentBoard({
   params: { locale },
 }: {
   params: { locale: string };

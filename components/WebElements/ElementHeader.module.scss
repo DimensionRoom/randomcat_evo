@@ -1,0 +1,93 @@
+$primary-color: #7c8cfd;
+$secondary-color: #5271ff;
+$text-purple01: #362d64;
+$bg-purple01: #3000ad;
+$text-color: #ffffff;
+$alert-color: #ff0000;
+.headerSection {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  flex-direction: row;
+  align-items: center;
+  background-color: $primary-color;
+  .headerContainer {
+    flex: 1;
+    padding: 0 0 0 10rem;
+    color: $text-color;
+    .title {
+      font-size: 6rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .subtitle {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+    }
+    .specialCredit {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      .icon {
+        width: 120px;
+      }
+      .specialText {
+        font-size: 1.8rem;
+        max-width: 500px;
+        line-height: 1.2;
+      }
+    }
+    .learnButton {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: $text-color;
+      color: $text-purple01;
+      border-radius: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        color: $secondary-color !important;
+      }
+    }
+  }
+  .headerImage {
+    flex: 1;
+    padding: 0 5rem 0 0;
+  }
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+@media screen and (max-width: 1090px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 1250px) and (min-width: 760px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .headerSection {
+    min-height: 0;
+    .headerContainer {
+      display: none;
+    }
+    .headerImage {
+      display: flex;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

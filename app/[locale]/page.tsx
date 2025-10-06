@@ -446,7 +446,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
-        <section id='teamSection' className={`${styles.section} ${styles.animationSection} ${styles.teamSection}`}>
+        {/* <section id='teamSection' className={`${styles.section} ${styles.animationSection} ${styles.teamSection}`}>
         <div className={styles.textContainer}>
             <SiteLogo width={50} height={50} color={'#ffffff'} />
             <p className={styles.title}>Think throughs team</p>
@@ -478,7 +478,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <section id='footerSection' className={`${styles.section} ${styles.animationSection} ${styles.footerSection}`}>
           <PageFooter locale={locale}/>  
         </section>

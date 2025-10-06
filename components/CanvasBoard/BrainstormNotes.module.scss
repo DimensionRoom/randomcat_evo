@@ -1,0 +1,43 @@
+.brainstormContainer {
+  margin-bottom: 1.5rem;
+}
+
+.shared {
+  margin-left: 0.5rem;
+  color: #9333ea; // purple-600
+}
+
+.notesBox {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; // gray-200
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.textArea {
+  width: 100%;
+  height: 12rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  resize: none;
+  outline: none;
+  color: #374151; // gray-700
+  font-size: 1rem;
+  line-height: 1.625;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #a855f7; // ring-purple-500
+  }
+}
+
+.noteFooter {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280; // gray-500
+}

@@ -1,0 +1,61 @@
+.canvasSession{
+  height: calc(100vh - 73px);
+  display: flex;
+}
+.creativeArea{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 1.5rem;
+  .boardArea{
+  display: flex;
+ flex-direction: column;
+  flex: 1;
+  }
+}
+.sidebar {
+  width: 20rem;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.sidebarContent {
+  padding: 1.5rem; // p-6
+}
+
+.header {
+  margin-bottom: 1.5rem; // mb-6
+}
+
+.title {
+  font-size: 1.125rem; // text-lg
+  font-weight: 500; // font-medium
+  color: #111827; // text-gray-900
+  margin-bottom: 0.25rem; // mb-1
+}
+
+.subtitle {
+  font-size: 0.875rem; // text-sm
+  color: #6b7280; // text-gray-500
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; // space-y-6
+}
+
+.notesHeaderWrapper {
+  margin:1rem 0;
+  .header {
+    font-size: 1.125rem; // text-lg
+    font-weight: 500;
+    color: #1f2937; // gray-900
+    margin-bottom: 0.25rem;
+  }
+  .subtext {
+    font-size: 0.875rem;
+    color: #6b7280; // gray-500
+  }
+}
