@@ -1,11 +1,6 @@
 import { Card } from '../../../components/CanvasBoard/types/Card';
 
 export const cardCategories = {
-  gamification: {
-    name: 'Gamification Elements',
-    color: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
-    icon: '🎮'
-  },
   career: {
     name: 'Career',
     color: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
@@ -15,6 +10,11 @@ export const cardCategories = {
     name: 'Mission',
     color: 'linear-gradient(135deg, #10b981 0%, #14b8a6 100%)',
     icon: '🎯'
+  },
+    gamification: {
+    name: 'Gamification Elements',
+    color: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+    icon: '🎮'
   }
 };
 
