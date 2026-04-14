@@ -26,6 +26,7 @@ import FacebookIcon from '@/public/svgs/home/facebook';
 import InstagramIcon from '@/public/svgs/home/instagram';
 import SiteLogo from "@/public/svgs/siteLogo";
 import BackToTopBtn from '@/components/Button/BackToTopBtn/BackToTopBtn'
+import PageLogger from '@/components/Logger/PageLogger/PageLogger';
 import styles from "./../Styles/Home/page.module.css";
 
 
@@ -161,6 +162,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       locale={locale}
       resources={resources}>
       <MainNavigationTopBar locale={locale} fixed/>
+      <PageLogger showVisits />
       <main ref={mainRef} className={styles.main}>
         <section id='parallaxSection' className={`${styles.section} ${styles.parallaxSection}`}>
           <div className={styles.textContainer}>

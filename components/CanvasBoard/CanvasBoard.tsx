@@ -3,12 +3,13 @@ import {
   BoardCard as BoardCardType,
   TextAnnotation as TextAnnotationType,
 } from "./types/Card";
-import { cardCategories } from "@/public/data/gamificationinbusiness/cards_en";
+// import { cardCategories } from "@/public/data/gamificationinbusiness/cards_en";
 import BoardCard from './BoardCard';
 import  TextAnnotation  from './TextAnnotation';
 import styles from "./CanvasBoard.module.scss";
 
 interface CanvasBoardProps {
+  categoryInfo:any;
   cards: BoardCardType[];
   textAnnotations: TextAnnotationType[];
   onDrop: (e: React.DragEvent) => void;
@@ -23,6 +24,7 @@ interface CanvasBoardProps {
 }
 
 const CanvasBoard = ({
+  categoryInfo,
   cards,
   textAnnotations,
   onDrop,
@@ -104,7 +106,7 @@ const CanvasBoard = ({
             onMove={onCardMove}
             onFlip={onCardFlip}
             onRemove={onCardRemove}
-            backgroundGradient={cardCategories[card.category].color}
+            backgroundGradient={categoryInfo[card.category].color}
           />
         ))}
 

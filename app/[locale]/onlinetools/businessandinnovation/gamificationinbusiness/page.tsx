@@ -64,7 +64,7 @@ const mitr = Mitr({
   subsets: ["thai"],
   weight: ["200", "300", "400", "500", "600", "700"],
 });
-export default function ContentBoard({
+export default function GamificationBoard({
   params: { locale },
 }: {
   params: { locale: string };
@@ -76,13 +76,13 @@ export default function ContentBoard({
   const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
-      name: "Character",
-      nameEx: "Design",
-      fullDescription: '"Practice becoming a character creator."',
-      catItemId: "characterdesign",
+      name: "Gamification",
+      nameEx: "In Business",
+      fullDescription: '"A tool to integrate gamification into business"',
+      catItemId: "gamificationinbusiness",
     },
   ]);
-  const fullCategoryName = "Character Design";
+  const fullCategoryName = "Gamification In Business";
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalGridRefs = useRef<(HTMLDivElement | null)[]>([]);

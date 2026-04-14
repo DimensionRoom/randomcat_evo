@@ -77,6 +77,8 @@ export default function CardBoard({
   const [isExporting, setIsExporting] = useState(false);
   const [brainstormNotes, setBrainstormNotes] = useState("");
   const [userName, setUserName] = useState("");
+  const categoryInfo = cardCategories;
+  console.log("categoryInfo", categoryInfo);
 
   // Collaboration states
   const [sessionId, setSessionId] = useState<string>("");
@@ -318,6 +320,7 @@ export default function CardBoard({
             </div>
             <div className={styles.boardArea} data-board="true">
               <CanvasBoard
+                categoryInfo={categoryInfo}
                 cards={boardCards}
                 textAnnotations={textAnnotations}
                 onDrop={handleDrop}
@@ -361,8 +364,9 @@ export default function CardBoard({
               <div className={styles.categoryList}>
                 {Object.entries(cardCategories).map(([category, info]) => (
                   <CategorySection
+                    keyName={category}
                     key={category}
-                    category={category as keyof typeof cardCategories}
+                    category={cardCategories}
                     cards={categorizedCards[category] || []}
                     onDragStart={handleDragStart}
                   />

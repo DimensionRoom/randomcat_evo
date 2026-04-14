@@ -55,7 +55,7 @@ const GameCard = ({
         >
           <div className={styles.cardContent}>
             <div className={styles.frontTitle}>
-              <h3>{card.backTitle}</h3>
+              {/* <h3>{card.backTitle}</h3> */}
             </div>
             <div className={styles.backContent}>{card.backContent}</div>
             <div className={styles.flipHint}>Double-click to flip</div>

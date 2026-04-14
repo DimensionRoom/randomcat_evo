@@ -4,7 +4,7 @@ export interface Card {
   frontContent: string;
   backTitle: string;
   backContent: string;
-  category: 'gamification' | 'career' | 'mission';
+  category: string;
   color: string;
 }
 
