@@ -1,22 +1,13 @@
 'use client';
 import React, { useState } from 'react'
-import { Quicksand, Mitr } from "next/font/google";
+
 import styles from './HorizonCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
 import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"]
-});
-
+import { mitr } from "@/lib/fonts";
 
 export type Props = {
   className?: string;

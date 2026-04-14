@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useSearchParams } from "next/navigation";
-import { Mitr } from "next/font/google";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
@@ -20,6 +20,7 @@ import Capture from "@/public/svgs/onlinetools/capture";
 import styles from "./OnlineTools.module.scss";
 import "swiper/css";
 import "swiper/css/navigation";
+import { mitr } from "@/lib/fonts";
 type ToolsItem = {
   category: string;
   item: OutputItem[];
@@ -37,10 +38,6 @@ interface OutputItem {
 }
 
 const i18nNamespaces = ["onlinetoolsScreen"];
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function OnlineToolsScreen({
   params: { locale },
 }: {

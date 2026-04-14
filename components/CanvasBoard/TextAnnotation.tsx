@@ -123,7 +123,6 @@ const TextAnnotation = ({
   );
 }
 
-
 return (
   <div
     ref={textRef}

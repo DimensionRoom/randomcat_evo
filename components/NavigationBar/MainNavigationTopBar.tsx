@@ -2,7 +2,7 @@
 import React, { use, useState, useEffect } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import { sendGAEvent } from "@next/third-parties/google";
 import i18nConfig from "@/i18nConfig";
 import Link from "next/link";
@@ -13,12 +13,9 @@ import mainLoad from "@/public/json/mainload.json";
 import initTranslations from "@/app/[locale]/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import SiteLogo from "@/public/svgs/siteLogo";
+import { kanit } from "@/lib/fonts";
 
 const i18nNamespaces = ["common"];
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
 
 export type Props = {
   logo?: React.ReactNode;

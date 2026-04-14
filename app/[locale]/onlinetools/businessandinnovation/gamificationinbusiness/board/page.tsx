@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Download, Trash2 } from "lucide-react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import { useCollaboration } from "@/hooks/useCollaboration";
 import {
   Card,
@@ -25,6 +25,7 @@ import CanvasBoard from "@/components/CanvasBoard/CanvasBoard";
 import CategorySection from "@/components/CanvasBoard/CategorySection";
 import BrainstormNotes from "@/components/CanvasBoard/BrainstormNotes";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
+import { kanit } from "@/lib/fonts";
 
 export type SubCategoryProps = {
   name: string;
@@ -34,22 +35,6 @@ export type SubCategoryProps = {
 };
 
 const i18nNamespaces = ["contentboard"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function CardBoard({
   params: { locale },
 }: {

@@ -1,21 +1,13 @@
 "use client";
 import React, { useState, forwardRef, useEffect } from "react";
-import { Quicksand, Mitr } from "next/font/google";
+
 import { useToast } from "@/contexts/ToastContext";
 import Image from "next/image";
 import styles from "./ImageCard.module.css";
 import KeyLockIcon from "@/public/svgs/components/ExpandCard/keyLock";
 import KeyUnlockIcon from "@/public/svgs/components/ExpandCard/keyUnlock";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
+import { mitr } from "@/lib/fonts";
 
 export type Props = {
   setFlippedCards?: React.Dispatch<React.SetStateAction<number>>;

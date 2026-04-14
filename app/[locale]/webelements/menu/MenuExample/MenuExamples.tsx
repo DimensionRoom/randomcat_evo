@@ -133,8 +133,6 @@ export const HamburgerMenu = ({ color }: { color: string }) => {
   );
 };
 
-
-
 // Tab Menu
 export const TabMenu = ({ color }: { color: string }) => {
   const [tab, setTab] = useState("ป.1-ป.3");

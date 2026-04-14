@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, use } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import initTranslations from "@/i18n";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import Link from "next/link";
@@ -21,6 +21,7 @@ import ENFlag from "@/public/svgs/enFlag";
 
 import musicCardData from "@/public/json/musicCardCat.json";
 import musicCardQuestion from "@/public/json/musicCardQuestion.json";
+import { kanit, mitr, popins } from "@/lib/fonts";
 
 export type SubCategoryProps = {
   name: string;
@@ -62,22 +63,6 @@ interface Question {
 }
 
 const i18nNamespaces = ["common"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function MusicCard({
   params: { locale },
 }: {

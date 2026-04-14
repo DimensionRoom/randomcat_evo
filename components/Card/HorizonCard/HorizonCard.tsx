@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, forwardRef } from 'react'
-import { Quicksand, Mitr } from "next/font/google";
+
 import { useToast } from '@/contexts/ToastContext';
 import styles from './HorizonCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
@@ -8,16 +8,7 @@ import KeyUnlockIcon from '@/public/svgs/components/ExpandCard/keyUnlock';
 import FlatBtn from '@/components/Button/FlatBtn/FlatBtn';
 import RerenderIcon from '@/public/svgs/components/HorizonCard/rerender';
 import ExpandArrowIcon from '@/public/svgs/components/ExpandCard/expandArrow';
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"]
-});
-
+import { mitr } from "@/lib/fonts";
 
 export type Props = {
   setFlippedCards?: React.Dispatch<React.SetStateAction<number>>;
@@ -94,7 +85,6 @@ const HorizonCard = forwardRef<HTMLDivElement, Props>(({
       onSelectedCardChange(itemKey,!flipContent);
     }
   };
-
 
   return (
     <div ref={ref} className={`${styles.CardItem} ${styles[className]} ${flipContent ? styles.CardFliped : null}`} onClick={() => handleCardClick('back')}>

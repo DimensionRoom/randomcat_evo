@@ -1,16 +1,8 @@
 "use client";
 import React from "react";
-import { Quicksand, Mitr } from "next/font/google";
-import styles from "./toggleBtn.module.scss";
 
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
+import styles from "./toggleBtn.module.scss";
+import { quicksand, mitr } from "@/lib/fonts";
 
 interface ToggleProps {
   pressed: boolean;

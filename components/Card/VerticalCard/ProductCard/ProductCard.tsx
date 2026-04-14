@@ -1,20 +1,11 @@
 "use client";
 import React, { useState, forwardRef, useEffect } from "react";
-import { Quicksand, Mitr } from "next/font/google";
+
 import { useToast } from "@/contexts/ToastContext";
 import Image from "next/image";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./ProductCard.module.scss";
-
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
+import { mitr } from "@/lib/fonts";
 
 export type Props = {
   color?: string;

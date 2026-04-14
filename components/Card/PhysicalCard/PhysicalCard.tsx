@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, forwardRef, useEffect } from 'react'
-import { Quicksand, Mitr } from "next/font/google";
+
 import { useToast } from '@/contexts/ToastContext';
 import styles from './PhysicalCard.module.css';
 import KeyLockIcon from '@/public/svgs/components/ExpandCard/keyLock';
@@ -12,16 +12,7 @@ import SiteLogo from '@/public/svgs/siteLogo';
 import CystalIcon from '@/public/svgs/components/PhysicalCard/cystal';
 import { on } from 'events';
 import { use } from 'i18next';
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"]
-});
-
+import { mitr } from "@/lib/fonts";
 
 export type Props = {
   setFlippedCards?: React.Dispatch<React.SetStateAction<number>>;

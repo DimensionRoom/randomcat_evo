@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import type { Metadata } from "next";
-import { Quicksand, Mitr } from "next/font/google";
+
 import { dir } from 'i18next';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { GA_TRACKING_ID, GTM_TRACKING_ID } from '@/utils/gtag';
@@ -10,20 +10,12 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
 import style from "../Styles/MovingBackground.module.css"
 import "../Styles/globals.css";
-
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  display: 'swap',
-  weight: ["300", "400", "500", "600", "700"]
-});
+import { quicksand } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Think Tool - Generate Innovation and Education Ideas",
   description: "Think Tool enables you to generate fresh innovation and education ideas. Spark creativity and transform learning with our cutting-edge brainstorming tools.",
 };
-
-
 
 export function generateStaticParams() {
   return i18nConfig.locales.map(locale => ({ locale }));

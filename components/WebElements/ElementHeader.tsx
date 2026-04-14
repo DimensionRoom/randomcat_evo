@@ -1,16 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Mitr } from "next/font/google";
+
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import signatureAnimate from "@/public/json/animate/signature.json";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
 import styles from "./ElementHeader.module.scss";
-
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
+import { mitr } from "@/lib/fonts";
 
 export type Props = {
   style?: React.CSSProperties;

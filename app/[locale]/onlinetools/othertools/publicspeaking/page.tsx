@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
@@ -12,6 +12,7 @@ import whatifLoad from "@/public/json/whatifLoading.json";
 import randomBook from "@/public/json/randomBook.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import publicSpeakingData from "@/public/json/publicSpeaking.json";
+import { kanit, mitr } from "@/lib/fonts";
 
 export type SubCategoryProps = {
   name: string;
@@ -51,22 +52,6 @@ interface Question {
 }
 
 const i18nNamespaces = ["common"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function PublicSpeaking({
   params: { locale },
 }: {

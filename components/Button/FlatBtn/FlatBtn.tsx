@@ -1,22 +1,13 @@
 "use client";
 import React from "react";
-import { Quicksand, Mitr } from "next/font/google";
+
 import styles from "./FlatBtn.module.css";
+import { quicksand, mitr } from "@/lib/fonts";
 
 // const promt = Prompt({
 //   subsets: ["thai"],
 //   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 // });
-
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 
 export type Props = {
   text: string;

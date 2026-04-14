@@ -3,8 +3,9 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useRouter } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import styles from "./OnlineLearningCard.module.scss";
+import { kanit, mitr } from "@/lib/fonts";
 
 type ContentItem = {
   id: string;
@@ -19,11 +20,6 @@ type OnlineLearningCardProps = {
   onPlayToggle: () => void;
   videoPlayAnimation: any;
 };
-
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 
 const OnlineLearningCard = ({
   content,

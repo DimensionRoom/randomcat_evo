@@ -120,7 +120,6 @@ const MainNavigationTopBar = ({
     fetchTranslations();
   }, [locale]);
 
-
   return (
     <TranslationsProvider
       namespaces={i18nNamespaces}

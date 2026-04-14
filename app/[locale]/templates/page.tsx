@@ -2,7 +2,7 @@
 import React, { useState, useEffect, use } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -11,6 +11,7 @@ import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBa
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
 import Pagination from "@/components/Pagination/Pagination";
 import styles from "./Template.module.scss";
+import { kanit, mitr } from "@/lib/fonts";
 
 type DocumentItem = {
   id: string;
@@ -38,22 +39,6 @@ interface OutputItem {
 }
 
 const i18nNamespaces = ["templateScreen"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function TemplateScreen({
   params: { locale },
 }: {

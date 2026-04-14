@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import Link from "next/link";
@@ -15,6 +15,7 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from "@/i18nConfig";
 import obliquestrategiesEnData from "@/public/json/obliquestrategiesEnCat.json";
 import obliquestrategiesThData from "@/public/json/obliquestrategiesThCat.json";
+import { kanit, mitr, popins } from "@/lib/fonts";
 
 export type SubCategoryProps = {
   name: string;
@@ -56,22 +57,6 @@ interface Question {
 }
 
 const i18nNamespaces = ["common"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function Obliquestrategies({
   params: { locale },
 }: {

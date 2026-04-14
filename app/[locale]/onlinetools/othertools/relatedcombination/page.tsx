@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import { gsap } from "gsap";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
@@ -16,6 +16,7 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import Dice from "@/public/svgs/components/Button/dice";
 import i18nConfig from "@/i18nConfig";
 import relatedCombinationData from "@/public/json/relatedCombinationCat.json";
+import { kanit, mitr, popins } from "@/lib/fonts";
 
 export type SubCategoryProps = {
   name: string;
@@ -38,22 +39,6 @@ interface Item {
 }
 
 const i18nNamespaces = ["common"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function RelatedCombination({
   params: { locale },
 }: {

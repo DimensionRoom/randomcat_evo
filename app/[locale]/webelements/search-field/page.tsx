@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, ReactNode } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
@@ -13,6 +13,7 @@ import AutocompleteSearch from "./AutocompleteSearch/AutocompleteSearch";
 import TagFilterSearch from "./TagFilterSearch/TagFilterSearch";
 import CategoryFilterSearch from "./CategoryFilterSearch/CategoryFilterSearch";
 import styles from "./SearchField.module.scss";
+import { kanit, mitr } from "@/lib/fonts";
 
 type ElementTypeItem = {
   id: string;
@@ -24,10 +25,6 @@ type ElementTypeItem = {
 };
 
 const i18nNamespaces = ["webElementsScreen"];
-const kanit = Kanit({ subsets: ["latin"], weight: ["100","200","300","400","500","600","700","800","900"] });
-const popins = Poppins({ subsets: ["latin"], weight: ["100","200","300","400","500","600","700","800","900"] });
-const quicksand = Quicksand({ subsets: ["latin"], weight: ["300","400","500","600","700"] });
-const mitr = Mitr({ subsets: ["thai"], weight: ["200","300","400","500","600","700"] });
 
 export default function SearchFieldUiScreen({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);

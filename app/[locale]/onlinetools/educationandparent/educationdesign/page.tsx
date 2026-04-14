@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import initTranslations from "@/i18n";
 import Link from "next/link";
 import manivigationStyles from "@/components/NavigationBar/MainNavigationTopBar.module.scss";
@@ -23,6 +23,7 @@ import styles from "./EducationDesign.module.scss";
 
 import edudesisgnData from "@/public/json/edudesignCat.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
+import { kanit, mitr, popins } from "@/lib/fonts";
 
 export type SubCategoryProps = {
   name: string;
@@ -48,22 +49,6 @@ interface Category {
 }
 
 const i18nNamespaces = ["educationboard"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function InnovationBoard({
   params: { locale },
 }: {

@@ -3,17 +3,15 @@ import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Player } from "@lottiefiles/react-lottie-player";
 import ReactPlayer from "react-player";
-import { Kanit, Mitr } from "next/font/google";
+
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import onlinelearningLoad from "@/public/json/onlinelearningLoad.json";
 import styles from "./ContentDetails.module.scss";
+import { kanit, mitr } from "@/lib/fonts";
 
 const i18nNamespaces = ["onlinelearningScreen"];
-
-const kanit = Kanit({ subsets: ["latin"], weight: ["400", "700"] });
-const mitr = Mitr({ subsets: ["thai"], weight: ["300", "500"] });
 
 type ContentItem = {
   id: string;

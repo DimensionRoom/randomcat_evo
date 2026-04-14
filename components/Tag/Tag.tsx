@@ -2,7 +2,6 @@
 import React from 'react'
 import styles from './Tag.module.css';
 
-
 export type Props = {
   className?: string;
   text: string;

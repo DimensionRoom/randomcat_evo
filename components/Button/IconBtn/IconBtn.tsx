@@ -2,15 +2,7 @@
 import React from 'react'
 import ForwardArrowIcon from '@/public/svgs/components/Button/forwardArrow';
 import styles from './IconBtn.module.css';
-import { Quicksand } from "next/font/google";
-
-const quicksand = Quicksand({
-  // subsets: ["thai"],
-  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-
+import { quicksand } from "@/lib/fonts";
 
 export type Props = {
   onClick?: () => void;

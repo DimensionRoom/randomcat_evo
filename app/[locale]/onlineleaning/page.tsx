@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import ReactPlayer from "react-player";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
@@ -13,6 +13,7 @@ import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCa
 import OnlineLearningCard from "@/components/Card/OnlineLearningCard/OnlineLearningCard"
 import videoPlay from "@/public/json/videoPlay.json";
 import styles from "./OnlineLeaning.module.scss";
+import { kanit, mitr } from "@/lib/fonts";
 
 type contenttItem = {
   id: string;
@@ -22,22 +23,6 @@ type contenttItem = {
 };
 
 const i18nNamespaces = ["onlinelearningScreen"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function OnlineLeaningScreen({
   params: { locale },
 }: {

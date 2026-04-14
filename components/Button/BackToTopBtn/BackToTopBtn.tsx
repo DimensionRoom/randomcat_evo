@@ -1,12 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Quicksand } from "next/font/google";
-import styles from './BackToTopBtn.module.css';
 
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
+import styles from './BackToTopBtn.module.css';
 
 export type Props = {
   text?: string;

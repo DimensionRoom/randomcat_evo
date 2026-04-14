@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, ReactNode } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import templateLoad from "@/public/json/templateload.json";
@@ -18,6 +18,7 @@ import {
   TabMenu
 } from "./MenuExample/MenuExamples";
 import styles from "./Menu.module.scss";
+import { kanit, mitr } from "@/lib/fonts";
 
 type ElementTypeItem = {
   id: string;
@@ -29,22 +30,6 @@ type ElementTypeItem = {
 };
 
 const i18nNamespaces = ["webElementsScreen"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 
 export default function MenuUiScreen({
   params: { locale },

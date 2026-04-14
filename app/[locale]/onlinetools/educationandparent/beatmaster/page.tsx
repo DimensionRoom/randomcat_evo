@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef, use } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import initTranslations from "@/i18n";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import Link from "next/link";
@@ -14,24 +14,9 @@ import CustomSelect from "@/components/Select/CustomSelect/CustomSelect";
 import musicLoad from "@/public/json/musicLoading.json";
 import SiteLogo from "@/public/svgs/siteLogo";
 import styles from "./BeatMaster.module.scss";
+import { kanit } from "@/lib/fonts";
 
 const i18nNamespaces = ["common"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 
 type NoteType =
   | "quarter"

@@ -2,7 +2,7 @@
 import React, { useState, useEffect,useRef } from 'react';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import { usePathname } from 'next/navigation';
-import { Quicksand, Mitr } from "next/font/google";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactPlayer from 'react-player';
@@ -28,17 +28,9 @@ import SiteLogo from "@/public/svgs/siteLogo";
 import BackToTopBtn from '@/components/Button/BackToTopBtn/BackToTopBtn'
 import PageLogger from '@/components/Logger/PageLogger/PageLogger';
 import styles from "./../Styles/Home/page.module.css";
-
+import { quicksand, mitr } from "@/lib/fonts";
 
 const i18nNamespaces = ['homeScreen'];
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"]
-});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,8 +52,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   const togglePlayPresentVideo = () => {
     setPresentPlaying(!presentPlaying);
   };
-
-
 
   // const handleScroll = (e: Event) => {
   //   const target = e.target as HTMLDivElement;

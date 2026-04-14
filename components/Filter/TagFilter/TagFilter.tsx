@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import styles from './TagFilter.module.css';
 
-
 export type Props = {
     className?: string;
     categories: string[];

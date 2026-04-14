@@ -2,7 +2,7 @@
 import React, { useState, useEffect, use } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useSearchParams } from "next/navigation";
-import { Kanit, Quicksand, Mitr, Poppins } from "next/font/google";
+
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -10,6 +10,7 @@ import showcaseLoad from "@/public/json/showcaseLoad.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import ShowcaseMasonry from "@/components/Masonry/Showcase/ShowcaseMasonry";
 import styles from "./Showcase.module.scss";
+import { kanit } from "@/lib/fonts";
 
 type DocumentItem = {
   id: string;
@@ -21,22 +22,6 @@ type DocumentItem = {
 };
 
 const i18nNamespaces = ["showcaseScreen"];
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const popins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-const mitr = Mitr({
-  subsets: ["thai"],
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
 export default function ShowcaseScreen({
   params: { locale },
 }: {
