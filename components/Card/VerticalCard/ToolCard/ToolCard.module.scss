@@ -1,4 +1,5 @@
 .ToolCardContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 500px;
@@ -170,6 +171,41 @@
 }
 .thfontbold {
   font-weight: 300 !important;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: rgba(17, 24, 39, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.comingSoonModal {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 22px;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.2);
+  max-width: 260px;
+}
+
+.comingSoonTitle {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  text-align: center;
+}
+
+.comingSoonDetail {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #4b5563;
+  text-align: center;
 }
 
 @media screen and (max-width: 690px) {

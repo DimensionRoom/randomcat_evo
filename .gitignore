@@ -40,3 +40,12 @@ Desktop.ini
 # Next.js telemetry
 .next-telemetry.json
 .vercel
+
+# generated AI agent skills
+.agents/
+.claude/
+skills-lock.json
+
+# environment variables
+.env
+.env.production

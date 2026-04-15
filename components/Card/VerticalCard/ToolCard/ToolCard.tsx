@@ -1,5 +1,5 @@
 "use client";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import Image from "next/image";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
@@ -38,6 +38,18 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
     },
     ref
   ): JSX.Element => {
+    const [isComingSoonOpen, setComingSoonOpen] = useState(false);
+
+    useEffect(() => {
+      if (!isComingSoonOpen) return;
+
+      const timer = setTimeout(() => {
+        setComingSoonOpen(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }, [isComingSoonOpen]);
+
     const onClick = () => {
       window.open(onlineLink, "_blank");
     };
@@ -48,7 +60,9 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
     const actionText = onlineLink ? "Try me" : productLink ? "Buy" : "Upcoming";
     const actionHandler = onlineLink ? onClick : onClickMore;
     const hasAction = Boolean(onlineLink || productLink);
-    const hasExplore = Boolean(productLink);
+    const onExploreClick = () => {
+      setComingSoonOpen(true);
+    };
 
     return (
       <div
@@ -92,10 +106,9 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
         </div>
         <div className={styles.itemAction}>
           <FlatBtn
-            className={`${hasExplore ? styles.secondaryBtn : styles.disabledBtn}`}
+            className={styles.secondaryBtn}
             text="Explore"
-            disabled={!hasExplore}
-            onClick={onClickMore}
+            onClick={onExploreClick}
           />
           <FlatBtn
             className={`${hasAction ? styles.primaryBtn : styles.disabledBtn}`}
@@ -104,6 +117,29 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
             onClick={actionHandler}
           />
         </div>
+        {isComingSoonOpen && (
+          <div
+            className={styles.cardOverlay}
+            onClick={() => setComingSoonOpen(false)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                setComingSoonOpen(false);
+              }
+            }}
+          >
+            <div
+              className={styles.comingSoonModal}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <p className={styles.comingSoonTitle}>Coming soon</p>
+              <p className={styles.comingSoonDetail}>
+                We are preparing the Explore details for this tool.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
