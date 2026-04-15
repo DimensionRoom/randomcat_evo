@@ -68,7 +68,7 @@ export default function OnlineToolsScreen({
         const item = categoryItems[itemKey];
         return {
           id: `${categoryKey}-${itemKey}-${idx}`,
-          picture: `/svgs/svg/onlinetools/${itemKey}.svg`,
+          picture: `/image/online_tools/${itemKey}.png`,
           topic: item.topic,
           topic2: item.topic2,
           desc: item.desc,
@@ -171,7 +171,7 @@ export default function OnlineToolsScreen({
                     spaceBetween: 0,
                   },
                   1024: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                     spaceBetween: 0,
                   },
                 }}

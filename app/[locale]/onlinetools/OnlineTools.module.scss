@@ -108,6 +108,19 @@
   // }
   .ToolsSwiper {
     width: 100%;
+    padding: 12px 0 18px;
+    :global(.swiper) {
+      overflow: visible;
+    }
+    :global(.swiper-wrapper) {
+      overflow: visible;
+    }
+    :global(.swiper-slide) {
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
   }
 }
 

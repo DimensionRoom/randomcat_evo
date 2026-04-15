@@ -1,96 +1,153 @@
 .ToolCardContainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding: 10px;
+  height: 500px;
+  width: 100%;
+  max-width: 320px;
+  padding: 0;
   background-color: #fff;
-  gap: 18px;
-  justify-content: center;
-  align-items: center;
-  .itemCard {
+  border-radius: 20px;
+  border: 1px solid #ebedf0;
+  box-shadow: 0 10px 22px rgba(16, 24, 40, 0.08);
+  gap: 14px;
+  justify-content: space-between;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 42px rgba(17, 24, 39, 0.2);
+  }
+
+  .cardMedia {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    border-radius: 0;
+    background: transparent;
     overflow: hidden;
-    background: linear-gradient(135deg, #811a96, #302e76);
-    border-radius: 20px;
-    width: 280px;
-    height: 380px;
+
+    .priceBadge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #fff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      box-shadow: 0 8px 20px rgba(17, 24, 39, 0.14);
+      z-index: 1;
+    }
+
     .itemIcon {
-      overflow: hidden !important;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex: 6;
+      width: 100%;
+      padding: 0;
+
       .icon {
-        width: 80%;
-      }
-    }
-    .titleContainer {
-      flex: 3;
-      .title {
-        font-size: 2.2em;
-        font-weight: 600;
-        color: #fff;
-        text-align: center;
-      }
-      .title + .title {
-        font-size: 1.8em;
-        font-weight: 400;
-        color: #fff;
-        text-align: center;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        object-fit: cover !important;
+        display: block;
+        transform: scale(1);
+        transition: transform 0.35s ease;
       }
     }
   }
+
+  &:hover {
+    .cardMedia {
+      .itemIcon {
+        .icon {
+          transform: scale(1.08);
+        }
+      }
+    }
+  }
+
   .itemData {
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    padding: 0 16px;
 
-    .content {
-      font-size: 1.2em;
-      font-weight: 400;
-      line-height: 1.5;
-      color: #821dbf;
-      text-align: center;
-    }
-    .content + .content {
-      font-size: 1.2em;
-      font-weight: 400;
-      line-height: 1.5;
-      color: #821dbf;
-      text-align: center;
-    }
-  }
-  .itemAction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    .tryBtn {
-      padding: 4px 12px;
-      border-radius: 20px;
-      border-color: #821dbf;
-      background-color: #821dbf;
-      color: #fff;
-      font-size: 1em;
-      font-weight: 300;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      &:hover {
-        background-color: #691392;
+    .titleContainer {
+      .title {
+        margin: 0;
+        color: #111827;
+        font-size: 1.65rem;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        text-align: left;
       }
     }
-    .moreBtn {
-      padding: 4px 12px;
-      border-radius: 20px;
-      border-color: #000;
-      background-color: #f2f2f2;
-      color: #821dbf;
-      font-size: 1em;
-      font-weight: 300;
+
+    .content {
+      margin: 0;
+      color: #4b5563;
+      font-size: 1.05rem;
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .content + .content {
+      margin-top: -6px;
+    }
+  }
+
+  .itemAction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid #eceef3;
+    padding: 12px 16px 16px;
+
+    .secondaryBtn {
+      border-radius: 999px;
+      border-color: #e5e7eb;
+      background: #f3f4f6;
+      padding: 7px 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .primaryBtn {
+      border-radius: 12px;
+      border-color: #2563eb;
+      background-color: #2563eb;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 10px 22px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #1d4ed8;
+      }
+    }
+
+    .disabledBtn {
+      border-radius: 12px;
+      border-color: #d1d5db;
+      background-color: #e5e7eb;
+      color: #9ca3af;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 10px 22px;
+      cursor: not-allowed;
     }
   }
 }
@@ -103,31 +160,37 @@
 }
 
 @media screen and (max-width: 690px) {
-  .itemCard {
-    width: 100%;
-    height: 100%;
-    .itemIcon {
-      flex: 4;
-      .icon {
-        width: 60%;
+  .ToolCardContainer {
+    max-width: 290px;
+    height: auto;
+    min-height: 460px;
+    padding: 0;
+    .cardMedia {
+      .itemIcon {
+        .icon {
+          max-height: none;
+        }
       }
     }
-    .titleContainer {
-      flex: 2;
-      .title {
-        font-size: 1.8em;
+    .itemData {
+      .titleContainer {
+        .title {
+          font-size: 1.4rem;
+        }
       }
-      .title + .title {
-        font-size: 1.5em;
+      .content {
+        font-size: 0.95rem;
       }
     }
-  }
-  .itemData {
-    .content {
-      font-size: 1em;
-    }
-    .content + .content {
-      font-size: 1em;
+    .itemAction {
+      .secondaryBtn {
+        font-size: 0.85rem;
+      }
+      .primaryBtn,
+      .disabledBtn {
+        font-size: 0.95rem;
+        padding: 9px 16px;
+      }
     }
   }
 }
