@@ -339,7 +339,9 @@ export default function MusicCard({
                 <ImageCard
                   className={styles.CardItemConfig}
                   key={index}
-                  ref={(el) => (physicalRefs.current[index] = el)}
+                  ref={(el) => {
+                    physicalRefs.current[index] = el;
+                  }}
                   itemKey={cardItem.catItemId}
                   locale={locale}
                   title={cardItem.title}
