@@ -23,7 +23,7 @@
     .itemData {
       .titleContainer {
         .title {
-          color: #1d4ed8;
+          color: #821dbf;
         }
       }
     }
@@ -122,10 +122,11 @@
     padding: 12px 16px 16px;
 
     .secondaryBtn {
-      border-radius: 999px;
+      flex: 1;
+      border-radius: 12px;
       border-color: #e5e7eb;
       background: #f3f4f6;
-      padding: 7px 14px;
+      padding: 10px 20px;
       font-size: 0.95rem;
       font-weight: 700;
       color: #6b7280;
@@ -133,23 +134,24 @@
     }
 
     .primaryBtn {
+      flex: 1;
       border-radius: 12px;
-      border-color: #2563eb;
-      background-color: #2563eb;
+      border-color: #821dbf;
+      background-color: #821dbf;
       color: #fff;
       font-size: 1.05rem;
       font-weight: 700;
-      padding: 10px 22px;
+      padding: 10px 20px;
       cursor: pointer;
       transition: background-color 0.2s ease, color 0.2s ease;
 
       &:hover {
-        background-color: rgba(29, 78, 216, 1);
-        color: #1d4ed8;
+        background-color: #a034e4;
+        color: #fff;
       }
 
       &:hover * {
-        color: #1d4ed8;
+        color: #fff;
       }
     }
 

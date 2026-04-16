@@ -119,4 +119,9 @@
     background: #302e76;
     border-radius: 50%;
   }
+
+   .swiper-button-next,
+   .swiper-button-prev {
+    color: #821dbf;
+   }
 }

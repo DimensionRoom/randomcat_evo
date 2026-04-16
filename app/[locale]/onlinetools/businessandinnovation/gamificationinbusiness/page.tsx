@@ -326,7 +326,9 @@ export default function GamificationBoard({
               .map((cardItem, index) => (
                 <PhysicalCard
                   key={index}
-                  ref={(el) => (physicalRefs.current[index] = el)}
+                  ref={(el) => {
+                    physicalRefs.current[index] = el;
+                  }}
                   itemKey={cardItem.catItemId}
                   color={"ThemePurple"}
                   // locale={locale}
@@ -359,7 +361,9 @@ export default function GamificationBoard({
               .map((cardItem, index) => (
                 <PhysicalCard
                   key={index}
-                  ref={(el) => (physicalGridRefs.current[index] = el)}
+                  ref={(el) => {
+                    physicalGridRefs.current[index] = el;
+                  }}
                   itemKey={cardItem.catItemId}
                   color={"ThemePurple"}
                   // locale={locale}
@@ -392,7 +396,9 @@ export default function GamificationBoard({
               .map((cardItem, index) => (
                 <HorizonCard
                   key={index}
-                  ref={(el) => (cardRefs.current[index] = el)}
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
                   itemKey={cardItem.catItemId}
                   className={"ThemePurple"}
                   // locale={locale}

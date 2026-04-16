@@ -57,7 +57,7 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
       window.open(productLink, "_blank");
     };
 
-    const actionText = onlineLink ? "Try me" : productLink ? "Buy" : "Upcoming";
+    const actionText = onlineLink ? "Try online" : productLink ? "Buy" : "Upcoming";
     const actionHandler = onlineLink ? onClick : onClickMore;
     const hasAction = Boolean(onlineLink || productLink);
     const onExploreClick = () => {
@@ -107,7 +107,7 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
         <div className={styles.itemAction}>
           <FlatBtn
             className={styles.secondaryBtn}
-            text="Explore"
+            text="Explore more"
             onClick={onExploreClick}
           />
           <FlatBtn
