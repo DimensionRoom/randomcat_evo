@@ -226,27 +226,29 @@ export default async function AdminPage({
         />
       </section>
 
-      <div className={styles.chartsRow}>
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>By page</h2>
-          <Table
-            columns={[
-              { key: "path", label: "Path" },
-              { key: "views", label: "Views" },
-              { key: "logged_in_views", label: "Logged-in" },
-              { key: "anon_views", label: "Anonymous" },
-            ]}
-            rows={(byPath.data ?? []) as Row[]}
-          />
-        </section>
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>By country</h2>
-          <WorldMap
-            data={countryRows.map((c) => ({
-              name: String(c.country),
-              views: Number(c.views) || 0,
-            }))}
-          />
+      <section className={styles.card}>
+        <h2 className={styles.cardTitle}>By page</h2>
+        <Table
+          columns={[
+            { key: "path", label: "Path" },
+            { key: "views", label: "Views" },
+            { key: "logged_in_views", label: "Logged-in" },
+            { key: "anon_views", label: "Anonymous" },
+          ]}
+          rows={(byPath.data ?? []) as Row[]}
+        />
+      </section>
+
+      <section className={styles.card}>
+        <h2 className={styles.cardTitle}>By country</h2>
+          <div className={styles.mapWrap}>
+            <WorldMap
+              data={countryRows.map((c) => ({
+                name: String(c.country),
+                views: Number(c.views) || 0,
+              }))}
+            />
+          </div>
           <div className={styles.tableWrap}>
             <table className={styles.table}>
               <thead>
@@ -275,7 +277,6 @@ export default async function AdminPage({
             </table>
           </div>
         </section>
-      </div>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By device</h2>
