@@ -9,7 +9,27 @@ import Link from "next/link";
 import THFlag from "@/public/svgs/thFlag";
 import ENFlag from "@/public/svgs/enFlag";
 import AuthButton from "@/components/Auth/AuthButton";
+import {
+  Globe,
+  GraduationCap,
+  FileText,
+  Star,
+  ChevronRight,
+  ChevronDown,
+  LogOut,
+  LogIn,
+  X,
+} from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 import styles from "./MainNavigationTopBar.module.scss";
+
+// Maps a menu key to its icon for the mobile card menu.
+const mobileMenuIcons: Record<string, React.ComponentType<any>> = {
+  onlineTools: Globe,
+  onlineleaning: GraduationCap,
+  templates: FileText,
+  showcase: Star,
+};
 import mainLoad from "@/public/json/mainload.json";
 import initTranslations from "@/app/[locale]/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -59,6 +79,7 @@ const MainNavigationTopBar = ({
   const searchParamsString = useSearchParams().toString();
   const popCurrentPathname = currentPathname.split("/").slice(1) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
+  const { user, configured, signInWithGoogle, signOut } = useAuth();
   const mainMenu: MenuItem[] = [
     {
       name: "Inno Design",
@@ -381,7 +402,12 @@ const MainNavigationTopBar = ({
             checked={isExpandMenu}
             onChange={(e) => handleExpandMenu(e.target.checked)}
           />
-          <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenuDesktop">
+          <label
+            className={`${styles.ExpandMenuIcon} ${
+              isExpandMenu ? styles.HideToggle : ""
+            }`}
+            htmlFor="ExpandMenuDesktop"
+          >
             <div
               className={`${isExpandMenu ? styles.barActive : null} ${
                 styles.bar
@@ -434,7 +460,12 @@ const MainNavigationTopBar = ({
           checked={isExpandMenu}
           onChange={(e) => handleExpandMenu(e.target.checked)}
         />
-        <label className={styles.ExpandMenuIcon} htmlFor="ExpandMenuMobile">
+        <label
+          className={`${styles.ExpandMenuIcon} ${
+            isExpandMenu ? styles.HideToggle : ""
+          }`}
+          htmlFor="ExpandMenuMobile"
+        >
           <div
             className={`${isExpandMenu ? styles.barActive : null} ${
               styles.bar
@@ -460,84 +491,150 @@ const MainNavigationTopBar = ({
       </div>
       {isExpandMenu && (
         <div className={styles.ExpandMenuContainer}>
-          <div className={`${styles.ExpandMenuContent}`}>
-            {mainMenu
-              .filter((menu) => menu.show)
-              .map((menu, index) =>
-                menu.type == "randomTool" ? (
-                  <Link
-                    key={index}
-                    href={{
-                      pathname: `${menu.url}/${menu.key}board`,
-                      query: { info: `${menu.shortKey}design` },
-                    }}
-                    className={`${styles.textLink} ${`${menu.key}MobileLink`}`}
-                    onClick={() => handleExpandMenu(false)}
-                  >
-                    <div className={styles.ExpandMenuContentItem}>
-                      <p
-                        className={`${styles.MenuText} ${
-                          popCurrentPathname.some(
-                            (item) => item === menu.url.replace("/", "")
-                          )
-                            ? styles.MenuTextActive
-                            : ""
-                        }`}
-                      >
-                        {menu.name}
-                      </p>
-                    </div>
-                  </Link>
-                ) : menu.type == "page" ? (
-                  <Link
-                    key={index}
-                    href={menu.url}
-                    className={`${styles.textLink} ${`${menu.key}MobileLink`}`}
-                    onClick={() => handleExpandMenu(false)}
-                  >
-                    <div className={styles.ExpandMenuContentItem}>
-                      <p
-                        className={`${styles.MenuText} ${
-                          popCurrentPathname.some(
-                            (item) => item === menu.url.replace("/", "")
-                          )
-                            ? styles.MenuTextActive
-                            : ""
-                        }`}
-                      >
-                        {menu.name}
-                      </p>
-                    </div>
-                  </Link>
-                ) : null
-              )}
-            <div className={styles.ExpandMenuContentItem}>
-              <p
-                className={`${styles.MenuText} ${styles.MenuTextActive}`}
+          <div className={styles.MobileMenu}>
+            <div className={styles.MobileMenuHeader}>
+              <div className={styles.MobileBrand}>
+                <SiteLogo width={40} height={40} />
+                <span className={styles.MobileBrandName}>
+                  THINK<span className={styles.MobileBrandNameAlt}>TOOL</span>
+                </span>
+              </div>
+              <button
+                type="button"
+                className={styles.MobileClose}
+                aria-label="Close menu"
+                onClick={() => handleExpandMenu(false)}
+              >
+                <X size={28} />
+              </button>
+            </div>
+
+            <p className={styles.MobileTagline}>
+              &quot;{t("texts.slogan") || "Creativity begins here."}&quot;
+            </p>
+            <p className={styles.MobileSubtagline}>
+              Random | Brainstorm | Spark your ideas
+            </p>
+
+            <div className={styles.MobileCards}>
+              {mainMenu
+                .filter((menu) => menu.show)
+                .map((menu, index) => {
+                  const Icon = mobileMenuIcons[menu.key] || Globe;
+                  const href =
+                    menu.type === "randomTool"
+                      ? {
+                          pathname: `${menu.url}/${menu.key}board`,
+                          query: { info: `${menu.shortKey}design` },
+                        }
+                      : menu.url;
+                  return (
+                    <Link
+                      key={index}
+                      href={href}
+                      className={styles.MobileCard}
+                      onClick={() => handleExpandMenu(false)}
+                    >
+                      <span className={styles.MobileCardIcon}>
+                        <Icon size={22} />
+                      </span>
+                      <span className={styles.MobileCardLabel}>{menu.name}</span>
+                      <ChevronRight size={22} className={styles.MobileChevron} />
+                    </Link>
+                  );
+                })}
+
+              <div
+                className={styles.MobileCard}
                 onClick={() =>
                   handleChangeLanguage(locale == "en" ? "th" : "en")
                 }
               >
-                {t("component.mainNavigationTopBar.items.changeLanguage")} :{" "}
-                <span
-                  className={`${styles.spanButton} ${
-                    locale == "th" ? styles.active : null
-                  }`}
-                >
-                  {t(`texts.language.thai`)}
+                <span className={styles.MobileCardIcon}>
+                  <Globe size={22} />
                 </span>
-                |
-                <span
-                  className={`${styles.spanButton} ${
-                    locale == "en" ? styles.active : null
-                  }`}
-                >
-                  {t(`texts.language.english`)}
+                <span className={styles.MobileCardLabelGroup}>
+                  <span className={styles.MobileCardSub}>
+                    {t("component.mainNavigationTopBar.items.changeLanguage")}
+                  </span>
+                  <span className={styles.MobileLangRow}>
+                    <span
+                      className={`${styles.MobileLangOpt} ${
+                        locale == "th" ? styles.MobileLangActive : ""
+                      }`}
+                    >
+                      {t(`texts.language.thai`)}
+                    </span>
+                    <span className={styles.MobileLangSep}>|</span>
+                    <span
+                      className={`${styles.MobileLangOpt} ${
+                        locale == "en" ? styles.MobileLangActive : ""
+                      }`}
+                    >
+                      {t(`texts.language.english`)}
+                    </span>
+                  </span>
                 </span>
-              </p>
-            </div>
-            <div className={styles.ExpandMenuContentItem}>
-              <AuthButton />
+                <ChevronDown size={22} className={styles.MobileChevron} />
+              </div>
+
+              {configured && user ? (
+                <div className={styles.MobileAccountCard}>
+                  <div className={styles.MobileAccountRow}>
+                    <span className={styles.MobileAvatar}>
+                      {user.user_metadata?.avatar_url ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={user.user_metadata.avatar_url} alt="" />
+                      ) : (
+                        (
+                          (user.user_metadata?.full_name as string) ||
+                          user.email ||
+                          "U"
+                        )
+                          .charAt(0)
+                          .toUpperCase()
+                      )}
+                    </span>
+                    <span className={styles.MobileAccountInfo}>
+                      <span className={styles.MobileAccountName}>
+                        {(user.user_metadata?.full_name as string) || user.email}
+                      </span>
+                      {user.email && (
+                        <span className={styles.MobileAccountEmail}>
+                          {user.email}
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.MobileSignOut}
+                    onClick={() => {
+                      handleExpandMenu(false);
+                      signOut();
+                    }}
+                  >
+                    <LogOut size={20} />
+                    <span>Sign out</span>
+                  </button>
+                </div>
+              ) : configured ? (
+                <button
+                  type="button"
+                  className={styles.MobileCard}
+                  onClick={() => {
+                    handleExpandMenu(false);
+                    signInWithGoogle();
+                  }}
+                >
+                  <span className={styles.MobileCardIcon}>
+                    <LogIn size={22} />
+                  </span>
+                  <span className={styles.MobileCardLabel}>
+                    Sign in with Google
+                  </span>
+                </button>
+              ) : null}
             </div>
           </div>
         </div>
