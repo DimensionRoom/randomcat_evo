@@ -557,3 +557,219 @@
     width: 25px;
   }
 }
+
+/* ===== Mobile full-screen card menu ===== */
+.HideToggle {
+  display: none !important;
+}
+
+.MobileMenu {
+  width: 100%;
+  min-height: 100%;
+  background: #ffffff;
+  padding: 20px 18px 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.MobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.MobileBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.MobileBrandName {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #2e1065;
+}
+
+.MobileBrandNameAlt {
+  color: #7c3aed;
+}
+
+.MobileClose {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1f1147;
+  padding: 4px;
+  display: flex;
+}
+
+.MobileTagline {
+  margin: 14px 0 2px;
+  text-align: center;
+  font-weight: 700;
+  color: #2e1065;
+  font-size: 1.05rem;
+}
+
+.MobileSubtagline {
+  margin: 0 0 18px;
+  text-align: center;
+  color: #7c3aed;
+  font-size: 0.9rem;
+}
+
+.MobileCards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.MobileCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #ececf2;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.MobileCardIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f1ecfb;
+  color: #2e1065;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MobileCardLabel {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1f1147;
+}
+
+.MobileCardLabelGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.MobileCardSub {
+  font-size: 0.85rem;
+  color: #8a8a8a;
+}
+
+.MobileLangRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.MobileLangOpt {
+  color: #7c3aed;
+}
+
+.MobileLangActive {
+  background: #7c3aed;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.MobileLangSep {
+  color: #c9c4d6;
+}
+
+.MobileChevron {
+  flex-shrink: 0;
+  color: #2e1065;
+}
+
+.MobileAccountCard {
+  background: #ffffff;
+  border: 1px solid #ececf2;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.MobileAccountRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.MobileAvatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #7c3aed;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.MobileAccountInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.MobileAccountName {
+  font-weight: 700;
+  color: #1f1147;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.MobileAccountEmail {
+  font-size: 0.85rem;
+  color: #8a8a8a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.MobileSignOut {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  background: none;
+  border: none;
+  border-top: 1px solid #ececf2;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1f1147;
+  text-align: left;
+}
