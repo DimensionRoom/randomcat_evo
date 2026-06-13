@@ -44,10 +44,10 @@ export default function WorldMap({ data }: { data: CountryDatum[] }) {
 
   return (
     <ComposableMap
-      projection="geoEqualEarth"
-      projectionConfig={{ scale: 175, center: [0, 0] }}
+      projection="geoMercator"
+      projectionConfig={{ scale: 152, center: [0, 10] }}
       width={980}
-      height={460}
+      height={540}
       style={{ width: "100%", height: "100%", display: "block" }}
     >
       <Geographies geography={GEO_URL}>
