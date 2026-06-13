@@ -16,6 +16,14 @@ import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBa
 import CanvasBoard from "@/components/CanvasBoard/CanvasBoard";
 import CategorySection from "@/components/CanvasBoard/CategorySection";
 import BrainstormNotes from "@/components/CanvasBoard/BrainstormNotes";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/contexts/ToastContext";
+import {
+  saveProject,
+  listProjects,
+  loadProject,
+  type BoardProjectSummary,
+} from "@/lib/supabase/boardProjects";
 
 const i18nNamespaces = ["contentboard"];
 
@@ -24,6 +32,7 @@ interface BoardPageProps {
   cards: Card[];
   cardCategories: Record<string, { name: string; color: string; icon: string }>;
   title: string;
+  tool: string;
 }
 
 export default function BoardPage({
@@ -31,7 +40,13 @@ export default function BoardPage({
   cards,
   cardCategories,
   title,
+  tool,
 }: BoardPageProps) {
+  const { user, configured, signInWithGoogle } = useAuth();
+  const { showToast } = useToast();
+  const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
+  const [savedProjects, setSavedProjects] = useState<BoardProjectSummary[]>([]);
+  const [showProjects, setShowProjects] = useState(false);
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -170,6 +185,70 @@ export default function BoardPage({
     [broadcastNotesUpdate]
   );
 
+  const handleSaveProject = useCallback(async () => {
+    if (!user) {
+      signInWithGoogle();
+      return;
+    }
+    const projectName = window.prompt("Project name:", title)?.trim() || "";
+    if (!projectName) return;
+    try {
+      const saved = await saveProject({
+        id: currentProjectId ?? undefined,
+        tool,
+        title: projectName,
+        boardCards,
+        textAnnotations,
+        brainstormNotes,
+      });
+      setCurrentProjectId(saved.id);
+      showToast("Project saved", "success");
+    } catch (e) {
+      showToast("Could not save project", "error");
+    }
+  }, [
+    user,
+    signInWithGoogle,
+    title,
+    currentProjectId,
+    tool,
+    boardCards,
+    textAnnotations,
+    brainstormNotes,
+    showToast,
+  ]);
+
+  const handleOpenProjects = useCallback(async () => {
+    if (!user) {
+      signInWithGoogle();
+      return;
+    }
+    try {
+      const list = await listProjects(tool);
+      setSavedProjects(list);
+      setShowProjects(true);
+    } catch (e) {
+      showToast("Could not load your projects", "error");
+    }
+  }, [user, signInWithGoogle, tool, showToast]);
+
+  const handleLoadProject = useCallback(
+    async (id: string) => {
+      try {
+        const project = await loadProject(id);
+        setBoardCards(project.board_cards ?? []);
+        setTextAnnotations(project.text_annotations ?? []);
+        setBrainstormNotes(project.brainstorm_notes ?? "");
+        setCurrentProjectId(project.id);
+        setShowProjects(false);
+        showToast(`Loaded "${project.title}"`, "success");
+      } catch (e) {
+        showToast("Could not open that project", "error");
+      }
+    },
+    [showToast]
+  );
+
   useEffect(() => {
     async function fetchTranslations() {
       const { t, resources } = await initTranslations(locale, i18nNamespaces);
@@ -210,6 +289,78 @@ export default function BoardPage({
               <p className={styles.subtext}>
                 Drag cards from the sidebar to start brainstorming
               </p>
+              {configured && (
+                <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                  <button
+                    type="button"
+                    onClick={handleSaveProject}
+                    style={{
+                      padding: "6px 12px",
+                      borderRadius: 8,
+                      border: "1px solid #ddd",
+                      background: "#fff",
+                      cursor: "pointer",
+                      fontSize: 13,
+                    }}
+                  >
+                    {user ? "Save" : "Sign in to save"}
+                  </button>
+                  {user && (
+                    <button
+                      type="button"
+                      onClick={handleOpenProjects}
+                      style={{
+                        padding: "6px 12px",
+                        borderRadius: 8,
+                        border: "1px solid #ddd",
+                        background: "#fff",
+                        cursor: "pointer",
+                        fontSize: 13,
+                      }}
+                    >
+                      My Projects
+                    </button>
+                  )}
+                </div>
+              )}
+              {showProjects && (
+                <div
+                  style={{
+                    marginTop: 8,
+                    border: "1px solid #eee",
+                    borderRadius: 8,
+                    padding: 8,
+                    maxHeight: 200,
+                    overflow: "auto",
+                  }}
+                >
+                  {savedProjects.length === 0 ? (
+                    <p style={{ fontSize: 13, color: "#666" }}>
+                      No saved projects yet.
+                    </p>
+                  ) : (
+                    savedProjects.map((p) => (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => handleLoadProject(p.id)}
+                        style={{
+                          display: "block",
+                          width: "100%",
+                          textAlign: "left",
+                          padding: "6px 8px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                          fontSize: 13,
+                        }}
+                      >
+                        {p.title}
+                      </button>
+                    ))
+                  )}
+                </div>
+              )}
             </div>
             <div className={styles.boardArea} data-board="true">
               <CanvasBoard

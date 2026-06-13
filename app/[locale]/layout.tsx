@@ -5,6 +5,7 @@ import { dir } from 'i18next';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { GA_TRACKING_ID, GTM_TRACKING_ID } from '@/utils/gtag';
 import { ToastProvider , useToast} from '@/contexts/ToastContext';
+import { AuthProvider } from '@/contexts/AuthContext';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
@@ -37,7 +38,7 @@ export default function RootLayout({
           locale={locale}
           logo={<SiteLogo width={45} height={45} />}
         /> */}
-        {children}
+          <AuthProvider>{children}</AuthProvider>
         </ToastProvider>
       </body>
       {/* <GoogleAnalytics gaId={GA_TRACKING_ID} /> */}

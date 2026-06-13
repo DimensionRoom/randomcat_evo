@@ -15,6 +15,7 @@ export default function CardBoard({
       cards={cards}
       cardCategories={cardCategories}
       title="Gamification In Business"
+      tool="gamificationinbusiness"
     />
   );
 }

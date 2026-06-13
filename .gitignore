@@ -49,3 +49,7 @@ skills-lock.json
 # environment variables
 .env
 .env.production
+.env*.local
+
+# use yarn, not npm
+package-lock.json
