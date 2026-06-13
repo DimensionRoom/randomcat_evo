@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { Controls } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import initTranslations from "@/i18n";
@@ -247,7 +248,7 @@ export default function StoryBoard({
           animationData={mainLoad}
           // color={["#63058F", "#7C4BE4", "#390455"]}
         />
-        {/* <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player> */}
+        {/* <LottiePlayer autoplay loop src={mainLoad} style={{ width: "30vh" }}></LottiePlayer> */}
       </div>
     );
   }

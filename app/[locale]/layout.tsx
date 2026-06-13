@@ -8,7 +8,6 @@ import { ToastProvider , useToast} from '@/contexts/ToastContext';
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import SiteLogo from "@/public/svgs/siteLogo";
 import i18nConfig from '@/i18nConfig';
-import style from "../Styles/MovingBackground.module.css"
 import "../Styles/globals.css";
 import { quicksand } from "@/lib/fonts";
 

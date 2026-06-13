@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect,useRef } from 'react';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { Controls } from '@lottiefiles/react-lottie-player';
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { usePathname } from 'next/navigation';
 
 import { gsap } from "gsap";
@@ -31,8 +32,6 @@ import styles from "./../Styles/Home/page.module.css";
 import { quicksand, mitr } from "@/lib/fonts";
 
 const i18nNamespaces = ['homeScreen'];
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
   const [t, setT] = useState<any>(null);
@@ -85,6 +84,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   };
   
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     window.addEventListener("scroll", handleScroll, { passive: true, capture: true});
     return () => {
        window.removeEventListener("scroll", handleScroll);
@@ -134,13 +134,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
 
   if (loading) {
     return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Player
+      <LottiePlayer
         autoplay
         loop
         src={mainLoad}
         style={{ width: '30vh' }}
       >
-      </Player>
+      </LottiePlayer>
     </div>
   }
 
@@ -225,12 +225,12 @@ export default function Home({ params: { locale } }: { params: { locale: string 
         <section id='whiteSection' className={`${styles.section} ${styles.animationSection} ${styles.whiteSection}`}>
           <div className={styles.itemsContainer}>
             {/* <div className={styles.itemIcon}>
-              <Player
+              <LottiePlayer
                 autoplay
                 loop
                 src={teamwork}
               >
-              </Player>
+              </LottiePlayer>
             </div> */}
             <div className={styles.videoContainer}>
               <div className={styles.videoBox}>
@@ -246,13 +246,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
               />
               {!presentPlaying && (
                 <div className={styles.customPlayButton} onClick={togglePlayPresentVideo}>
-                   <Player
+                   <LottiePlayer
                     autoplay
                     loop
                     src={videoPlay}
                     style={{ width: '22vh' }}
                   >
-                  </Player>
+                  </LottiePlayer>
                 </div>
               )}
               </div>

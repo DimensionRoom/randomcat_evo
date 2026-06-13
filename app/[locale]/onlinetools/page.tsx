@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useSearchParams } from "next/navigation";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -112,7 +112,7 @@ export default function OnlineToolsScreen({
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={mainLoad} style={{ width: "30vh" }}></Player>
+        <LottiePlayer autoplay loop src={mainLoad} style={{ width: "30vh" }}></LottiePlayer>
       </div>
     );
   }
@@ -219,12 +219,12 @@ export default function OnlineToolsScreen({
                 className={styles.customPlayButton}
                 onClick={togglePlayPresentVideo}
               >
-                <Player
+                <LottiePlayer
                   autoplay
                   loop
                   src={videoPlay}
                   style={{ width: "22vh" }}
-                ></Player>
+                ></LottiePlayer>
               </div>
             )}
           </div>

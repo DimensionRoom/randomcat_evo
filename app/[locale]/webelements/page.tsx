@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, use } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -15,8 +15,6 @@ import teamwork from "@/public/json/animate/teamwork.json";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./WebElements.module.scss";
 import { kanit, mitr } from "@/lib/fonts";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type ElementTypeItem = {
   id: string;
@@ -52,6 +50,10 @@ export default function TemplateScreen({
     }
     fetchTranslations();
   }, [locale]);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
 
   useEffect(() => {
     if (gridRef.current) {
@@ -129,12 +131,12 @@ export default function TemplateScreen({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={webelementLoad}
           style={{ width: "25vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }
@@ -152,7 +154,7 @@ export default function TemplateScreen({
         <div className={styles.headerContainer}>
           <div className={styles.specialCredit}>
             <div className={styles.icon}>
-              <Player
+              <LottiePlayer
                 keepLastFrame
                 autoplay
                 loop={false}
@@ -198,7 +200,7 @@ export default function TemplateScreen({
           />
         </div>
         <div className={styles.headerImage}>
-          <Player
+          <LottiePlayer
             autoplay
             loop
             src={webElementHeaderAnimate}
@@ -348,7 +350,7 @@ export default function TemplateScreen({
 
         {/* <div className={styles.details}>
           <div className={styles.icon}>
-            <Player
+            <LottiePlayer
               keepLastFrame
               autoplay
               loop={false}
@@ -362,7 +364,7 @@ export default function TemplateScreen({
           </div>
         </div> */}
         {/* <div className={styles.animate}>
-          <Player autoplay loop src={teamwork} />
+          <LottiePlayer autoplay loop src={teamwork} />
         </div> */}
       </section>
     </TranslationsProvider>

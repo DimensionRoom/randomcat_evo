@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import signatureAnimate from "@/public/json/animate/signature.json";
@@ -21,7 +21,7 @@ const ElementHeader = ({ style, className, ...props }: Props): JSX.Element => {
       <div className={styles.headerContainer}>
         <div className={styles.specialCredit}>
           <div className={styles.icon}>
-            <Player
+            <LottiePlayer
               keepLastFrame
               autoplay
               loop={false}
@@ -48,7 +48,7 @@ const ElementHeader = ({ style, className, ...props }: Props): JSX.Element => {
         />
       </div>
       <div className={styles.headerImage}>
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={webElementHeaderAnimate}

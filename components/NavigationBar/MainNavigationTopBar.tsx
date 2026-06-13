@@ -1,7 +1,7 @@
 "use client";
 import React, { use, useState, useEffect } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { Controls } from "@lottiefiles/react-lottie-player";
 
 import { sendGAEvent } from "@next/third-parties/google";
 import i18nConfig from "@/i18nConfig";

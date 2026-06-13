@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, ReactNode } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -103,7 +103,7 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
   if (loading) {
     return (
       <div style={{ display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Player autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
+        <LottiePlayer autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
       </div>
     );
   }
@@ -114,7 +114,7 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
         <div className={styles.headerContainer}>
           <div className={styles.specialCredit}>
             <div className={styles.icon}>
-              <Player keepLastFrame autoplay loop={false} src={signatureAnimate} />
+              <LottiePlayer keepLastFrame autoplay loop={false} src={signatureAnimate} />
             </div>
             <p className={styles.specialText}>
               Think-Tool<br /> Speacial Project
@@ -129,7 +129,7 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
           <FlatBtn className={styles.learnButton} text="LEARN MORE ABOUT US " onClick={() => window.open("https://www.think-tool.com", "_blank")} />
         </div>
         <div className={styles.headerImage}>
-          <Player autoplay loop src={webElementHeaderAnimate} style={{ width: "100%" }} />
+          <LottiePlayer autoplay loop src={webElementHeaderAnimate} style={{ width: "100%" }} />
         </div>
       </section>
 
@@ -167,7 +167,7 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
       <section className={`${styles.section} ${styles.footerSection}`}>
         <div className={styles.details}>
           <div className={styles.icon}>
-            <Player keepLastFrame autoplay loop={false} src={signatureAnimate} />
+            <LottiePlayer keepLastFrame autoplay loop={false} src={signatureAnimate} />
           </div>
           <div className={styles.detail}>
             <p className={styles.credit}>Created by</p>
@@ -176,7 +176,7 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
           </div>
         </div>
         <div className={styles.animate}>
-          <Player autoplay loop src={teamwork} />
+          <LottiePlayer autoplay loop src={teamwork} />
         </div>
       </section>
     </TranslationsProvider>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import { gsap } from "gsap";
@@ -157,12 +157,12 @@ export default function RelatedCombination({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={whatifLoad}
           style={{ width: "30vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }

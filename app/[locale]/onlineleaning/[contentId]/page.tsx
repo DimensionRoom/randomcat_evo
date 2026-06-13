@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import ReactPlayer from "react-player";
 
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -79,7 +79,7 @@ export default function OnlineLearningDetailPage({
   if (loading || !t || !resources) {
     return (
       <div className={styles.loader}>
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={onlinelearningLoad}

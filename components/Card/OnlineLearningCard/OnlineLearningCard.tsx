@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ReactPlayer from "react-player";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useRouter } from "next/navigation";
 
 import styles from "./OnlineLearningCard.module.scss";
@@ -45,7 +45,7 @@ const OnlineLearningCard = ({
         />
         {!playing && (
           <div className={styles.customPlayButton} onClick={onPlayToggle}>
-            <Player
+            <LottiePlayer
               autoplay={false}
               src={videoPlayAnimation}
               style={{ width: "22vh" }}

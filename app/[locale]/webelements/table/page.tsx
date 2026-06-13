@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, ReactNode } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -528,7 +528,7 @@ export default function TableUiScreen({
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
+        <LottiePlayer autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
       </div>
     );
   }
@@ -546,7 +546,7 @@ export default function TableUiScreen({
         <div className={styles.headerContainer}>
           <div className={styles.specialCredit}>
             <div className={styles.icon}>
-              <Player
+              <LottiePlayer
                 keepLastFrame
                 autoplay
                 loop={false}
@@ -573,7 +573,7 @@ export default function TableUiScreen({
           />
         </div>
         <div className={styles.headerImage}>
-          <Player
+          <LottiePlayer
             autoplay
             loop
             src={webElementHeaderAnimate}
@@ -620,7 +620,7 @@ export default function TableUiScreen({
       <section className={`${styles.section} ${styles.footerSection}`}>
         <div className={styles.details}>
           <div className={styles.icon}>
-            <Player
+            <LottiePlayer
               keepLastFrame
               autoplay
               loop={false}
@@ -634,7 +634,7 @@ export default function TableUiScreen({
           </div>
         </div>
         <div className={styles.animate}>
-          <Player autoplay loop src={teamwork} />
+          <LottiePlayer autoplay loop src={teamwork} />
         </div>
       </section>
     </TranslationsProvider>

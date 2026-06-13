@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, ReactNode } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -554,7 +554,7 @@ Multi-select dropdown สำหรับเลือกหลายภาษา�
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
+        <LottiePlayer autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
       </div>
     );
   }
@@ -572,7 +572,7 @@ Multi-select dropdown สำหรับเลือกหลายภาษา�
         <div className={styles.headerContainer}>
           <div className={styles.specialCredit}>
             <div className={styles.icon}>
-              <Player
+              <LottiePlayer
                 keepLastFrame
                 autoplay
                 loop={false}
@@ -599,7 +599,7 @@ Multi-select dropdown สำหรับเลือกหลายภาษา�
           />
         </div>
         <div className={styles.headerImage}>
-          <Player
+          <LottiePlayer
             autoplay
             loop
             src={webElementHeaderAnimate}
@@ -646,7 +646,7 @@ Multi-select dropdown สำหรับเลือกหลายภาษา�
       <section className={`${styles.section} ${styles.footerSection}`}>
         <div className={styles.details}>
           <div className={styles.icon}>
-            <Player
+            <LottiePlayer
               keepLastFrame
               autoplay
               loop={false}
@@ -660,7 +660,7 @@ Multi-select dropdown สำหรับเลือกหลายภาษา�
           </div>
         </div>
         <div className={styles.animate}>
-          <Player autoplay loop src={teamwork} />
+          <LottiePlayer autoplay loop src={teamwork} />
         </div>
       </section>
     </TranslationsProvider>

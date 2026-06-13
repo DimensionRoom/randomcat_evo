@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -146,12 +146,12 @@ export default function WhatIf({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={whatifLoad}
           style={{ width: "30vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }
@@ -207,12 +207,12 @@ export default function WhatIf({
                   </div>
                 </React.Fragment>
               ) : (
-                <Player
+                <LottiePlayer
                   autoplay
                   loop
                   src={randomBook}
                   style={{ width: "50vh" }}
-                ></Player>
+                ></LottiePlayer>
               )}
             </div>
           </div>

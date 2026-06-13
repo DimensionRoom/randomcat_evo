@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, use } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useSearchParams } from "next/navigation";
 
 import PageFooter from "@/components/Footer/PageFooter";
@@ -62,12 +62,12 @@ export default function ShowcaseScreen({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={showcaseLoad}
           style={{ width: "20vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }

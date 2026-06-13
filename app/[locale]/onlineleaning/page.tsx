@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useSearchParams } from "next/navigation";
 
 import ReactPlayer from "react-player";
@@ -88,12 +88,12 @@ export default function OnlineLeaningScreen({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={onlinelearningLoad}
           style={{ width: "25vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }
@@ -151,12 +151,12 @@ export default function OnlineLeaningScreen({
               //         className={styles.customPlayButton}
               //         onClick={togglePlayPresentVideo}
               //       >
-              //         <Player
+              //         <LottiePlayer
               //           autoplay={false}
               //           // loop
               //           src={videoPlay}
               //           style={{ width: "22vh" }}
-              //         ></Player>
+              //         ></LottiePlayer>
               //       </div>
               //     )}
               //   </div>

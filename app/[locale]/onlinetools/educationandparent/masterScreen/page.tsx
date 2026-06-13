@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -44,12 +44,12 @@ export default function MasterScreen({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={musicLoad}
           style={{ width: "30vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }

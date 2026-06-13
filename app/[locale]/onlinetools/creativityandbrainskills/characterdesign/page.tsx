@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { Controls } from "@lottiefiles/react-lottie-player";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import initTranslations from "@/i18n";

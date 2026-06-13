@@ -1,5 +1,6 @@
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
+// Type-only import: erased at build time so jspdf does NOT ship in the bundle.
+// The runtime modules are loaded lazily inside exportBoardToPDF (see below).
+import type jsPDF from "jspdf";
 
 const addFontSupport = (pdf: jsPDF) => {
   try {
@@ -65,6 +66,13 @@ export const exportBoardToPDF = async (
   brainstormNotes: string = ""
 ) => {
   try {
+    // Lazily pull in the heavy PDF/canvas libraries only when an export is
+    // actually requested, instead of bundling them into every page load.
+    const [{ default: JsPDF }, { default: html2canvas }] = await Promise.all([
+      import("jspdf"),
+      import("html2canvas"),
+    ]);
+
     const boardSection = sessionElement.querySelector('[data-board="true"]') as HTMLElement;
     const cloned = cloneBoardForExport(boardSection);
     const hiddenWrapper = document.createElement("div");
@@ -130,7 +138,7 @@ export const exportBoardToPDF = async (
 
     const imgWidth = 210;
     const pageHeight = 295;
-    const pdf = new jsPDF("p", "mm", "a4");
+    const pdf = new JsPDF("p", "mm", "a4");
     addFontSupport(pdf);
 
     pdf.setFillColor(139, 69, 193);

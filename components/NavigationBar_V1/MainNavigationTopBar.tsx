@@ -1,7 +1,7 @@
 'use client';
 import React, { use, useState, useEffect } from 'react'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import { Controls } from '@lottiefiles/react-lottie-player';
 import i18nConfig from '@/i18nConfig';
 import Link from 'next/link'
 import THFlag from '@/public/svgs/thFlag'

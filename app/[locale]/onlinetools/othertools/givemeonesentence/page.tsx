@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
@@ -206,7 +206,7 @@ export default function GiveMeOneSentence({
           alignItems: "center",
         }}
       >
-        <Player autoplay loop src={whatifLoad} style={{ width: "30vh" }} />
+        <LottiePlayer autoplay loop src={whatifLoad} style={{ width: "30vh" }} />
       </div>
     );
   }
@@ -289,7 +289,7 @@ export default function GiveMeOneSentence({
                   </div>
                 </React.Fragment>
               ) : (
-                <Player
+                <LottiePlayer
                   autoplay
                   loop
                   src={randomBook}

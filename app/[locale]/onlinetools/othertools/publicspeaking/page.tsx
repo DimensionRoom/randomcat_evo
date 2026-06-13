@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
@@ -122,12 +122,12 @@ export default function PublicSpeaking({
           alignItems: "center",
         }}
       >
-        <Player
+        <LottiePlayer
           autoplay
           loop
           src={whatifLoad}
           style={{ width: "30vh" }}
-        ></Player>
+        ></LottiePlayer>
       </div>
     );
   }
@@ -193,12 +193,12 @@ export default function PublicSpeaking({
                   </div>
                 </React.Fragment>
               ) : (
-                <Player
+                <LottiePlayer
                   autoplay
                   loop
                   src={randomBook}
                   style={{ width: "50vh" }}
-                ></Player>
+                ></LottiePlayer>
               )}
             </div>
           </div>

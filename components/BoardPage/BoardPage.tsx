@@ -7,7 +7,6 @@ import {
   BoardCard,
   TextAnnotation,
 } from "@/components/CanvasBoard/types/Card";
-import { exportBoardToPDF } from "@/utils/pdfExport";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import LottieAnimation from "@/components/Loading/LottieAnimation";
