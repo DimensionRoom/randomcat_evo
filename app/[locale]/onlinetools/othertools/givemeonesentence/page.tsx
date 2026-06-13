@@ -75,7 +75,7 @@ export default function GiveMeOneSentence({
   const [previousChallenge, setPreviousChallenge] = useState<string | null>(
     null
   );
-  const [isHowtoPlayModalOpen, setHowtoPlayModalOpen] = useState(false);
+  const [isHowtoPlayModalOpen, setHowtoPlayModalOpen] = useState(true);
 
   const generateRandomItems = () => {
     randomQuestion(giveMeOneSentenceData);
