@@ -74,10 +74,11 @@ export default async function AdminPage({
   if (!profile?.is_admin) redirect(`/${locale}`);
 
   const admin = createAdminClient();
-  const [daily, byPath, byCountry, users] = await Promise.all([
+  const [daily, byPath, byCountry, byDevice, users] = await Promise.all([
     admin.from("usage_daily").select("*").limit(60),
     admin.from("usage_by_path").select("*").limit(100),
     admin.from("usage_by_country").select("*"),
+    admin.from("usage_by_device").select("*"),
     admin.from("user_activity").select("*").limit(200),
   ]);
 
@@ -140,6 +141,17 @@ export default async function AdminPage({
           { key: "unique_users", label: "Unique users" },
         ]}
         rows={byCountry.data ?? []}
+      />
+
+      <Table
+        title="By device"
+        columns={[
+          { key: "device", label: "Device" },
+          { key: "views", label: "Views" },
+          { key: "unique_visitors", label: "Unique visitors" },
+          { key: "unique_users", label: "Unique users" },
+        ]}
+        rows={byDevice.data ?? []}
       />
 
       <Table

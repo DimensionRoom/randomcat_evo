@@ -19,6 +19,15 @@ function getCountry(): string | null {
   }
 }
 
+/** Coarse device class from viewport width (privacy-friendly; no user-agent). */
+function getDeviceType(): string {
+  if (typeof window === "undefined") return "unknown";
+  const w = window.innerWidth;
+  if (w < 768) return "mobile";
+  if (w < 1024) return "tablet";
+  return "desktop";
+}
+
 export interface TrackEventInput {
   eventType: "page_view" | "sign_in";
   path?: string;
@@ -46,6 +55,7 @@ export function trackEvent(input: TrackEventInput): void {
       user_id: input.userId ?? null,
       visitor_id: visitorId,
       country: getCountry(),
+      device: getDeviceType(),
     })
     .then(({ error }) => {
       if (error && process.env.NODE_ENV === "development") {
