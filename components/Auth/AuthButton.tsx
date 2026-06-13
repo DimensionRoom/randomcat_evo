@@ -45,7 +45,8 @@ export default function AuthButton() {
 
   const name =
     (user.user_metadata?.full_name as string) || user.email || "Account";
-  const avatar = user.user_metadata?.avatar_url as string | undefined;
+  const avatar = (user.user_metadata?.avatar_url ||
+    user.user_metadata?.picture) as string | undefined;
 
   return (
     <div ref={ref} style={{ position: "relative", display: "inline-block" }}>
@@ -76,6 +77,7 @@ export default function AuthButton() {
             alt=""
             width={36}
             height={36}
+            referrerPolicy="no-referrer"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         ) : (

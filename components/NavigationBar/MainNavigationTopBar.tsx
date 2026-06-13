@@ -579,9 +579,17 @@ const MainNavigationTopBar = ({
                 <div className={styles.MobileAccountCard}>
                   <div className={styles.MobileAccountRow}>
                     <span className={styles.MobileAvatar}>
-                      {user.user_metadata?.avatar_url ? (
+                      {user.user_metadata?.avatar_url ||
+                      user.user_metadata?.picture ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={user.user_metadata.avatar_url} alt="" />
+                        <img
+                          src={
+                            (user.user_metadata?.avatar_url as string) ||
+                            (user.user_metadata?.picture as string)
+                          }
+                          alt=""
+                          referrerPolicy="no-referrer"
+                        />
                       ) : (
                         (
                           (user.user_metadata?.full_name as string) ||
