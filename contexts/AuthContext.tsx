@@ -11,6 +11,7 @@ import {
 import type { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
+import { trackEvent } from "@/lib/analytics/track";
 
 interface AuthContextValue {
   user: User | null;
@@ -40,8 +41,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
     });
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
       setUser(session?.user ?? null);
+      if (event === "SIGNED_IN") {
+        trackEvent({ eventType: "sign_in", userId: session?.user?.id ?? null });
+      }
     });
 
     return () => sub.subscription.unsubscribe();
