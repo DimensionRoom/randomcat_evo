@@ -220,18 +220,8 @@
 
 .mapWrap {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto 16px;
-  aspect-ratio: 980 / 540; // match the SVG viewBox so scaling stays uniform
-}
-
-.swatch {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  margin-right: 8px;
-  vertical-align: middle;
+  height: 340px; // nivo Responsive* needs a measurable height
+  margin: 0 auto 8px;
 }
 
 .flag {

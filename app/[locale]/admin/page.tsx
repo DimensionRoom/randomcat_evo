@@ -5,7 +5,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
 import LineChart from "@/components/Admin/LineChart";
 import Donut from "@/components/Admin/Donut";
-import WorldMap from "@/components/Admin/WorldMap";
+import NivoChoropleth from "@/components/Admin/NivoChoropleth";
 import styles from "./Admin.module.scss";
 
 export const dynamic = "force-dynamic";
@@ -147,28 +147,6 @@ export default async function AdminPage({
   const pct = (v: number) =>
     donutTotal ? `${Math.round((v / donutTotal) * 100)}%` : "0%";
 
-  // Assign a distinct colour to each country that has views.
-  const PALETTE = [
-    "#7c3aed",
-    "#2563eb",
-    "#16a34a",
-    "#f59e0b",
-    "#ef4444",
-    "#06b6d4",
-    "#db2777",
-    "#0ea5e9",
-    "#65a30d",
-    "#f97316",
-  ];
-  const countryColor: Record<string, string> = {};
-  let ci = 0;
-  for (const c of countryRows) {
-    const name = String(c.country);
-    if (name === "unknown" || !(Number(c.views) > 0)) continue;
-    countryColor[name] = PALETTE[ci % PALETTE.length];
-    ci++;
-  }
-
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -277,11 +255,10 @@ export default async function AdminPage({
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By country</h2>
           <div className={styles.mapWrap}>
-            <WorldMap
+            <NivoChoropleth
               data={countryRows.map((c) => ({
                 name: String(c.country),
-                views: Number(c.views) || 0,
-                color: countryColor[String(c.country)],
+                value: Number(c.views) || 0,
               }))}
             />
           </div>
@@ -299,13 +276,6 @@ export default async function AdminPage({
                 {countryRows.map((c, i) => (
                   <tr key={i}>
                     <td>
-                      <span
-                        className={styles.swatch}
-                        style={{
-                          background:
-                            countryColor[String(c.country)] || "#e5e7eb",
-                        }}
-                      />
                       <span className={styles.flag}>
                         {countryFlag(String(c.country))}
                       </span>
