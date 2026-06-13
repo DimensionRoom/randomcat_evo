@@ -14,12 +14,13 @@
     "language": {
       "english": "English",
       "thai": "ไทย"
-    }
+    },
+    "slogan": "Creativity bigins here"
   },
   "button": {
     "random": "สุ่ม",
     "next": "ถัดไป",
-    "previous":"ก่อนหน้า"
+    "previous": "ก่อนหน้า"
   },
   "note": {
     "half": "ตัวขาว",
