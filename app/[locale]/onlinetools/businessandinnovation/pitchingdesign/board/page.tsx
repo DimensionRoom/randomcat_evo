@@ -15,6 +15,7 @@ export default function PitchingDesignBoard({
       cards={cards}
       cardCategories={cardCategories}
       title="Pitching Design"
+      tool="pitchingdesign"
     />
   );
 }
