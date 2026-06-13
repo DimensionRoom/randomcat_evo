@@ -418,6 +418,10 @@ export default function BoardPage({
         size="small"
         isOpen={showSaveModal}
         onClose={() => setShowSaveModal(false)}
+        closeMode="cancel"
+        cancelLabel={t ? t("board.cancel") : "Cancel"}
+        confirmLabel={t ? t("board.save") : "Save"}
+        onConfirm={confirmSaveProject}
       >
         <div className={styles.saveModal}>
           <h3 className={styles.saveModalTitle}>
@@ -432,12 +436,6 @@ export default function BoardPage({
             onKeyDown={(e) => {
               if (e.key === "Enter") confirmSaveProject();
             }}
-          />
-          <FlatBtn
-            locale={locale}
-            className={styles.saveBtn}
-            onClick={confirmSaveProject}
-            text={t ? t("board.save") : "Save"}
           />
         </div>
       </DynamicModal>
