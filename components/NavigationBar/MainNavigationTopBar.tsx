@@ -536,6 +536,9 @@ const MainNavigationTopBar = ({
                 </span>
               </p>
             </div>
+            <div className={styles.ExpandMenuContentItem}>
+              <AuthButton />
+            </div>
           </div>
         </div>
       )}
