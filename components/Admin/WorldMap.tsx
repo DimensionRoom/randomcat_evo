@@ -48,7 +48,7 @@ export default function WorldMap({ data }: { data: CountryDatum[] }) {
       projectionConfig={{ scale: 175, center: [0, 0] }}
       width={980}
       height={460}
-      style={{ width: "100%", height: "auto", display: "block" }}
+      style={{ width: "100%", height: "100%", display: "block" }}
     >
       <Geographies geography={GEO_URL}>
         {({ geographies }: { geographies: any[] }) =>
