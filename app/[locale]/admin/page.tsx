@@ -143,8 +143,9 @@ export default async function AdminPage({
     { label: "Logged-in", value: loggedInVisitors, color: "#7c6cf0" },
     { label: "Anonymous", value: anonVisitors, color: "#f5a25d" },
   ];
+  const donutTotal = loggedInVisitors + anonVisitors;
   const pct = (v: number) =>
-    uniqueVisitors ? `${Math.round((v / uniqueVisitors) * 100)}%` : "0%";
+    donutTotal ? `${Math.round((v / donutTotal) * 100)}%` : "0%";
 
   // Assign a distinct colour to each country that has views.
   const PALETTE = [
@@ -207,28 +208,39 @@ export default async function AdminPage({
           <div className={styles.donutRow}>
             <Donut
               segments={donutSegments}
-              total={uniqueVisitors}
+              total={donutTotal}
               centerLabel="Visitors"
             />
             <ul className={styles.legend}>
               <li>
-                <span style={{ background: "#7c6cf0" }} />
-                Logged-in visitors
+                <span className={styles.legendDot} style={{ background: "#7c6cf0" }} />
+                <span className={styles.legendText}>
+                  Logged-in
+                  <small>visitors</small>
+                </span>
                 <b>
-                  {loggedInVisitors} ({pct(loggedInVisitors)})
+                  {loggedInVisitors.toLocaleString()}
+                  <small>{pct(loggedInVisitors)}</small>
                 </b>
               </li>
               <li>
-                <span style={{ background: "#f5a25d" }} />
-                Anonymous visitors
+                <span className={styles.legendDot} style={{ background: "#f5a25d" }} />
+                <span className={styles.legendText}>
+                  Anonymous
+                  <small>visitors</small>
+                </span>
                 <b>
-                  {anonVisitors} ({pct(anonVisitors)})
+                  {anonVisitors.toLocaleString()}
+                  <small>{pct(anonVisitors)}</small>
                 </b>
               </li>
               <li>
-                <span style={{ background: "#cbd5e1" }} />
-                Signed-in users
-                <b>{Number(totals.unique_users) || 0}</b>
+                <span className={styles.legendDot} style={{ background: "#34d399" }} />
+                <span className={styles.legendText}>
+                  Signed-in
+                  <small>users</small>
+                </span>
+                <b>{(Number(totals.unique_users) || 0).toLocaleString()}</b>
               </li>
             </ul>
           </div>
