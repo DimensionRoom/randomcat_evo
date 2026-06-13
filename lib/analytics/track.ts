@@ -2,6 +2,13 @@ import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { getVisitorId } from "./visitor";
 
+/** Reads the ISO country code set by middleware from the tt_country cookie. */
+function getCountry(): string | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(/(?:^|;\s*)tt_country=([^;]+)/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
 export interface TrackEventInput {
   eventType: "page_view" | "sign_in";
   path?: string;
@@ -28,6 +35,7 @@ export function trackEvent(input: TrackEventInput): void {
       locale: input.locale ?? null,
       user_id: input.userId ?? null,
       visitor_id: visitorId,
+      country: getCountry(),
     })
     .then(({ error }) => {
       if (error && process.env.NODE_ENV === "development") {
