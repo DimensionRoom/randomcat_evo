@@ -17,6 +17,7 @@ import CanvasBoard from "@/components/CanvasBoard/CanvasBoard";
 import CategorySection from "@/components/CanvasBoard/CategorySection";
 import BrainstormNotes from "@/components/CanvasBoard/BrainstormNotes";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
+import DynamicModal from "@/components/Modal/DynamicModal/DynamicModal";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/contexts/ToastContext";
 import {
@@ -48,6 +49,8 @@ export default function BoardPage({
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [savedProjects, setSavedProjects] = useState<BoardProjectSummary[]>([]);
   const [showProjects, setShowProjects] = useState(false);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [projectName, setProjectName] = useState("");
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -191,15 +194,18 @@ export default function BoardPage({
       signInWithGoogle();
       return;
     }
-    const projectName =
-      window.prompt(t ? t("board.namePrompt") : "Project name:", title)?.trim() ||
-      "";
-    if (!projectName) return;
+    setProjectName(title);
+    setShowSaveModal(true);
+  }, [user, signInWithGoogle, title]);
+
+  const confirmSaveProject = useCallback(async () => {
+    const name = projectName.trim();
+    if (!name) return;
     try {
       const saved = await saveProject({
         id: currentProjectId ?? undefined,
         tool,
-        title: projectName,
+        title: name,
         boardCards,
         textAnnotations,
         brainstormNotes,
@@ -208,11 +214,11 @@ export default function BoardPage({
       showToast(t ? t("board.saved") : "Project saved", "success");
     } catch (e) {
       showToast(t ? t("board.saveError") : "Could not save project", "error");
+    } finally {
+      setShowSaveModal(false);
     }
   }, [
-    user,
-    signInWithGoogle,
-    title,
+    projectName,
     currentProjectId,
     tool,
     boardCards,
@@ -407,6 +413,34 @@ export default function BoardPage({
           </div>
         </div>
       </main>
+
+      <DynamicModal
+        size="small"
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+      >
+        <div className={styles.saveModal}>
+          <h3 className={styles.saveModalTitle}>
+            {t ? t("board.saveTitle") : "Save project"}
+          </h3>
+          <input
+            className={styles.saveInput}
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+            placeholder={t ? t("board.namePrompt") : "Project name:"}
+            autoFocus
+            onKeyDown={(e) => {
+              if (e.key === "Enter") confirmSaveProject();
+            }}
+          />
+          <FlatBtn
+            locale={locale}
+            className={styles.saveBtn}
+            onClick={confirmSaveProject}
+            text={t ? t("board.save") : "Save"}
+          />
+        </div>
+      </DynamicModal>
     </TranslationsProvider>
   );
 }
