@@ -1,10 +1,10 @@
 import {
   cards,
   cardCategories,
-} from "@/public/data/gamificationinbusiness/cards_en";
+} from "@/public/data/pitchingdesign/cards_en";
 import BoardPage from "@/components/BoardPage/BoardPage";
 
-export default function CardBoard({
+export default function PitchingDesignBoard({
   params: { locale },
 }: {
   params: { locale: string };
@@ -14,7 +14,7 @@ export default function CardBoard({
       locale={locale}
       cards={cards}
       cardCategories={cardCategories}
-      title="Gamification In Business"
+      title="Pitching Design"
     />
   );
 }

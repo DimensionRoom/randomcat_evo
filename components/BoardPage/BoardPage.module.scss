@@ -1,0 +1,71 @@
+.canvasSession {
+  height: calc(100vh - 73px);
+  display: flex;
+}
+
+.creativeArea {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 1.5rem;
+
+  .boardArea {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+.sidebar {
+  width: 20rem;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.sidebarContent {
+  padding: 1.5rem;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.notesHeaderWrapper {
+  margin: 1rem 0;
+
+  .header {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtext {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+}
+
+.shared {
+  color: #10b981;
+  margin-left: 0.25rem;
+}
