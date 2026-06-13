@@ -189,6 +189,19 @@ export default function BoardPage({
     [broadcastNotesUpdate]
   );
 
+  const handleCopyNotes = useCallback(async () => {
+    if (!brainstormNotes.trim()) {
+      showToast(t ? t("board.nothingToCopy") : "Nothing to copy", "info");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(brainstormNotes);
+      showToast(t ? t("board.copied") : "Copied to clipboard", "success");
+    } catch (e) {
+      showToast(t ? t("board.copyError") : "Copy failed", "error");
+    }
+  }, [brainstormNotes, showToast, t]);
+
   const handleSaveProject = useCallback(async () => {
     if (!user) {
       signInWithGoogle();
@@ -374,15 +387,31 @@ export default function BoardPage({
               />
             </div>
             <div className={styles.notesHeaderWrapper}>
-              <h2 className={styles.header}>Brainstorming Notes</h2>
-              <p className={styles.subtext}>
-                Write down your ideas, insights, and creative thoughts
-                {onlineUsers.length > 1 && (
-                  <span className={styles.shared}>
-                    • Shared with all collaborators
-                  </span>
-                )}
-              </p>
+              <div className={styles.headerRow}>
+                <div className={styles.headerText}>
+                  <h2 className={styles.header}>
+                    {t ? t("board.notesTitle") : "Brainstorming Notes"}
+                  </h2>
+                  <p className={styles.subtext}>
+                    {t
+                      ? t("board.notesSubtitle")
+                      : "Write down your ideas, insights, and creative thoughts"}
+                    {onlineUsers.length > 1 && (
+                      <span className={styles.shared}>
+                        • {t ? t("board.shared") : "Shared with all collaborators"}
+                      </span>
+                    )}
+                  </p>
+                </div>
+                <div className={styles.headerActions}>
+                  <FlatBtn
+                    locale={locale}
+                    className={styles.projectsBtn}
+                    onClick={handleCopyNotes}
+                    text={t ? t("board.copyNotes") : "Copy notes"}
+                  />
+                </div>
+              </div>
             </div>
             <BrainstormNotes
               brainstormNotes={brainstormNotes}
