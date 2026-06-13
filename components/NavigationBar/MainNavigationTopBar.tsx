@@ -15,7 +15,6 @@ import {
   FileText,
   Star,
   ChevronRight,
-  ChevronDown,
   LogOut,
   LogIn,
   X,
@@ -544,12 +543,7 @@ const MainNavigationTopBar = ({
                   );
                 })}
 
-              <div
-                className={styles.MobileCard}
-                onClick={() =>
-                  handleChangeLanguage(locale == "en" ? "th" : "en")
-                }
-              >
+              <div className={styles.MobileCard}>
                 <span className={styles.MobileCardIcon}>
                   <Globe size={22} />
                 </span>
@@ -558,24 +552,27 @@ const MainNavigationTopBar = ({
                     {t("component.mainNavigationTopBar.items.changeLanguage")}
                   </span>
                   <span className={styles.MobileLangRow}>
-                    <span
+                    <button
+                      type="button"
                       className={`${styles.MobileLangOpt} ${
                         locale == "th" ? styles.MobileLangActive : ""
                       }`}
+                      onClick={() => handleChangeLanguage("th")}
                     >
                       {t(`texts.language.thai`)}
-                    </span>
+                    </button>
                     <span className={styles.MobileLangSep}>|</span>
-                    <span
+                    <button
+                      type="button"
                       className={`${styles.MobileLangOpt} ${
                         locale == "en" ? styles.MobileLangActive : ""
                       }`}
+                      onClick={() => handleChangeLanguage("en")}
                     >
                       {t(`texts.language.english`)}
-                    </span>
+                    </button>
                   </span>
                 </span>
-                <ChevronDown size={22} className={styles.MobileChevron} />
               </div>
 
               {configured && user ? (

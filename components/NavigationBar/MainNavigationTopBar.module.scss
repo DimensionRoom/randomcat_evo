@@ -682,13 +682,18 @@
 
 .MobileLangOpt {
   color: #7c3aed;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 8px;
 }
 
 .MobileLangActive {
   background: #7c3aed;
   color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 8px;
 }
 
 .MobileLangSep {
