@@ -3,23 +3,9 @@
 import React from "react";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import worldData from "./world_countries.json";
+import { nameToAlpha3 } from "@/lib/countryCodes";
 
 const FEATURES = (worldData as any).features as any[];
-
-// Our stored Intl.DisplayNames names -> the GeoJSON feature names.
-const ALIASES: Record<string, string> = {
-  "United States": "United States of America",
-  Czechia: "Czech Republic",
-  "Myanmar (Burma)": "Myanmar",
-  Tanzania: "United Republic of Tanzania",
-  "Congo - Kinshasa": "Democratic Republic of the Congo",
-  "Congo - Brazzaville": "Republic of the Congo",
-};
-
-const nameToId: Record<string, string> = {};
-for (const f of FEATURES) {
-  if (f?.properties?.name && f?.id) nameToId[f.properties.name] = f.id;
-}
 
 export interface CountryDatum {
   name: string;
@@ -31,7 +17,7 @@ export default function NivoChoropleth({ data }: { data: CountryDatum[] }) {
   const nivoData: { id: string; value: number }[] = [];
   for (const d of data) {
     if (!d.name || d.name === "Unknown" || d.name === "unknown") continue;
-    const id = nameToId[ALIASES[d.name] || d.name] || nameToId[d.name];
+    const id = nameToAlpha3(d.name); // matches GeoJSON feature.id (alpha-3)
     if (!id) continue;
     nivoData.push({ id, value: d.value });
     if (d.value > max) max = d.value;
