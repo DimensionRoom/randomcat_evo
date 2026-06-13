@@ -1,4 +1,27 @@
 {
+   "board": {
+      "title": "Creative Board",
+      "subtitle": "Drag cards from the sidebar to start brainstorming",
+      "save": "Save",
+      "myProjects": "My Projects",
+      "signInToSave": "Sign in to save",
+      "saveTitle": "Save project",
+      "cancel": "Cancel",
+      "notesTitle": "Brainstorming Notes",
+      "notesSubtitle": "Write down your ideas, insights, and creative thoughts",
+      "shared": "Shared with all collaborators",
+      "copyNotes": "Copy notes",
+      "copied": "Copied to clipboard",
+      "nothingToCopy": "Nothing to copy",
+      "copyError": "Copy failed",
+      "noProjects": "No saved projects yet.",
+      "namePrompt": "Project name:",
+      "saved": "Project saved",
+      "saveError": "Could not save project",
+      "listError": "Could not load your projects",
+      "loaded": "Loaded",
+      "loadError": "Could not open that project"
+   },
    "section": {
       "stepSection": {
          "item1": {

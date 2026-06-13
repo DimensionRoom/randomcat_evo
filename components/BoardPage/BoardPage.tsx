@@ -16,6 +16,8 @@ import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBa
 import CanvasBoard from "@/components/CanvasBoard/CanvasBoard";
 import CategorySection from "@/components/CanvasBoard/CategorySection";
 import BrainstormNotes from "@/components/CanvasBoard/BrainstormNotes";
+import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
+import DynamicModal from "@/components/Modal/DynamicModal/DynamicModal";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/contexts/ToastContext";
 import {
@@ -47,6 +49,8 @@ export default function BoardPage({
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [savedProjects, setSavedProjects] = useState<BoardProjectSummary[]>([]);
   const [showProjects, setShowProjects] = useState(false);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [projectName, setProjectName] = useState("");
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -185,37 +189,56 @@ export default function BoardPage({
     [broadcastNotesUpdate]
   );
 
+  const handleCopyNotes = useCallback(async () => {
+    if (!brainstormNotes.trim()) {
+      showToast(t ? t("board.nothingToCopy") : "Nothing to copy", "info");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(brainstormNotes);
+      showToast(t ? t("board.copied") : "Copied to clipboard", "success");
+    } catch (e) {
+      showToast(t ? t("board.copyError") : "Copy failed", "error");
+    }
+  }, [brainstormNotes, showToast, t]);
+
   const handleSaveProject = useCallback(async () => {
     if (!user) {
       signInWithGoogle();
       return;
     }
-    const projectName = window.prompt("Project name:", title)?.trim() || "";
-    if (!projectName) return;
+    setProjectName(title);
+    setShowSaveModal(true);
+  }, [user, signInWithGoogle, title]);
+
+  const confirmSaveProject = useCallback(async () => {
+    const name = projectName.trim();
+    if (!name) return;
     try {
       const saved = await saveProject({
         id: currentProjectId ?? undefined,
         tool,
-        title: projectName,
+        title: name,
         boardCards,
         textAnnotations,
         brainstormNotes,
       });
       setCurrentProjectId(saved.id);
-      showToast("Project saved", "success");
+      showToast(t ? t("board.saved") : "Project saved", "success");
     } catch (e) {
-      showToast("Could not save project", "error");
+      showToast(t ? t("board.saveError") : "Could not save project", "error");
+    } finally {
+      setShowSaveModal(false);
     }
   }, [
-    user,
-    signInWithGoogle,
-    title,
+    projectName,
     currentProjectId,
     tool,
     boardCards,
     textAnnotations,
     brainstormNotes,
     showToast,
+    t,
   ]);
 
   const handleOpenProjects = useCallback(async () => {
@@ -228,9 +251,9 @@ export default function BoardPage({
       setSavedProjects(list);
       setShowProjects(true);
     } catch (e) {
-      showToast("Could not load your projects", "error");
+      showToast(t ? t("board.listError") : "Could not load your projects", "error");
     }
-  }, [user, signInWithGoogle, tool, showToast]);
+  }, [user, signInWithGoogle, tool, showToast, t]);
 
   const handleLoadProject = useCallback(
     async (id: string) => {
@@ -241,12 +264,15 @@ export default function BoardPage({
         setBrainstormNotes(project.brainstorm_notes ?? "");
         setCurrentProjectId(project.id);
         setShowProjects(false);
-        showToast(`Loaded "${project.title}"`, "success");
+        showToast(
+          `${t ? t("board.loaded") : "Loaded"} "${project.title}"`,
+          "success"
+        );
       } catch (e) {
-        showToast("Could not open that project", "error");
+        showToast(t ? t("board.loadError") : "Could not open that project", "error");
       }
     },
-    [showToast]
+    [showToast, t]
   );
 
   useEffect(() => {
@@ -285,82 +311,64 @@ export default function BoardPage({
         <div className={styles.canvasSession} data-export="creative-session">
           <div className={styles.creativeArea}>
             <div className={styles.notesHeaderWrapper}>
-              <h2 className={styles.header}>Creative Board - {title}</h2>
-              <p className={styles.subtext}>
-                Drag cards from the sidebar to start brainstorming
-              </p>
-              {configured && (
-                <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-                  <button
-                    type="button"
-                    onClick={handleSaveProject}
-                    style={{
-                      padding: "6px 12px",
-                      borderRadius: 8,
-                      border: "1px solid #ddd",
-                      background: "#fff",
-                      cursor: "pointer",
-                      fontSize: 13,
-                    }}
-                  >
-                    {user ? "Save" : "Sign in to save"}
-                  </button>
-                  {user && (
-                    <button
-                      type="button"
-                      onClick={handleOpenProjects}
-                      style={{
-                        padding: "6px 12px",
-                        borderRadius: 8,
-                        border: "1px solid #ddd",
-                        background: "#fff",
-                        cursor: "pointer",
-                        fontSize: 13,
-                      }}
-                    >
-                      My Projects
-                    </button>
-                  )}
+              <div className={styles.headerRow}>
+                <div className={styles.headerText}>
+                  <h2 className={styles.header}>
+                    {t ? t("board.title") : "Creative Board"} - {title}
+                  </h2>
+                  <p className={styles.subtext}>
+                    {t
+                      ? t("board.subtitle")
+                      : "Drag cards from the sidebar to start brainstorming"}
+                  </p>
                 </div>
-              )}
-              {showProjects && (
-                <div
-                  style={{
-                    marginTop: 8,
-                    border: "1px solid #eee",
-                    borderRadius: 8,
-                    padding: 8,
-                    maxHeight: 200,
-                    overflow: "auto",
-                  }}
-                >
-                  {savedProjects.length === 0 ? (
-                    <p style={{ fontSize: 13, color: "#666" }}>
-                      No saved projects yet.
-                    </p>
-                  ) : (
-                    savedProjects.map((p) => (
-                      <button
-                        key={p.id}
-                        type="button"
-                        onClick={() => handleLoadProject(p.id)}
-                        style={{
-                          display: "block",
-                          width: "100%",
-                          textAlign: "left",
-                          padding: "6px 8px",
-                          border: "none",
-                          background: "transparent",
-                          cursor: "pointer",
-                          fontSize: 13,
-                        }}
-                      >
-                        {p.title}
-                      </button>
-                    ))
-                  )}
-                </div>
-              )}
+                {configured && (
+                  <div className={styles.headerActions}>
+                    <FlatBtn
+                      locale={locale}
+                      className={styles.saveBtn}
+                      onClick={handleSaveProject}
+                      text={
+                        user
+                          ? t
+                            ? t("board.save")
+                            : "Save"
+                          : t
+                          ? t("board.signInToSave")
+                          : "Sign in to save"
+                      }
+                    />
+                    {user && (
+                      <FlatBtn
+                        locale={locale}
+                        className={styles.projectsBtn}
+                        onClick={handleOpenProjects}
+                        text={t ? t("board.myProjects") : "My Projects"}
+                      />
+                    )}
+                    {showProjects && (
+                      <div className={styles.projectsDropdown}>
+                        {savedProjects.length === 0 ? (
+                          <p className={styles.projectsEmpty}>
+                            {t ? t("board.noProjects") : "No saved projects yet."}
+                          </p>
+                        ) : (
+                          savedProjects.map((p) => (
+                            <button
+                              key={p.id}
+                              type="button"
+                              className={styles.projectItem}
+                              onClick={() => handleLoadProject(p.id)}
+                            >
+                              {p.title}
+                            </button>
+                          ))
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
             <div className={styles.boardArea} data-board="true">
               <CanvasBoard
@@ -379,15 +387,31 @@ export default function BoardPage({
               />
             </div>
             <div className={styles.notesHeaderWrapper}>
-              <h2 className={styles.header}>Brainstorming Notes</h2>
-              <p className={styles.subtext}>
-                Write down your ideas, insights, and creative thoughts
-                {onlineUsers.length > 1 && (
-                  <span className={styles.shared}>
-                    • Shared with all collaborators
-                  </span>
-                )}
-              </p>
+              <div className={styles.headerRow}>
+                <div className={styles.headerText}>
+                  <h2 className={styles.header}>
+                    {t ? t("board.notesTitle") : "Brainstorming Notes"}
+                  </h2>
+                  <p className={styles.subtext}>
+                    {t
+                      ? t("board.notesSubtitle")
+                      : "Write down your ideas, insights, and creative thoughts"}
+                    {onlineUsers.length > 1 && (
+                      <span className={styles.shared}>
+                        • {t ? t("board.shared") : "Shared with all collaborators"}
+                      </span>
+                    )}
+                  </p>
+                </div>
+                <div className={styles.headerActions}>
+                  <FlatBtn
+                    locale={locale}
+                    className={styles.projectsBtn}
+                    onClick={handleCopyNotes}
+                    text={t ? t("board.copyNotes") : "Copy notes"}
+                  />
+                </div>
+              </div>
             </div>
             <BrainstormNotes
               brainstormNotes={brainstormNotes}
@@ -418,6 +442,32 @@ export default function BoardPage({
           </div>
         </div>
       </main>
+
+      <DynamicModal
+        size="small"
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+        closeMode="cancel"
+        cancelLabel={t ? t("board.cancel") : "Cancel"}
+        confirmLabel={t ? t("board.save") : "Save"}
+        onConfirm={confirmSaveProject}
+      >
+        <div className={styles.saveModal}>
+          <h3 className={styles.saveModalTitle}>
+            {t ? t("board.saveTitle") : "Save project"}
+          </h3>
+          <input
+            className={styles.saveInput}
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+            placeholder={t ? t("board.namePrompt") : "Project name:"}
+            autoFocus
+            onKeyDown={(e) => {
+              if (e.key === "Enter") confirmSaveProject();
+            }}
+          />
+        </div>
+      </DynamicModal>
     </TranslationsProvider>
   );
 }
