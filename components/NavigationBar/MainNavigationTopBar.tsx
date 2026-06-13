@@ -8,6 +8,7 @@ import i18nConfig from "@/i18nConfig";
 import Link from "next/link";
 import THFlag from "@/public/svgs/thFlag";
 import ENFlag from "@/public/svgs/enFlag";
+import AuthButton from "@/components/Auth/AuthButton";
 import styles from "./MainNavigationTopBar.module.scss";
 import mainLoad from "@/public/json/mainload.json";
 import initTranslations from "@/app/[locale]/i18n";
@@ -365,6 +366,7 @@ const MainNavigationTopBar = ({
               >
                 <THFlag />
               </div>
+              <AuthButton />
             </div>
           </div>
         </header>
