@@ -1,6 +1,10 @@
 export const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 export const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
 
+// Server-only. Never expose to the client (no NEXT_PUBLIC_ prefix).
+export const SUPABASE_SERVICE_ROLE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+
 /**
  * True only when both env vars are present and not the placeholder. Used to
  * short-circuit auth UI/clients so a missing config shows a friendly state
