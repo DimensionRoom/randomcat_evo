@@ -10,6 +10,17 @@ export async function middleware(request: NextRequest) {
   // Attach refreshed Supabase auth cookies to that same response.
   await refreshSession(request, response);
 
+  // Surface Vercel's edge geolocation (ISO country code) to the client so the
+  // analytics tracker can record it. Absent on localhost/non-Vercel -> skipped.
+  const country = request.headers.get("x-vercel-ip-country");
+  if (country) {
+    response.cookies.set("tt_country", country, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 30, // 30 days; country rarely changes
+      sameSite: "lax",
+    });
+  }
+
   return response;
 }
 
