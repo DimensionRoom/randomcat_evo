@@ -181,7 +181,7 @@ export default async function AdminPage({
           <h2 className={styles.cardTitle}>Page views over time</h2>
           <LineChart points={linePoints} />
         </section>
-        <section className={styles.card}>
+        <section className={`${styles.card} ${styles.visitorsCard}`}>
           <h2 className={styles.cardTitle}>Visitors overview</h2>
           <div className={styles.donutRow}>
             <Donut

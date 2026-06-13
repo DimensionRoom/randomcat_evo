@@ -117,12 +117,21 @@
 }
 
 /* Donut + legend */
+.visitorsCard {
+  display: flex;
+  flex-direction: column;
+}
+
 .donutRow {
   display: flex;
   align-items: center;
   gap: 32px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.visitorsCard .donutRow {
+  flex: 1; // fill remaining card height so content centres vertically
 }
 
 .legend {
