@@ -22,25 +22,18 @@ const ALIASES: Record<string, string> = {
 export interface CountryDatum {
   name: string;
   views: number;
+  color?: string;
 }
 
 export default function WorldMap({ data }: { data: CountryDatum[] }) {
-  const byName: Record<string, number> = {};
-  let max = 1;
+  // Map atlas country name -> assigned distinct color.
+  const colorByName: Record<string, string> = {};
   for (const d of data) {
-    if (!d.name || d.name === "Unknown") continue;
+    if (!d.name || d.name === "Unknown" || d.name === "unknown") continue;
+    if (!d.color) continue;
     const key = ALIASES[d.name] || d.name;
-    byName[key] = (byName[key] || 0) + d.views;
-    if (byName[key] > max) max = byName[key];
+    colorByName[key] = d.color;
   }
-
-  const color = (v: number) => {
-    if (!v) return "#eef0f6";
-    const t = Math.min(1, v / max);
-    const lerp = (a: number, b: number) => Math.round(a + (b - a) * t);
-    // light lavender -> brand purple
-    return `rgb(${lerp(221, 124)}, ${lerp(214, 108)}, ${lerp(243, 240)})`;
-  };
 
   return (
     <ComposableMap
@@ -54,17 +47,17 @@ export default function WorldMap({ data }: { data: CountryDatum[] }) {
         {({ geographies }: { geographies: any[] }) =>
           geographies.map((geo: any) => {
             const name = geo.properties.name as string;
-            const v = byName[name] || 0;
+            const fill = colorByName[name] || "#eef0f6";
             return (
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill={color(v)}
+                fill={fill}
                 stroke="#ffffff"
                 strokeWidth={0.4}
                 style={{
                   default: { outline: "none" },
-                  hover: { outline: "none", fill: "#a78bfa" },
+                  hover: { outline: "none", opacity: 0.85 },
                   pressed: { outline: "none" },
                 }}
               />

@@ -146,6 +146,28 @@ export default async function AdminPage({
   const pct = (v: number) =>
     uniqueVisitors ? `${Math.round((v / uniqueVisitors) * 100)}%` : "0%";
 
+  // Assign a distinct colour to each country that has views.
+  const PALETTE = [
+    "#7c3aed",
+    "#2563eb",
+    "#16a34a",
+    "#f59e0b",
+    "#ef4444",
+    "#06b6d4",
+    "#db2777",
+    "#0ea5e9",
+    "#65a30d",
+    "#f97316",
+  ];
+  const countryColor: Record<string, string> = {};
+  let ci = 0;
+  for (const c of countryRows) {
+    const name = String(c.country);
+    if (name === "unknown" || !(Number(c.views) > 0)) continue;
+    countryColor[name] = PALETTE[ci % PALETTE.length];
+    ci++;
+  }
+
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -226,6 +248,7 @@ export default async function AdminPage({
         />
       </section>
 
+      <div className={styles.chartsRow}>
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By page</h2>
         <Table
@@ -246,6 +269,7 @@ export default async function AdminPage({
               data={countryRows.map((c) => ({
                 name: String(c.country),
                 views: Number(c.views) || 0,
+                color: countryColor[String(c.country)],
               }))}
             />
           </div>
@@ -263,6 +287,13 @@ export default async function AdminPage({
                 {countryRows.map((c, i) => (
                   <tr key={i}>
                     <td>
+                      <span
+                        className={styles.swatch}
+                        style={{
+                          background:
+                            countryColor[String(c.country)] || "#e5e7eb",
+                        }}
+                      />
                       <span className={styles.flag}>
                         {countryFlag(String(c.country))}
                       </span>
@@ -277,6 +308,7 @@ export default async function AdminPage({
             </table>
           </div>
         </section>
+      </div>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By device</h2>
