@@ -81,9 +81,33 @@ export default async function AdminPage({
     admin.from("user_activity").select("*").limit(200),
   ]);
 
+  const sum = (rows: Record<string, unknown>[] | null, key: string) =>
+    (rows ?? []).reduce((acc, r) => acc + (Number(r[key]) || 0), 0);
+
+  const stats = [
+    { label: "Page views", value: sum(byPath.data, "views") },
+    { label: "Sign-ins", value: sum(users.data, "sign_in_count") },
+    { label: "Signed-in users", value: (users.data ?? []).length },
+    { label: "Countries", value: (byCountry.data ?? []).length },
+  ];
+
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>Usage Dashboard</h1>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Usage Dashboard</h1>
+        <a className={styles.backLink} href={`/${locale}`}>
+          ← Back to site
+        </a>
+      </header>
+
+      <div className={styles.stats}>
+        {stats.map((s) => (
+          <div key={s.label} className={styles.statCard}>
+            <div className={styles.statValue}>{s.value.toLocaleString()}</div>
+            <div className={styles.statLabel}>{s.label}</div>
+          </div>
+        ))}
+      </div>
 
       <Table
         title="Daily views"

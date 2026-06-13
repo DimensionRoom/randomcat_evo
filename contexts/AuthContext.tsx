@@ -17,6 +17,7 @@ interface AuthContextValue {
   user: User | null;
   loading: boolean;
   configured: boolean;
+  isAdmin: boolean;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -26,6 +27,7 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(isSupabaseConfigured);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // One client instance for the provider's lifetime.
   const supabase = useMemo(
@@ -50,6 +52,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     return () => sub.subscription.unsubscribe();
   }, [supabase]);
+
+  // Resolve admin rights from the user's profile (own row is RLS-readable).
+  useEffect(() => {
+    if (!supabase || !user) {
+      setIsAdmin(false);
+      return;
+    }
+    let active = true;
+    supabase
+      .from("profiles")
+      .select("is_admin")
+      .eq("id", user.id)
+      .single()
+      .then(({ data }) => {
+        if (active) setIsAdmin(Boolean(data?.is_admin));
+      });
+    return () => {
+      active = false;
+    };
+  }, [supabase, user]);
 
   const signInWithGoogle = async () => {
     if (!supabase) return;
@@ -76,6 +98,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user,
         loading,
         configured: isSupabaseConfigured,
+        isAdmin,
         signInWithGoogle,
         signOut,
       }}

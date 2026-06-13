@@ -5,10 +5,55 @@
   color: #1f1147;
 }
 
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
 .title {
   font-size: 1.75rem;
   font-weight: 800;
-  margin-bottom: 24px;
+}
+
+.backLink {
+  font-size: 0.9rem;
+  color: #7c3aed;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.statCard {
+  background: linear-gradient(135deg, #f5f2fc, #efe9fb);
+  border: 1px solid #e5e0f0;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.statValue {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #2e1065;
+  line-height: 1.1;
+}
+
+.statLabel {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #6b6b6b;
 }
 
 .section {

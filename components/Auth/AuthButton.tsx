@@ -1,13 +1,18 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { User as UserIcon, LogOut } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { User as UserIcon, LogOut, LayoutDashboard } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function AuthButton() {
-  const { user, loading, configured, signInWithGoogle, signOut } = useAuth();
+  const { user, loading, configured, isAdmin, signInWithGoogle, signOut } =
+    useAuth();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const locale = pathname?.split("/")[1] || "en";
 
   // Close the dropdown when clicking outside of it.
   useEffect(() => {
@@ -130,6 +135,32 @@ export default function AuthButton() {
           </div>
 
           <div style={{ height: 1, background: "#eee", margin: "6px 0" }} />
+
+          {isAdmin && (
+            <Link
+              href={`/${locale}/admin`}
+              role="menuitem"
+              onClick={() => setOpen(false)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                width: "100%",
+                padding: "8px 10px",
+                borderRadius: 8,
+                fontSize: 14,
+                color: "#222",
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#f5f5f5")}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = "transparent")
+              }
+            >
+              <LayoutDashboard size={16} />
+              Admin
+            </Link>
+          )}
 
           <button
             type="button"

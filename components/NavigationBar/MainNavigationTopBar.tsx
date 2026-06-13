@@ -17,6 +17,7 @@ import {
   ChevronRight,
   LogOut,
   LogIn,
+  LayoutDashboard,
   X,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -78,7 +79,7 @@ const MainNavigationTopBar = ({
   const searchParamsString = useSearchParams().toString();
   const popCurrentPathname = currentPathname.split("/").slice(1) || [];
   const [isExpandMenu, setIsExpandMenu] = useState(false);
-  const { user, configured, signInWithGoogle, signOut } = useAuth();
+  const { user, configured, isAdmin, signInWithGoogle, signOut } = useAuth();
   const mainMenu: MenuItem[] = [
     {
       name: "Inno Design",
@@ -542,6 +543,20 @@ const MainNavigationTopBar = ({
                     </Link>
                   );
                 })}
+
+              {isAdmin && (
+                <Link
+                  href={`/${locale}/admin`}
+                  className={styles.MobileCard}
+                  onClick={() => handleExpandMenu(false)}
+                >
+                  <span className={styles.MobileCardIcon}>
+                    <LayoutDashboard size={22} />
+                  </span>
+                  <span className={styles.MobileCardLabel}>Admin</span>
+                  <ChevronRight size={22} className={styles.MobileChevron} />
+                </Link>
+              )}
 
               <div className={styles.MobileCard}>
                 <span className={styles.MobileCardIcon}>
