@@ -10,6 +10,9 @@ const PLACEHOLDER_T = (_key: string, options?: any) =>
 export function useTranslations(locale: string, namespaces: string[]) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
+  // Track which locale finished loading, so a language switch (which keeps the
+  // component mounted with stale t) shows the loader until the new locale loads.
+  const [loadedLocale, setLoadedLocale] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -17,6 +20,7 @@ export function useTranslations(locale: string, namespaces: string[]) {
       if (!active) return;
       setT(() => t);
       setResources(resources);
+      setLoadedLocale(locale);
     });
     return () => {
       active = false;
@@ -25,5 +29,5 @@ export function useTranslations(locale: string, namespaces: string[]) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
-  return { t: t ?? PLACEHOLDER_T, resources, ready: !!t };
+  return { t: t ?? PLACEHOLDER_T, resources, ready: loadedLocale === locale };
 }
