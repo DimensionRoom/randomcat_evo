@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { Eye, LogIn, Users, Globe } from "lucide-react";
+import { Eye, UserRound, Users, Globe } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
@@ -101,11 +101,11 @@ export default async function AdminPage({
       color: "#7c3aed",
     },
     {
-      label: "Sign-ins",
-      value: Number(totals.sign_ins) || 0,
-      Icon: LogIn,
-      tint: "#ede9fe",
-      color: "#7c3aed",
+      label: "Visitors",
+      value: Number(totals.anonymous_visitors) || 0,
+      Icon: UserRound,
+      tint: "#fff1e6",
+      color: "#f5a25d",
     },
     {
       label: "Signed-in users",
