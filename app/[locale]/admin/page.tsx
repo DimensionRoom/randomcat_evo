@@ -134,16 +134,14 @@ export default async function AdminPage({
       value: Number(r.views) || 0,
     }));
 
-  // Donut
-  const loggedInVisitors = Number(totals.logged_in_visitors) || 0;
+  // Donut: anonymous visitors vs signed-in users
   const anonVisitors = Number(totals.anonymous_visitors) || 0;
-  const uniqueVisitors =
-    Number(totals.unique_visitors) || loggedInVisitors + anonVisitors;
+  const signedInUsers = Number(totals.unique_users) || 0;
   const donutSegments = [
-    { label: "Logged-in", value: loggedInVisitors, color: "#7c6cf0" },
     { label: "Anonymous", value: anonVisitors, color: "#f5a25d" },
+    { label: "Signed-in", value: signedInUsers, color: "#34d399" },
   ];
-  const donutTotal = loggedInVisitors + anonVisitors;
+  const donutTotal = anonVisitors + signedInUsers;
   const pct = (v: number) =>
     donutTotal ? `${Math.round((v / donutTotal) * 100)}%` : "0%";
 
@@ -191,17 +189,6 @@ export default async function AdminPage({
             />
             <ul className={styles.legend}>
               <li>
-                <span className={styles.legendDot} style={{ background: "#7c6cf0" }} />
-                <span className={styles.legendText}>
-                  Logged-in
-                  <small>visitors</small>
-                </span>
-                <b>
-                  {loggedInVisitors.toLocaleString()}
-                  <small>{pct(loggedInVisitors)}</small>
-                </b>
-              </li>
-              <li>
                 <span className={styles.legendDot} style={{ background: "#f5a25d" }} />
                 <span className={styles.legendText}>
                   Anonymous
@@ -218,7 +205,10 @@ export default async function AdminPage({
                   Signed-in
                   <small>users</small>
                 </span>
-                <b>{(Number(totals.unique_users) || 0).toLocaleString()}</b>
+                <b>
+                  {signedInUsers.toLocaleString()}
+                  <small>{pct(signedInUsers)}</small>
+                </b>
               </li>
             </ul>
           </div>
