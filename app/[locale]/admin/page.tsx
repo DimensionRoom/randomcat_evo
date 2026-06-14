@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
 import LineChart from "@/components/Admin/LineChart";
-import Donut from "@/components/Admin/Donut";
+import NivoPie from "@/components/Admin/NivoPie";
 import NivoChoropleth from "@/components/Admin/NivoChoropleth";
 import styles from "./Admin.module.scss";
 
@@ -184,7 +184,7 @@ export default async function AdminPage({
         <section className={`${styles.card} ${styles.visitorsCard}`}>
           <h2 className={styles.cardTitle}>Visitors overview</h2>
           <div className={styles.donutRow}>
-            <Donut
+            <NivoPie
               segments={donutSegments}
               total={donutTotal}
               centerLabel="Visitors"
