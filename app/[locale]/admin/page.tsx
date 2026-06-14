@@ -250,7 +250,7 @@ export default async function AdminPage({
               }))}
             />
           </div>
-          <div className={styles.tableWrap}>
+          <div className={`${styles.tableWrap} ${styles.scrollTable}`}>
             <table className={styles.table}>
               <thead>
                 <tr>
