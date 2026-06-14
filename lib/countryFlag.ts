@@ -6,7 +6,9 @@ for (let i = 65; i <= 90; i++) {
   for (let j = 65; j <= 90; j++) {
     const code = String.fromCharCode(i) + String.fromCharCode(j);
     const name = regionNames.of(code);
-    if (name && name !== code) nameToCode[name] = code;
+    // Keep the first (standard) code; otherwise aliases like UK/FX/SU overwrite
+    // GB/FR/RU and produce non-rendering flag emojis.
+    if (name && name !== code && !nameToCode[name]) nameToCode[name] = code;
   }
 }
 
