@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
 import NivoLine from "@/components/Admin/NivoLine";
+import CollapsibleCard from "@/components/Admin/CollapsibleCard";
 import NivoPie from "@/components/Admin/NivoPie";
 import NivoChoropleth from "@/components/Admin/NivoChoropleth";
 import styles from "./Admin.module.scss";
@@ -175,10 +176,9 @@ export default async function AdminPage({
       </div>
 
       <div className={styles.chartsRow}>
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>Page views over time</h2>
+        <CollapsibleCard title="Page views over time">
           <NivoLine points={linePoints} />
-        </section>
+        </CollapsibleCard>
         <section className={`${styles.card} ${styles.visitorsCard}`}>
           <h2 className={styles.cardTitle}>Visitors overview</h2>
           <div className={styles.donutRow}>
@@ -215,8 +215,7 @@ export default async function AdminPage({
         </section>
       </div>
 
-      <section className={styles.card}>
-        <h2 className={styles.cardTitle}>Daily views</h2>
+      <CollapsibleCard title="Daily views">
         <Table
           columns={[
             { key: "day", label: "Day" },
@@ -226,11 +225,10 @@ export default async function AdminPage({
           ]}
           rows={dailyRows}
         />
-      </section>
+      </CollapsibleCard>
 
       <div className={styles.chartsRow}>
-      <section className={styles.card}>
-        <h2 className={styles.cardTitle}>By page</h2>
+      <CollapsibleCard title="By page">
         <Table
           columns={[
             { key: "path", label: "Path" },
@@ -240,7 +238,7 @@ export default async function AdminPage({
           ]}
           rows={(byPath.data ?? []) as Row[]}
         />
-      </section>
+      </CollapsibleCard>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By country</h2>
