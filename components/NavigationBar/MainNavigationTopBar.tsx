@@ -546,7 +546,7 @@ const MainNavigationTopBar = ({
 
               {isAdmin && (
                 <Link
-                  href={`/${locale}/admin`}
+                  href={locale === "th" ? "/th/admin" : "/admin"}
                   className={styles.MobileCard}
                   onClick={() => handleExpandMenu(false)}
                 >

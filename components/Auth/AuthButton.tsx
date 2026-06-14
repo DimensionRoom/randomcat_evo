@@ -12,7 +12,12 @@ export default function AuthButton() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const locale = pathname?.split("/")[1] || "en";
+  // The default locale (en) is not prefixed in the URL, so the first segment is
+  // only a locale when it is a known one — otherwise it's a normal page path.
+  const firstSeg = pathname?.split("/")[1] ?? "";
+  const adminHref = ["en", "th"].includes(firstSeg)
+    ? `/${firstSeg}/admin`
+    : "/admin";
 
   // Close the dropdown when clicking outside of it.
   useEffect(() => {
@@ -138,7 +143,7 @@ export default function AuthButton() {
 
           {isAdmin && (
             <Link
-              href={`/${locale}/admin`}
+              href={adminHref}
               role="menuitem"
               onClick={() => setOpen(false)}
               style={{
