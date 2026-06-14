@@ -1,11 +1,10 @@
 "use client";
 import React, { useState, useEffect, use } from "react";
-import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useSearchParams } from "next/navigation";
 
 import PageFooter from "@/components/Footer/PageFooter";
-import initTranslations from "@/i18n";
-import TranslationsProvider from "@/components/TranslationsProvider";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import templateLoad from "@/public/json/templateload.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
@@ -44,11 +43,9 @@ export default function TemplateScreen({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const searchParams = useSearchParams();
   const searchParamsInfo = searchParams.get("info");
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
   const [documents, setDocuments] = useState<DocumentItem[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 9;
@@ -81,46 +78,16 @@ export default function TemplateScreen({
   };
 
   useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-    fetchTranslations();
-  }, [locale]);
-
-  useEffect(() => {
     transformJsonTemplateData();
   }, []);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={templateLoad}
-          style={{ width: "25vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
-
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={templateLoad}
     >
       <MainNavigationTopBar fill locale={locale} />
       <main className={styles.main}>
@@ -175,6 +142,6 @@ export default function TemplateScreen({
           <PageFooter locale={locale} />
         </section>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

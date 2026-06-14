@@ -1,11 +1,10 @@
 "use client";
 import React, { useState, useEffect, use } from "react";
-import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useSearchParams } from "next/navigation";
 
 import PageFooter from "@/components/Footer/PageFooter";
-import initTranslations from "@/i18n";
-import TranslationsProvider from "@/components/TranslationsProvider";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import showcaseLoad from "@/public/json/showcaseLoad.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import ShowcaseMasonry from "@/components/Masonry/Showcase/ShowcaseMasonry";
@@ -27,56 +26,23 @@ export default function ShowcaseScreen({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const searchParams = useSearchParams();
   const searchParamsInfo = searchParams.get("info");
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     const showcaseData = require("@/json/showcaseItems.json");
-    console.log(showcaseData.data);
     setItems(showcaseData.data || []);
   }, []);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-    fetchTranslations();
-  }, [locale]);
-
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={showcaseLoad}
-          style={{ width: "20vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
-
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={showcaseLoad}
     >
       <MainNavigationTopBar fill locale={locale} />
       <main className={styles.main}>
@@ -95,6 +61,6 @@ export default function ShowcaseScreen({
           <PageFooter locale={locale} />
         </section>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

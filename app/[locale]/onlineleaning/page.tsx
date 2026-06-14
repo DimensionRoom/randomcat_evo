@@ -1,12 +1,11 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useSearchParams } from "next/navigation";
 
 import ReactPlayer from "react-player";
 import PageFooter from "@/components/Footer/PageFooter";
-import initTranslations from "@/i18n";
-import TranslationsProvider from "@/components/TranslationsProvider";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import onlinelearningLoad from "@/public/json/onlinelearningLoad.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import TemplateCard from "@/components/Card/VerticalCard/TemplateCard/TemplateCard";
@@ -28,11 +27,9 @@ export default function OnlineLeaningScreen({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const searchParams = useSearchParams();
   const searchParamsInfo = searchParams.get("info");
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
   const [contents, setContents] = useState<contenttItem[]>([]);
   const presentPlayerRef = useRef(null);
   const [presentPlaying, setPresentPlaying] = useState(false);
@@ -63,46 +60,16 @@ export default function OnlineLeaningScreen({
   };
 
   useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-    fetchTranslations();
-  }, [locale]);
-
-  useEffect(() => {
     transformJsonTemplateData();
   }, []);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={onlinelearningLoad}
-          style={{ width: "25vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
-
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={onlinelearningLoad}
     >
       <MainNavigationTopBar fill locale={locale} />
       <main className={styles.main}>
@@ -178,6 +145,6 @@ export default function OnlineLeaningScreen({
           <PageFooter locale={locale} />
         </section>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }
