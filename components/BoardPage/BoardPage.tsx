@@ -80,6 +80,27 @@ export default function BoardPage({
     }
   }, [isConnected, userName, subscribeToUpdates]);
 
+  // Restore a draft saved before the "Sign in to save" OAuth redirect (if any).
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(`tt_board_draft_${tool}`);
+      if (!raw) return;
+      const draft = JSON.parse(raw);
+      if (
+        draft?.boardCards?.length ||
+        draft?.textAnnotations?.length ||
+        draft?.brainstormNotes
+      ) {
+        setBoardCards(draft.boardCards ?? []);
+        setTextAnnotations(draft.textAnnotations ?? []);
+        setBrainstormNotes(draft.brainstormNotes ?? "");
+      }
+      localStorage.removeItem(`tt_board_draft_${tool}`);
+    } catch {}
+    // run once on mount (e.g. when returning from the OAuth redirect)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const categorizedCards = cards.reduce((acc, card) => {
     if (!acc[card.category]) acc[card.category] = [];
     acc[card.category].push(card);
@@ -204,12 +225,27 @@ export default function BoardPage({
 
   const handleSaveProject = useCallback(async () => {
     if (!user) {
+      // Persist the current board so it survives the OAuth redirect/remount.
+      try {
+        localStorage.setItem(
+          `tt_board_draft_${tool}`,
+          JSON.stringify({ boardCards, textAnnotations, brainstormNotes })
+        );
+      } catch {}
       signInWithGoogle();
       return;
     }
     setProjectName(title);
     setShowSaveModal(true);
-  }, [user, signInWithGoogle, title]);
+  }, [
+    user,
+    signInWithGoogle,
+    title,
+    tool,
+    boardCards,
+    textAnnotations,
+    brainstormNotes,
+  ]);
 
   const confirmSaveProject = useCallback(async () => {
     const name = projectName.trim();
