@@ -5,6 +5,8 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import Link from "next/link";
 import styles from "./ReDesign.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -59,9 +61,7 @@ export default function ReDesign({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [lockItem, setLockItem] = useState<string[]>([]);
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
@@ -103,46 +103,18 @@ export default function ReDesign({
     );
   }, [selectedCardItem]);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
     randomQuestion(redesignData);
   }, []);
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={whatifLoad}
-          style={{ width: "30vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={whatifLoad}
     >
       <main className={styles.main}>
         <div className={`${styles.MobileHeader}`}>
@@ -220,6 +192,6 @@ export default function ReDesign({
           </div>
         </div>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

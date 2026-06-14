@@ -5,6 +5,8 @@ import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import Link from "next/link";
 import CountdownProgressBar from "@/components/Progress/CountdownProgressBar/CountdownProgressBar";
@@ -69,11 +71,9 @@ export default function MusicCard({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const searchParams = useSearchParams();
   const searchParamsInfo = searchParams.get("info");
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const physicalRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -262,17 +262,6 @@ export default function MusicCard({
     );
   }, [selectedCardItem]);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
     const items: Item[] = [];
@@ -289,31 +278,14 @@ export default function MusicCard({
     setFlippedPhysicalGridCards(items.length);
     setFlipCardLimit(items.length);
   }, []);
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={musicLoad}
-          style={{ width: "30vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={musicLoad}
     >
       <div className={`${styles.MobileHeader}`}>
           <header className={`${styles.LayoutHeader}`}>
@@ -405,6 +377,6 @@ export default function MusicCard({
           </div>
         </div>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

@@ -7,6 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Image from "next/image";
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
 import signatureAnimate from "@/public/json/animate/signature.json";
@@ -29,9 +31,7 @@ export default function TemplateScreen({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const [elementsType, setElementsType] = useState<ElementTypeItem[]>([]);
 
   const gridRef = useRef<HTMLDivElement>(null);
@@ -39,17 +39,6 @@ export default function TemplateScreen({
   const rightProfileRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -78,7 +67,7 @@ export default function TemplateScreen({
         );
       });
     }
-  }, [loading]);
+  }, [ready]);
 
   useEffect(() => {
     if (
@@ -119,33 +108,16 @@ export default function TemplateScreen({
         },
       }
     );
-  }, [loading]);
+  }, [ready]);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={webelementLoad}
-          style={{ width: "25vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={webelementLoad}
     >
       {/* Section Header */}
       <section
@@ -367,6 +339,6 @@ export default function TemplateScreen({
           <LottiePlayer autoplay loop src={teamwork} />
         </div> */}
       </section>
-    </TranslationsProvider>
+    </PageShell>
   );
 }
