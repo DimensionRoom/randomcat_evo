@@ -229,8 +229,10 @@
 
 .mapWrap {
   width: 100%;
-  height: 340px; // nivo Responsive* needs a measurable height
+  max-width: 1000px;
   margin: 0 auto 8px;
+  aspect-ratio: 2 / 1; // scales with width so the map fits on any screen
+  min-height: 180px;
 }
 
 .flag {
