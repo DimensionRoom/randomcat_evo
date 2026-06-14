@@ -26,11 +26,11 @@ export const cardCategories = {
     color: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
     icon: '❤️'
   },
-  duration: {
-    name: 'Duration',
-    color: 'linear-gradient(135deg, #f97316 0%, #eab308 100%)',
-    icon: '⏱️'
-  }
+  // duration: {
+  //   name: 'Duration',
+  //   color: 'linear-gradient(135deg, #f97316 0%, #eab308 100%)',
+  //   icon: '⏱️'
+  // }
 };
 
 export const cards: Card[] = [
