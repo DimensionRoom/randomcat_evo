@@ -7,6 +7,11 @@ import initTranslations from "@/app/[locale]/i18n";
 const PLACEHOLDER_T = (_key: string, options?: any) =>
   options && options.returnObjects ? [] : "";
 
+// Minimum time the loader stays visible. Cached locales resolve in a microtask
+// (before paint), so without this the loader never actually shows on a language
+// switch.
+const MIN_LOADER_MS = 600;
+
 export function useTranslations(locale: string, namespaces: string[]) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
@@ -16,11 +21,16 @@ export function useTranslations(locale: string, namespaces: string[]) {
 
   useEffect(() => {
     let active = true;
+    const started = Date.now();
     initTranslations(locale, namespaces).then(({ t, resources }) => {
       if (!active) return;
-      setT(() => t);
-      setResources(resources);
-      setLoadedLocale(locale);
+      const wait = Math.max(0, MIN_LOADER_MS - (Date.now() - started));
+      setTimeout(() => {
+        if (!active) return;
+        setT(() => t);
+        setResources(resources);
+        setLoadedLocale(locale);
+      }, wait);
     });
     return () => {
       active = false;
