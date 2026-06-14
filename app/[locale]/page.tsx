@@ -14,6 +14,8 @@ import TranslationsProvider from '@/components/TranslationsProvider';
 import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBar';
 import PageFooter from '@/components/Footer/PageFooter';
 import mainLoad from '@/public/json/mainload.json';
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import videoPlay from '@/public/json/videoPlay.json';
 import teamwork from '@/public/json/teamwork.json';
 import PotionIcon from '@/public/svgs/home/potion';
@@ -34,9 +36,7 @@ import { quicksand, mitr } from "@/lib/fonts";
 const i18nNamespaces = ['homeScreen'];
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const [scrollY, setScrollY] = useState(0);
   const [presentPlaying, setPresentPlaying] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
@@ -116,41 +116,16 @@ export default function Home({ params: { locale } }: { params: { locale: string 
       markers: true,
     });
     
-  }, [loading]);
-
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
-  }, [locale]);
-
-  
-
-  if (loading) {
-    return <div style={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <LottiePlayer
-        autoplay
-        loop
-        src={mainLoad}
-        style={{ width: '30vh' }}
-      >
-      </LottiePlayer>
-    </div>
-  }
-
-  
+  }, [ready]);
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
-      resources={resources}>
+      namespaces={i18nNamespaces}
+      resources={resources}
+      ready={ready}
+      loaderAnimation={mainLoad}
+    >
       <MainNavigationTopBar locale={locale} fixed/>
       <PageLogger showVisits />
       <main ref={mainRef} className={styles.main}>
@@ -476,6 +451,6 @@ export default function Home({ params: { locale } }: { params: { locale: string 
         </section>
          <BackToTopBtn text="↑" />
       </main>
-    </TranslationsProvider >
+    </PageShell>
   );
 }

@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef, use } from "react";
 import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import Link from "next/link";
 import Image from "next/image";
@@ -49,9 +51,7 @@ export default function BeatMaster({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const [noteOptions, setNoteOptions] = useState<NoteOption[]>([
     { id: "half", symbol: "half" },
     { id: "whole", symbol: "whole" },
@@ -160,15 +160,6 @@ export default function BeatMaster({
   }
 
   useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
     generateNewSequence(noteQuantity);
     audioContext.current = new AudioContext();
     return () => {
@@ -183,28 +174,10 @@ export default function BeatMaster({
     }
   }, [tempo]);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={musicLoad}
-          style={{ width: "30vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
-
   return (
-    <TranslationsProvider
+    <PageShell
+      ready={ready}
+      loaderAnimation={musicLoad}
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}
@@ -287,6 +260,6 @@ export default function BeatMaster({
           </div>
         </div>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }
