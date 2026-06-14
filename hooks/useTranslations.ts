@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import initTranslations from "@/app/[locale]/i18n";
 
+// Safe placeholder used before translations resolve, so page JSX that calls
+// t(...) (built eagerly as PageShell children) never crashes with
+// "t is not a function". Returns [] for returnObjects, "" otherwise.
+const PLACEHOLDER_T = (_key: string, options?: any) =>
+  options && options.returnObjects ? [] : "";
+
 export function useTranslations(locale: string, namespaces: string[]) {
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
@@ -19,5 +25,5 @@ export function useTranslations(locale: string, namespaces: string[]) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
-  return { t, resources, ready: !!t };
+  return { t: t ?? PLACEHOLDER_T, resources, ready: !!t };
 }
