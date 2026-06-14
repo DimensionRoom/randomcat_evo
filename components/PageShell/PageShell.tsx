@@ -1,9 +1,16 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import LottieAnimation from "@/components/Loading/LottieAnimation";
+import dynamic from "next/dynamic";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import mainLoad from "@/public/json/mainload.json";
+
+// Load the Lottie loader client-side only: @lottiefiles/react-lottie-player
+// touches `document` at module load, which would break SSR prerendering for
+// every page that uses PageShell.
+const LottiePlayer = dynamic(() => import("@/components/Loading/LottiePlayer"), {
+  ssr: false,
+});
 
 export default function PageShell({
   locale,
@@ -31,7 +38,12 @@ export default function PageShell({
           alignItems: "center",
         }}
       >
-        <LottieAnimation animationData={loaderAnimation} />
+        <LottiePlayer
+          autoplay
+          loop
+          src={loaderAnimation}
+          style={{ width: "25vh" }}
+        />
       </div>
     );
   }
