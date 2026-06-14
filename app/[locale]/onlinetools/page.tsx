@@ -11,6 +11,8 @@ import ToolCard from "@/components/Card/VerticalCard/ToolCard/ToolCard";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import PageFooter from "@/components/Footer/PageFooter";
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import mainLoad from "@/public/json/mainload.json";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -43,10 +45,8 @@ export default function OnlineToolsScreen({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const searchParams = useSearchParams();
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
   const [tools, setTools] = useState<ToolsItem[]>([]);
   const [presentPlaying, setPresentPlaying] = useState(false);
   const presentPlayerRef = useRef(null);
@@ -86,42 +86,19 @@ export default function OnlineToolsScreen({
     setTools(transformedToolsData);
   };
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
     transformToolsData();
   }, []);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer autoplay loop src={mainLoad} style={{ width: "30vh" }}></LottiePlayer>
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={mainLoad}
     >
       <MainNavigationTopBar fill locale={locale} />
       <main className={styles.main}>
@@ -318,6 +295,6 @@ export default function OnlineToolsScreen({
           <PageFooter locale={locale} />
         </section>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

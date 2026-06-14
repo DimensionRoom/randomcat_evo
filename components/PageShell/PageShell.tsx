@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import LottiePlayer from "@/components/Loading/LottiePlayer";
+import LottieAnimation from "@/components/Loading/LottieAnimation";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import mainLoad from "@/public/json/mainload.json";
 
@@ -31,7 +31,7 @@ export default function PageShell({
           alignItems: "center",
         }}
       >
-        <LottiePlayer autoplay loop src={loaderAnimation} style={{ width: "25vh" }} />
+        <LottieAnimation animationData={loaderAnimation} />
       </div>
     );
   }

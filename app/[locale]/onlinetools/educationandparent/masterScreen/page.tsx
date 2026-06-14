@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import Link from "next/link";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -18,47 +20,17 @@ export default function MasterScreen({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
-  }, [locale]);
 
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={musicLoad}
-          style={{ width: "30vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={musicLoad}
     >
       <div className={`${styles.MobileHeader}`}>
           <header className={`${styles.LayoutHeader}`}>
@@ -79,6 +51,6 @@ export default function MasterScreen({
 
         </div>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

@@ -5,6 +5,8 @@ import LottiePlayer from "@/components/Loading/LottiePlayer";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import Link from "next/link";
 import manivigationStyles from "@/components/NavigationBar/MainNavigationTopBar.module.scss";
 import DynamicModal from "@/components/Modal/DynamicModal/DynamicModal";
@@ -65,11 +67,9 @@ export default function InnovationBoard({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const searchParams = useSearchParams();
   const searchParamsInfo = searchParams.get("info");
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
   const [subCategory, setSubCategory] = useState<SubCategoryProps[]>([
     {
       name: "Innovation",
@@ -265,17 +265,6 @@ export default function InnovationBoard({
     console.log("filteredData", filteredData);
   }, [selectedCardItem]);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
     const items: Item[] = [];
@@ -291,30 +280,14 @@ export default function InnovationBoard({
     setFlippedPhysicalGridCards(items.length);
     setFlipCardLimit(items.length);
   }, []);
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottieAnimation
-          animationData={mainLoad}
-          // color={["#1e4e9c", "#298edc", "#072167"]}
-        />
-        {/* <LottiePlayer autoplay loop src={mainLoad} style={{ width: "30vh" }}></LottiePlayer> */}
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={mainLoad}
     >
       <MainNavigationTopBar locale={locale} />
       <div className={`${manivigationStyles.MobileHeader}`}>
@@ -575,6 +548,6 @@ export default function InnovationBoard({
           />
         </DynamicModal>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

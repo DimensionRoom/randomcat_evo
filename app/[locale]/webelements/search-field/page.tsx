@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef, ReactNode } from "react";
 import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import TranslationsProvider from "@/components/TranslationsProvider";
 import webElementHeaderAnimate from "@/public/json/animate/webElementHeaderAnimate.json";
 import signatureAnimate from "@/public/json/animate/signature.json";
@@ -27,9 +29,7 @@ type ElementTypeItem = {
 const i18nNamespaces = ["webElementsScreen"];
 
 export default function SearchFieldUiScreen({ params: { locale } }: { params: { locale: string } }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const [elementsItems, setElementsItems] = useState<ElementTypeItem[]>([]);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -82,34 +82,22 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
     ]);
   }, [searchQuery]);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
-    if (!loading && gridRef.current) {
+    if (ready && gridRef.current) {
       gridRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [loading]);
+  }, [ready]);
 
-  if (loading) {
-    return (
-      <div style={{ display: "flex", flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <LottiePlayer autoplay loop src={webelementLoad} style={{ width: "25vh" }} />
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+    <PageShell
+      locale={locale}
+      namespaces={i18nNamespaces}
+      resources={resources}
+      ready={ready}
+      loaderAnimation={webelementLoad}
+    >
       <section className={`${styles.section} ${styles.parallaxSection} ${mitr.className} ${styles.thfontlight}`}>
         <div className={styles.headerContainer}>
           <div className={styles.specialCredit}>
@@ -179,6 +167,6 @@ export default function SearchFieldUiScreen({ params: { locale } }: { params: { 
           <LottiePlayer autoplay loop src={teamwork} />
         </div>
       </section>
-    </TranslationsProvider>
+    </PageShell>
   );
 }

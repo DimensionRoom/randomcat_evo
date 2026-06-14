@@ -4,6 +4,8 @@ import LottiePlayer from "@/components/Loading/LottiePlayer";
 
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
 import initTranslations from "@/i18n";
+import { useTranslations } from "@/hooks/useTranslations";
+import PageShell from "@/components/PageShell/PageShell";
 import Link from "next/link";
 import styles from "./PublicSpeaking.module.scss";
 import TranslationsProvider from "@/components/TranslationsProvider";
@@ -57,9 +59,7 @@ export default function PublicSpeaking({
 }: {
   params: { locale: string };
 }) {
-  const [t, setT] = useState<any>(null);
-  const [resources, setResources] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const [randomItems, setRandomItems] = useState<Item[]>([]);
   const [selectedCardItem, setSelectedCardItem] = useState<string[]>([]);
   const [randomQuestionItem, setRandomQuestionItem] = useState<Question>();
@@ -97,46 +97,18 @@ export default function PublicSpeaking({
     );
   }, [selectedCardItem]);
 
-  useEffect(() => {
-    async function fetchTranslations() {
-      const { t, resources } = await initTranslations(locale, i18nNamespaces);
-      setT(() => t);
-      setResources(resources);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
-    fetchTranslations();
-  }, [locale]);
 
   useEffect(() => {
     randomQuestion(publicSpeakingData);
   }, []);
-  if (loading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <LottiePlayer
-          autoplay
-          loop
-          src={whatifLoad}
-          style={{ width: "30vh" }}
-        ></LottiePlayer>
-      </div>
-    );
-  }
 
   return (
-    <TranslationsProvider
-      namespaces={i18nNamespaces}
+    <PageShell
       locale={locale}
+      namespaces={i18nNamespaces}
       resources={resources}
+      ready={ready}
+      loaderAnimation={whatifLoad}
     >
       <div className={`${styles.MobileHeader}`}>
         <header className={`${styles.LayoutHeader}`}>
@@ -204,6 +176,6 @@ export default function PublicSpeaking({
           </div>
         </div>
       </main>
-    </TranslationsProvider>
+    </PageShell>
   );
 }
