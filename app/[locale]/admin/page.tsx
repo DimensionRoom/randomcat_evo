@@ -3,7 +3,7 @@ import { Eye, LogIn, Users, Globe } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
-import LineChart from "@/components/Admin/LineChart";
+import NivoLine from "@/components/Admin/NivoLine";
 import NivoPie from "@/components/Admin/NivoPie";
 import NivoChoropleth from "@/components/Admin/NivoChoropleth";
 import styles from "./Admin.module.scss";
@@ -179,7 +179,7 @@ export default async function AdminPage({
       <div className={styles.chartsRow}>
         <section className={styles.card}>
           <h2 className={styles.cardTitle}>Page views over time</h2>
-          <LineChart points={linePoints} />
+          <NivoLine points={linePoints} />
         </section>
         <section className={`${styles.card} ${styles.visitorsCard}`}>
           <h2 className={styles.cardTitle}>Visitors overview</h2>
