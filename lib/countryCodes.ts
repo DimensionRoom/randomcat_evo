@@ -8,7 +8,9 @@ for (let i = 65; i <= 90; i++) {
   for (let j = 65; j <= 90; j++) {
     const code = String.fromCharCode(i) + String.fromCharCode(j);
     const name = regionNames.of(code);
-    if (name && name !== code && !nameToAlpha2[name]) {
+    // Only accept real ISO 3166-1 codes so aliases (DD, FX, SU, UK, ...) don't
+    // overwrite DE/FR/RU/GB and break the alpha-3 lookup / map highlight.
+    if (name && name !== code && countries.alpha2ToAlpha3(code) && !nameToAlpha2[name]) {
       nameToAlpha2[name] = code;
     }
   }
