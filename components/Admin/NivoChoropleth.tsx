@@ -15,6 +15,7 @@ export interface CountryDatum {
 export default function NivoChoropleth({ data }: { data: CountryDatum[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(720);
+  const [isDesktop, setIsDesktop] = useState(true); // legend only on desktop
 
   useEffect(() => {
     const el = ref.current;
@@ -25,6 +26,14 @@ export default function NivoChoropleth({ data }: { data: CountryDatum[] }) {
     });
     ro.observe(el);
     return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
   let max = 1;
@@ -66,22 +75,26 @@ export default function NivoChoropleth({ data }: { data: CountryDatum[] }) {
         projectionRotation={[0, 0, 0]}
         borderWidth={0.4}
         borderColor="#ffffff"
-        legends={[
-          {
-            anchor: "bottom-left",
-            direction: "column",
-            justify: true,
-            translateX: 8,
-            translateY: -8,
-            itemsSpacing: 0,
-            itemWidth: 94,
-            itemHeight: 16,
-            itemDirection: "left-to-right",
-            itemTextColor: "#666",
-            itemOpacity: 0.9,
-            symbolSize: 14,
-          },
-        ]}
+        legends={
+          isDesktop
+            ? [
+                {
+                  anchor: "bottom-left",
+                  direction: "column",
+                  justify: true,
+                  translateX: 8,
+                  translateY: -8,
+                  itemsSpacing: 0,
+                  itemWidth: 94,
+                  itemHeight: 16,
+                  itemDirection: "left-to-right",
+                  itemTextColor: "#666",
+                  itemOpacity: 0.9,
+                  symbolSize: 14,
+                },
+              ]
+            : []
+        }
       />
     </div>
   );
