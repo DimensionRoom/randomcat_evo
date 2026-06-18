@@ -224,22 +224,24 @@ export default async function AdminPage({
         </section>
       </div>
 
-      <CollapsibleCard title="Daily views">
-        <Table
-          columns={[
-            { key: "day", label: "Day" },
-            { key: "views", label: "Views" },
-            { key: "unique_visitors", label: "Unique visitors" },
-            { key: "unique_users", label: "Unique users" },
-          ]}
-          rows={dailyRows}
-        />
-      </CollapsibleCard>
+      <div className={styles.chartsRow}>
+        <CollapsibleCard title="Daily views">
+          <Table
+            columns={[
+              { key: "day", label: "Day" },
+              { key: "views", label: "Views" },
+              { key: "unique_visitors", label: "Unique visitors" },
+              { key: "unique_users", label: "Unique users" },
+            ]}
+            rows={dailyRows}
+          />
+        </CollapsibleCard>
 
-      <section className={styles.card}>
-        <h2 className={styles.cardTitle}>Users per day</h2>
-        <NivoBar points={barPoints} />
-      </section>
+        <section className={styles.card}>
+          <h2 className={styles.cardTitle}>Users per day</h2>
+          <NivoBar points={barPoints} />
+        </section>
+      </div>
 
       <div className={styles.chartsRow}>
       <CollapsibleCard title="By page">
