@@ -28,6 +28,7 @@ import {
 } from "@/lib/supabase/boardProjects";
 
 const i18nNamespaces = ["contentboard"];
+const MAX_PROJECTS = 3;
 
 interface BoardPageProps {
   locale: string;
@@ -47,9 +48,14 @@ export default function BoardPage({
   const { user, configured, signInWithGoogle } = useAuth();
   const { showToast } = useToast();
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
+  const [currentProjectTitle, setCurrentProjectTitle] = useState<string>("");
   const [savedProjects, setSavedProjects] = useState<BoardProjectSummary[]>([]);
   const [showProjects, setShowProjects] = useState(false);
   const [showSaveModal, setShowSaveModal] = useState(false);
+  const [showOverwriteModal, setShowOverwriteModal] = useState(false);
+  const [overwriteCandidates, setOverwriteCandidates] = useState<
+    BoardProjectSummary[]
+  >([]);
   const [projectName, setProjectName] = useState("");
   const [t, setT] = useState<any>(null);
   const [resources, setResources] = useState<any>(null);
@@ -235,13 +241,14 @@ export default function BoardPage({
       signInWithGoogle();
       return;
     }
-    setProjectName(title);
+    setProjectName(currentProjectTitle || title);
     setShowSaveModal(true);
   }, [
     user,
     signInWithGoogle,
     title,
     tool,
+    currentProjectTitle,
     boardCards,
     textAnnotations,
     brainstormNotes,
@@ -250,9 +257,23 @@ export default function BoardPage({
   const confirmSaveProject = useCallback(async () => {
     const name = projectName.trim();
     if (!name) return;
+    // Overwrite the open project only when the name is unchanged. A new name
+    // means "save as" a separate project.
+    const isUpdate = !!currentProjectId && name === currentProjectTitle;
     try {
+      // New project: enforce the per-tool limit. When full, ask the user which
+      // existing project to overwrite instead of creating another.
+      if (!isUpdate) {
+        const list = await listProjects(tool);
+        if (list.length >= MAX_PROJECTS) {
+          setOverwriteCandidates(list);
+          setShowSaveModal(false);
+          setShowOverwriteModal(true);
+          return;
+        }
+      }
       const saved = await saveProject({
-        id: currentProjectId ?? undefined,
+        id: isUpdate ? currentProjectId! : undefined,
         tool,
         title: name,
         boardCards,
@@ -260,15 +281,17 @@ export default function BoardPage({
         brainstormNotes,
       });
       setCurrentProjectId(saved.id);
+      setCurrentProjectTitle(name);
       showToast(t ? t("board.saved") : "Project saved", "success");
+      setShowSaveModal(false);
     } catch (e) {
       showToast(t ? t("board.saveError") : "Could not save project", "error");
-    } finally {
       setShowSaveModal(false);
     }
   }, [
     projectName,
     currentProjectId,
+    currentProjectTitle,
     tool,
     boardCards,
     textAnnotations,
@@ -276,6 +299,39 @@ export default function BoardPage({
     showToast,
     t,
   ]);
+
+  const confirmOverwrite = useCallback(
+    async (id: string) => {
+      const name = projectName.trim();
+      if (!name) return;
+      try {
+        const saved = await saveProject({
+          id,
+          tool,
+          title: name,
+          boardCards,
+          textAnnotations,
+          brainstormNotes,
+        });
+        setCurrentProjectId(saved.id);
+        setCurrentProjectTitle(name);
+        showToast(t ? t("board.saved") : "Project saved", "success");
+      } catch (e) {
+        showToast(t ? t("board.saveError") : "Could not save project", "error");
+      } finally {
+        setShowOverwriteModal(false);
+      }
+    },
+    [
+      projectName,
+      tool,
+      boardCards,
+      textAnnotations,
+      brainstormNotes,
+      showToast,
+      t,
+    ]
+  );
 
   const handleOpenProjects = useCallback(async () => {
     if (!user) {
@@ -299,6 +355,7 @@ export default function BoardPage({
         setTextAnnotations(project.text_annotations ?? []);
         setBrainstormNotes(project.brainstorm_notes ?? "");
         setCurrentProjectId(project.id);
+        setCurrentProjectTitle(project.title);
         setShowProjects(false);
         showToast(
           `${t ? t("board.loaded") : "Loaded"} "${project.title}"`,
@@ -502,6 +559,37 @@ export default function BoardPage({
               if (e.key === "Enter") confirmSaveProject();
             }}
           />
+        </div>
+      </DynamicModal>
+
+      <DynamicModal
+        size="small"
+        isOpen={showOverwriteModal}
+        onClose={() => setShowOverwriteModal(false)}
+        closeMode="cancel"
+        cancelLabel={t ? t("board.cancel") : "Cancel"}
+      >
+        <div className={styles.saveModal}>
+          <h3 className={styles.saveModalTitle}>
+            {t ? t("board.overwriteTitle") : "Storage full (3/3)"}
+          </h3>
+          <p className={styles.overwritePrompt}>
+            {t
+              ? t("board.overwritePrompt", { name: projectName.trim() })
+              : `You can save up to 3 projects. Choose one to replace with "${projectName.trim()}":`}
+          </p>
+          <div className={styles.overwriteList}>
+            {overwriteCandidates.map((p) => (
+              <button
+                key={p.id}
+                type="button"
+                className={styles.projectItem}
+                onClick={() => confirmOverwrite(p.id)}
+              >
+                {p.title}
+              </button>
+            ))}
+          </div>
         </div>
       </DynamicModal>
     </TranslationsProvider>

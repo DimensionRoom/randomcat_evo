@@ -95,10 +95,15 @@
 
 .projectsBtn {
   --border-color: #5b2cbc;
-  --background-effect-color: #5b2cbc;
+  --background-effect-color: #ffffff;
   background: #ffffff;
   color: #5b2cbc;
   font-size: 0.875rem;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: #5b2cbc;
+  }
 }
 
 .projectsDropdown {
@@ -163,6 +168,31 @@
 
   &:focus {
     border-color: #5b2cbc;
+  }
+}
+
+.overwritePrompt {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.overwriteList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 6px;
+
+  .projectItem {
+    border: 1px solid transparent;
+
+    &:hover {
+      background: #f3effe;
+      border-color: #e6e3f2;
+    }
   }
 }
 
