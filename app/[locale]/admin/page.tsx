@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
 import NivoLine from "@/components/Admin/NivoLine";
+import NivoBar from "@/components/Admin/NivoBar";
 import CollapsibleCard from "@/components/Admin/CollapsibleCard";
 import NivoPie from "@/components/Admin/NivoPie";
 import NivoChoropleth from "@/components/Admin/NivoChoropleth";
@@ -125,15 +126,17 @@ export default async function AdminPage({
   ];
 
   // Line chart (oldest -> newest)
+  const dayLabel = (r: Row) =>
+    new Date(String(r.day)).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
   const linePoints = [...dailyRows]
     .reverse()
-    .map((r) => ({
-      label: new Date(String(r.day)).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      }),
-      value: Number(r.views) || 0,
-    }));
+    .map((r) => ({ label: dayLabel(r), value: Number(r.views) || 0 }));
+  const barPoints = [...dailyRows]
+    .reverse()
+    .map((r) => ({ label: dayLabel(r), value: Number(r.unique_visitors) || 0 }));
 
   // Donut: anonymous visitors vs signed-in users
   const anonVisitors = Number(totals.anonymous_visitors) || 0;
@@ -232,6 +235,11 @@ export default async function AdminPage({
           rows={dailyRows}
         />
       </CollapsibleCard>
+
+      <section className={styles.card}>
+        <h2 className={styles.cardTitle}>Users per day</h2>
+        <NivoBar points={barPoints} />
+      </section>
 
       <div className={styles.chartsRow}>
       <CollapsibleCard title="By page">
