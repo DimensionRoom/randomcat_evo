@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { Eye, UserRound, Users, Globe, ArrowUpRight } from "lucide-react";
+import { Eye, UserRound, Users, Globe } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
@@ -165,21 +165,25 @@ export default async function AdminPage({
 
       <div className={styles.stats}>
         {stats.map(({ label, value, Icon, color }) => (
-          <div key={label} className={styles.statCard}>
+          <div
+            key={label}
+            className={styles.statCard}
+            style={{
+              ["--accent" as any]: color,
+              background: `linear-gradient(135deg, ${color}1f, ${color}0d)`,
+              borderColor: `${color}33`,
+            }}
+          >
             <span
               className={styles.statIcon}
-              style={{
-                background: `linear-gradient(135deg, ${color}d9, ${color})`,
-              }}
+              style={{ background: color, color: "#fff" }}
             >
-              <Icon size={20} />
+              <Icon size={22} />
             </span>
             <div className={styles.statInfo}>
-              <div className={styles.statLabel}>{label}</div>
               <div className={styles.statValue}>{value.toLocaleString()}</div>
-              <div className={styles.statTrend}>vs previous period</div>
+              <div className={styles.statLabel}>{label}</div>
             </div>
-            <ArrowUpRight size={18} className={styles.statArrow} />
           </div>
         ))}
       </div>
