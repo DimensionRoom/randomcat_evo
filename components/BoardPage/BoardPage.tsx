@@ -53,6 +53,7 @@ export default function BoardPage({
   const [showProjects, setShowProjects] = useState(false);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showOverwriteModal, setShowOverwriteModal] = useState(false);
+  const [showUpdateConfirm, setShowUpdateConfirm] = useState(false);
   const [overwriteCandidates, setOverwriteCandidates] = useState<
     BoardProjectSummary[]
   >([]);
@@ -254,56 +255,10 @@ export default function BoardPage({
     brainstormNotes,
   ]);
 
-  const confirmSaveProject = useCallback(async () => {
-    const name = projectName.trim();
-    if (!name) return;
-    // Overwrite the open project only when the name is unchanged. A new name
-    // means "save as" a separate project.
-    const isUpdate = !!currentProjectId && name === currentProjectTitle;
-    try {
-      // New project: enforce the per-tool limit. When full, ask the user which
-      // existing project to overwrite instead of creating another.
-      if (!isUpdate) {
-        const list = await listProjects(tool);
-        if (list.length >= MAX_PROJECTS) {
-          setOverwriteCandidates(list);
-          setShowSaveModal(false);
-          setShowOverwriteModal(true);
-          return;
-        }
-      }
-      const saved = await saveProject({
-        id: isUpdate ? currentProjectId! : undefined,
-        tool,
-        title: name,
-        boardCards,
-        textAnnotations,
-        brainstormNotes,
-      });
-      setCurrentProjectId(saved.id);
-      setCurrentProjectTitle(name);
-      showToast(t ? t("board.saved") : "Project saved", "success");
-      setShowSaveModal(false);
-    } catch (e) {
-      showToast(t ? t("board.saveError") : "Could not save project", "error");
-      setShowSaveModal(false);
-    }
-  }, [
-    projectName,
-    currentProjectId,
-    currentProjectTitle,
-    tool,
-    boardCards,
-    textAnnotations,
-    brainstormNotes,
-    showToast,
-    t,
-  ]);
-
-  const confirmOverwrite = useCallback(
-    async (id: string) => {
-      const name = projectName.trim();
-      if (!name) return;
+  // Shared write: saves (insert when id is undefined, overwrite when given) and
+  // syncs the "currently open" project state + toast.
+  const persistProject = useCallback(
+    async (id: string | undefined, name: string) => {
       try {
         const saved = await saveProject({
           id,
@@ -318,19 +273,68 @@ export default function BoardPage({
         showToast(t ? t("board.saved") : "Project saved", "success");
       } catch (e) {
         showToast(t ? t("board.saveError") : "Could not save project", "error");
-      } finally {
-        setShowOverwriteModal(false);
       }
     },
-    [
-      projectName,
-      tool,
-      boardCards,
-      textAnnotations,
-      brainstormNotes,
-      showToast,
-      t,
-    ]
+    [tool, boardCards, textAnnotations, brainstormNotes, showToast, t]
+  );
+
+  const confirmSaveProject = useCallback(async () => {
+    const name = projectName.trim();
+    if (!name) return;
+    // Overwrite the open project only when the name is unchanged. A new name
+    // means "save as" a separate project.
+    const isUpdate = !!currentProjectId && name === currentProjectTitle;
+
+    // Same name as the open project -> confirm before overwriting it.
+    if (isUpdate) {
+      setShowSaveModal(false);
+      setShowUpdateConfirm(true);
+      return;
+    }
+
+    // New project: enforce the per-tool limit. When full, ask the user which
+    // existing project to overwrite instead of creating another.
+    try {
+      const list = await listProjects(tool);
+      if (list.length >= MAX_PROJECTS) {
+        setOverwriteCandidates(list);
+        setShowSaveModal(false);
+        setShowOverwriteModal(true);
+        return;
+      }
+    } catch (e) {
+      showToast(t ? t("board.saveError") : "Could not save project", "error");
+      setShowSaveModal(false);
+      return;
+    }
+
+    await persistProject(undefined, name);
+    setShowSaveModal(false);
+  }, [
+    projectName,
+    currentProjectId,
+    currentProjectTitle,
+    tool,
+    showToast,
+    t,
+    persistProject,
+  ]);
+
+  const confirmUpdateProject = useCallback(async () => {
+    const name = projectName.trim();
+    if (!name || !currentProjectId) return;
+    await persistProject(currentProjectId, name);
+    setShowUpdateConfirm(false);
+  }, [projectName, currentProjectId, persistProject]);
+
+  const confirmOverwrite = useCallback(
+    async (id: string) => {
+      const name = projectName.trim();
+      if (!name) return;
+      await persistProject(id, name);
+      setShowOverwriteModal(false);
+    },
+    [projectName, persistProject]
   );
 
   const handleOpenProjects = useCallback(async () => {
@@ -401,6 +405,17 @@ export default function BoardPage({
     >
       <MainNavigationTopBar locale={locale} />
       <main className={styles.main}>
+        <div className={styles.mobileNotice}>
+          <span className={styles.mobileNoticeIcon}>🖥️</span>
+          <h2 className={styles.mobileNoticeTitle}>
+            {t ? t("board.mobileTitle") : "Larger screen required"}
+          </h2>
+          <p className={styles.mobileNoticeText}>
+            {t
+              ? t("board.mobileDetail")
+              : "The creative board is designed for tablet and desktop screens only. Please open this page on a tablet or computer."}
+          </p>
+        </div>
         <div className={styles.canvasSession} data-export="creative-session">
           <div className={styles.creativeArea}>
             <div className={styles.notesHeaderWrapper}>
@@ -590,6 +605,27 @@ export default function BoardPage({
               </button>
             ))}
           </div>
+        </div>
+      </DynamicModal>
+
+      <DynamicModal
+        size="small"
+        isOpen={showUpdateConfirm}
+        onClose={() => setShowUpdateConfirm(false)}
+        closeMode="cancel"
+        cancelLabel={t ? t("board.cancel") : "Cancel"}
+        confirmLabel={t ? t("board.overwrite") : "Overwrite"}
+        onConfirm={confirmUpdateProject}
+      >
+        <div className={styles.saveModal}>
+          <h3 className={styles.saveModalTitle}>
+            {t ? t("board.updateConfirmTitle") : "Overwrite this project?"}
+          </h3>
+          <p className={styles.overwritePrompt}>
+            {t
+              ? t("board.updateConfirmPrompt", { name: projectName.trim() })
+              : `This will overwrite the existing project "${projectName.trim()}". Continue?`}
+          </p>
         </div>
       </DynamicModal>
     </TranslationsProvider>

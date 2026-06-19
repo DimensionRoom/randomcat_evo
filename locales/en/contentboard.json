@@ -22,7 +22,12 @@
       "loaded": "Loaded",
       "loadError": "Could not open that project",
       "overwriteTitle": "Storage full (3/3)",
-      "overwritePrompt": "You can save up to 3 projects. Choose one to replace with \"{{name}}\":"
+      "overwritePrompt": "You can save up to 3 projects. Choose one to replace with \"{{name}}\":",
+      "overwrite": "Overwrite",
+      "updateConfirmTitle": "Overwrite this project?",
+      "updateConfirmPrompt": "This will overwrite the existing project \"{{name}}\". Continue?",
+      "mobileTitle": "Larger screen required",
+      "mobileDetail": "The creative board is designed for tablet and desktop screens only. Please open this page on a tablet or computer."
    },
    "section": {
       "stepSection": {

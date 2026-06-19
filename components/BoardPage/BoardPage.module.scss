@@ -3,6 +3,48 @@
   display: flex;
 }
 
+// Mobile-only notice: the board needs tablet/desktop room to be usable.
+.mobileNotice {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .canvasSession {
+    display: none;
+  }
+
+  .mobileNotice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.85rem;
+    min-height: calc(100vh - 73px);
+    padding: 2.5rem 1.75rem;
+  }
+}
+
+.mobileNoticeIcon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.mobileNoticeTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.mobileNoticeText {
+  margin: 0;
+  max-width: 22rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
 .creativeArea {
   display: flex;
   flex-direction: column;
