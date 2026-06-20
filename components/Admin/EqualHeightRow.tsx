@@ -3,13 +3,13 @@
 import React, { ReactNode, useEffect, useRef } from "react";
 
 /**
- * Makes its direct child cards share the height of the SHORTER one, so the taller
- * card's flex body (.collapseBody / .scrollTable) scrolls and neither card has an
- * empty gap. CSS grid/flex can only size to the TALLER item (max-content), so the
- * min() of two siblings' heights has to be measured in JS.
+ * Equalizes the height of its direct child cards. CSS grid/flex always sizes the
+ * row to the TALLER card (max-content), so we measure both and cap the TALLER
+ * card's scroll body (the element marked `data-equal-body`) so both cards end up
+ * the SHORTER one's height — the taller table scrolls, neither card has a gap.
  *
- * When the cards wrap onto separate rows (single-column / mobile) heights are left
- * natural.
+ * Leaves heights natural when the cards wrap onto separate rows (mobile/single
+ * column).
  */
 export default function EqualHeightRow({
   className,
@@ -28,8 +28,17 @@ export default function EqualHeightRow({
       const cards = Array.from(el.children) as HTMLElement[];
       if (cards.length < 2) return;
 
-      // Clear any applied height so we read each card's natural height.
-      cards.forEach((c) => (c.style.height = ""));
+      const bodies = cards.map(
+        (c) => c.querySelector("[data-equal-body]") as HTMLElement | null
+      );
+
+      // Reset previous caps so we read natural heights.
+      bodies.forEach((b) => {
+        if (b) {
+          b.style.maxHeight = "";
+          b.style.overflowY = "";
+        }
+      });
 
       // Only equalize when the cards are side by side (same top).
       const sameRow = cards.every(
@@ -37,12 +46,23 @@ export default function EqualHeightRow({
       );
       if (!sameRow) return;
 
-      const min = Math.min(...cards.map((c) => c.offsetHeight));
-      if (min > 0) cards.forEach((c) => (c.style.height = `${min}px`));
+      const heights = cards.map((c) => c.getBoundingClientRect().height);
+      const target = Math.min(...heights);
+
+      cards.forEach((c, i) => {
+        const body = bodies[i];
+        if (!body) return;
+        const excess = heights[i] - target;
+        if (excess > 1) {
+          const bodyHeight = body.getBoundingClientRect().height;
+          body.style.maxHeight = `${Math.max(120, bodyHeight - excess)}px`;
+          body.style.overflowY = "auto";
+        }
+      });
     };
 
-    // Run now and again after the Nivo map / fonts / data settle.
     measure();
+    // Re-measure after the Nivo map / fonts / data settle.
     const timers = [
       window.setTimeout(measure, 200),
       window.setTimeout(measure, 600),

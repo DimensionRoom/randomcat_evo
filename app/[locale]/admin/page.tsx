@@ -249,19 +249,21 @@ export default async function AdminPage({
       </div>
 
       <EqualHeightRow className={styles.chartsRow}>
-      <CollapsibleCard title="By page" className={styles.flexCard}>
-        <Table
-          columns={[
-            { key: "path", label: "Path" },
-            { key: "views", label: "Views" },
-            { key: "logged_in_views", label: "Logged-in" },
-            { key: "anon_views", label: "Anonymous" },
-          ]}
-          rows={(byPath.data ?? []) as Row[]}
-        />
+      <CollapsibleCard title="By page">
+        <div data-equal-body>
+          <Table
+            columns={[
+              { key: "path", label: "Path" },
+              { key: "views", label: "Views" },
+              { key: "logged_in_views", label: "Logged-in" },
+              { key: "anon_views", label: "Anonymous" },
+            ]}
+            rows={(byPath.data ?? []) as Row[]}
+          />
+        </div>
       </CollapsibleCard>
 
-      <section className={`${styles.card} ${styles.flexCard}`}>
+      <section className={styles.card}>
         <h2 className={styles.cardTitle}>By country</h2>
           <div className={styles.mapWrap}>
             <NivoChoropleth
@@ -271,7 +273,10 @@ export default async function AdminPage({
               }))}
             />
           </div>
-          <div className={`${styles.tableWrap} ${styles.scrollTable}`}>
+          <div
+            className={`${styles.tableWrap} ${styles.scrollTable}`}
+            data-equal-body
+          >
             <table className={styles.table}>
               <thead>
                 <tr>

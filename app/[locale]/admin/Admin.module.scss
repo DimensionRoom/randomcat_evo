@@ -304,28 +304,13 @@
   }
 }
 
-/* Both cards in an EqualHeightRow: JS fixes each card's height to the shorter
-   sibling's, then the flex body fills that height and scrolls. The By country map
-   may shrink (it scales to fit) so the card can match a shorter By page. When the
-   JS leaves height auto (single-column / mobile) flex:1 just sizes to content, so
-   nothing scrolls. */
-.flexCard {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-
-  .mapWrap {
-    flex: 0 1 auto;
-    min-height: 120px;
-  }
-
-  .collapseBody,
-  .scrollTable {
-    flex: 1 1 auto;
-    min-height: 0;
-    max-height: none;
-    overflow: auto;
-  }
+/* The By page wrapper marked data-equal-body scrolls when EqualHeightRow caps it
+   (sticky header for the scrolled table). By country uses .scrollTable above. */
+[data-equal-body] thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #faf9fe;
 }
 
 .footer {
