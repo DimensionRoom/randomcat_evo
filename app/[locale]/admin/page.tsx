@@ -6,7 +6,6 @@ import { countryFlag } from "@/lib/countryFlag";
 import NivoLine from "@/components/Admin/NivoLine";
 import NivoBar from "@/components/Admin/NivoBar";
 import CollapsibleCard from "@/components/Admin/CollapsibleCard";
-import EqualHeightRow from "@/components/Admin/EqualHeightRow";
 import NivoPie from "@/components/Admin/NivoPie";
 import NivoChoropleth from "@/components/Admin/NivoChoropleth";
 import styles from "./Admin.module.scss";
@@ -248,19 +247,17 @@ export default async function AdminPage({
         </section>
       </div>
 
-      <EqualHeightRow className={styles.chartsRow}>
+      <div className={styles.chartsRow}>
       <CollapsibleCard title="By page">
-        <div className={styles.equalBody} data-equal-body>
-          <Table
-            columns={[
-              { key: "path", label: "Path" },
-              { key: "views", label: "Views" },
-              { key: "logged_in_views", label: "Logged-in" },
-              { key: "anon_views", label: "Anonymous" },
-            ]}
-            rows={(byPath.data ?? []) as Row[]}
-          />
-        </div>
+        <Table
+          columns={[
+            { key: "path", label: "Path" },
+            { key: "views", label: "Views" },
+            { key: "logged_in_views", label: "Logged-in" },
+            { key: "anon_views", label: "Anonymous" },
+          ]}
+          rows={(byPath.data ?? []) as Row[]}
+        />
       </CollapsibleCard>
 
       <section className={styles.card}>
@@ -273,10 +270,7 @@ export default async function AdminPage({
               }))}
             />
           </div>
-          <div
-            className={`${styles.tableWrap} ${styles.scrollTable} ${styles.equalBody}`}
-            data-equal-body
-          >
+          <div className={`${styles.tableWrap} ${styles.scrollTable}`}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -304,7 +298,7 @@ export default async function AdminPage({
             </table>
           </div>
         </section>
-      </EqualHeightRow>
+      </div>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By device</h2>

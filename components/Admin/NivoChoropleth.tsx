@@ -14,15 +14,15 @@ export interface CountryDatum {
 
 export default function NivoChoropleth({ data }: { data: CountryDatum[] }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState({ width: 720, height: 360 });
+  const [width, setWidth] = useState(720);
   const [isDesktop, setIsDesktop] = useState(true); // legend only on desktop
 
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof ResizeObserver === "undefined") return;
     const ro = new ResizeObserver((entries) => {
-      const r = entries[0]?.contentRect;
-      if (r?.width && r?.height) setSize({ width: r.width, height: r.height });
+      const w = entries[0]?.contentRect.width;
+      if (w) setWidth(w);
     });
     ro.observe(el);
     return () => ro.disconnect();
@@ -46,13 +46,9 @@ export default function NivoChoropleth({ data }: { data: CountryDatum[] }) {
     if (d.value > max) max = d.value;
   }
 
-  // Fit the map to the container on BOTH axes so it scales down (not clips) when
-  // the card is squeezed: width spans ≈ 6.3·scale, the drawn landmass height
-  // ≈ 3.2·scale. Use the smaller so the whole map always fits.
-  const scale = Math.max(
-    48,
-    Math.min(size.width / 6.3, size.height / 3.2)
-  );
+  // Mercator full-world width ≈ 2π·scale, so scale ≈ width / 6.3 keeps the whole
+  // map inside the container at any size (mobile/tablet/desktop).
+  const scale = Math.max(48, width / 6.3);
 
   const Choropleth = ResponsiveChoropleth as any;
   return (

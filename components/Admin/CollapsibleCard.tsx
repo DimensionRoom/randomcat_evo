@@ -11,11 +11,9 @@ import styles from "@/app/[locale]/admin/Admin.module.scss";
 export default function CollapsibleCard({
   title,
   children,
-  className,
 }: {
   title: string;
   children: ReactNode;
-  className?: string;
 }) {
   const [isDesktop, setIsDesktop] = useState(true);
   const [open, setOpen] = useState(false);
@@ -32,7 +30,7 @@ export default function CollapsibleCard({
   const showBody = !collapsible || open;
 
   return (
-    <section className={`${styles.card} ${className ?? ""}`}>
+    <section className={styles.card}>
       <button
         type="button"
         className={styles.collapseHeader}

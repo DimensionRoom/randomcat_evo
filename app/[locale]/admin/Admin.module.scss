@@ -292,20 +292,12 @@
   font-size: 1.1rem;
 }
 
-/* Long country list: cap height, scroll, keep header visible */
+/* Long country list: cap height (matches the By page card height), scroll, keep
+   header visible. */
 .scrollTable {
-  max-height: 360px;
+  max-height: 640px;
   overflow-y: auto;
 
-  thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-}
-
-/* Scroll body capped by EqualHeightRow: keep the table header visible. */
-.equalBody {
   thead th {
     position: sticky;
     top: 0;
