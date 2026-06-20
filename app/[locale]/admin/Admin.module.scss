@@ -292,10 +292,11 @@
   font-size: 1.1rem;
 }
 
-/* Long country list: cap height (matches the By page card height), scroll, keep
-   header visible. */
+/* Long country list: cap height, scroll, keep header visible. On desktop
+   EqualHeightRow overrides this max-height inline so the card matches By page;
+   this 360px is the mobile / no-JS fallback. */
 .scrollTable {
-  max-height: 640px;
+  max-height: 360px;
   overflow-y: auto;
 
   thead th {

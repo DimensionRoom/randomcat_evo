@@ -6,6 +6,7 @@ import { countryFlag } from "@/lib/countryFlag";
 import NivoLine from "@/components/Admin/NivoLine";
 import NivoBar from "@/components/Admin/NivoBar";
 import CollapsibleCard from "@/components/Admin/CollapsibleCard";
+import EqualHeightRow from "@/components/Admin/EqualHeightRow";
 import NivoPie from "@/components/Admin/NivoPie";
 import NivoChoropleth from "@/components/Admin/NivoChoropleth";
 import styles from "./Admin.module.scss";
@@ -247,7 +248,7 @@ export default async function AdminPage({
         </section>
       </div>
 
-      <div className={styles.chartsRow}>
+      <EqualHeightRow className={styles.chartsRow}>
       <CollapsibleCard title="By page">
         <Table
           columns={[
@@ -270,7 +271,10 @@ export default async function AdminPage({
               }))}
             />
           </div>
-          <div className={`${styles.tableWrap} ${styles.scrollTable}`}>
+          <div
+            className={`${styles.tableWrap} ${styles.scrollTable}`}
+            data-equal-fill
+          >
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -298,7 +302,7 @@ export default async function AdminPage({
             </table>
           </div>
         </section>
-      </div>
+      </EqualHeightRow>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By device</h2>
