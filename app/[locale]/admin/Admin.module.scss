@@ -304,31 +304,27 @@
   }
 }
 
-/* Desktop: "By page" (a plain card) drives the row height from its natural
-   content. "By country" sets overflow:hidden + min-height:0 so it contributes
-   zero to the grid track and never forces the row taller; the grid then stretches
-   it to By page's height. Inside, the map shrinks (it scales to fit) and the
-   table scrolls so By country fills that height exactly — equal cards, no gap.
-   Below 1024px the row is single-column/collapsible, so leave By country natural
-   (map keeps its aspect ratio, table uses the default .scrollTable max-height). */
-@media (min-width: 1024px) {
-  .countryCard {
-    display: flex;
-    flex-direction: column;
+/* Both cards in an EqualHeightRow: JS fixes each card's height to the shorter
+   sibling's, then the flex body fills that height and scrolls. The By country map
+   may shrink (it scales to fit) so the card can match a shorter By page. When the
+   JS leaves height auto (single-column / mobile) flex:1 just sizes to content, so
+   nothing scrolls. */
+.flexCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .mapWrap {
+    flex: 0 1 auto;
+    min-height: 120px;
+  }
+
+  .collapseBody,
+  .scrollTable {
+    flex: 1 1 auto;
     min-height: 0;
-    overflow: hidden;
-
-    .mapWrap {
-      flex: 0 1 auto;
-      min-height: 120px;
-    }
-
-    .scrollTable {
-      flex: 1 1 auto;
-      min-height: 0;
-      max-height: none;
-      overflow: auto;
-    }
+    max-height: none;
+    overflow: auto;
   }
 }
 
