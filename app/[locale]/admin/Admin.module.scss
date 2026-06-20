@@ -304,13 +304,14 @@
   }
 }
 
-/* The By page wrapper marked data-equal-body scrolls when EqualHeightRow caps it
-   (sticky header for the scrolled table). By country uses .scrollTable above. */
-[data-equal-body] thead th {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background: #faf9fe;
+/* Scroll body capped by EqualHeightRow: keep the table header visible. */
+.equalBody {
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #faf9fe;
+  }
 }
 
 .footer {

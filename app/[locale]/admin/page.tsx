@@ -250,7 +250,7 @@ export default async function AdminPage({
 
       <EqualHeightRow className={styles.chartsRow}>
       <CollapsibleCard title="By page">
-        <div data-equal-body>
+        <div className={styles.equalBody} data-equal-body>
           <Table
             columns={[
               { key: "path", label: "Path" },
@@ -274,7 +274,7 @@ export default async function AdminPage({
             />
           </div>
           <div
-            className={`${styles.tableWrap} ${styles.scrollTable}`}
+            className={`${styles.tableWrap} ${styles.scrollTable} ${styles.equalBody}`}
             data-equal-body
           >
             <table className={styles.table}>
