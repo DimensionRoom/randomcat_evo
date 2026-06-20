@@ -7,10 +7,14 @@ import React, { ReactNode, useEffect, useRef } from "react";
  * scroll body is marked `data-equal-fill`; the OTHER direct child is the reference.
  *
  * The fill body's max-height is set to `referenceHeight - (fill card's non-body
- * height)` so the fill card ends up exactly the reference's height — its table grows
- * or shrinks (scrolling) to follow the reference. We uncap the body first so the
- * measurement isn't clamped by its CSS max-height (the bug that produced 360 instead
- * of 640). Stacked / single-column layouts are left at the CSS default.
+ * height)` so the fill card ends up exactly the reference's height; its table grows
+ * or shrinks (scrolling) to follow the reference.
+ *
+ * Measuring is done with the grid's `align-items: stretch` temporarily disabled:
+ * otherwise, uncapping the fill to read its natural size also stretches the
+ * reference card (equal-height grid row), so the reference height comes back wrong
+ * and the cap is left at its CSS default. Stacked / single-column layouts are left
+ * at the CSS default.
  */
 export default function EqualHeightRow({
   className,
@@ -36,28 +40,30 @@ export default function EqualHeightRow({
       const refCard = cards.find((c) => c !== fillCard);
       if (!fillCard || !refCard) return;
 
-      // Reset to the CSS default cap before measuring / when not equalizing.
+      // Reset to the CSS default cap.
       fill.style.maxHeight = "";
       fill.style.overflowY = "";
 
       // Only equalize when the cards are side by side.
       if (Math.abs(fillCard.offsetTop - refCard.offsetTop) > 1) return;
 
-      // Uncap so the true geometry is read (not clamped by the CSS max-height).
+      // Measure natural heights WITHOUT grid stretch (so uncapping the fill doesn't
+      // also stretch the reference card and corrupt its height).
+      el.style.alignItems = "start";
       fill.style.maxHeight = "none";
       const refH = refCard.getBoundingClientRect().height;
       const fillCardH = fillCard.getBoundingClientRect().height;
       const fillBodyH = fill.getBoundingClientRect().height;
+      el.style.alignItems = "";
+      fill.style.maxHeight = "";
+      fill.style.overflowY = "";
+
       const nonBody = fillCardH - fillBodyH; // title + map + paddings
       const desired = refH - nonBody;
 
       if (desired > 0 && desired < fillBodyH) {
         fill.style.maxHeight = `${Math.round(desired)}px`;
         fill.style.overflowY = "auto";
-      } else {
-        // Fill content already shorter than the reference (or no room): leave natural.
-        fill.style.maxHeight = "";
-        fill.style.overflowY = "";
       }
     };
 
