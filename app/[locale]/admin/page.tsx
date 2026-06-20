@@ -260,7 +260,7 @@ export default async function AdminPage({
         />
       </CollapsibleCard>
 
-      <section className={styles.card}>
+      <section className={`${styles.card} ${styles.countryCard}`}>
         <h2 className={styles.cardTitle}>By country</h2>
           <div className={styles.mapWrap}>
             <NivoChoropleth
