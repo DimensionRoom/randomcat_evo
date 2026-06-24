@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
 import NivoLine from "@/components/Admin/NivoLine";
-import NivoBar from "@/components/Admin/NivoBar";
+import NivoStackedBar from "@/components/Admin/NivoStackedBar";
 import CollapsibleCard from "@/components/Admin/CollapsibleCard";
 import EqualHeightRow from "@/components/Admin/EqualHeightRow";
 import NivoPie from "@/components/Admin/NivoPie";
@@ -80,7 +80,7 @@ export default async function AdminPage({
   if (!profile?.is_admin) redirect(`/${locale}`);
 
   const admin = createAdminClient();
-  const [daily, byPath, byCountry, byDevice, users, totalsRes] =
+  const [daily, byPath, byCountry, byDevice, users, totalsRes, byDayCountry] =
     await Promise.all([
       admin.from("usage_daily").select("*").limit(60),
       admin.from("usage_by_path").select("*").limit(100),
@@ -88,6 +88,7 @@ export default async function AdminPage({
       admin.from("usage_by_device").select("*"),
       admin.from("user_activity").select("*").limit(200),
       admin.from("usage_totals").select("*").single(),
+      admin.from("usage_by_day_and_country").select("*"),
     ]);
 
   const totals = (totalsRes.data ?? {}) as Row;
@@ -135,9 +136,53 @@ export default async function AdminPage({
   const linePoints = [...dailyRows]
     .reverse()
     .map((r) => ({ label: dayLabel(r), value: Number(r.views) || 0 }));
-  const barPoints = [...dailyRows]
+
+  // Stacked "Users per day" by country: top countries + "Other".
+  const OTHER = "Other";
+  const STACK_COLORS = [
+    "#7c6cf0",
+    "#34d399",
+    "#f5a25d",
+    "#2563eb",
+    "#f472b6",
+    "#fbbf24",
+    "#cbd5e1", // reserved for "Other"
+  ];
+  const dayCountryRows = (byDayCountry.data ?? []) as Row[];
+  // Rank countries by total unique visitors across the window.
+  const countryTotals = new Map<string, number>();
+  for (const r of dayCountryRows) {
+    const c = String(r.country);
+    countryTotals.set(c, (countryTotals.get(c) ?? 0) + (Number(r.unique_visitors) || 0));
+  }
+  const topCountries = [...countryTotals.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6)
+    .map(([c]) => c);
+  const hasOther = countryTotals.size > topCountries.length;
+  const stackKeys = hasOther ? [...topCountries, OTHER] : topCountries;
+  const stackColors = hasOther
+    ? [...STACK_COLORS.slice(0, topCountries.length), STACK_COLORS[6]]
+    : STACK_COLORS.slice(0, topCountries.length);
+  // One row per day (oldest -> newest), each country's unique visitors as a key.
+  const dayBuckets = new Map<string, Record<string, number>>();
+  for (const r of dayCountryRows) {
+    const label = dayLabel(r);
+    const bucket = dayBuckets.get(label) ?? {};
+    const c = String(r.country);
+    const key = topCountries.includes(c) ? c : OTHER;
+    bucket[key] = (bucket[key] ?? 0) + (Number(r.unique_visitors) || 0);
+    dayBuckets.set(label, bucket);
+  }
+  const stackData = [...dailyRows]
     .reverse()
-    .map((r) => ({ label: dayLabel(r), value: Number(r.unique_visitors) || 0 }));
+    .map((r) => {
+      const label = dayLabel(r);
+      const bucket = dayBuckets.get(label) ?? {};
+      const row: Record<string, number | string> = { day: label };
+      for (const k of stackKeys) row[k] = bucket[k] ?? 0;
+      return row;
+    });
 
   // Donut: anonymous visitors vs signed-in users
   const anonVisitors = Number(totals.anonymous_visitors) || 0;
@@ -244,7 +289,26 @@ export default async function AdminPage({
 
         <section className={styles.card}>
           <h2 className={styles.cardTitle}>Users per day</h2>
-          <NivoBar points={barPoints} />
+          <NivoStackedBar
+            data={stackData}
+            keys={stackKeys}
+            colors={stackColors}
+          />
+          {stackKeys.length > 0 && (
+            <ul className={styles.barLegend}>
+              {stackKeys.map((c, i) => (
+                <li key={c}>
+                  <span
+                    className={styles.legendDot}
+                    style={{ background: stackColors[i] }}
+                  />
+                  <span>
+                    {c === OTHER ? "🌐 Other" : `${countryFlag(c)} ${c}`}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </div>
 
