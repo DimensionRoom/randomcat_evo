@@ -289,7 +289,12 @@ export default async function AdminPage({
               { key: "unique_visitors", label: "Unique visitors" },
               { key: "unique_users", label: "Unique users" },
             ]}
-            rows={dailyRows}
+            rows={dailyRows.map((r) => ({
+              ...r,
+              // Show the day as day/month/year (en-GB) instead of the default
+              // US month/day/year.
+              day: new Date(String(r.day)).toLocaleDateString("en-GB"),
+            }))}
           />
         </CollapsibleCard>
 
