@@ -72,14 +72,20 @@ export default async function AdminPage({
   } = await supabase.auth.getUser();
   if (!user) redirect(`/${locale}/login`);
 
-  const { data: profile } = await supabase
+  // Verify admin via the service-role client (not the user session): getUser()
+  // above already validated WHO the user is, but reading their profile through
+  // the RLS-bound user session can come back empty when the request's access
+  // token is stale (common on mobile after the token has just expired), which
+  // would wrongly bounce a real admin back to home. The service role ignores
+  // RLS, so the is_admin check is reliable.
+  const admin = createAdminClient();
+  const { data: profile } = await admin
     .from("profiles")
     .select("is_admin")
     .eq("id", user.id)
     .single();
   if (!profile?.is_admin) redirect(`/${locale}`);
 
-  const admin = createAdminClient();
   const [daily, byPath, byCountry, byDevice, users, totalsRes, byDayCountry] =
     await Promise.all([
       admin.from("usage_daily").select("*").limit(60),
