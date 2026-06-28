@@ -398,12 +398,20 @@ export default async function AdminPage({
           columns={[
             { key: "email", label: "Email" },
             { key: "full_name", label: "Name" },
+            { key: "country", label: "Country" },
             { key: "sign_in_count", label: "Sign-ins" },
             { key: "page_views", label: "Page views" },
             { key: "active_days", label: "Active days" },
             { key: "last_seen", label: "Last seen" },
           ]}
-          rows={(users.data ?? []) as Row[]}
+          rows={(users.data ?? []).map((u) => ({
+            ...(u as Row),
+            // Most recent country (from user_activity), shown with its flag to
+            // match the "By country" table.
+            country: u.country
+              ? `${countryFlag(String(u.country))} ${u.country}`
+              : "-",
+          }))}
         />
       </section>
 
