@@ -143,8 +143,8 @@ export default async function AdminPage({
     .reverse()
     .map((r) => ({ label: dayLabel(r), value: Number(r.views) || 0 }));
 
-  // Stacked "Users per day" by country: top countries + "Other".
-  const OTHER = "Other";
+  // Stacked "Users per day": every country gets its own segment (no "Other"),
+  // ranked by total visitors. "unknown" is excluded.
   const STACK_COLORS = [
     "#7c6cf0",
     "#34d399",
@@ -152,32 +152,37 @@ export default async function AdminPage({
     "#2563eb",
     "#f472b6",
     "#fbbf24",
-    "#cbd5e1", // reserved for "Other"
+    "#06b6d4",
+    "#ef4444",
+    "#a78bfa",
+    "#10b981",
+    "#fb923c",
+    "#3b82f6",
+    "#ec4899",
+    "#84cc16",
   ];
   const dayCountryRows = (byDayCountry.data ?? []) as Row[];
-  // Rank countries by total unique visitors across the window.
+  // Rank every known country by total unique visitors across the window.
   const countryTotals = new Map<string, number>();
   for (const r of dayCountryRows) {
     const c = String(r.country);
+    if (c === "unknown") continue;
     countryTotals.set(c, (countryTotals.get(c) ?? 0) + (Number(r.unique_visitors) || 0));
   }
-  const topCountries = [...countryTotals.entries()]
+  const stackKeys = [...countryTotals.entries()]
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 6)
     .map(([c]) => c);
-  const hasOther = countryTotals.size > topCountries.length;
-  const stackKeys = hasOther ? [...topCountries, OTHER] : topCountries;
-  const stackColors = hasOther
-    ? [...STACK_COLORS.slice(0, topCountries.length), STACK_COLORS[6]]
-    : STACK_COLORS.slice(0, topCountries.length);
+  const stackColors = stackKeys.map(
+    (_, i) => STACK_COLORS[i % STACK_COLORS.length]
+  );
   // One row per day (oldest -> newest), each country's unique visitors as a key.
   const dayBuckets = new Map<string, Record<string, number>>();
   for (const r of dayCountryRows) {
+    const c = String(r.country);
+    if (c === "unknown") continue;
     const label = dayLabel(r);
     const bucket = dayBuckets.get(label) ?? {};
-    const c = String(r.country);
-    const key = topCountries.includes(c) ? c : OTHER;
-    bucket[key] = (bucket[key] ?? 0) + (Number(r.unique_visitors) || 0);
+    bucket[c] = (bucket[c] ?? 0) + (Number(r.unique_visitors) || 0);
     dayBuckets.set(label, bucket);
   }
   const stackData = [...dailyRows]
@@ -313,9 +318,7 @@ export default async function AdminPage({
                     className={styles.legendDot}
                     style={{ background: stackColors[i] }}
                   />
-                  <span>
-                    {c === OTHER ? "🌐 Other" : `${countryFlag(c)} ${c}`}
-                  </span>
+                  <span>{`${countryFlag(c)} ${c}`}</span>
                 </li>
               ))}
             </ul>
