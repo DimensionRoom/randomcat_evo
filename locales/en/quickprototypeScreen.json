@@ -1,0 +1,20 @@
+{
+  "toolName": "Quick Prototype",
+  "modal": {
+    "howtoplay": {
+      "title": "How to Use the Random Tool",
+      "intro": "This activity helps you practice creating a quick prototype from a short client brief. In real projects, you'll often receive only limited information. Your challenge is to turn that into a creative solution.",
+      "subTitle": "How to Use",
+      "paragraph": [
+        "1. Randomize a Mission Card to receive a client persona with a unique profession and design request.",
+        "2. Create a prototype based on the brief. It can be a sketch, wireframe, mockup, model, graphic, concept, or even a physical product idea."
+      ],
+      "ready": "Ready? Let's get started! 🚀"
+    }
+  },
+  "spread": {
+    "leftAlt": "Mission poster",
+    "rightAlt": "Client brief",
+    "close": "Close"
+  }
+}

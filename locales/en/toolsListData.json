@@ -66,6 +66,14 @@
         "desc2": "with Beat Master",
         "onlineLink": "/onlinetools/educationandparent/beatmaster",
         "productLink": ""
+      },
+      "quick_prototype": {
+        "topic": "Quick",
+        "topic2": "Prototype",
+        "desc": "Transform a simple brief",
+        "desc2": "into a quick prototype.",
+        "onlineLink": "/onlinetools/educationandparent/quickprototype",
+        "productLink": ""
       }
     },
     "business": {

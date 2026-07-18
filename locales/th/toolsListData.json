@@ -66,6 +66,14 @@
         "desc2": "ด้วย Beat Master",
         "onlineLink": "/onlinetools/educationandparent/beatmaster",
         "productLink": ""
+      },
+      "quick_prototype": {
+        "topic": "Quick",
+        "topic2": "Prototype",
+        "desc": "เปลี่ยนบรีฟลูกค้า",
+        "desc2": "ให้เป็นต้นแบบสุดเจ๋ง",
+        "onlineLink": "/onlinetools/educationandparent/quickprototype",
+        "productLink": ""
       }
     },
     "business": {

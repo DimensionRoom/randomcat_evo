@@ -1,0 +1,390 @@
+.main {
+  --primary-color: #8a14d1;
+  --background-color: linear-gradient(90deg, #8a14d1, #f629c4);
+  --item-background-color: #1d2b84;
+  --border-color: #ffffff;
+  --text-color-title: #ffffff;
+  --text-color-title-ex: #4471c1;
+  --text-color-content: #0d93ff;
+  --btn--bg-color: #ffffff;
+  --btn--text-color: #411874;
+  --btn--text-color-hover: #ffffff;
+  --btn--bg-hover: #970090;
+  --btn--bg-active: #4b4b4b5c;
+  display: flex;
+  /* Desktop/tablet: the whole game fits one viewport — never scrolls. */
+  height: 100dvh;
+  overflow: hidden;
+  flex-direction: column;
+  background: url("/svgs/svg/blob-scene-haikei.svg"), var(--background-color);
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.thfontlight {
+  font-weight: 200 !important;
+}
+
+.thfontbold {
+  font-weight: 300 !important;
+}
+
+.HeaderSection {
+  z-index: 1;
+}
+
+.MobileHeader {
+  --logo-color: #ffffff;
+  display: none;
+  .LayoutHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    height: 60px;
+    padding: 1rem 1.2rem !important;
+    .textLink {
+      .BrandContainer {
+        width: 30px;
+        height: 30px;
+        .LogoContainer svg {
+          fill: var(--logo-color);
+        }
+      }
+    }
+  }
+}
+
+.randomSection {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 24px 28px 24px;
+}
+
+.ToolNameText {
+  font-size: clamp(1.2em, 2.8vh, 2em);
+  font-weight: 500;
+  color: var(--text-color-title);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Card grid: 3 rows x 5 columns, sized to fit the viewport ----------
+   Card height is the smaller of the height-bound and the width-bound candidate,
+   so 3 rows always fit vertically and 5 columns always fit horizontally. */
+
+.cardGrid {
+  --gap: clamp(6px, 1.2vh, 14px);
+  /* Source artwork is 1414x2000, so cards use that exact ratio (no crop). */
+  --card-w-ratio: 1414;
+  --card-h-ratio: 2000;
+  /* Reserved chrome: nav 80 + section padding 12/28 + title ~44 + gap 16 */
+  --avail-h: calc(100dvh - 180px);
+  --avail-w: calc(100vw - 48px);
+  --card-h: min(
+    calc((var(--avail-h) - 2 * var(--gap)) / 3),
+    calc(
+      (min(var(--avail-w), 1152px) - 4 * var(--gap)) / 5 * var(--card-h-ratio) /
+        var(--card-w-ratio)
+    )
+  );
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    calc(var(--card-h) * var(--card-w-ratio) / var(--card-h-ratio))
+  );
+  gap: var(--gap);
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  height: var(--card-h);
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  animation: cardIn 0.4s ease-out both;
+
+  img {
+    object-fit: cover;
+    transition: filter 0.18s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4);
+
+    img {
+      filter: brightness(1.06);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--border-color);
+    outline-offset: 2px;
+  }
+}
+
+/* ---------- Book spread overlay ---------- */
+
+.spreadBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+  animation: fadeIn 0.25s ease;
+}
+
+.book {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  perspective: 1600px;
+}
+
+.pageLeft,
+.pageRight {
+  position: relative;
+  aspect-ratio: 1414 / 2000;
+  height: 84vh;
+  max-width: 44vw;
+  background: #f4f1ea;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  backface-visibility: hidden;
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.pageLeft {
+  border-radius: 6px 0 0 6px;
+  animation: fadeIn 0.4s ease both;
+}
+
+.pageRight {
+  border-radius: 0 6px 6px 0;
+  transform-origin: left center;
+  animation: openPage 0.55s ease-out both;
+}
+
+.spreadClose {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  line-height: 1;
+  font-size: 2rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+}
+
+/* ---------- Intro (Detail) modal ---------- */
+
+.modalHeadLess {
+  .modalTitle {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.2em;
+    font-weight: 600;
+  }
+  .modalLine {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid var(--primary-color);
+  }
+  .modalIntro {
+    padding: 0px 40px;
+    font-size: 1.1em;
+    color: var(--primary-color);
+  }
+  .modalSubTitle {
+    padding: 20px 40px 8px 40px;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  .listContainer {
+    padding: 0px 40px;
+    .modalParagraph {
+      font-size: 1.1em;
+      color: var(--primary-color);
+      padding-left: 18px;
+      text-indent: -18px;
+      margin-bottom: 8px;
+    }
+  }
+  .readyText {
+    padding: 16px 40px 40px 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile: normal document flow — scrolling is expected here. */
+  .main {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+  }
+
+  .randomSection {
+    flex: none;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 24px 16px 40px 16px;
+  }
+
+  .ToolNameText {
+    font-size: 1.6em;
+  }
+
+  .cardGrid {
+    --card-h: auto;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 520px;
+    gap: 10px;
+  }
+
+  .card {
+    height: auto;
+    aspect-ratio: 1414 / 2000;
+  }
+
+  .spreadBackdrop {
+    align-items: flex-start;
+    padding: 56px 16px 24px 16px;
+    overflow-y: auto;
+  }
+
+  .book {
+    flex-direction: column;
+    gap: 12px;
+    perspective: none;
+  }
+
+  .pageLeft,
+  .pageRight {
+    height: auto;
+    width: min(90vw, 60vh);
+    max-width: 90vw;
+    border-radius: 6px;
+  }
+
+  /* A 3D page-turn reads wrong on a stacked column. */
+  .pageRight {
+    transform-origin: center;
+    animation: scaleIn 0.35s ease-out both;
+  }
+
+  .modalHeadLess {
+    .modalTitle {
+      font-size: 1.6em;
+    }
+    .modalIntro,
+    .modalSubTitle,
+    .listContainer,
+    .readyText {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .MobileHeader {
+    display: flex;
+  }
+  .randomSection {
+    padding-top: calc(60px + 24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spreadBackdrop,
+  .pageLeft,
+  .pageRight,
+  .card {
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes openPage {
+  from {
+    transform: rotateY(-160deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
