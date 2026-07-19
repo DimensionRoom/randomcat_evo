@@ -1,5 +1,10 @@
 {
   "toolName": "Quick Prototype",
+  "hero": {
+    "eyebrow": "QUICK START",
+    "subtitle": "สำรวจไอเดียได้อย่างรวดเร็ว ด้วยต้นแบบพร้อมใช้ของเรา",
+    "itemsUnit": "ใบ"
+  },
   "modal": {
     "howtoplay": {
       "title": "วิธีใช้งาน",

@@ -1,5 +1,10 @@
 {
   "toolName": "Quick Prototype",
+  "hero": {
+    "eyebrow": "QUICK START",
+    "subtitle": "Explore ideas quickly with our ready-to-use prototypes.",
+    "itemsUnit": "items"
+  },
   "modal": {
     "howtoplay": {
       "title": "How to Use the Random Tool",

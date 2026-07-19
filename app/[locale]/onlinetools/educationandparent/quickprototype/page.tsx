@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import { useTranslations } from "@/hooks/useTranslations";
 import PageShell from "@/components/PageShell/PageShell";
 import MainNavigationTopBar from "@/components/NavigationBar/MainNavigationTopBar";
@@ -84,39 +84,86 @@ export default function QuickPrototype({
       </div>
       <main className={styles.main}>
         <div className={styles.HeaderSection}>
-          <MainNavigationTopBar fill fillMode="transparent" locale={locale} />
+          <MainNavigationTopBar fill locale={locale} />
         </div>
         <div className={styles.randomSection}>
-          <h1
-            className={`${styles.ToolNameText} ${
-              isThai ? `${mitr.className} ${styles.thfontlight}` : ""
-            }`}
-          >
-            {t("toolName")}
-          </h1>
-          <div className={styles.cardGrid}>
-            {cardOrder.map((pairId, index) => (
-              <button
-                key={pairId}
-                className={styles.card}
-                style={{ animationDelay: `${index * 35}ms` }}
-                onClick={() => setOpenPair(pairId)}
-                aria-label={`${t("toolName")} ${index + 1}`}
-              >
-                <Image
-                  src={`${IMG_BASE}/cover.webp`}
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 30vw, 15vw"
-                />
-              </button>
-            ))}
+          <div className={styles.heroHeader}>
+            <p
+              className={`${styles.eyebrow} ${
+                isThai ? mitr.className : ""
+              }`}
+            >
+              {t("hero.eyebrow")}
+            </p>
+            <h1
+              className={`${styles.ToolNameText} ${
+                isThai ? `${mitr.className} ${styles.thfontlight}` : ""
+              }`}
+            >
+              <span className={styles.sparkle} aria-hidden="true">
+                ✦
+              </span>
+              {t("toolName")}
+              <span className={styles.sparkle} aria-hidden="true">
+                ✦
+              </span>
+            </h1>
+            <p
+              className={`${styles.subtitle} ${
+                isThai ? mitr.className : ""
+              }`}
+            >
+              {t("hero.subtitle")}
+            </p>
+            <div className={styles.divider} aria-hidden="true">
+              <span className={styles.dividerBarPurple} />
+              <span className={styles.dividerDot} />
+              <span className={styles.dividerBarPink} />
+            </div>
+          </div>
+
+          <div className={styles.panel}>
+            <div className={styles.cardGrid}>
+              {cardOrder.map((pairId, index) => (
+                <button
+                  key={pairId}
+                  className={styles.card}
+                  style={{ animationDelay: `${index * 35}ms` }}
+                  onClick={() => setOpenPair(pairId)}
+                  aria-label={`${t("toolName")} ${index + 1}`}
+                >
+                  <span className={styles.cardImageBox}>
+                    <ImageWithSkeleton
+                      src={`${IMG_BASE}/cover.webp`}
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 30vw, 15vw"
+                    />
+                  </span>
+                  <span className={styles.cardIndex} aria-hidden="true">
+                    {index + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <div
+              className={`${styles.panelFooter} ${
+                isThai ? mitr.className : ""
+              }`}
+              aria-hidden="true"
+            >
+              <span className={styles.footerLine} />
+              <span>
+                ✦ {PAIR_COUNT} {t("hero.itemsUnit")} ✦
+              </span>
+              <span className={styles.footerLine} />
+            </div>
           </div>
         </div>
 
         <DynamicModal
-          backdrop={false}
-          className={`${styles.modalHeadLess} ${styles.backdropNone}`}
+          backdrop
+          className={styles.modalHeadLess}
           size="medium"
           isOpen={isHowtoPlayModalOpen}
           onClose={() => setHowtoPlayModalOpen(false)}

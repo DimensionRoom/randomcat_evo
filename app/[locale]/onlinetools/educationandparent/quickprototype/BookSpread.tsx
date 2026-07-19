@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./QuickPrototype.module.scss";
 
 interface BookSpreadProps {
@@ -47,7 +47,7 @@ export default function BookSpread({
           &times;
         </button>
         <div className={styles.pageLeft}>
-          <Image
+          <ImageWithSkeleton
             src={`${IMG_BASE}/L${pair}.webp`}
             alt={leftAlt}
             fill
@@ -56,7 +56,7 @@ export default function BookSpread({
           />
         </div>
         <div className={styles.pageRight}>
-          <Image
+          <ImageWithSkeleton
             src={`${IMG_BASE}/R${pair}.webp`}
             alt={rightAlt}
             fill
