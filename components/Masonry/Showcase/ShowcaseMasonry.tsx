@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ShowcaseMasonry.module.scss";
 
 type DocumentItem = {
@@ -31,15 +32,16 @@ const ShowcaseMasonry: React.FC<ShowcaseMasonryProps> = ({
       >
         <Masonry className={styles.masonry} gutter="0px">
           {displayedItems.map((item, index) => (
-            <img
+            <ImageWithSkeleton
               key={index}
+              raw
               className={styles.masonryImage}
               src={item.picture}
               alt={item.topic}
               onClick={() => setSelectedImage(item.picture)}
+              width="100%"
+              height="auto"
               style={{
-                width: "100%",
-                height: "auto",
                 display: "block",
                 cursor: "pointer",
                 transition: "transform 0.2s ease",
@@ -65,15 +67,21 @@ const ShowcaseMasonry: React.FC<ShowcaseMasonryProps> = ({
           }}
           onClick={() => setSelectedImage(null)}
         >
-          <img
+          <ImageWithSkeleton
+            raw
             src={selectedImage}
             alt="Full View"
-            style={{
+            wrapperStyle={{
               maxWidth: "90%",
               maxHeight: "90%",
               height: "80%",
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
               borderRadius: "8px",
               boxShadow: "0 8px 16px rgba(0, 0, 0, 0.4)",
+              objectFit: "contain",
             }}
           />
         </div>

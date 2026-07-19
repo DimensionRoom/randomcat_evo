@@ -21,6 +21,7 @@ import {
   X,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./MainNavigationTopBar.module.scss";
 
 // Maps a menu key to its icon for the mobile card menu.
@@ -596,13 +597,14 @@ const MainNavigationTopBar = ({
                     <span className={styles.MobileAvatar}>
                       {user.user_metadata?.avatar_url ||
                       user.user_metadata?.picture ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <ImageWithSkeleton
+                          raw
                           src={
                             (user.user_metadata?.avatar_url as string) ||
                             (user.user_metadata?.picture as string)
                           }
                           alt=""
+                          fluid
                           referrerPolicy="no-referrer"
                         />
                       ) : (

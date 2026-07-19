@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { User as UserIcon, LogOut, LayoutDashboard } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 
 export default function AuthButton() {
   const { user, loading, configured, isAdmin, signInWithGoogle, signOut } =
@@ -81,12 +82,11 @@ export default function AuthButton() {
         }}
       >
         {avatar ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <ImageWithSkeleton
+            raw
             src={avatar}
             alt=""
-            width={36}
-            height={36}
+            fluid
             referrerPolicy="no-referrer"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />

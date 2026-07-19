@@ -1,4 +1,5 @@
 import React from "react";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./Masonry.module.scss";
 
 interface MasonryProps {
@@ -39,10 +40,13 @@ const Masonry: React.FC<MasonryProps> = ({
           onClick={() => onClickItem && onClickItem(item.index)}
         >
           {item.imageUrl ? (
-            <img
+            <ImageWithSkeleton
+              raw
               src={item.imageUrl}
               alt={`Item ${item.index}`}
               className={styles.image}
+              width="100%"
+              height="auto"
             />
           ) : (
             item.content

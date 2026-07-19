@@ -1,0 +1,69 @@
+// Self-contained: this repo has no shared SCSS partials, every module owns
+// its own rules/keyframes (see the 12x-duplicated scale-in-hor-left as the
+// existing convention). This is the only copy of these keyframes.
+
+.wrapperBox {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0; // kill the inline-image baseline gap
+  overflow: hidden;
+}
+
+.wrapperFluid {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// For callers whose CSS sizes the inner image as `width:100%; height:auto`
+// (intrinsic aspect ratio, not a fixed-height box). No explicit height here:
+// it must stay content-driven so the percentage-width child resolves against
+// a definite (this wrapper's) width without a circular auto/auto pair.
+.wrapperResponsive {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.wrapperFill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: #e8e8ee;
+  background-image: linear-gradient(
+    90deg,
+    rgba(232, 232, 238, 0) 0%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(232, 232, 238, 0) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: skeletonSweep 1.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes skeletonSweep {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+    background-image: none;
+  }
+}

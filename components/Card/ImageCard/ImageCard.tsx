@@ -2,7 +2,7 @@
 import React, { useState, forwardRef, useEffect } from "react";
 
 import { useToast } from "@/contexts/ToastContext";
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import styles from "./ImageCard.module.css";
 import KeyLockIcon from "@/public/svgs/components/ExpandCard/keyLock";
 import KeyUnlockIcon from "@/public/svgs/components/ExpandCard/keyUnlock";
@@ -190,10 +190,10 @@ const ImageCard = forwardRef<HTMLDivElement, Props>(
           </div>
         </div>
         <div className={styles.CardBack}>
-          <Image
+          <ImageWithSkeleton
             className={styles.image}
             src={`/image/music_card/${headingContent}.png`}
-            fill={true}
+            fill
             alt=""
             loading="eager"
           />

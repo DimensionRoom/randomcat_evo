@@ -1,7 +1,7 @@
 "use client";
 import React, { forwardRef, useEffect, useState } from "react";
 
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./ToolCard.module.scss";
 import { mitr } from "@/lib/fonts";
@@ -74,9 +74,10 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
         <div className={styles.cardMedia}>
           {productLink && <span className={styles.priceBadge}>$49.99</span>}
           <div className={styles.itemIcon}>
-            <Image
+            <ImageWithSkeleton
               className={styles.icon}
               src={image}
+              responsive
               width={300}
               height={320}
               alt=""

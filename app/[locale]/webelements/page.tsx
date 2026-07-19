@@ -5,7 +5,7 @@ import LottiePlayer from "@/components/Loading/LottiePlayer";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import initTranslations from "@/i18n";
 import { useTranslations } from "@/hooks/useTranslations";
 import PageShell from "@/components/PageShell/PageShell";
@@ -283,7 +283,8 @@ export default function TemplateScreen({
                 className={styles.itemFrame}
                 style={{ width: 120, height: 120 }}
               >
-                <Image
+                <ImageWithSkeleton
+                  responsive
                   className={styles.image}
                   src="/image/team/natchaya.jpg"
                   width={150}
@@ -303,7 +304,8 @@ export default function TemplateScreen({
                 className={styles.itemFrame}
                 style={{ width: 120, height: 120 }}
               >
-                <Image
+                <ImageWithSkeleton
+                  responsive
                   className={styles.image}
                   src="/image/team/tada.jpg"
                   width={150}

@@ -2,7 +2,7 @@
 import React, { useState, forwardRef, useEffect } from "react";
 
 import { useToast } from "@/contexts/ToastContext";
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./TemplateCard.module.scss";
 import { mitr } from "@/lib/fonts";
@@ -39,7 +39,7 @@ const TemplateCard = forwardRef<HTMLDivElement, Props>(
         {...props}
       >
         <div className={styles.itemImage}>
-          <Image
+          <ImageWithSkeleton
             className={styles.image}
             src={image ? image : "/image/defaultimg.jpg"}
             width={300}

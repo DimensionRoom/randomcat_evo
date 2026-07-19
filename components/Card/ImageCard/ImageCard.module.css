@@ -53,6 +53,7 @@
 .CardBack {
   cursor: pointer;
   display: none;
+  position: relative; /* containing block for the fill-mode skeleton wrapper */
   /* flex: 1; */
   /* min-height: 50px; */
   /* -webkit-backface-visibility: hidden;

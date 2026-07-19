@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactPlayer from 'react-player';
 import Link from 'next/link'
 import initTranslations from './i18n';
-import Image from 'next/image'
+import ImageWithSkeleton from '@/components/Media/ImageWithSkeleton/ImageWithSkeleton'
 import TranslationsProvider from '@/components/TranslationsProvider';
 import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBar';
 import PageFooter from '@/components/Footer/PageFooter';
@@ -267,7 +267,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.stepSection.step1.description2')}</p>
               </div>
               <div className={styles.itemContent}>
-                <Image className={styles.image} src={`/image/step1${locale}.png`} width={300} height={300} alt='' />
+                <ImageWithSkeleton responsive className={styles.image} src={`/image/step1${locale}.png`} width={300} height={300} alt='' />
               </div>
             </div>
             <div className={styles.item}>
@@ -277,7 +277,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 <p className={`${styles.itemHeaderDetail} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.stepSection.step2.description2')}</p>
               </div>
               <div className={styles.itemContent}>
-                <Image className={styles.image} src={`/image/step2${locale}.png`} width={300} height={300} alt='' />
+                <ImageWithSkeleton responsive className={styles.image} src={`/image/step2${locale}.png`} width={300} height={300} alt='' />
               </div>
             </div>
             <div className={styles.item}>
@@ -287,7 +287,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 <p className={`${styles.itemHeaderDetailSm} ${locale == 'th' ? `${mitr.className} ${styles.thfontlight}` : null}`}>{t('section.stepSection.step3.description2')}</p>
               </div>
               <div className={styles.itemContent}>
-                <Image className={styles.image} src={`/image/step3${locale}.png`} width={300} height={300} alt='' />
+                <ImageWithSkeleton responsive className={styles.image} src={`/image/step3${locale}.png`} width={300} height={300} alt='' />
               </div>
             </div>
           </div>
@@ -304,7 +304,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
             <div className={styles.itemImage}>
               <div className={styles.itemFrame} style={{ transform: 'translate(0%, 0%) rotate(5deg)' }}>
-                <Image className={styles.image} src="/image/product1.jpg" width={200} height={200} alt='' />
+                <ImageWithSkeleton responsive className={styles.image} src="/image/product1.jpg" width={200} height={200} alt='' />
               </div>
             </div>
           </div>
@@ -365,7 +365,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 className='toolsSectionInnoDesignLink'
               >
                 <div className={styles.itemImage}>
-                  <Image className={styles.image} src="/image/inno_card.png" width={300} height={300} alt='' />
+                  <ImageWithSkeleton responsive className={styles.image} src="/image/inno_card.png" width={300} height={300} alt='' />
                 </div>
               </Link>
 
@@ -383,7 +383,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 className='toolsSectionStoryDesignLink'
               >
                 <div className={styles.itemImage}>
-                  <Image className={styles.image} src="/image/story_card.png" width={300} height={300} alt='' />
+                  <ImageWithSkeleton responsive className={styles.image} src="/image/story_card.png" width={300} height={300} alt='' />
                 </div>
               </Link>
               <div className={styles.itemData}>
@@ -400,7 +400,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
                 className='toolsSectionEduDesignLink'
               >
                 <div className={styles.itemImage}>
-                  <Image className={styles.image} src="/image/edu_card.png" width={300} height={300} alt='' />
+                  <ImageWithSkeleton responsive className={styles.image} src="/image/edu_card.png" width={300} height={300} alt='' />
                 </div>
               </Link>
               <div className={styles.itemData}>
@@ -422,7 +422,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <div className={styles.itemImage}>
                 <div className={styles.itemFrame} style={{ width: 250 }}>
-                  <Image className={styles.image} src="/image/team/natchaya.jpg" width={250} height={250} alt='' />
+                  <ImageWithSkeleton responsive className={styles.image} src="/image/team/natchaya.jpg" width={250} height={250} alt='' />
                 </div>
               </div>
               <div className={styles.itemData}>
@@ -435,7 +435,7 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             <div className={styles.item}>
               <div className={styles.itemImage}>
                 <div className={styles.itemFrame} style={{ width: 250 }}>
-                  <Image className={styles.image} src="/image/team/tada.jpg" width={250} height={250} alt='' />
+                  <ImageWithSkeleton responsive className={styles.image} src="/image/team/tada.jpg" width={250} height={250} alt='' />
                 </div>
               </div>
               <div className={styles.itemData}>
