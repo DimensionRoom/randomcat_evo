@@ -35,14 +35,6 @@
       }
     },
     "education": {
-      "education_design": {
-        "topic": "Education",
-        "topic2": "Design",
-        "desc": "A tool for designing teaching",
-        "desc2": "materials",
-        "onlineLink": "/onlinetools/educationandparent/educationdesign",
-        "productLink": ""
-      },
       "music_cards_mini_game": {
         "topic": "Music Cards",
         "topic2": "Mini Game",
@@ -73,6 +65,14 @@
         "desc": "Transform a simple brief",
         "desc2": "into a quick prototype.",
         "onlineLink": "/onlinetools/educationandparent/quickprototype",
+        "productLink": ""
+      },
+      "education_design": {
+        "topic": "Education",
+        "topic2": "Design",
+        "desc": "A tool for designing teaching",
+        "desc2": "materials",
+        "onlineLink": "/onlinetools/educationandparent/educationdesign",
         "productLink": ""
       }
     },

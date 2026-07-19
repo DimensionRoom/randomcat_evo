@@ -35,14 +35,6 @@
       }
     },
     "education": {
-      "education_design": {
-        "topic": "Education",
-        "topic2": "Design",
-        "desc": "สร้างนวัตกรรมการศึกษาที่แปลกใหม่",
-        "desc2": "ให้น่าสนใจด้วยการสุ่มโจทย์จากการ์ด",
-        "onlineLink": "/onlinetools/educationandparent/educationdesign",
-        "productLink": ""
-      },
       "music_cards_mini_game": {
         "topic": "Music Cards",
         "topic2": "Mini Game",
@@ -73,6 +65,14 @@
         "desc": "เปลี่ยนบรีฟลูกค้า",
         "desc2": "ให้เป็นต้นแบบสุดเจ๋ง",
         "onlineLink": "/onlinetools/educationandparent/quickprototype",
+        "productLink": ""
+      },
+       "education_design": {
+        "topic": "Education",
+        "topic2": "Design",
+        "desc": "สร้างนวัตกรรมการศึกษาที่แปลกใหม่",
+        "desc2": "ให้น่าสนใจด้วยการสุ่มโจทย์จากการ์ด",
+        "onlineLink": "/onlinetools/educationandparent/educationdesign",
         "productLink": ""
       }
     },
