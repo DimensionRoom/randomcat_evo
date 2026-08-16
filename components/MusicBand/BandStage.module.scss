@@ -120,6 +120,12 @@
   border-color: transparent;
   background: linear-gradient(135deg, #8a14d1, #d264e8);
   color: #ffffff;
+
+  // .toolButton's hover turns the background white, which would hide this
+  // button's white label — keep the gradient and just deepen it instead.
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #7a0fbb, #c04ad8);
+  }
 }
 
 // globals.css sets `:root a { color: inherit }`, which out-specifies a plain
