@@ -1,0 +1,581 @@
+.main {
+  --background-color: #f7f4ff;
+  display: flex;
+  /* Desktop/tablet: the whole workspace fits one viewport — never scrolls. */
+  height: 100dvh;
+  overflow: hidden;
+  flex-direction: column;
+  background: url("/svgs/svg/thinktool-background.svg") center / cover no-repeat,
+    var(--background-color);
+}
+
+.HeaderSection {
+  z-index: 2;
+}
+
+.MobileHeader {
+  --logo-color: #691392;
+  display: none;
+
+  .LayoutHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    height: 60px;
+    padding: 1rem 1.2rem !important;
+
+    .textLink .BrandContainer {
+      width: 30px;
+      height: 30px;
+
+      .LogoContainer svg {
+        fill: var(--logo-color);
+      }
+    }
+  }
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: 10px;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 10px 16px 14px;
+}
+
+/* ---------- Toolbar ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbarTitle {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  line-height: 1.25;
+}
+
+.toolbarName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #241a4f;
+}
+
+.toolbarVenue {
+  font-size: 0.78rem;
+  color: #7c6a99;
+}
+
+.toolbarActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toolButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid rgba(138, 92, 246, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #4a1470;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.16s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &:hover:not(:disabled) {
+    background: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.toolButtonPrimary {
+  border-color: transparent;
+  background: linear-gradient(135deg, #8a14d1, #d264e8);
+  color: #ffffff;
+}
+
+// globals.css sets `:root a { color: inherit }`, which out-specifies a plain
+// class — the back link needs a stronger selector to keep its own colour.
+.toolbar a.toolButton {
+  color: #4a1470;
+}
+
+/* ---------- Stage ---------- */
+
+.stage {
+  position: relative;
+  width: 100%;
+  // Takes whatever height the toolbar and tray leave, rather than deriving it
+  // from the width — that is what used to push the tray off screen.
+  flex: 1;
+  min-height: 220px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 3px solid var(--accent, #8a5cf6);
+  box-shadow: 0 18px 44px rgba(93, 55, 155, 0.18);
+  // `size` (not just inline-size) so pieces can also measure against cqh.
+  container-type: size;
+  touch-action: none;
+}
+
+.emptyHint {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #4a1470;
+  font-size: clamp(0.75rem, 2.4cqw, 0.95rem);
+  text-align: center;
+  pointer-events: none;
+}
+
+.stageCount {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.42);
+  color: #ffffff;
+  font-size: 0.72rem;
+  pointer-events: none;
+}
+
+/* ---------- Placed instrument ---------- */
+
+.piece {
+  position: absolute;
+  // Sized from whichever stage dimension is tighter, so a card can never be
+  // taller than the stage on a short window.
+  width: calc(min(10.5cqw, 26cqh) * var(--piece-scale, 1));
+  min-width: 48px;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  // Belt-and-braces with preventDefault in useStageDrag: keeps the browser's
+  // native image drag from hijacking (and cancelling) the pointer gesture.
+  -webkit-user-drag: none;
+
+  img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    .pieceImage {
+      outline: 3px solid #ffffff;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.pieceImage {
+  position: relative;
+  width: 100%;
+  // Matches the instrument artwork (1240x1748) so the card has no dead margin.
+  aspect-ratio: 1240 / 1748;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.pieceSelected .pieceImage {
+  box-shadow: 0 0 0 3px #ffffff, 0 10px 24px rgba(0, 0, 0, 0.42);
+}
+
+.pieceToolbar {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  display: flex;
+  gap: 4px;
+  transform: translateX(-50%);
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(24, 12, 40, 0.9);
+}
+
+.noteToolbar {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  display: flex;
+  gap: 4px;
+  transform: translateX(-50%);
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(24, 12, 40, 0.9);
+}
+
+.pieceButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  cursor: pointer;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.32);
+  }
+}
+
+.pieceRemove:hover {
+  background: #e0567a;
+}
+
+.pieceHandle {
+  position: absolute;
+  right: -9px;
+  bottom: -9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: var(--accent, #8a5cf6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: nwse-resize;
+  touch-action: none;
+}
+
+/* ---------- Text note ---------- */
+
+.note {
+  position: absolute;
+  width: min(46cqw, 320px, 90cqh);
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  touch-action: none;
+}
+
+.noteText {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 251, 214, 0.95);
+  color: #2f2410;
+  font-size: clamp(0.72rem, 2.3cqw, 1rem);
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.noteSelected .noteText {
+  box-shadow: 0 0 0 3px #ffffff, 0 8px 18px rgba(0, 0, 0, 0.32);
+}
+
+.noteInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #fffbd6;
+  color: #2f2410;
+  font: inherit;
+  font-size: clamp(0.72rem, 2.3cqw, 1rem);
+  line-height: 1.4;
+  resize: none;
+  box-shadow: 0 0 0 3px #8a5cf6;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ---------- Instrument tray ---------- */
+
+.tray {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 34px rgba(93, 55, 155, 0.12);
+}
+
+.categoryBar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.categoryTab {
+  flex: none;
+  padding: 7px 14px;
+  border: 1px solid rgba(138, 92, 246, 0.25);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #4a1470;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.categoryTabActive {
+  border-color: transparent;
+  background: var(--accent, #8a5cf6);
+  color: #1c1230;
+}
+
+.railWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.rail {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  // Height comes from the viewport so the tray gives space back to the stage
+  // on shorter windows; cards then size themselves to fill it.
+  height: clamp(104px, 17vh, 176px);
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 4px 2px 8px;
+  scrollbar-width: thin;
+}
+
+.trayCard {
+  flex: none;
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 8px 10px;
+  border: 1px solid rgba(138, 92, 246, 0.2);
+  border-radius: 14px;
+  background: #ffffff;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(93, 55, 155, 0.2);
+    border-color: var(--accent, #8a5cf6);
+  }
+}
+
+.trayImage {
+  position: relative;
+  display: block;
+  flex: 1;
+  min-height: 0;
+  width: auto;
+  aspect-ratio: 1240 / 1748;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f6f2ff;
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.trayName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #241a4f;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.trayHint {
+  font-size: 0.68rem;
+  color: #7c6a99;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.railArrow {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border: 1px solid rgba(138, 92, 246, 0.25);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #4a1470;
+  cursor: pointer;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.railArrowLeft {
+  margin-right: 6px;
+}
+
+.railArrowRight {
+  margin-left: 6px;
+}
+
+@media (min-width: 900px) {
+  .railArrow {
+    display: inline-flex;
+  }
+}
+
+// Short windows: drop the tray hint line to give the stage its height back.
+// The text stays reachable as the card's title tooltip.
+@media (max-height: 900px) and (min-width: 768px) {
+  .trayHint {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  // Phones keep a big stage and scroll instead of squeezing into one screen.
+  .main {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .workspace {
+    padding: 10px 10px 20px;
+    gap: 8px;
+  }
+
+  .toolbar {
+    gap: 6px;
+  }
+
+  .toolbarTitle {
+    order: -1;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .toolButton {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+    gap: 4px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .stage {
+    // A 16:9 strip is too shallow to arrange a band on a phone.
+    flex: none;
+    aspect-ratio: 4 / 3;
+  }
+
+  .rail {
+    height: auto;
+  }
+
+  .trayCard {
+    width: 96px;
+    height: auto;
+  }
+
+  .trayImage {
+    flex: none;
+    width: 100%;
+  }
+
+  .piece {
+    // Slightly larger share of the stage so pieces stay tappable on a phone.
+    width: calc(18cqw * var(--piece-scale, 1));
+  }
+}
+
+@media (max-width: 560px) {
+  .MobileHeader {
+    display: flex;
+  }
+
+  .workspace {
+    padding-top: calc(60px + 10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toolButton,
+  .trayCard {
+    transition: none;
+  }
+}

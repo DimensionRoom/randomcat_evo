@@ -1,0 +1,43 @@
+{
+  "chooser": {
+    "eyebrow": "MUSIC CARDS",
+    "title": "Music Card Game",
+    "subtitle": "Pick how you want to play today.",
+    "cardGame": {
+      "title": "Card Game",
+      "desc": "Draw a random question and flip the instrument cards to answer it.",
+      "action": "Play the card game"
+    },
+    "band": {
+      "title": "Music Band",
+      "desc": "Arrange real instruments on a stage and mock up your own ensemble.",
+      "action": "Build a band"
+    }
+  },
+  "missions": {
+    "eyebrow": "MUSIC BAND",
+    "title": "Choose your ensemble",
+    "subtitle": "Each ensemble comes with its own venue and backing music.",
+    "venueLabel": "Venue",
+    "action": "Start arranging",
+    "back": "Back"
+  },
+  "stage": {
+    "back": "Back",
+    "addText": "Add text",
+    "clear": "Clear stage",
+    "clearConfirm": "Remove everything from the stage?",
+    "export": "Save as PDF",
+    "exporting": "Saving…",
+    "soundOn": "Sound on",
+    "soundOff": "Sound off",
+    "empty": "Tap an instrument below to place it on the stage",
+    "notePlaceholder": "Type a note…",
+    "remove": "Remove",
+    "smaller": "Smaller",
+    "bigger": "Bigger",
+    "itemsLabel": "on stage",
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right"
+  }
+}

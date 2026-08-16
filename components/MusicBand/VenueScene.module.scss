@@ -1,0 +1,36 @@
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+/* Base wash behind the SVG, so the scene still reads if the SVG is clipped. */
+.chamber {
+  background: linear-gradient(180deg, #f7ead1 0%, #efdcbb 55%, #b98a4f 100%);
+}
+
+.orchestra {
+  background: linear-gradient(180deg, #2b1d3d 0%, #3d2a55 50%, #5c3b22 100%);
+}
+
+.jazz {
+  background: linear-gradient(180deg, #14141f 0%, #221d33 55%, #2c1f18 100%);
+}
+
+.folk {
+  background: linear-gradient(180deg, #f9f0e2 0%, #f1e2cb 55%, #c69a63 100%);
+}
+
+.string {
+  background: linear-gradient(180deg, #0d0b16 0%, #1b1428 55%, #17131f 100%);
+}
+
+.stringcombo {
+  background: linear-gradient(180deg, #241a3d 0%, #33244f 55%, #1d1830 100%);
+}
