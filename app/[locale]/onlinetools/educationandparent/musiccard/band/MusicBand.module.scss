@@ -157,9 +157,10 @@
   position: relative;
   display: block;
   width: 100%;
-  // Height tracks the viewport instead of the card width, so five cards in a
-  // row still leave the page inside one screen.
-  height: clamp(84px, 15vh, 150px);
+  // Height tracks the viewport instead of the card width, so the grid still
+  // fits one screen. With only a title under it, the scene takes the room the
+  // description used to occupy.
+  height: clamp(100px, 19vh, 190px);
   border-bottom: 4px solid var(--accent, #8a5cf6);
 }
 
@@ -167,7 +168,8 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
   padding: clamp(10px, 1.6vh, 16px) 14px clamp(12px, 1.8vh, 18px);
 }
 
@@ -175,72 +177,7 @@
   font-size: 1.15rem;
   font-weight: 700;
   color: #241a4f;
-}
-
-.missionSubtitle {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent, #8a5cf6);
-  filter: brightness(0.75);
-}
-
-.missionDesc {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 0.84rem;
-  line-height: 1.5;
-  color: #6b7280;
-}
-
-.missionVenue {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.82rem;
-  color: #7c6a99;
-
-  svg {
-    width: 15px;
-    height: 15px;
-    flex-shrink: 0;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.9;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-}
-
-.missionAction {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #8a14d1;
-
-  svg {
-    width: 17px;
-    height: 17px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-}
-
-// Very short windows: the description is the first thing to go.
-@media (max-height: 720px) and (min-width: 768px) {
-  .missionDesc {
-    display: none;
-  }
+  text-align: center;
 }
 
 @media (max-width: 767px) {
@@ -272,4 +209,11 @@
   .missionCard {
     transition: none;
   }
+}
+
+// Thai text renders at weight 300 across this tool. !important because this
+// class sits alongside per-element rules of equal specificity (.trayName,
+// .toolbarName, …) whose own font-weight would otherwise win on source order.
+.thfont {
+  font-weight: 300 !important;
 }

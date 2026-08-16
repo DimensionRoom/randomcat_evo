@@ -280,12 +280,13 @@
 .pieceImage {
   position: relative;
   width: 100%;
-  // Matches the instrument artwork (1240x1748) so the card has no dead margin.
+  // Matches the instrument artwork (1240x1748) so nothing is letterboxed.
   aspect-ratio: 1240 / 1748;
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  // The artwork is a transparent PNG and sits straight on the venue — no card,
+  // no frame. drop-shadow (not box-shadow) so the shadow follows the
+  // instrument's silhouette; box-shadow would outline the mostly-transparent
+  // box and read as a frame again.
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.45));
 
   img {
     object-fit: contain;
@@ -293,7 +294,10 @@
 }
 
 .pieceSelected .pieceImage {
-  box-shadow: 0 0 0 3px #ffffff, 0 10px 24px rgba(0, 0, 0, 0.42);
+  // A halo that hugs the instrument, for the same reason as above.
+  filter: drop-shadow(0 0 2px #ffffff)
+    drop-shadow(0 0 7px rgba(255, 255, 255, 0.7))
+    drop-shadow(0 5px 8px rgba(0, 0, 0, 0.45));
 }
 
 .pieceToolbar {
@@ -473,7 +477,9 @@
 
 .trayCard {
   flex: none;
-  width: auto;
+  // Fixed width so every card matches: left to size itself, the card grew to
+  // fit its label and instruments with long names ended up much wider.
+  width: clamp(78px, 12vh, 116px);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -500,8 +506,8 @@
   display: block;
   flex: 1;
   min-height: 0;
-  width: auto;
-  aspect-ratio: 1240 / 1748;
+  // Fills the card's fixed width; object-fit keeps the artwork undistorted.
+  width: 100%;
   border-radius: 8px;
   overflow: hidden;
   background: #f6f2ff;
@@ -512,18 +518,18 @@
 }
 
 .trayName {
+  width: 100%;
+  // Long names wrap inside the card rather than stretching it wider.
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
   font-size: 0.8rem;
   font-weight: 700;
   color: #241a4f;
   text-align: center;
   line-height: 1.2;
-}
-
-.trayHint {
-  font-size: 0.68rem;
-  color: #7c6a99;
-  text-align: center;
-  line-height: 1.25;
 }
 
 .railArrow {
@@ -561,14 +567,6 @@
 @media (min-width: 900px) {
   .railArrow {
     display: inline-flex;
-  }
-}
-
-// Short windows: drop the tray hint line to give the stage its height back.
-// The text stays reachable as the card's title tooltip.
-@media (max-height: 900px) and (min-width: 768px) {
-  .trayHint {
-    display: none;
   }
 }
 
@@ -622,8 +620,11 @@
   }
 
   .trayImage {
+    // The card is auto-height here, so the box needs its own ratio to have
+    // any height at all (desktop gets it from the fixed rail height instead).
     flex: none;
     width: 100%;
+    aspect-ratio: 1240 / 1748;
   }
 
   .piece {
@@ -648,4 +649,11 @@
   .exportBarFill {
     transition: none;
   }
+}
+
+// Thai text renders at weight 300 across this tool. !important because this
+// class sits alongside per-element rules of equal specificity (.trayName,
+// .toolbarName, …) whose own font-weight would otherwise win on source order.
+.thfont {
+  font-weight: 300 !important;
 }

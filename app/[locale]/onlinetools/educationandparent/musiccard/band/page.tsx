@@ -20,7 +20,7 @@ export default function BandMissionPicker({
 }) {
   const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const isThai = locale === "th";
-  const thFont = isThai ? mitr.className : "";
+  const thFont = isThai ? `${mitr.className} ${styles.thfont}` : "";
 
   return (
     <PageShell
@@ -54,9 +54,6 @@ export default function BandMissionPicker({
             <h1 className={`${styles.title} ${thFont}`}>
               {t("missions.title")}
             </h1>
-            <p className={`${styles.subtitle} ${thFont}`}>
-              {t("missions.subtitle")}
-            </p>
             <div className={styles.divider} aria-hidden="true">
               <span className={styles.dividerBarPurple} />
               <span className={styles.dividerDot} />
@@ -78,26 +75,6 @@ export default function BandMissionPicker({
                 <span className={styles.missionBody}>
                   <span className={`${styles.missionName} ${thFont}`}>
                     {isThai ? ensemble.nameTh : ensemble.nameEn}
-                  </span>
-                  <span className={styles.missionSubtitle}>
-                    {ensemble.subtitle}
-                  </span>
-                  <span className={`${styles.missionDesc} ${thFont}`}>
-                    {isThai ? ensemble.descTh : ensemble.descEn}
-                  </span>
-                  <span className={`${styles.missionVenue} ${thFont}`}>
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z" />
-                      <circle cx="12" cy="10" r="2.6" />
-                    </svg>
-                    {t("missions.venueLabel")}:{" "}
-                    {isThai ? ensemble.venueTh : ensemble.venueEn}
-                  </span>
-                  <span className={`${styles.missionAction} ${thFont}`}>
-                    {t("missions.action")}
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12h13M12 5l7 7-7 7" />
-                    </svg>
                   </span>
                 </span>
               </Link>

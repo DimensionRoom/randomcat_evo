@@ -18,7 +18,7 @@ export default function MusicCardChooser({
 }) {
   const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const isThai = locale === "th";
-  const thFont = isThai ? mitr.className : "";
+  const thFont = isThai ? `${mitr.className} ${styles.thfont}` : "";
 
   const options = [
     {

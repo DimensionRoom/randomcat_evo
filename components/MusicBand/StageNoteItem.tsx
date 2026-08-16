@@ -9,6 +9,8 @@ interface Props {
   selected: boolean;
   placeholder: string;
   removeLabel: string;
+  /** Mitr + weight class when the page is Thai, so typed notes match the UI. */
+  thFont: string;
   stageRef: React.RefObject<HTMLElement>;
   onMove: (uid: string, x: number, y: number) => void;
   onChange: (uid: string, text: string) => void;
@@ -21,6 +23,7 @@ export default function StageNoteItem({
   selected,
   placeholder,
   removeLabel,
+  thFont,
   stageRef,
   onMove,
   onChange,
@@ -60,7 +63,7 @@ export default function StageNoteItem({
       {editing ? (
         <textarea
           ref={textareaRef}
-          className={styles.noteInput}
+          className={`${styles.noteInput} ${thFont}`}
           value={note.text}
           placeholder={placeholder}
           onChange={(e) => onChange(note.uid, e.target.value)}
@@ -74,7 +77,7 @@ export default function StageNoteItem({
           rows={2}
         />
       ) : (
-        <p className={styles.noteText}>{note.text}</p>
+        <p className={`${styles.noteText} ${thFont}`}>{note.text}</p>
       )}
 
       {selected && !editing && (

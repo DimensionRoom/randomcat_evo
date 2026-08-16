@@ -17,10 +17,7 @@
   "missions": {
     "eyebrow": "MUSIC BAND",
     "title": "Choose your ensemble",
-    "subtitle": "Each ensemble comes with its own venue and backing music.",
-    "venueLabel": "Venue",
-    "action": "Start arranging",
-    "back": "Back"
+    "subtitle": "Each ensemble comes with its own venue and backing music."
   },
   "stage": {
     "back": "Back",

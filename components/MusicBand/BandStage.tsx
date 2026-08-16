@@ -29,7 +29,7 @@ export default function BandStage({
 }) {
   const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
   const isThai = locale === "th";
-  const thFont = isThai ? mitr.className : "";
+  const thFont = isThai ? `${mitr.className} ${styles.thfont}` : "";
 
   const [pieces, setPieces] = useState<StagePiece[]>([]);
   const [notes, setNotes] = useState<StageNote[]>([]);
@@ -196,9 +196,6 @@ export default function BandStage({
               <span className={`${styles.toolbarName} ${thFont}`}>
                 {isThai ? ensemble.nameTh : ensemble.nameEn}
               </span>
-              <span className={`${styles.toolbarVenue} ${thFont}`}>
-                {isThai ? ensemble.venueTh : ensemble.venueEn}
-              </span>
             </div>
 
             <div className={styles.toolbarActions}>
@@ -304,6 +301,7 @@ export default function BandStage({
                 selected={selected === note.uid}
                 placeholder={t("stage.notePlaceholder")}
                 removeLabel={t("stage.remove")}
+                thFont={thFont}
                 stageRef={stageRef}
                 onMove={(uid, x, y) =>
                   setNotes((current) =>

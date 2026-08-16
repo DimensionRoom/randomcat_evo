@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
+import { mitr } from "@/lib/fonts";
 import {
   instrumentCategories,
   type Instrument,
@@ -18,6 +19,9 @@ export default function InstrumentTray({ isThai, labels, onPick }: Props) {
     instrumentCategories[0].id
   );
   const railRef = useRef<HTMLDivElement>(null);
+  // Without this the tray's Thai labels fell back to a system font while the
+  // rest of the page used Mitr.
+  const thFont = isThai ? `${mitr.className} ${styles.thfont}` : "";
 
   const category =
     instrumentCategories.find((entry) => entry.id === activeCategory) ??
@@ -40,7 +44,7 @@ export default function InstrumentTray({ isThai, labels, onPick }: Props) {
             aria-selected={entry.id === activeCategory}
             className={`${styles.categoryTab} ${
               entry.id === activeCategory ? styles.categoryTabActive : ""
-            }`}
+            } ${thFont}`}
             style={{ ["--accent" as string]: entry.accent }}
             onClick={() => {
               setActiveCategory(entry.id);
@@ -82,11 +86,8 @@ export default function InstrumentTray({ isThai, labels, onPick }: Props) {
                   sizes="140px"
                 />
               </span>
-              <span className={styles.trayName}>
+              <span className={`${styles.trayName} ${thFont}`}>
                 {isThai ? instrument.nameTh : instrument.nameEn}
-              </span>
-              <span className={styles.trayHint}>
-                {isThai ? instrument.hintTh : instrument.hintEn}
               </span>
             </button>
           ))}

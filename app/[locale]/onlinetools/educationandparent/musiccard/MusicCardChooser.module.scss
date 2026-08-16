@@ -224,3 +224,10 @@
     transition: none;
   }
 }
+
+// Thai text renders at weight 300 across this tool. !important because this
+// class sits alongside per-element rules of equal specificity (.trayName,
+// .toolbarName, …) whose own font-weight would otherwise win on source order.
+.thfont {
+  font-weight: 300 !important;
+}
