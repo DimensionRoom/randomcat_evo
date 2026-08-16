@@ -14,7 +14,7 @@ import InstrumentTray from "./InstrumentTray";
 import StagePieceItem from "./StagePieceItem";
 import StageNoteItem from "./StageNoteItem";
 import { useBandAudio } from "./useBandAudio";
-import { exportStageToPDF } from "./exportStagePDF";
+import { exportStageToPDF, type ExportStep } from "./exportStagePDF";
 import { clampScale, type StageNote, type StagePiece } from "./types";
 import styles from "./BandStage.module.scss";
 
@@ -35,6 +35,9 @@ export default function BandStage({
   const [notes, setNotes] = useState<StageNote[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
+  const [exportStep, setExportStep] = useState<ExportStep>("prepare");
+  const [exportPercent, setExportPercent] = useState(0);
+  const [exportError, setExportError] = useState(false);
 
   const stageRef = useRef<HTMLDivElement>(null);
   const topZ = useRef(1);
@@ -121,11 +124,27 @@ export default function BandStage({
     const stage = stageRef.current;
     if (!stage || exporting) return;
     setSelected(null);
+    setExportError(false);
+    setExportStep("prepare");
+    setExportPercent(0);
     setExporting(true);
     try {
       // Let the selection chrome unmount before the capture.
       await new Promise((resolve) => window.setTimeout(resolve, 60));
-      await exportStageToPDF(stage, `music-band-${ensemble.id}`);
+      await exportStageToPDF(
+        stage,
+        `music-band-${ensemble.id}`,
+        (step, percent) => {
+          setExportStep(step);
+          setExportPercent(percent);
+        }
+      );
+      // Hold the finished bar briefly so the completion is actually visible;
+      // saving happens in the same tick the bar reaches 100%.
+      await new Promise((resolve) => window.setTimeout(resolve, 350));
+    } catch {
+      // Surface the failure instead of silently returning to the idle button.
+      setExportError(true);
     } finally {
       setExporting(false);
     }
@@ -324,6 +343,57 @@ export default function BandStage({
             onPick={addPiece}
           />
         </div>
+
+        {/* Outside the stage element (and ignored by html2canvas) so it can
+            never end up inside the exported PDF. */}
+        {exporting && (
+          <div
+            className={styles.exportOverlay}
+            data-html2canvas-ignore="true"
+            role="status"
+            aria-live="polite"
+          >
+            <div className={styles.exportCard}>
+              <p className={`${styles.exportStep} ${thFont}`}>
+                {t(`stage.exportSteps.${exportStep}`)}
+              </p>
+              <div
+                className={styles.exportBar}
+                role="progressbar"
+                aria-valuenow={exportPercent}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <span
+                  className={styles.exportBarFill}
+                  style={{ width: `${exportPercent}%` }}
+                />
+              </div>
+              <p className={styles.exportPercent}>{exportPercent}%</p>
+            </div>
+          </div>
+        )}
+
+        {exportError && (
+          <div
+            className={styles.exportOverlay}
+            data-html2canvas-ignore="true"
+            role="alert"
+          >
+            <div className={styles.exportCard}>
+              <p className={`${styles.exportErrorText} ${thFont}`}>
+                {t("stage.exportFailed")}
+              </p>
+              <button
+                type="button"
+                className={`${styles.toolButton} ${thFont}`}
+                onClick={() => setExportError(false)}
+              >
+                {t("stage.close")}
+              </button>
+            </div>
+          </div>
+        )}
       </main>
     </PageShell>
   );

@@ -29,6 +29,16 @@
     "clearConfirm": "Remove everything from the stage?",
     "export": "Save as PDF",
     "exporting": "Saving…",
+    "exportSteps": {
+      "prepare": "Preparing the stage…",
+      "capture": "Capturing the stage…",
+      "render": "Rendering the artwork…",
+      "encode": "Compressing the image…",
+      "build": "Building the PDF…",
+      "save": "Saving the file…"
+    },
+    "exportFailed": "Could not save the PDF. Please try again.",
+    "close": "Close",
     "soundOn": "Sound on",
     "soundOff": "Sound off",
     "empty": "Tap an instrument below to place it on the stage",

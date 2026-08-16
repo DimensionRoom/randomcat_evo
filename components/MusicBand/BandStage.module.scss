@@ -128,6 +128,69 @@
   color: #4a1470;
 }
 
+/* ---------- PDF export progress ---------- */
+
+.exportOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(24, 12, 40, 0.55);
+}
+
+.exportCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(360px, 100%);
+  padding: 24px 26px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(24, 12, 40, 0.35);
+  text-align: center;
+}
+
+.exportStep {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #241a4f;
+}
+
+.exportBar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(138, 92, 246, 0.18);
+  overflow: hidden;
+}
+
+.exportBarFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8a14d1, #d264e8);
+  transition: width 0.25s ease;
+}
+
+.exportPercent {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #8a5cf6;
+}
+
+.exportErrorText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #b3261e;
+}
+
 /* ---------- Stage ---------- */
 
 .stage {
@@ -575,7 +638,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .toolButton,
-  .trayCard {
+  .trayCard,
+  .exportBarFill {
     transition: none;
   }
 }
