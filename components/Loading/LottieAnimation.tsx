@@ -1,5 +1,6 @@
+'use client';
 import React, { useEffect, useRef } from 'react';
-import lottie, { AnimationItem } from 'lottie-web';
+import type { AnimationItem } from 'lottie-web';
 
 interface LottieAnimationProps {
   animationData: any;
@@ -13,55 +14,67 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({ animationData, color 
     const container = containerRef.current;
     if (!container) return;
 
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let anim: AnimationItem | null = null;
+    let observer: IntersectionObserver | null = null;
+    let cancelled = false;
 
-    // Keep the SVG renderer: lottie-web's canvas renderer drops unsupported
-    // features (masks, mattes, some effects) and distorts many animations.
-    // The CPU win comes from pausing while off screen instead (see below).
-    const anim: AnimationItem = lottie.loadAnimation({
-      container,
-      renderer: 'svg',
-      loop: true,
-      autoplay: false, // playback is driven by on-screen visibility below
-      animationData,
+    // lottie-web reaches for `document` at import time, so it is pulled in here
+    // (client-only, inside the effect) rather than at module scope — a static
+    // import breaks server rendering for every page that uses this component.
+    import('lottie-web').then(({ default: lottie }) => {
+      if (cancelled) return;
+
+      const prefersReducedMotion =
+        typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Keep the SVG renderer: lottie-web's canvas renderer drops unsupported
+      // features (masks, mattes, some effects) and distorts many animations.
+      // The CPU win comes from pausing while off screen instead (see below).
+      anim = lottie.loadAnimation({
+        container,
+        renderer: 'svg',
+        loop: true,
+        autoplay: false, // playback is driven by on-screen visibility below
+        animationData,
+      });
+
+      // Change color dynamically (requires the SVG DOM).
+      if (color) {
+        anim.addEventListener('DOMLoaded', () => {
+          const elements = container.querySelectorAll(
+            'path, g, rect, circle, polygon, polyline, line, ellipse'
+          );
+          elements[10]?.setAttribute('fill', color[0]);
+          elements[13]?.setAttribute('fill', color[1]);
+          elements[16]?.setAttribute('fill', color[2]);
+        });
+      }
+
+      // Respect users who prefer reduced motion: show a single static frame.
+      if (prefersReducedMotion) {
+        anim.goToAndStop(0, true);
+        return;
+      }
+
+      // Only run the rAF loop while the animation is actually on screen.
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            anim?.play();
+          } else {
+            anim?.pause();
+          }
+        },
+        { threshold: 0.01 }
+      );
+      observer.observe(container);
     });
 
-    // Change color dynamically (requires the SVG DOM).
-    if (color) {
-      anim.addEventListener('DOMLoaded', () => {
-        const elements = container.querySelectorAll(
-          'path, g, rect, circle, polygon, polyline, line, ellipse'
-        );
-        elements[10]?.setAttribute('fill', color[0]);
-        elements[13]?.setAttribute('fill', color[1]);
-        elements[16]?.setAttribute('fill', color[2]);
-      });
-    }
-
-    // Respect users who prefer reduced motion: show a single static frame.
-    if (prefersReducedMotion) {
-      anim.goToAndStop(0, true);
-      return () => anim.destroy();
-    }
-
-    // Only run the rAF loop while the animation is actually on screen.
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          anim.play();
-        } else {
-          anim.pause();
-        }
-      },
-      { threshold: 0.01 }
-    );
-    observer.observe(container);
-
     return () => {
-      observer.disconnect();
-      anim.destroy();
+      cancelled = true;
+      observer?.disconnect();
+      anim?.destroy();
     };
   }, [animationData, color]);
 

@@ -1,7 +1,16 @@
 "use client";
 import React, { useRef } from "react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 import type { AnimationItem } from "lottie-web";
+
+// @lottiefiles/react-lottie-player touches `document` as soon as it is
+// imported, which crashes server rendering. Loading it through next/dynamic
+// with ssr:false keeps it off the server, so callers can import this component
+// normally instead of each having to wrap it themselves.
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 
 type PlayerProps = React.ComponentProps<typeof Player>;
 
