@@ -220,7 +220,7 @@ export const instrumentCategories: InstrumentCategory[] = [
       {
         id: "uprightpiano",
         nameEn: "Upright Piano",
-        nameTh: "เปียโนตั้ง",
+        nameTh: "เปียโน",
         hintEn: "Compact and warm",
         hintTh: "ขนาดกะทัดรัด เสียงอบอุ่น",
         image: `${ART}/Keyboard/Upright Piano.png`,

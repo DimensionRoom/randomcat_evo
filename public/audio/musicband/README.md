@@ -9,7 +9,7 @@ ensemble `id` in `public/data/musicband/ensembles.ts`:
 | `string.mp3`      | วงสตริง / String Band |
 | `stringcombo.mp3` | วงสตริงคอมโบ / String Combo Band |
 | `folk.mp3`        | วงโฟล์ค / Folk Band |
-| `chamber.mp3`     | วงเชมเบอร์ / Chamber Music |
+| `chamber.mp3`     | วงแชมเบอร์ / Chamber Music |
 | `orchestra.mp3`   | วงออร์เคสตรา / Orchestra Band |
 
 No code change is needed — the stage picks the file up automatically.

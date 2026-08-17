@@ -75,7 +75,7 @@ export const ensembles: Ensemble[] = [
   {
     id: "chamber",
     nameEn: "Chamber Music",
-    nameTh: "วงเชมเบอร์",
+    nameTh: "วงแชมเบอร์",
     subtitle: "Chamber Music",
     venueEn: "Classical chamber hall",
     venueTh: "ห้องบรรเลงคลาสสิก",
