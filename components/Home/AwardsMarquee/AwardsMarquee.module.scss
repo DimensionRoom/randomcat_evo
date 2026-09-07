@@ -1,0 +1,179 @@
+.awards {
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(16px, 4vw, 48px) clamp(24px, 4vh, 48px);
+  background: #fff;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  width: min(1400px, 100%);
+  padding: clamp(20px, 3vh, 34px) clamp(20px, 3vw, 40px);
+  border-radius: 22px;
+  background: #f3eefc;
+}
+
+.intro {
+  flex: none;
+  width: clamp(150px, 16vw, 210px);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+  font-weight: 700;
+  color: #2f1a4d;
+}
+
+.trophy {
+  font-size: 0.95em;
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: clamp(0.78rem, 1vw, 0.9rem);
+  line-height: 1.5;
+  color: #6b5c85;
+}
+
+.rule {
+  display: block;
+  width: 46px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background: #f0b429;
+}
+
+/* ---------- Marquee ---------- */
+
+.viewport {
+  // The band is clipped here; the track inside is twice as wide as the list.
+  // `contain: paint` keeps the moving track from dirtying the rest of the page.
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  contain: paint;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: awardsScroll 16s linear infinite;
+  // Own compositor layer. The home page runs GSAP section reveals and two
+  // Lottie players on the main thread; an uncomposited track re-rasterises its
+  // text every frame against that and visibly shimmers.
+  will-change: transform;
+  backface-visibility: hidden;
+
+  &:hover,
+  &:focus-within {
+    animation-play-state: paused;
+  }
+}
+
+// Sliding by half the track only lands on a seam if half the track is exactly
+// one copy of the list. That means the spacing has to belong to the cards
+// themselves (see .card's margin-right) rather than being a flex `gap`: with a
+// gap, the track measures 10C + 9G while one copy plus its trailing space is
+// 5C + 5G, so every loop snaps back by half a gap.
+@keyframes awardsScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.card {
+  flex: none;
+  width: clamp(160px, 15vw, 210px);
+  // Each card carries its own trailing space, including the last one — that
+  // final margin is what makes the two halves identical. It is never seen,
+  // being clipped by .viewport.
+  margin-right: clamp(12px, 1.4vw, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 14px 18px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(93, 55, 155, 0.08);
+  text-align: center;
+}
+
+.logo {
+  position: relative;
+  display: block;
+  width: clamp(58px, 5vw, 76px);
+  aspect-ratio: 1;
+
+  img {
+    object-fit: contain;
+    // Greyed out so five different house styles read as one quiet row rather
+    // than competing for attention. Colour comes back on hover, which is also
+    // where the band stops moving.
+    filter: grayscale(1);
+    opacity: 0.62;
+    transition: filter 0.25s, opacity 0.25s;
+  }
+}
+
+.track:hover .logo img,
+.track:focus-within .logo img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo img {
+    transition: none;
+  }
+}
+
+.awardTitle {
+  margin: 4px 0 0;
+  font-size: clamp(0.76rem, 0.95vw, 0.88rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #2f1a4d;
+}
+
+// Thai renders at weight 300 across the site.
+.thfont {
+  font-weight: 300 !important;
+}
+
+@media (max-width: 900px) {
+  .panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .intro {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  // Constant motion for the whole visit — stop it and let people scroll the
+  // band themselves instead of merely slowing it down.
+  .track {
+    animation: none;
+    // Nothing left to composite; don't hold a layer open for no reason.
+    will-change: auto;
+  }
+
+  .viewport {
+    overflow-x: auto;
+  }
+}

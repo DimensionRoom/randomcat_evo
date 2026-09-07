@@ -15,6 +15,7 @@ import MainNavigationTopBar from '@/components/NavigationBar/MainNavigationTopBa
 import PageFooter from '@/components/Footer/PageFooter';
 import mainLoad from '@/public/json/mainload.json';
 import { useTranslations } from "@/hooks/useTranslations";
+import AwardsMarquee from "@/components/Home/AwardsMarquee/AwardsMarquee";
 import PageShell from "@/components/PageShell/PageShell";
 import videoPlay from '@/public/json/videoPlay.json';
 import teamwork from '@/public/json/teamwork.json';
@@ -37,10 +38,8 @@ const i18nNamespaces = ['homeScreen'];
 
 export default function Home({ params: { locale } }: { params: { locale: string } }) {
   const { t, resources, ready } = useTranslations(locale, i18nNamespaces);
-  const [scrollY, setScrollY] = useState(0);
   const [presentPlaying, setPresentPlaying] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
-  const [currentSection, setCurrentSection] = useState<string>('');
   const presentPlayerRef = useRef(null);
   const titleRef = useRef(null);
   const cardRef = useRef(null);
@@ -61,34 +60,61 @@ export default function Home({ params: { locale } }: { params: { locale: string 
   //   }
   // };
 
-  const handleScroll = () => {
-    const mainElement = mainRef.current as HTMLElement;
-    if (!mainElement) return;
-  
-    const sections = (mainElement as HTMLElement).querySelectorAll('section');
-  
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const mainRect = mainElement.getBoundingClientRect();
-  
-      // Calculate the section's top relative to the main element
-      const sectionTop = rect.top - mainRect.top;
-  
-      // Check if the section's top is within the main element's viewport
-      if (sectionTop >= 0 && sectionTop <= mainElement.clientHeight) {
-        // console.log('Section in view:', section.id);
-        setCurrentSection(section.id);
-        gsap.to(section, { opacity: 1, y: 0, duration: 0.2, ease: 'power4.out' });
-      }
-    });
-  };
-  
+  /**
+   * Fades each section in the first time it scrolls into view.
+   *
+   * Kept deliberately cheap. This used to run on every scroll event: it
+   * re-queried the DOM, measured every section (a forced layout each time), set
+   * React state that nothing read, and started a fresh GSAP tween on sections
+   * that were already revealed. That churn showed up as stutter in the
+   * continuously animating awards band. Now it reads layout at most once per
+   * frame, tweens each section exactly once, and unsubscribes for good once
+   * they have all been revealed.
+   */
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    window.addEventListener("scroll", handleScroll, { passive: true, capture: true});
-    return () => {
-       window.removeEventListener("scroll", handleScroll);
+
+    const revealed = new Set<Element>();
+    let queued = false;
+
+    const revealVisibleSections = () => {
+      queued = false;
+      const mainElement = mainRef.current;
+      if (!mainElement) return;
+
+      const sections = mainElement.querySelectorAll('section');
+      const mainRect = mainElement.getBoundingClientRect();
+
+      sections.forEach((section) => {
+        // Skipping first means no layout is read for a section already shown.
+        if (revealed.has(section)) return;
+
+        // The section's top relative to the main element.
+        const sectionTop = section.getBoundingClientRect().top - mainRect.top;
+
+        if (sectionTop >= 0 && sectionTop <= mainElement.clientHeight) {
+          revealed.add(section);
+          gsap.to(section, { opacity: 1, y: 0, duration: 0.2, ease: 'power4.out' });
+        }
+      });
+
+      if (sections.length > 0 && revealed.size === sections.length) {
+        window.removeEventListener('scroll', handleScroll, { capture: true });
+      }
+    };
+
+    // A declaration, not a const: revealVisibleSections refers to it above.
+    function handleScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(revealVisibleSections);
     }
+
+    // Catch anything already on screen before the first scroll.
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true, capture: true });
+    return () => window.removeEventListener('scroll', handleScroll, { capture: true });
   }, []);
 
   useEffect(() => {
@@ -152,6 +178,13 @@ export default function Home({ params: { locale } }: { params: { locale: string 
             </div>
           </div>
         </section>
+
+        <AwardsMarquee
+          locale={locale}
+          title={t('section.awards.title')}
+          subtitle={t('section.awards.subtitle')}
+        />
+
         <section id='gradientSection' className={`${styles.section} ${styles.gradientSection}`}>
           <div className={styles.textContainer}>
             <p className={styles.title}>A magical tool is designed for you</p>

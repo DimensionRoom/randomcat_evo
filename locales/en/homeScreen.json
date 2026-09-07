@@ -123,6 +123,10 @@
                  "description3": "and a website interface."
               }
            }
+        },
+        "awards": {
+            "title": "Awarded by",
+            "subtitle": "Recognised by leading institutions"
         }
     }
 }
