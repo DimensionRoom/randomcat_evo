@@ -92,7 +92,14 @@ export default async function AdminPage({
       admin.from("usage_by_path").select("*").limit(100),
       admin.from("usage_by_country").select("*"),
       admin.from("usage_by_device").select("*"),
-      admin.from("user_activity").select("*").limit(200),
+      // Sorted here rather than in JS: the limit applies after ordering, so this
+      // returns the 200 users with the most sign-ins, not the 200 most recent.
+      admin
+        .from("user_activity")
+        .select("*")
+        .order("sign_in_count", { ascending: false })
+        .order("last_seen", { ascending: false, nullsFirst: false })
+        .limit(200),
       admin.from("usage_totals").select("*").single(),
       admin.from("usage_by_day_and_country").select("*"),
     ]);
