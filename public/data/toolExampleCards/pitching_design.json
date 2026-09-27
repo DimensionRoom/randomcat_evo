@@ -1,0 +1,62 @@
+[
+  {
+    "back": {
+      "category": "Audience",
+      "title": "DESIGN AUDIENCE",
+      "subtitle": "Pitching Design"
+    },
+    "front": {
+      "category": "Audience",
+      "title": "Investors",
+      "subtitle": "Looking for innovative ideas and strong potential returns. Focus on vision, potential market size, and the uniqueness of your solution."
+    }
+  },
+  {
+    "back": {
+      "category": "Product & Service",
+      "title": "DESIGN PRODUCT & SERVICE",
+      "subtitle": "Pitching Design"
+    },
+    "front": {
+      "category": "Product & Service",
+      "title": "Healthcare Pharmaceutical",
+      "subtitle": "Medications\nMedical Equipment\nHealth Supplements\nWellness Services (e.g., Fitness, Therapy)"
+    }
+  },
+  {
+    "back": {
+      "category": "Mission",
+      "title": "DESIGN MISSION",
+      "subtitle": "Pitching Design"
+    },
+    "front": {
+      "category": "Mission",
+      "title": "Building Partnership",
+      "subtitle": "Establish strategic partnerships with other businesses or organizations."
+    }
+  },
+  {
+    "back": {
+      "category": "Technique",
+      "title": "DESIGN TECHNIQUE",
+      "subtitle": "Pitching Design"
+    },
+    "front": {
+      "category": "Technique",
+      "title": "Fact & Stat",
+      "subtitle": "Facts and statistics bolster your pitch by providing concrete data to back your claims, enhancing credibility, building trust, and illustrating the feasibility and impact of your solution."
+    }
+  },
+  {
+    "back": {
+      "category": "Emotion",
+      "title": "DESIGN EMOTION",
+      "subtitle": "Pitching Design"
+    },
+    "front": {
+      "category": "Emotion",
+      "title": "Inspiration",
+      "subtitle": "Description: Share what inspires you and how it drives your project.\nImpact: Connects emotionally with the judges and motivates them."
+    }
+  }
+]

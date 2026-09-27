@@ -1,0 +1,98 @@
+[
+  {
+    "back": {
+      "category": "GAMIFICATION",
+      "title": "DESIGN GAMIFICATION",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "GAMIFICATION",
+      "title": "Badges",
+      "subtitle": "Visual symbols awarded for achievements, signifying milestones."
+    }
+  },
+  {
+    "back": {
+      "category": "GAMIFICATION",
+      "title": "DESIGN GAMIFICATION",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "GAMIFICATION",
+      "title": "Unlockable Content",
+      "subtitle": "Special features or levels that become available after achieving certain criteria."
+    }
+  },
+  {
+    "back": {
+      "category": "Career",
+      "title": "DESIGN CAREER",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "Career",
+      "title": "Educator",
+      "subtitle": "Gamification can increase student engagement by incorporating points, badges, or leaderboards to reward learning achievements."
+    }
+  },
+  {
+    "back": {
+      "category": "Career",
+      "title": "DESIGN CAREER",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "Career",
+      "title": "Human Resources",
+      "subtitle": "Gamification can enhance recruitment & onboarding processes, making them more interactive and engaging for new employees."
+    }
+  },
+  {
+    "back": {
+      "category": "Career",
+      "title": "DESIGN CAREER",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "Career",
+      "title": "Event Planner",
+      "subtitle": "Event organizers can gamify experiences (e.g., scavenger hunts or point systems for participation) to enhance attendee engagement."
+    }
+  },
+  {
+    "back": {
+      "category": "Purpose",
+      "title": "DESIGN PURPOSE",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "Purpose",
+      "title": "Increase Engagement",
+      "subtitle": "Use points, badges, and leaderboards to make activities more fun and motivate participation."
+    }
+  },
+  {
+    "back": {
+      "category": "Purpose",
+      "title": "DESIGN PURPOSE",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "Purpose",
+      "title": "Boost Productivity",
+      "subtitle": "Gamifying tasks with rewards encourages quicker and more efficient completion."
+    }
+  },
+  {
+    "back": {
+      "category": "Purpose",
+      "title": "DESIGN PURPOSE",
+      "subtitle": "Business Gamification"
+    },
+    "front": {
+      "category": "Purpose",
+      "title": "Encourage Feedback",
+      "subtitle": "Reward feedback from customers and employees through gamified systems."
+    }
+  }
+]

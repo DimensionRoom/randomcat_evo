@@ -31,9 +31,10 @@ Use `blue`, `purple`, or a custom `{ primary, tint, accent }` palette for either
 `brandLabel` defaults to `toolTitle`; `seriesLabel` defaults to `A Series of ThinkTools`.
 `categoryPrompt` is optional for decks without a question prefix.
 The component uses live text, the existing brand logo, and themeable decoration.
-Example content comes exclusively from all real cards in each tool's source deck.
-The page shuffles once on load and displays four unique samples, with the third
-initially showing its back. The hero uses the first randomly selected card.
-Source language falls back to English where Thai is unavailable.
+Example cards are curated per tool in `public/data/toolExampleCards/<toolId>.json`
+(`front` and `back`, each with `category`, `title`, `subtitle`). On each load
+the page draws up to four at random, spread across categories, the third
+initially showing its back; the hero card is a fifth card when the file has one. A card's `back.title` / `back.subtitle` replace the category and
+tool name on its back. The files are English only.
 
 Both sides require a card. Render a front and back using the same card object to preserve category pairing.

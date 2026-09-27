@@ -1,0 +1,74 @@
+[
+  {
+    "back": {
+      "category": "Format",
+      "title": "DESIGN FORMAT",
+      "subtitle": "Content Design"
+    },
+    "front": {
+      "category": "Format",
+      "title": "Video",
+      "subtitle": "Recorded or live visual content, shared on platforms like YouTube, TikTok, and Instagram."
+    }
+  },
+  {
+    "back": {
+      "category": "Platform",
+      "title": "DESIGN PLATFORM",
+      "subtitle": "Content Design"
+    },
+    "front": {
+      "category": "Platform",
+      "title": "Instagram",
+      "subtitle": "Photo and short video sharing with a focus on visual content."
+    }
+  },
+  {
+    "back": {
+      "category": "Technique",
+      "title": "DESIGN TECHNIQUE",
+      "subtitle": "Content Design"
+    },
+    "front": {
+      "category": "Technique",
+      "title": "Social Proof",
+      "subtitle": "Incorporating testimonials, reviews, or user-generated content can establish credibility and persuade others to take action."
+    }
+  },
+  {
+    "back": {
+      "category": "Mood&Tone",
+      "title": "DESIGN MOOD&TONE",
+      "subtitle": "Content Design"
+    },
+    "front": {
+      "category": "Mood&Tone",
+      "title": "Empowering",
+      "subtitle": "Confident and assertive, encouraging viewers to take action or feel strong."
+    }
+  },
+  {
+    "back": {
+      "category": "Objective",
+      "title": "DESIGN OBJECTIVE",
+      "subtitle": "Content Design"
+    },
+    "front": {
+      "category": "Objective",
+      "title": "Brand Awareness",
+      "subtitle": "Increase recognition and visibility of a brand."
+    }
+  },
+  {
+    "back": {
+      "category": "Content",
+      "title": "DESIGN CONTENT",
+      "subtitle": "Content Design"
+    },
+    "front": {
+      "category": "Content",
+      "title": "Ask the Experts",
+      "subtitle": "Content featuring insights and advice from industry professionals or subject matter experts."
+    }
+  }
+]

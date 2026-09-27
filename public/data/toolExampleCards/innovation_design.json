@@ -1,0 +1,74 @@
+[
+  {
+    "back": {
+      "category": "What-Outcome",
+      "title": "WHAT OUTCOME",
+      "subtitle": "Innovation Design"
+    },
+    "front": {
+      "category": "What-Outcome",
+      "title": "Personal item",
+      "subtitle": "Objects used for personal use and convenience, such as wallets or keys."
+    }
+  },
+  {
+    "back": {
+      "category": "Why-Purpose",
+      "title": "WHY PURPOSE",
+      "subtitle": "Innovation Design"
+    },
+    "front": {
+      "category": "Why-Purpose",
+      "title": "Improves the quality of life",
+      "subtitle": "Enhances daily living standards and overall well-being."
+    }
+  },
+  {
+    "back": {
+      "category": "Who-User",
+      "title": "WHO USER",
+      "subtitle": "Innovation Design"
+    },
+    "front": {
+      "category": "Who-User",
+      "title": "Loyal Family",
+      "subtitle": "Members of a monarch's family with privileged social status and duties."
+    }
+  },
+  {
+    "back": {
+      "category": "How-Material",
+      "title": "HOW MATERIAL",
+      "subtitle": "Innovation Design"
+    },
+    "front": {
+      "category": "How-Material",
+      "title": "Rubber",
+      "subtitle": "An elastic material made from natural or synthetic sources, used in tires, seals, and flexible hoses."
+    }
+  },
+  {
+    "back": {
+      "category": "When-Situation",
+      "title": "WHEN SITUATION",
+      "subtitle": "Innovation Design"
+    },
+    "front": {
+      "category": "When-Situation",
+      "title": "The middle of the night",
+      "subtitle": "The time around midnight when it is very dark and most people are asleep."
+    }
+  },
+  {
+    "back": {
+      "category": "Where-Place",
+      "title": "WHERE PLACE",
+      "subtitle": "Innovation Design"
+    },
+    "front": {
+      "category": "Where-Place",
+      "title": "Aboard",
+      "subtitle": "To enter or get on a vehicle, ship, or aircraft."
+    }
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "back": {
+      "category": "Genre",
+      "title": "DESIGN GENRE",
+      "subtitle": "Story Design"
+    },
+    "front": {
+      "category": "Genre",
+      "title": "Fantasy",
+      "subtitle": "Set in imaginary worlds often featuring magic, mythical creatures, and epic quests."
+    }
+  },
+  {
+    "back": {
+      "category": "Plot",
+      "title": "DESIGN PLOT",
+      "subtitle": "Story Design"
+    },
+    "front": {
+      "category": "Plot",
+      "title": "Overcoming the Monster",
+      "subtitle": "A hero confronts and defeats a powerful adversary or force threatening their world, often involving a journey or quest to reach and defeat the monster."
+    }
+  },
+  {
+    "back": {
+      "category": "Protagonist",
+      "title": "DESIGN PROTAGONIST",
+      "subtitle": "Story Design"
+    },
+    "front": {
+      "category": "Protagonist",
+      "title": "The Explorer",
+      "subtitle": "Driven by curiosity and a desire to discover new worlds, ideas, or truths."
+    }
+  },
+  {
+    "back": {
+      "category": "Setting",
+      "title": "DESIGN SETTING",
+      "subtitle": "Story Design"
+    },
+    "front": {
+      "category": "Setting",
+      "title": "Haunted House",
+      "subtitle": "An old, often abandoned, house filled with ghostly presences and eerie happenings."
+    }
+  }
+]

@@ -9,12 +9,6 @@ import type { CategoryIconName } from "@/components/ToolDetails/categoryIcons";
  * namespace under `tools.<toolId>`; this file holds only what is not text.
  */
 
-export type CardSource =
-  /** One of the public/json/*Cat.json decks the random-card tools use. */
-  | { kind: "catJson"; file: string }
-  /** A board tool's public/data/<tool>/cards_en.ts. */
-  | { kind: "board"; tool: "pitchingdesign" | "gamificationinbusiness" };
-
 export interface ToolDetailConfig {
   /** The card colours in the mockups: most tools are blue, two are purple. */
   theme: "blue" | "purple";
@@ -24,8 +18,6 @@ export interface ToolDetailConfig {
    * `tools.<toolId>.categories.<key>` and selects its matching SVG icon.
    */
   categories: { key: CategoryIconName }[];
-  /** Where the example cards come from, so they show the tool's real cards. */
-  cardSource: CardSource;
   /** Illustration beside the testimonial, if the design has one. */
   testimonialImage?: { src: string; width: number; height: number; layout: "side" | "center" };
 }
@@ -42,7 +34,6 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
       { key: "weakness" },
       { key: "superpower" },
     ],
-    cardSource: { kind: "catJson", file: "characterdesignCat" },
     testimonialImage: {
       src: "/image/tool_details/character_design.png",
       width: 370,
@@ -61,7 +52,6 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
       { key: "moodTone" },
       { key: "contentType" },
     ],
-    cardSource: { kind: "catJson", file: "contentdesignCat" },
   },
   education_design: {
     theme: "blue",
@@ -74,13 +64,11 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
       { key: "level" },
       { key: "method" },
     ],
-    cardSource: { kind: "catJson", file: "edudesignCat" },
   },
   gamification_in_business: {
     theme: "blue",
     cardTheme: "rose",
     categories: [{ key: "purpose" }, { key: "gamification" }, { key: "career" }],
-    cardSource: { kind: "board", tool: "gamificationinbusiness" },
   },
   innovation_design: {
     theme: "blue",
@@ -92,7 +80,6 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
       { key: "place" },
       { key: "material" },
     ],
-    cardSource: { kind: "catJson", file: "innodesignCat" },
     // The noodle vending machine from the home page's outcome section.
     testimonialImage: {
       src: "/image/product1.jpg",
@@ -111,7 +98,6 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
       { key: "productService" },
       { key: "emotion" },
     ],
-    cardSource: { kind: "board", tool: "pitchingdesign" },
   },
   story_design: {
     theme: "purple",
@@ -124,7 +110,6 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
       { key: "protagonist" },
       { key: "antagonist" },
     ],
-    cardSource: { kind: "catJson", file: "storydesignCat" },
     testimonialImage: {
       src: "/image/tool_details/story_design.jpg",
       width: 448,

@@ -44,8 +44,9 @@ function BodyList({ items }: { items: ListItem[] }) {
 
 /**
  * The "Explore more" page every card tool shares. What differs per tool comes
- * from public/data/toolDetails.ts (theme, categories, card deck, image) and
- * the `tools.<toolId>` copy in the toolDetailsScreen namespace.
+ * from public/data/toolDetails.ts (theme, categories, image), the curated
+ * cards in public/data/toolExampleCards/<toolId>.json, and the
+ * `tools.<toolId>` copy in the toolDetailsScreen namespace.
  */
 export default function ToolDetailsPage({
   params: { locale, toolId },
@@ -61,12 +62,11 @@ export default function ToolDetailsPage({
 
   useEffect(() => {
     let active = true;
-    loadExampleCards(config.cardSource, locale).then((loaded) => {
+    loadExampleCards(toolId).then((loaded) => {
       if (!active) return;
-      // Drawn once per page load, spread across categories; renders and flips
-      // keep this selection. Five cards: four examples, then the hero card,
-      // which the round-robin puts in a category the examples have not used
-      // whenever the deck has one.
+      // Drawn once per page load: four examples spread across categories, then
+      // the hero card, which comes from outside those four whenever the file
+      // has more than four cards.
       const [a, b, c, d, hero] = pickVariedCards(loaded, 5);
       const drawn = [a, b, c, d].filter(Boolean);
       setExamples(drawn);
@@ -75,7 +75,7 @@ export default function ToolDetailsPage({
     return () => {
       active = false;
     };
-  }, [config.cardSource, locale]);
+  }, [toolId]);
 
   const isThai = locale === "th";
   const thFont = isThai ? `${mitr.className} ${styles.thfont}` : "";

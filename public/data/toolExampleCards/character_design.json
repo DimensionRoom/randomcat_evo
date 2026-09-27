@@ -1,0 +1,74 @@
+[
+  {
+    "back": {
+      "category": "Personality",
+      "title": "CHARACTER PERSONALITY",
+      "subtitle": "Character Design"
+    },
+    "front": {
+      "category": "Personality",
+      "title": "Optimistic",
+      "subtitle": "Always sees the glass as half full."
+    }
+  },
+  {
+    "back": {
+      "category": "Appearance",
+      "title": "CHARACTER APPEARANCE",
+      "subtitle": "Character Design"
+    },
+    "front": {
+      "category": "Appearance",
+      "title": "Skin Tone",
+      "subtitle": "Fair, olive, dark, tanned, freckled."
+    }
+  },
+  {
+    "back": {
+      "category": "Goal",
+      "title": "CHARACTER GOAL",
+      "subtitle": "Character Design"
+    },
+    "front": {
+      "category": "Goal",
+      "title": "Revenge",
+      "subtitle": "To seek payback for a perceived wrong."
+    }
+  },
+  {
+    "back": {
+      "category": "Weakness",
+      "title": "CHARACTER WEAKNESS",
+      "subtitle": "Character Design"
+    },
+    "front": {
+      "category": "Weakness",
+      "title": "Fear of Failure",
+      "subtitle": "Avoids risks due to fear of not succeeding."
+    }
+  },
+  {
+    "back": {
+      "category": "Superpower",
+      "title": "CHARACTER SUPERPOWER",
+      "subtitle": "Character Design"
+    },
+    "front": {
+      "category": "Superpower",
+      "title": "Time Manipulation",
+      "subtitle": "The power to slow down, speed up, or stop time."
+    }
+  },
+  {
+    "back": {
+      "category": "Strength",
+      "title": "CHARACTER STRENGTH",
+      "subtitle": "Character Design"
+    },
+    "front": {
+      "category": "Strength",
+      "title": "Resilience",
+      "subtitle": "Ability to recover quickly from setbacks."
+    }
+  }
+]

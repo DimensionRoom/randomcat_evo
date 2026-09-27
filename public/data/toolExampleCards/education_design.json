@@ -1,0 +1,62 @@
+[
+  {
+    "back": {
+      "category": "Subject And Skill",
+      "title": "SUBJECT AND SKILL",
+      "subtitle": "Teaching Material Design"
+    },
+    "front": {
+      "category": "Subject And Skill",
+      "title": "Language",
+      "subtitle": "Study of language, literature, and composition, focusing on reading, writing, and communication skills."
+    }
+  },
+  {
+    "back": {
+      "category": "Design Technique",
+      "title": "DESIGN TECHNIQUE",
+      "subtitle": "Teaching Material Design"
+    },
+    "front": {
+      "category": "Design Technique",
+      "title": "Combination",
+      "subtitle": "Blending different materials or elements to create something new."
+    }
+  },
+  {
+    "back": {
+      "category": "Design Format",
+      "title": "DESIGN FORMAT",
+      "subtitle": "Teaching Material Design"
+    },
+    "front": {
+      "category": "Design Format",
+      "title": "Card game Board Game",
+      "subtitle": "Educational games using cards, board to reinforce learning concepts."
+    }
+  },
+  {
+    "back": {
+      "category": "Unique Selling Point",
+      "title": "UNIQUE SELLING POINT",
+      "subtitle": "Teaching Material Design"
+    },
+    "front": {
+      "category": "Unique Selling Point",
+      "title": "Based on Reseach",
+      "subtitle": "Grounded in scientific studies and evidence-based practices."
+    }
+  },
+  {
+    "back": {
+      "category": "Teaching Method",
+      "title": "TEACHING METHOD",
+      "subtitle": "Teaching Material Design"
+    },
+    "front": {
+      "category": "Teaching Method",
+      "title": "Demonstration",
+      "subtitle": "The teacher shows a process or concept in action to illustrate how it works, often using visual aids."
+    }
+  }
+]

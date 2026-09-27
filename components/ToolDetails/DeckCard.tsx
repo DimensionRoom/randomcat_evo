@@ -20,7 +20,7 @@ export type DeckCardProps = {
   style?: React.CSSProperties;
 } & (
   | { side: "front"; card: ExampleCard }
-  | { side: "back"; card: Pick<ExampleCard, "category" | "categoryPrompt" | "backHeading"> }
+  | { side: "back"; card: Pick<ExampleCard, "category" | "categoryPrompt" | "backHeading" | "backTitle" | "backSubtitle"> }
 );
 
 /** Reusable 60 × 100 card. Custom palettes apply to both faces. */
@@ -33,8 +33,20 @@ export default function DeckCard({ theme, toolTitle, brandLabel = toolTitle,
     "--deck-accent": theme.accent,
   } as React.CSSProperties;
   const card = props.card;
-  const category = card.category;
+  // A curated card names its own back ("DESIGN GENRE" / "Story Design");
+  // otherwise the back shows the category and the tool.
+  const category = (props.side === "back" && card.backTitle) || card.category;
+  const backLine = (props.side === "back" && card.backSubtitle) || toolTitle;
   const categorySize = Math.min(13.5, 110 / Math.max(...category.split(/\s+/).map(word => word.length)));
+  // Shrink the front title only when its longest word would not fit on one
+  // line (the body is ~79% of the card wide), so "Pharmaceutical" stays whole
+  // instead of being broken mid-word.
+  const compact = props.side === "front" &&
+    props.card.title.length + props.card.content.length > 180;
+  const longestTitleWord = props.side === "front"
+    ? Math.max(...props.card.title.split(/\s+/).map(word => word.length)) : 0;
+  const titleFit = 76 / (0.64 * Math.max(longestTitleWord, 1));
+  const titleStyle = titleFit < (compact ? 8.5 : 11) ? { fontSize: `${titleFit}cqi` } : undefined;
   const isThai = props.side === "front" && /[\u0e00-\u0e7f]/.test(props.card.title + props.card.content);
 
   return (
@@ -45,9 +57,9 @@ export default function DeckCard({ theme, toolTitle, brandLabel = toolTitle,
         {props.side === "back" ? (
           <div className={styles.backContent} data-heading={Boolean(card.backHeading)}>
             <span className={styles.logo} aria-hidden="true"><SiteLogo color="currentColor" /></span>
-            {(card.backHeading || card.categoryPrompt) && <p className={styles.backPrompt}>{card.backHeading || card.categoryPrompt}</p>}
+            {!card.backTitle && (card.backHeading || card.categoryPrompt) && <p className={styles.backPrompt}>{card.backHeading || card.categoryPrompt}</p>}
             <p className={styles.backCategory} style={{ fontSize: `${categorySize}cqi` }}>{category}</p>
-            <p className={styles.backTool}>{toolTitle}</p>
+            <p className={styles.backTool}>{backLine}</p>
           </div>
         ) : (
           <>
@@ -56,8 +68,8 @@ export default function DeckCard({ theme, toolTitle, brandLabel = toolTitle,
               <span>{brandLabel}</span>
             </div>
             <div className={`${styles.frontBody} ${isThai ? mitr.className : ""}`}
-              data-density={props.card.title.length + props.card.content.length > 180 ? "compact" : "normal"}>
-              <p className={styles.frontTitle}>{props.card.title}</p>
+              data-density={compact ? "compact" : "normal"}>
+              <p className={styles.frontTitle} style={titleStyle}>{props.card.title}</p>
               {props.card.content && <p className={styles.frontDescription}>{props.card.content}</p>}
               <span className={styles.categoryTag}>
                 {[props.card.categoryPrompt, props.card.category].filter(Boolean).join("-")}

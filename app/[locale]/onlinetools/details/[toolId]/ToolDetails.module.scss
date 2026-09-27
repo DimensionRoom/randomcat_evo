@@ -343,12 +343,20 @@
   padding: clamp(40px, 6vw, 64px) 20px clamp(56px, 8vw, 88px);
 }
 
+// Four per row (two on a phone); a short row is centred.
 .exampleRow {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(12px, 2vw, 24px);
+  --per-row: 4;
+  --gap: clamp(12px, 2vw, 24px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
   width: min(900px, 100%);
   margin: 0 auto;
+
+  > * {
+    flex: 0 0 calc((100% - (var(--per-row) - 1) * var(--gap)) / var(--per-row));
+  }
 }
 
 .footerSection {
@@ -395,7 +403,7 @@
   }
 
   .exampleRow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    --per-row: 2;
     width: min(420px, 100%);
   }
 }
@@ -403,12 +411,5 @@
 @media (prefers-reduced-motion: reduce) {
   .fadeIn {
     animation: none;
-  }
-}
-
-@media (min-width: 721px) {
-  .exampleRow[data-count="6"] {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: min(720px, 100%);
   }
 }

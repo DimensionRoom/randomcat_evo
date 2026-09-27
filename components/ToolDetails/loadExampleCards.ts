@@ -1,86 +1,65 @@
 import { categoryIconForKey, type CategoryIconName } from "./categoryIcons";
-import type { CardSource } from "@/public/data/toolDetails";
 
 export interface ExampleCard {
-  /** Short code printed in the card's corner, e.g. "WHY01". */
+  /** Short code printed in the card's corner, e.g. "GENRE01". */
   code: string;
   icon: CategoryIconName;
+  /** Printed in the tag under the description, e.g. "What-Outcome". */
   category: string;
   categoryPrompt?: string;
   backHeading?: string;
+  /** Big text on the back, e.g. "DESIGN GENRE"; replaces the category there. */
+  backTitle?: string;
+  /** Line under the back title, e.g. "Story Design"; replaces the tool name. */
+  backSubtitle?: string;
   title: string;
   content: string;
 }
 
-/** Short, card-corner style code from a category key: "Why" → "WHY01". */
-function cardCode(key: string, index: number): string {
-  return `${key.replace(/[^a-z]/gi, "").slice(0, 6).toUpperCase()}${String(index + 1).padStart(2, "0")}`;
+/** One entry of public/data/toolExampleCards/<toolId>.json. */
+interface ExampleCardEntry {
+  front: { category: string; title: string; subtitle: string };
+  back: { category: string; title: string; subtitle: string };
 }
 
-// Listed out rather than built from a template string, so each deck is its own
-// chunk and only the one a page needs is downloaded.
-const catDecks: Record<string, () => Promise<{ default: any }>> = {
-  characterdesignCat: () => import("@/public/json/characterdesignCat.json"),
-  contentdesignCat: () => import("@/public/json/contentdesignCat.json"),
-  edudesignCat: () => import("@/public/json/edudesignCat.json"),
-  innodesignCat: () => import("@/public/json/innodesignCat.json"),
-  storydesignCat: () => import("@/public/json/storydesignCat.json"),
+// The example cards are curated per tool rather than drawn from the decks.
+// Listed out so each file is its own chunk and a page downloads only its own.
+const exampleDecks: Record<string, () => Promise<{ default: ExampleCardEntry[] }>> = {
+  character_design: () => import("@/public/data/toolExampleCards/character_design.json"),
+  content_design: () => import("@/public/data/toolExampleCards/content_design.json"),
+  education_design: () => import("@/public/data/toolExampleCards/education_design.json"),
+  gamification_in_business: () =>
+    import("@/public/data/toolExampleCards/gamification_in_business.json"),
+  innovation_design: () => import("@/public/data/toolExampleCards/innovation_design.json"),
+  pitching_design: () => import("@/public/data/toolExampleCards/pitching_design.json"),
+  story_design: () => import("@/public/data/toolExampleCards/story_design.json"),
 };
 
-const boardDecks = {
-  pitchingdesign: () => import("@/public/data/pitchingdesign/cards_en"),
-  gamificationinbusiness: () => import("@/public/data/gamificationinbusiness/cards_en"),
-};
+/** Short, card-corner style code from a category: "Genre" → "GENRE01". */
+function cardCode(category: string, index: number): string {
+  const letters = category.replace(/[^a-z]/gi, "").slice(0, 6).toUpperCase();
+  return `${letters}${String(index + 1).padStart(2, "0")}`;
+}
 
-/** Load every real card so random selection covers the entire tool deck. */
-export async function loadExampleCards(
-  source: CardSource,
-  locale: string
-): Promise<ExampleCard[]> {
-  const isThai = locale === "th";
+/** The tool's curated example cards, in the order they are listed in its file. */
+export async function loadExampleCards(toolId: string): Promise<ExampleCard[]> {
+  const loader = exampleDecks[toolId];
+  if (!loader) return [];
+  const entries = (await loader()).default;
 
-  if (source.kind === "catJson") {
-    const loader = catDecks[source.file];
-    if (!loader) return [];
-    const deck = (await loader()).default as Record<string, any>;
-    return Object.entries(deck).flatMap(([key, category]) => {
-      return (category.data ?? []).map((item: {
-        th?: string; en?: string; content_th?: string; content_en?: string;
-      }, index: number): ExampleCard => {
-        const title = (isThai ? item.th : item.en) || item.en || item.th || "";
-        const content =
-          (isThai ? item.content_th : item.content_en) ||
-          item.content_en ||
-          item.content_th ||
-          "";
-        return {
-          code: cardCode(key, index),
-          icon: categoryIconForKey(key),
-          backHeading: source.file === "characterdesignCat" ? "Character" : undefined,
-          categoryPrompt: source.file === "innodesignCat" ? key : undefined,
-          category: category.subTitle || category.title || key,
-          title,
-          content,
-        };
-      });
-    });
-  }
-
-  const { cards, cardCategories } = (await boardDecks[source.tool]()) as {
-    cards: { category: string; frontTitle: string; backContent: string }[];
-    cardCategories: Record<string, { name: string }>;
-  };
-  // Include source cards even if their category is absent from the UI legend.
-  const categoryIndices = new Map<string, number>();
-  return cards.map(card => {
-    const index = categoryIndices.get(card.category) ?? 0;
-    categoryIndices.set(card.category, index + 1);
+  const perCategory = new Map<string, number>();
+  return entries.map(({ front, back }) => {
+    const index = perCategory.get(front.category) ?? 0;
+    perCategory.set(front.category, index + 1);
     return {
-      code: cardCode(card.category, index),
-      icon: categoryIconForKey(card.category),
-      category: cardCategories[card.category]?.name ?? card.category,
-      title: card.frontTitle,
-      content: card.backContent,
+      code: cardCode(front.category, index),
+      // "What-Outcome" → "Outcome", which is the key the icon set knows.
+      icon: categoryIconForKey(front.category.split("-").pop() ?? front.category),
+      category: front.category,
+      title: front.title,
+      content: front.subtitle,
+      backTitle: back.title,
+      backSubtitle: back.subtitle,
     };
   });
 }
@@ -95,13 +74,9 @@ function shuffled<T>(items: T[]): T[] {
 }
 
 /**
- * Draw `count` random cards spread across as many categories as possible.
- *
- * A plain shuffle favours the big categories (Innovation Design's "User" has
- * 51 cards against "Material"'s 17), so four examples often came from the same
- * one or two. Here the categories are shuffled and dealt round-robin, one
- * random card from each in turn, so categories only repeat once every one of
- * them has been used.
+ * Draw up to `count` random cards, spread across as many categories as
+ * possible: categories are shuffled and dealt round-robin, one random card
+ * from each in turn, so a category only repeats once every one has been used.
  */
 export function pickVariedCards(cards: ExampleCard[], count: number): ExampleCard[] {
   const byCategory = new Map<string, ExampleCard[]>();
