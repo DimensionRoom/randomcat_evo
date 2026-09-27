@@ -1,0 +1,302 @@
+.card {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.blue {
+  --deck-primary: #1082f5;
+  --deck-tint: #d5eeff;
+  --deck-accent: #006b9f;
+}
+
+.purple {
+  --deck-primary: #943cf5;
+  --deck-tint: #dcbbff;
+  --deck-accent: #782bc1;
+
+  .frontBrand,
+  .frontTitle { color: #851cff; }
+  .frontDescription { color: #9845ff; }
+  .frontFooter { color: var(--deck-accent); }
+}
+
+.face {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 3 / 5;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1.5cqi;
+  box-shadow: 0 8px 24px rgba(40, 24, 80, 0.14);
+}
+
+// Two translucent ribbons in each corner, matching the printed reference.
+// Color tokens keep this decoration reusable across decks.
+.pattern {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0.18;
+  }
+
+  &::before {
+    clip-path: polygon(34% 0, 100% 0, 100% 4%, 69% 37%);
+  }
+
+  &::after {
+    clip-path: polygon(55% 0, 100% 0, 100% 47%);
+  }
+}
+
+.face::before,
+.face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: currentColor;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.face::before {
+  clip-path: polygon(0 49%, 0 100%, 48% 100%);
+}
+
+.face::after {
+  clip-path: polygon(31% 59%, 0 92%, 0 100%, 70% 100%);
+}
+
+.front {
+  background: #fff;
+  color: var(--deck-primary);
+  text-align: left;
+}
+
+.back {
+  background: var(--deck-primary);
+  color: #fff;
+}
+
+.frontBrand {
+  display: flex;
+  align-items: center;
+  gap: 2.3cqi;
+  position: absolute;
+  top: 7%;
+  left: 11%;
+  right: 9%;
+  font-size: 4.6cqi;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 7.4cqi;
+  height: 7.4cqi;
+  border-radius: 50%;
+  background: var(--deck-tint);
+  color: var(--deck-accent);
+  svg { width: 4.8cqi; height: 4.8cqi; }
+}
+
+.frontBody {
+  position: absolute;
+  top: 25.5%;
+  left: 11%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.8cqi;
+  overflow-wrap: anywhere;
+}
+
+.frontTitle {
+  margin: 0;
+  font-size: 11cqi;
+  line-height: 1.22;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.frontDescription {
+  margin: 0;
+  font-size: 5.9cqi;
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+.categoryTag {
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 1.6cqi;
+  padding: 1.6cqi 4.5cqi;
+  border: 0.7cqi solid #fff;
+  outline: 0.15cqi solid var(--deck-tint);
+  border-radius: 2.8cqi;
+  background: var(--deck-primary);
+  color: #fff;
+  font-size: 4.5cqi;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.frontBody[data-density="compact"] {
+  top: 22%;
+  gap: 2cqi;
+  .frontTitle { font-size: 8.5cqi; }
+  .frontDescription { font-size: 4.6cqi; }
+}
+
+.frontFooter {
+  position: absolute;
+  bottom: 7.4%;
+  left: 11%;
+  right: 11%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3cqi;
+  font-size: 3.5cqi;
+  line-height: 1.2;
+  span { max-width: 65%; }
+  strong { font-size: 3.8cqi; white-space: nowrap; }
+}
+
+.backContent {
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  right: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4cqi;
+}
+
+.logo {
+  display: block;
+  width: 14cqi;
+  height: 14cqi;
+  margin-bottom: 1.5cqi;
+}
+
+.backPrompt {
+  margin: 0;
+  font-size: 13.5cqi;
+  line-height: 1.1;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.backCategory {
+  margin: 0;
+  line-height: 1.16;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.backTool {
+  margin: 0.8cqi 0 0;
+  font-size: 5.8cqi;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+// Character print deck uses orange ink and a golden back/tag.
+.orange {
+  --deck-primary: #ffbd59;
+  --deck-tint: #ffe7c4;
+  --deck-accent: #ff8b43;
+
+  .front { color: #ff8b43; }
+  .front .pattern,
+  .front::before,
+  .front::after { color: var(--deck-primary); }
+}
+
+.backContent[data-heading="true"] {
+  top: 28%;
+  gap: 2cqi;
+  .logo { margin-bottom: 4cqi; }
+  .backPrompt { font-size: 12cqi; font-weight: 700; }
+  .backCategory { font-weight: 300; }
+  .backTool { margin-top: 2cqi; }
+}
+
+// Content Design print palette: teal back, deeper ink, pale aqua decoration.
+.teal {
+  --deck-primary: #0d8f90;
+  --deck-tint: #a6dadc;
+  --deck-accent: #056369;
+
+  .front { color: #056369; }
+  .frontTitle { color: #10818a; }
+  .categoryTag { background: #10818a; }
+  .front .pattern,
+  .front::before,
+  .front::after { color: var(--deck-primary); }
+}
+
+// Edu Design print palette: vivid pink back/tag with dark magenta ink.
+.pink {
+  --deck-primary: #ed1e99;
+  --deck-tint: #ffc0e7;
+  --deck-accent: #bf0078;
+
+  .front { color: #d60080; }
+  .frontBrand,
+  .frontTitle,
+  .frontFooter strong { color: var(--deck-accent); }
+  .front .pattern,
+  .front::before,
+  .front::after { color: #f5b8dc; }
+}
+
+// Pitching Design print palette: coral back, red ink and pale rose ribbons.
+.coral {
+  --deck-primary: #e76168;
+  --deck-tint: #f7c6c9;
+  --deck-accent: #db444e;
+
+  .front { color: #eb3f4c; }
+  .frontBrand,
+  .frontTitle,
+  .frontFooter strong { color: var(--deck-accent); }
+  .categoryTag { background: #d64650; }
+  .front .pattern,
+  .front::before,
+  .front::after { color: var(--deck-primary); }
+}
+
+// Business Gamification print palette: rose back and ink, pale pink ribbons.
+.rose {
+  --deck-primary: #ce578a;
+  --deck-tint: #efc2d6;
+  --deck-accent: #d6548d;
+
+  .front { color: #e04f90; }
+  .frontBrand,
+  .frontTitle,
+  .frontFooter strong { color: var(--deck-accent); }
+  .categoryTag { background: #ce578a; }
+  .front .pattern,
+  .front::before,
+  .front::after { color: var(--deck-primary); }
+}

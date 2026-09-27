@@ -1,0 +1,301 @@
+{
+  "ui": {
+    "prevTool": "Previous tool: {{name}}",
+    "nextTool": "Next tool: {{name}}",
+    "stepLabel": "Step {{n}}",
+    "step1": "Choose categories that you desire",
+    "step2": "Draw random cards or pick cards",
+    "testimonialTitle": "Our Testimonial work",
+    "cardExampleTitle": "Card Example",
+    "series": "A Series of ThinkTool",
+    "showFront": "Show front",
+    "showBack": "Show back"
+  },
+  "tools": {
+    "character_design": {
+      "title": "Character Design",
+      "subtitle": "Draw a random card and practice creating characters creatively.",
+      "categoriesHeading": "6 Categories to create your own character",
+      "categories": {
+        "appearance": "Appearance",
+        "goal": "Goal",
+        "personality": "Personality",
+        "strength": "Strength",
+        "weakness": "Weakness",
+        "superpower": "Superpower"
+      },
+      "step3": "Design your character",
+      "testimonial": {
+        "tags": [
+          "Jealousy",
+          "Physical Strength",
+          "Power",
+          "Arrogant"
+        ],
+        "title": "Draxon Steel",
+        "body": [
+          {
+            "p": "Draxon Steel grew up in a harsh, competitive world where only the strongest survived. His immense physical strength set him apart, earning him respect and fear. However, his arrogance grew as he rose to power, fueled by his insatiable jealousy of anyone who challenged his dominance. Determined to secure ultimate power, Draxon’s singular focus blinds him to the alliances and strategies needed to truly succeed."
+          }
+        ]
+      }
+    },
+    "content_design": {
+      "title": "Content Design",
+      "subtitle": "Out of ideas for social media content? Let these cards spark your creativity.",
+      "categoriesHeading": "6 Categories to create your content marketing",
+      "categories": {
+        "objective": "Objective",
+        "platform": "Platform",
+        "format": "Format",
+        "technique": "Technique",
+        "moodTone": "Mood & Tone",
+        "contentType": "Content Type"
+      },
+      "step3": "Write your own content",
+      "testimonial": {
+        "tags": [
+          "Product Promotion",
+          "Facebook",
+          "Scarcity",
+          "Empowering"
+        ],
+        "title": "",
+        "body": [
+          {
+            "p": "🌟 LIMITED EDITION Your Time to Glow Is Now!"
+          },
+          {
+            "p": "Transform your beauty game with our revolutionary Pearl Essence Collection. Only 100 sets available worldwide, each handcrafted to unleash your inner radiance."
+          },
+          {
+            "p": "✨ Why beauty lovers can’t stop talking about it"
+          },
+          {
+            "list": [
+              {
+                "text": "Advanced pearl-infused formula"
+              },
+              {
+                "text": "48-hour luminous finish"
+              },
+              {
+                "text": "Clean, vegan ingredients"
+              },
+              {
+                "text": "Dermatologist-approved"
+              }
+            ]
+          },
+          {
+            "p": "But here’s the game-changer: This exclusive collection launches tomorrow, and when it’s gone, it’s gone forever."
+          },
+          {
+            "p": "Be one of the privileged few to own this luxury set. Your skin deserves this moment."
+          },
+          {
+            "p": "💫 Early access starts in 24 HOURS ⚡ VIP Members get first dibs for 2 hours only!"
+          },
+          {
+            "p": "Don’t let someone else claim your glow. Click ‘Shop Now’ to join our VIP waitlist."
+          },
+          {
+            "p": "#PearlEssence #LimitedEdition #LuxuryBeauty #CleanBeauty #GlowUp"
+          }
+        ]
+      }
+    },
+    "education_design": {
+      "title": "Education Design",
+      "subtitle": "Need fresh ideas for creating unique teaching materials? Use these cards to see things from a different perspective.",
+      "categoriesHeading": "6 Categories to create your educational innovation",
+      "categories": {
+        "subject": "Subject",
+        "technique": "Technique",
+        "format": "Format",
+        "usp": "USP",
+        "level": "Level",
+        "method": "Method"
+      },
+      "step3": "Design your teaching material",
+      "testimonial": {
+        "tags": [
+          "Toy",
+          "Math",
+          "Grade 3",
+          "21 Century Skills"
+        ],
+        "title": "Math Explorers with Playful Bots",
+        "body": [
+          {
+            "p": "This teaching kit includes interactive toy robots and manipulatives to teach fundamental math concepts such as multiplication, division, and geometry."
+          },
+          {
+            "list": [
+              {
+                "lead": "Features",
+                "children": [
+                  {
+                    "lead": "Toy Robots",
+                    "text": "Program simple moves based on math equations (e.g., move forward 3x2 steps for multiplication)."
+                  },
+                  {
+                    "lead": "Interactive Cards",
+                    "text": "Cards with puzzles and challenges for mental math and logical reasoning."
+                  },
+                  {
+                    "lead": "Building Blocks",
+                    "text": "Geometry-focused activities like creating shapes or patterns to solve spatial reasoning problems."
+                  }
+                ]
+              },
+              {
+                "lead": "21st-Century Skills Integrated",
+                "children": [
+                  {
+                    "lead": "Critical Thinking",
+                    "text": "Solving math-based puzzles and robot challenges."
+                  },
+                  {
+                    "lead": "Collaboration",
+                    "text": "Working in teams to complete group challenges."
+                  },
+                  {
+                    "lead": "Digital Literacy",
+                    "text": "Introducing basic coding concepts with robots."
+                  },
+                  {
+                    "lead": "Creativity",
+                    "text": "Designing their own challenges with toys and math concepts."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gamification_in_business": {
+      "title": "Gamification Design",
+      "subtitle": "Practice applying gamification to different professions and purposes.",
+      "categoriesHeading": "3 Categories to create gamification in your business",
+      "categories": {
+        "purpose": "Purpose",
+        "gamification": "Gamification",
+        "career": "Career"
+      },
+      "step3": "Design your strategies",
+      "testimonial": {
+        "tags": [
+          "Point",
+          "Behavioral Change",
+          "Librarian"
+        ],
+        "title": "Library Ambassador Program",
+        "body": [
+          {
+            "list": [
+              {
+                "lead": "Mechanic",
+                "text": "Users earn points by introducing new members, sharing library events on social media, or participating in library activities."
+              },
+              {
+                "lead": "Behavioral Goal",
+                "text": "Increase library membership and community involvement."
+              },
+              {
+                "lead": "Incentives",
+                "text": "Top ambassadors can win titles (e.g., “Library Champion”), receive certificates, or attend special invitation-only events."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "innovation_design": {
+      "title": "Innovation Design",
+      "subtitle": "Whether you're creating an out-of-this-world prototype or developing an idea into something practical, this card set helps you unlock your full creative potential.",
+      "categoriesHeading": "6 Categories to create your innovation",
+      "categories": {
+        "outcome": "Outcome",
+        "user": "User",
+        "purpose": "Purpose",
+        "situation": "Situation",
+        "place": "Place",
+        "material": "Material"
+      },
+      "step3": "Design & Build Your Prototype",
+      "testimonial": {
+        "tags": [
+          "Design vending machine that is convenient for picky eaters."
+        ],
+        "title": "Noodle Vending Machine",
+        "body": [
+          {
+            "quote": "Customers have the option to select their desired ingredients and quantities, allowing them to estimate the price. Our meals are freshly prepared, with no use of frozen ingredients."
+          }
+        ]
+      }
+    },
+    "pitching_design": {
+      "title": "Pitching Design",
+      "subtitle": "Not confident in speaking or organizing your ideas? Practice with Pitching Design Cards to structure your pitch step by step.",
+      "categoriesHeading": "5 Categories to create your pitching",
+      "categories": {
+        "technique": "Technique",
+        "mission": "Mission",
+        "audience": "Audience",
+        "productService": "Product & Service",
+        "emotion": "Emotion"
+      },
+      "step3": "Practice your pitching",
+      "testimonial": {
+        "tags": [
+          "Health tech",
+          "Metaphor",
+          "B2G",
+          "Building Partnership"
+        ],
+        "title": "Health Tech Solution",
+        "body": [
+          {
+            "p": "Imagine a bridge connecting two cities—one with advanced healthcare and the other underserved. Our health tech platform is that bridge, using AI to centralize real-time data, predict health trends, and optimize resource allocation. This partnership reduces costs by 30% and improves patient outcomes by 50%. Let’s build this bridge together to ensure no citizen is left behind in accessing quality healthcare."
+          }
+        ]
+      }
+    },
+    "story_design": {
+      "title": "Story Design",
+      "subtitle": "Sharpen your writing skills and unleash your creativity with this card set, inspiring you to spark fresh ideas every day.",
+      "categoriesHeading": "6 Categories to create stories",
+      "categories": {
+        "genre": "Genre",
+        "plot": "Plot",
+        "period": "Period",
+        "setting": "Setting",
+        "protagonist": "Protagonist",
+        "antagonist": "Antagonist"
+      },
+      "step3": "Write your own story from the mission",
+      "testimonial": {
+        "tags": [
+          "Forest",
+          "Adventure",
+          "Theme",
+          "Past",
+          "Leader",
+          "Evil"
+        ],
+        "title": "The Magic Paintbrush",
+        "body": [
+          {
+            "p": "Once upon a time, in a small village nestled between tall mountains and a sparkling river, lived a little girl named Lily. Lily loved to draw. She would spend hours with her crayons and paper, creating colorful pictures of everything she imagined."
+          },
+          {
+            "p": "One sunny morning, while exploring the forest near her home, Lily stumbled upon a shiny object buried under a pile of leaves. It was a beautiful"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -30,6 +30,7 @@ type ToolsItem = {
 
 interface OutputItem {
   id: string;
+  key: string;
   picture: string;
   topic: string;
   topic2: string;
@@ -68,6 +69,7 @@ export default function OnlineToolsScreen({
         const item = categoryItems[itemKey];
         return {
           id: `${categoryKey}-${itemKey}-${idx}`,
+          key: itemKey,
           picture: `/image/online_tools/${itemKey}.png`,
           topic: item.topic,
           topic2: item.topic2,
@@ -166,6 +168,7 @@ export default function OnlineToolsScreen({
                       image={item.picture}
                       onlineLink={item.onlineLink}
                       productLink={item.productLink}
+                      toolKey={item.key}
                       // onClick={() => {
                       //   window.open(item.onlineLink, "_blank");
                       // }}

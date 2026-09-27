@@ -1,0 +1,414 @@
+.main {
+  --ink: #5b1f8a; // headings
+  --ink-soft: #6b3fa0; // body copy
+  --band: #6a1b94; // steps band
+  --tag: #e2d2ee;
+  --arrow: #c9aee0;
+
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 80px);
+  background: #fff;
+  color: var(--ink-soft);
+}
+
+// Category tiles follow the deck: purple decks get a warmer violet ramp,
+// blue decks a slightly cooler one, so the page and its cards agree.
+.blue {
+  --tile-0: #b08ccc;
+  --tile-1: #8f55b3;
+  --tile-2: #b48dcc;
+  --tile-3: #c59cd0;
+  --tile-4: #a878c4;
+  --tile-5: #e4cfe8;
+}
+
+.purple {
+  --tile-0: #b484c9;
+  --tile-1: #9150b0;
+  --tile-2: #b889cc;
+  --tile-3: #c897cf;
+  --tile-4: #aa74c2;
+  --tile-5: #e6cde9;
+}
+
+.thfont {
+  font-weight: 300 !important;
+}
+
+.sectionTitle {
+  margin: 0 0 28px;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(40px, 6vw, 72px) 20px clamp(32px, 5vw, 56px);
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.subtitle {
+  max-width: 640px;
+  margin: 18px 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.showcase {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 5vw, 72px);
+  margin-top: clamp(32px, 5vw, 48px);
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--arrow);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  &:hover:not(:disabled),
+  &:focus-visible {
+    color: var(--ink);
+    background: #f4ecfa;
+  }
+
+}
+
+// Keeps the cards centred when a category has no other tool to step to.
+.arrowSpacer {
+  width: 48px;
+  flex: none;
+}
+
+// Two overlapping, tilted cards: the drawn card on the left, the deck's back
+// in front of it on the right.
+.showcaseCards {
+  position: relative;
+  width: clamp(250px, 34vw, 360px);
+  height: clamp(290px, 39vw, 410px);
+}
+
+.showcaseFront,
+.showcaseBack {
+  position: absolute;
+  width: 58%;
+}
+
+.showcaseFront {
+  left: 0;
+  top: 0;
+  transform: rotate(-9deg);
+}
+
+.showcaseBack {
+  right: 0;
+  top: 14%;
+  transform: rotate(8deg);
+}
+
+.fadeIn {
+  animation: cardIn 0.35s ease-out;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Categories ---------- */
+
+.categories {
+  padding: clamp(24px, 4vw, 40px) 20px clamp(40px, 6vw, 64px);
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: min(680px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(74, 20, 120, 0.08);
+}
+
+.categoryTile {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 0;
+  min-height: clamp(168px, 21vw, 200px);
+  padding: 24px 12px;
+  color: #4a1478;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.35;
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.16);
+
+  &[data-shade="1"] {
+    color: #fff;
+  }
+
+  @for $i from 0 through 5 {
+    &[data-shade="#{$i}"] {
+      background: var(--tile-#{$i});
+    }
+  }
+}
+
+.categoryIcon {
+  color: #4a1478;
+  box-sizing: content-box;
+  flex: none;
+  width: clamp(60px, 7vw, 80px);
+  height: clamp(60px, 7vw, 80px);
+  padding: 10px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  stroke-width: 1.55;
+}
+
+/* ---------- Steps ---------- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: clamp(32px, 5vw, 48px) clamp(20px, 8vw, 120px);
+  background: var(--band);
+  color: #fff;
+  text-align: center;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--band);
+
+  svg {
+    margin-bottom: 14px;
+  }
+}
+
+.stepLabel {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #fff;
+}
+
+.stepText {
+  max-width: 220px;
+  margin: 6px 0 0;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.5;
+  color: #f1e6f8;
+}
+
+/* ---------- Testimonial ---------- */
+
+.testimonial {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 80px) 20px clamp(24px, 4vw, 40px);
+}
+
+.tags {
+  width: min(760px, 100%);
+  margin: 0 auto clamp(28px, 4vw, 40px);
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--tag);
+  color: var(--ink);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.testimonialSide {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  justify-content: center;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.testimonialImage {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.testimonialStacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonialImageCenter {
+  width: min(420px, 100%);
+  margin: 4px 0 24px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.testimonialHeading {
+  margin: 0 0 14px;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.testimonialStacked .testimonialHeading {
+  text-align: center;
+}
+
+.testimonialBody {
+  width: 100%;
+  font-size: 1.02rem;
+  line-height: 1.7;
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+}
+
+.bodyList {
+  margin: 4px 0 12px;
+  padding-left: 1.3em;
+
+  li {
+    margin: 2px 0;
+  }
+
+  .bodyList {
+    margin: 4px 0;
+    list-style: circle;
+  }
+}
+
+.quote {
+  max-width: 560px;
+  margin: 0 auto !important;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* ---------- Card example ---------- */
+
+.examples {
+  padding: clamp(40px, 6vw, 64px) 20px clamp(56px, 8vw, 88px);
+}
+
+.exampleRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.footerSection {
+  display: flex;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 720px) {
+  .showcase {
+    gap: 4px;
+  }
+
+  .arrow svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // Two per row on a phone; an odd one out takes the full row.
+  .categoryTile {
+    grid-column: span 2 !important;
+
+    &:last-child:nth-child(odd) {
+      grid-column: span 4 !important;
+    }
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .testimonialSide {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialImage {
+    width: min(320px, 100%);
+    margin: 0 auto;
+  }
+
+  .exampleRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(420px, 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn {
+    animation: none;
+  }
+}
+
+@media (min-width: 721px) {
+  .exampleRow[data-count="6"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(720px, 100%);
+  }
+}

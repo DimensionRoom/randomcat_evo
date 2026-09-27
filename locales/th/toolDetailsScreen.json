@@ -1,0 +1,14 @@
+{
+  "ui": {
+    "prevTool": "เครื่องมือก่อนหน้า: {{name}}",
+    "nextTool": "เครื่องมือถัดไป: {{name}}",
+    "stepLabel": "ขั้นที่ {{n}}",
+    "step1": "เลือกหมวดที่ต้องการ",
+    "step2": "สุ่มการ์ด หรือเลือกการ์ดเอง",
+    "testimonialTitle": "ผลงานตัวอย่าง",
+    "cardExampleTitle": "ตัวอย่างการ์ด",
+    "series": "A Series of ThinkTool",
+    "showFront": "ดูด้านหน้า",
+    "showBack": "ดูด้านหลัง"
+  }
+}
