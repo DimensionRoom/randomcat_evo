@@ -26,7 +26,9 @@
   aspect-ratio: 3 / 5;
   width: 100%;
   overflow: hidden;
-  border-radius: 1.5cqi;
+  // Same 20px as the tool cards on the online tools page; scales down on
+  // small thumbnails so the corner never eats the content.
+  border-radius: min(20px, 10cqi);
   box-shadow: 0 8px 24px rgba(40, 24, 80, 0.14);
 }
 

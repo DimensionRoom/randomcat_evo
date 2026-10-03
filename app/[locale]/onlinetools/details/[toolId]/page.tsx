@@ -27,15 +27,15 @@ const i18nNamespaces = ["toolDetailsScreen"];
 type ListItem = { lead?: string; text?: string; children?: ListItem[] };
 type BodyBlock = { p?: string; quote?: string; list?: ListItem[] };
 
-function BodyList({ items }: { items: ListItem[] }) {
+function BodyList({ items, className = "" }: { items: ListItem[]; className?: string }) {
   return (
-    <ul className={styles.bodyList}>
+    <ul className={`${styles.bodyList} ${className}`}>
       {items.map((item, i) => (
         <li key={i}>
           {item.lead && <strong>{item.lead}</strong>}
           {item.lead && item.text ? " " : null}
           {item.text}
-          {item.children && <BodyList items={item.children} />}
+          {item.children && <BodyList items={item.children} className={className} />}
         </li>
       ))}
     </ul>
@@ -116,7 +116,7 @@ export default function ToolDetailsPage({
           </p>
         );
       }
-      if (block.list) return <BodyList key={i} items={block.list} />;
+      if (block.list) return <BodyList key={i} items={block.list} className={thFont} />;
       return (
         <p key={i} className={thFont}>
           {block.p}
@@ -212,7 +212,7 @@ export default function ToolDetailsPage({
           {[t("ui.step1"), t("ui.step2"), tool("step3")].map((text, i) => (
             <div key={i} className={styles.step}>
               <StepCards count={i + 1} />
-              <p className={styles.stepLabel}>
+              <p className={`${styles.stepLabel} ${thFont}`}>
                 {t("ui.stepLabel", { n: i + 1 })}
               </p>
               <p className={`${styles.stepText} ${thFont}`}>{text}</p>

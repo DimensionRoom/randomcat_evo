@@ -1,4 +1,5 @@
 .card {
+  container-type: inline-size; // so the overlay's radius scales with the card
   position: relative;
   min-width: 0;
   perspective: 1000px;
@@ -27,7 +28,7 @@
   inset: 0;
   width: 100%;
   border: 0;
-  border-radius: 6px;
+  border-radius: min(20px, 10cqi); // matches the card face, so the focus ring does too
   padding: 0;
   background: transparent;
   color: var(--ink, #5b1f8a);

@@ -83,8 +83,8 @@ export const toolDetails: Record<string, ToolDetailConfig> = {
     // The noodle vending machine from the home page's outcome section.
     testimonialImage: {
       src: "/image/product1.jpg",
-      width: 480,
-      height: 480,
+      width: 594,
+      height: 817,
       layout: "center",
     },
   },

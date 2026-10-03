@@ -16,7 +16,7 @@
 // blue decks a slightly cooler one, so the page and its cards agree.
 .blue {
   --tile-0: #b08ccc;
-  --tile-1: #8f55b3;
+  --tile-1: #9a66bb; // darkest tile, still 3:1 against the label ink
   --tile-2: #b48dcc;
   --tile-3: #c59cd0;
   --tile-4: #a878c4;
@@ -25,7 +25,7 @@
 
 .purple {
   --tile-0: #b484c9;
-  --tile-1: #9150b0;
+  --tile-1: #9e65b9; // darkest tile, still 3:1 against the label ink
   --tile-2: #b889cc;
   --tile-3: #c897cf;
   --tile-4: #aa74c2;
@@ -182,10 +182,6 @@
   line-height: 1.35;
   box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.16);
 
-  &[data-shade="1"] {
-    color: #fff;
-  }
-
   @for $i from 0 through 5 {
     &[data-shade="#{$i}"] {
       background: var(--tile-#{$i});
@@ -237,7 +233,8 @@
 }
 
 .stepText {
-  max-width: 220px;
+  max-width: 280px;
+  text-wrap: balance; // no lone word on a second line
   margin: 6px 0 0;
   font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   line-height: 1.5;
@@ -277,6 +274,15 @@
   border-radius: 14px;
 }
 
+// ImageWithSkeleton's responsive mode leaves sizing to the caller: without
+// this the image renders at its intrinsic width and the box crops it.
+.testimonialImage img,
+.testimonialImageCenter img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .testimonialStacked {
   display: flex;
   flex-direction: column;
@@ -284,7 +290,8 @@
 }
 
 .testimonialImageCenter {
-  width: min(420px, 100%);
+  // A portrait photo; narrower than the text column so it does not tower.
+  width: min(360px, 100%);
   margin: 4px 0 24px;
   overflow: hidden;
   border-radius: 14px;
@@ -313,6 +320,11 @@
   strong {
     color: var(--ink);
     font-weight: 700;
+  }
+
+  // Thai leads: Mitr 700 is far heavier than the site's light Thai text.
+  .thfont strong {
+    font-weight: 500;
   }
 }
 
