@@ -1,0 +1,99 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  dt {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #9a98b3;
+  }
+
+  dd {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #211a4d;
+    font-variant-numeric: tabular-nums;
+  }
+
+  small {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #9a98b3;
+
+    &[data-trend="up"] {
+      color: #15803d;
+      font-weight: 600;
+    }
+
+    &[data-trend="down"] {
+      color: #dc2626;
+      font-weight: 600;
+    }
+  }
+}
+
+.ranges {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: #f4f2fb;
+}
+
+.range,
+.rangeActive {
+  min-width: 44px;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #6f6c8f;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover {
+    color: #4c1d95;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: 1px;
+  }
+}
+
+.rangeActive {
+  background: #fff;
+  color: #4c1d95;
+  box-shadow: 0 1px 3px rgba(33, 26, 77, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .range,
+  .rangeActive {
+    transition: none;
+  }
+}

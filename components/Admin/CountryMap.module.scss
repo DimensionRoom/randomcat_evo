@@ -1,0 +1,201 @@
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric,
+.zoom {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 10px;
+  background: #f4f2fb;
+}
+
+.metricButton,
+.metricActive,
+.zoom button {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #6f6c8f;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover:not(:disabled) {
+    color: #4c1d95;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: 1px;
+  }
+}
+
+.metricButton,
+.metricActive {
+  padding: 5px 12px;
+}
+
+.metricActive {
+  background: #fff;
+  color: #4c1d95;
+  box-shadow: 0 1px 3px rgba(33, 26, 77, 0.12);
+}
+
+.zoom button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 28px;
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+.map {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #faf9fe, #f5f3fc);
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+// v5 of react-simple-maps takes plain SVG styles, so hover is done here.
+// CSS fill wins over the fill attribute the component sets.
+.country {
+  outline: none;
+  transition: fill 0.12s;
+
+  &[data-active]:hover {
+    fill: #4c1d95;
+    cursor: pointer;
+  }
+}
+
+.dot {
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  min-width: 170px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(33, 26, 77, 0.18);
+  font-size: 12px;
+  color: #3c3760;
+  pointer-events: none;
+  // Above and to the right of the pointer; flips are not needed at this size.
+  transform: translate(12px, calc(-100% - 10px));
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 4px 14px;
+    margin: 6px 0 0;
+  }
+
+  dt {
+    font-size: 0.66rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #9a98b3;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 700;
+    color: #211a4d;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tooltipHead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #efedf7;
+  font-weight: 700;
+  color: #211a4d;
+  white-space: nowrap;
+}
+
+.flag {
+  font-size: 1.05rem;
+}
+
+.newBadge {
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #8b8aa3;
+}
+
+.ramp {
+  flex: 0 1 160px;
+  height: 8px;
+  border-radius: 999px;
+}
+
+.noData {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+
+  i {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: #eef0f6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country,
+  .metricButton,
+  .metricActive,
+  .zoom button {
+    transition: none;
+  }
+}

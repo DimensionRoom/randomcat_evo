@@ -1,0 +1,113 @@
+// Fills the card's height (it shares a row with the Page views chart) and
+// centres its content in it.
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.totalValue {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #211a4d;
+  font-variant-numeric: tabular-nums;
+}
+
+.totalLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8b8aa3;
+}
+
+.split {
+  display: flex;
+  gap: 3px;
+  height: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #f1f0f7;
+
+  span {
+    min-width: 8px; // a group under 1% still shows
+    border-radius: 999px;
+  }
+}
+
+.groups {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, #fff);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--accent) 7%, #fff);
+  }
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.groupText {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #211a4d;
+
+  small {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #8b8aa3;
+  }
+}
+
+.groupValue {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #211a4d;
+  font-variant-numeric: tabular-nums;
+
+  small {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+}
+
+.insight {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6f6c8f;
+
+  b {
+    color: #211a4d;
+  }
+}

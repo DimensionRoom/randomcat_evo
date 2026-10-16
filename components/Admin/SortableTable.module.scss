@@ -1,0 +1,39 @@
+// The header cell keeps the table's own padding/colours; only the clickable
+// label inside is styled here.
+.th {
+  padding: 0 !important;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 11px 16px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    color: #4c1d95;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: -2px;
+    border-radius: 6px;
+  }
+}
+
+.arrow {
+  font-size: 0.7em;
+  color: #c4c2d6;
+
+  &[data-active] {
+    color: #7c3aed;
+  }
+}

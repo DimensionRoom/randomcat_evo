@@ -168,92 +168,11 @@
   margin-bottom: 24px;
 }
 
-/* Donut + legend */
+/* Visitors overview: a flex column so its content can fill and centre in the
+   card, which shares a row (and height) with the Page views chart. */
 .visitorsCard {
   display: flex;
   flex-direction: column;
-}
-
-.donutRow {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.visitorsCard .donutRow {
-  flex: 1; // fill remaining card height so content centres vertically
-}
-
-.legend {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  font-size: 0.92rem;
-  color: #4b4b66;
-  min-width: 200px;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-}
-
-.legendDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* Horizontal wrapping legend for the stacked "Users per day" chart */
-.barLegend {
-  list-style: none;
-  margin: 12px 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  font-size: 0.85rem;
-  color: #4b4b66;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-}
-
-.legendText {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-
-  small {
-    font-size: 0.72rem;
-    color: #a0a0b8;
-  }
-}
-
-.legend b {
-  margin-left: auto;
-  text-align: right;
-  color: #211a4d;
-  font-size: 1.05rem;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-
-  small {
-    font-weight: 500;
-    font-size: 0.72rem;
-    color: #a0a0b8;
-  }
 }
 
 /* Tables */
@@ -297,12 +216,29 @@
   }
 }
 
-.mapWrap {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto 8px;
-  aspect-ratio: 2 / 1; // scales with width so the map fits on any screen
-  min-height: 180px;
+/* Visitors cell in the By country table: a bar against the busiest country. */
+.shareCell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.shareBar {
+  display: inline-block;
+  width: 64px;
+  height: 6px;
+  border-radius: 999px;
+  background: #f1eefb;
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    min-width: 2px;
+    border-radius: inherit;
+    background: #8b5cf6;
+  }
 }
 
 .flag {
@@ -310,9 +246,50 @@
   font-size: 1.1rem;
 }
 
-/* Long country list: cap height, scroll, keep header visible. On desktop
-   EqualHeightRow overrides this max-height inline so the card matches By page;
-   this 360px is the mobile / no-JS fallback. */
+/* Countries first seen in the last few days (see NEW_COUNTRY_DAYS). */
+.newBadge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: 2px;
+}
+
+.newCountries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #f0fdf4;
+  color: #166534;
+  font-size: 0.85rem;
+  line-height: 1.5;
+
+  .newBadge {
+    margin-left: 0;
+  }
+}
+
+.table tbody tr[data-new] td {
+  background: #f7fef9;
+}
+
+.muted {
+  color: #9a98b3;
+}
+
+/* Long tables: cap height, scroll, keep header visible. Inside an
+   EqualHeightRow the `data-equal-fill` table gets this max-height overridden
+   inline to match its neighbour card (Daily views -> Users per day, By page ->
+   By country); 360px is the cap otherwise, and the mobile / no-JS fallback. */
 .scrollTable {
   max-height: 360px;
   overflow-y: auto;

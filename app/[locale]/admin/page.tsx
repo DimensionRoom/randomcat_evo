@@ -1,14 +1,18 @@
+import type { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import { Eye, UserRound, Users, Globe } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countryFlag } from "@/lib/countryFlag";
-import NivoLine from "@/components/Admin/NivoLine";
-import NivoStackedBar from "@/components/Admin/NivoStackedBar";
+import { canonicalCountryName } from "@/lib/countryCodes";
+import PageViewsChart, { type DayViews } from "@/components/Admin/PageViewsChart";
+import DeviceBreakdown from "@/components/Admin/DeviceBreakdown";
+import UsersPerDayChart, { type DayUsers } from "@/components/Admin/UsersPerDayChart";
 import CollapsibleCard from "@/components/Admin/CollapsibleCard";
+import SortableTable, { type SortValue } from "@/components/Admin/SortableTable";
 import EqualHeightRow from "@/components/Admin/EqualHeightRow";
-import NivoPie from "@/components/Admin/NivoPie";
-import NivoChoropleth from "@/components/Admin/NivoChoropleth";
+import VisitorsOverview from "@/components/Admin/VisitorsOverview";
+import CountryMap from "@/components/Admin/CountryMap";
 import styles from "./Admin.module.scss";
 
 export const dynamic = "force-dynamic";
@@ -25,37 +29,106 @@ function fmt(value: unknown): string {
   return String(value);
 }
 
+const SUMMED = ["views", "unique_visitors", "unique_users"] as const;
+
+/**
+ * Group rows whose country is the same place under different stored names.
+ * `keys` are the columns that identify a row (country, plus day for per-day
+ * rows); counts are summed and first/last seen widened.
+ */
+function mergeCountryRows(rows: Row[], keys: string[]): Row[] {
+  const merged = new Map<string, Row>();
+  for (const r of rows) {
+    const country = canonicalCountryName(r.country == null ? null : String(r.country));
+    const id = keys.map((k) => (k === "country" ? country : String(r[k]))).join("|");
+    const prev = merged.get(id);
+    if (!prev) {
+      merged.set(id, { ...r, country });
+      continue;
+    }
+    for (const k of SUMMED) prev[k] = (Number(prev[k]) || 0) + (Number(r[k]) || 0);
+    if (r.first_seen && (!prev.first_seen || String(r.first_seen) < String(prev.first_seen)))
+      prev.first_seen = r.first_seen;
+    if (r.last_seen && (!prev.last_seen || String(r.last_seen) > String(prev.last_seen)))
+      prev.last_seen = r.last_seen;
+  }
+  return [...merged.values()];
+}
+
+/** Value used to sort a cell: numbers (Postgres counts may arrive as numeric
+ *  strings) compare as numbers, ISO timestamps compare correctly as text. */
+function sortValue(value: unknown): SortValue {
+  if (value === null || value === undefined || value === "") return null;
+  if (typeof value === "number") return value;
+  const text = String(value);
+  return /^-?\d+(\.\d+)?$/.test(text) ? Number(text) : text;
+}
+
+/**
+ * Sortable admin table. Sorting happens in the browser (SortableTable); here
+ * each row is split into raw sort values and what the cell shows, so a
+ * formatted date or a flag still sorts by the underlying value.
+ */
 function Table({
   columns,
   rows,
+  display,
+  sortBy,
+  rowAttrs,
+  wrapClassName = styles.tableWrap,
+  wrapAttrs,
 }: {
   columns: Column[];
   rows: Row[];
+  /** Custom cell content for some columns; return undefined to use fmt(). */
+  display?: (key: string, row: Row) => ReactNode | undefined;
+  /** Custom sort value for some columns; return undefined to use the raw value. */
+  sortBy?: (key: string, row: Row) => SortValue | undefined;
+  rowAttrs?: (row: Row) => Record<string, string | boolean | undefined>;
+  wrapClassName?: string;
+  wrapAttrs?: Record<string, string | boolean | undefined>;
 }) {
-  if (rows.length === 0)
-    return <p className={styles.empty}>No data yet.</p>;
   return (
-    <div className={styles.tableWrap}>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            {columns.map((c) => (
-              <th key={c.key}>{c.label}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r, i) => (
-            <tr key={i}>
-              {columns.map((c) => (
-                <td key={c.key}>{fmt(r[c.key])}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <SortableTable
+      columns={columns}
+      tableClassName={styles.table}
+      wrapClassName={wrapClassName}
+      wrapAttrs={wrapAttrs}
+      emptyClassName={styles.empty}
+      rows={rows.map((r, i) => ({
+        id: String(i),
+        sort: Object.fromEntries(
+          columns.map((c) => [c.key, sortBy?.(c.key, r) ?? sortValue(r[c.key])])
+        ),
+        cells: Object.fromEntries(
+          columns.map((c) => [c.key, display?.(c.key, r) ?? fmt(r[c.key])])
+        ),
+        attrs: rowAttrs?.(r),
+      }))}
+    />
   );
+}
+
+/** Days of history the time charts load (their longest range is 1Y). */
+const CHART_DAYS = 365;
+
+/**
+ * Read every row of a query, 1,000 at a time — the API's per-request cap. The
+ * query must have a stable order, or rows can repeat or go missing between
+ * pages.
+ */
+async function fetchAllRows(
+  page: (from: number, to: number) => PromiseLike<{ data: unknown[] | null; error: unknown }>
+): Promise<{ data: Row[] }> {
+  const PAGE = 1000;
+  const all: Row[] = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await page(from, from + PAGE - 1);
+    if (error || !data) break;
+    all.push(...(data as Row[]));
+    if (data.length < PAGE) break;
+  }
+  return { data: all };
 }
 
 const sum = (rows: Row[] | null, key: string) =>
@@ -88,7 +161,7 @@ export default async function AdminPage({
 
   const [daily, byPath, byCountry, byDevice, users, totalsRes, byDayCountry] =
     await Promise.all([
-      admin.from("usage_daily").select("*").limit(60),
+      admin.from("usage_daily").select("*").limit(CHART_DAYS),
       admin.from("usage_by_path").select("*").limit(100),
       admin.from("usage_by_country").select("*"),
       admin.from("usage_by_device").select("*"),
@@ -101,12 +174,29 @@ export default async function AdminPage({
         .order("last_seen", { ascending: false, nullsFirst: false })
         .limit(200),
       admin.from("usage_totals").select("*").single(),
-      admin.from("usage_by_day_and_country").select("*"),
+      // A year of day x country rows passes the API's 1,000-row cap, so this
+      // one is read page by page (a single request would silently drop days).
+      fetchAllRows((from, to) =>
+        admin
+          .from("usage_by_day_and_country")
+          .select("*")
+          .gte("day", new Date(Date.now() - CHART_DAYS * 24 * 60 * 60 * 1000).toISOString())
+          .order("day", { ascending: false })
+          .order("country", { ascending: true })
+          .range(from, to)
+      ),
     ]);
 
   const totals = (totalsRes.data ?? {}) as Row;
   const dailyRows = (daily.data ?? []) as Row[];
-  const countryRows = (byCountry.data ?? []) as Row[];
+  // The same country can be stored under several names (each visitor's browser
+  // words it differently, or only the ISO code was saved), so merge rows under
+  // one canonical name before anything counts or ranks them. Visitor counts are
+  // summed across variants; a visitor seen under two variants counts twice,
+  // which is rare and far smaller than the split it fixes.
+  const countryRows = mergeCountryRows((byCountry.data ?? []) as Row[], ["country"]).sort(
+    (a, b) => (Number(b.views) || 0) - (Number(a.views) || 0)
+  );
 
   // Stat cards
   const stats = [
@@ -140,78 +230,79 @@ export default async function AdminPage({
     },
   ];
 
-  // Line chart (oldest -> newest)
-  const dayLabel = (r: Row) =>
-    new Date(String(r.day)).toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-    });
-  const linePoints = [...dailyRows]
-    .reverse()
-    .map((r) => ({ label: dayLabel(r), value: Number(r.views) || 0 }));
+  // Days are keyed by their "YYYY-MM-DD" (the views bucket by UTC day); the
+  // charts format them, adding the year where a range spans two.
+  const dayKey = (r: Row) => String(r.day).slice(0, 10);
+  // usage_daily.views as deployed in Supabase is a running total, not a
+  // per-day count: it starts from the view count carried over from the old
+  // tracking system (so it is far above the number of usage_events rows).
+  // The repo's 0002 migration still shows the original per-day definition.
+  const viewDays: DayViews[] = [...dailyRows].reverse().map((r) => ({
+    date: dayKey(r),
+    total: Number(r.views) || 0,
+  }));
 
-  // Stacked "Users per day": every country gets its own segment (no "Other"),
-  // ranked by total visitors. "unknown" is excluded.
+  // A country counts as "new" when its first visit is this recent. Needs
+  // usage_by_country.first_seen (migration 0010); without it nothing is new.
+  const NEW_COUNTRY_DAYS = 7;
+  const newSince = Date.now() - NEW_COUNTRY_DAYS * 24 * 60 * 60 * 1000;
+  const isNewCountry = (c: Row) =>
+    c.country !== "unknown" &&
+    Boolean(c.first_seen) &&
+    new Date(String(c.first_seen)).getTime() >= newSince;
+  const newCountries = countryRows
+    .filter(isNewCountry)
+    .sort((a, b) => String(b.first_seen).localeCompare(String(a.first_seen)));
+  const newCountryNames = new Set(newCountries.map((c) => String(c.country)));
+  const knownCountries = countryRows.filter((c) => c.country !== "unknown");
+  const maxCountryVisitors = Math.max(1, ...knownCountries.map((c) => Number(c.unique_visitors) || 0));
+
+  // "Users per day": every country gets its own segment (no "Other"), ranked
+  // by total visitors; "unknown" is excluded.
   const STACK_COLORS = [
     "#7c6cf0",
     "#34d399",
     "#f5a25d",
-    "#2563eb",
+    "#3b82f6",
     "#f472b6",
     "#fbbf24",
     "#06b6d4",
-    "#ef4444",
+    "#ef6b6b",
     "#a78bfa",
     "#10b981",
     "#fb923c",
-    "#3b82f6",
+    "#60a5fa",
     "#ec4899",
     "#84cc16",
   ];
-  const dayCountryRows = (byDayCountry.data ?? []) as Row[];
-  // Rank every known country by total unique visitors across the window.
+  const dayCountryRows = mergeCountryRows((byDayCountry.data ?? []) as Row[], ["day", "country"]);
   const countryTotals = new Map<string, number>();
-  for (const r of dayCountryRows) {
-    const c = String(r.country);
-    if (c === "unknown") continue;
-    countryTotals.set(c, (countryTotals.get(c) ?? 0) + (Number(r.unique_visitors) || 0));
-  }
-  const stackKeys = [...countryTotals.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .map(([c]) => c);
-  const stackColors = stackKeys.map(
-    (_, i) => STACK_COLORS[i % STACK_COLORS.length]
-  );
-  // One row per day (oldest -> newest), each country's unique visitors as a key.
   const dayBuckets = new Map<string, Record<string, number>>();
   for (const r of dayCountryRows) {
     const c = String(r.country);
     if (c === "unknown") continue;
-    const label = dayLabel(r);
-    const bucket = dayBuckets.get(label) ?? {};
-    bucket[c] = (bucket[c] ?? 0) + (Number(r.unique_visitors) || 0);
-    dayBuckets.set(label, bucket);
+    const v = Number(r.unique_visitors) || 0;
+    countryTotals.set(c, (countryTotals.get(c) ?? 0) + v);
+    const key = dayKey(r);
+    const bucket = dayBuckets.get(key) ?? {};
+    bucket[c] = (bucket[c] ?? 0) + v;
+    dayBuckets.set(key, bucket);
   }
-  const stackData = [...dailyRows]
-    .reverse()
-    .map((r) => {
-      const label = dayLabel(r);
-      const bucket = dayBuckets.get(label) ?? {};
-      const row: Record<string, number | string> = { day: label };
-      for (const k of stackKeys) row[k] = bucket[k] ?? 0;
-      return row;
-    });
-
-  // Donut: anonymous visitors vs signed-in users
-  const anonVisitors = Number(totals.anonymous_visitors) || 0;
-  const signedInUsers = Number(totals.unique_users) || 0;
-  const donutSegments = [
-    { label: "Anonymous", value: anonVisitors, color: "#f5a25d" },
-    { label: "Signed-in", value: signedInUsers, color: "#34d399" },
-  ];
-  const donutTotal = anonVisitors + signedInUsers;
-  const pct = (v: number) =>
-    donutTotal ? `${Math.round((v / donutTotal) * 100)}%` : "0%";
+  const chartCountries = [...countryTotals.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([name], i) => ({
+      name,
+      flag: countryFlag(name),
+      color: STACK_COLORS[i % STACK_COLORS.length],
+      isNew: newCountryNames.has(name),
+    }));
+  // One entry per day, oldest -> newest (usage_daily is newest-first).
+  const chartDays: DayUsers[] = [...dailyRows].reverse().map((r) => ({
+    date: dayKey(r),
+    values: dayBuckets.get(dayKey(r)) ?? {},
+  }));
+  const shortDate = (v: unknown) =>
+    v ? new Date(String(v)).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "-";
 
   return (
     <main className={styles.main}>
@@ -254,84 +345,45 @@ export default async function AdminPage({
 
       <div className={styles.chartsRow}>
         <CollapsibleCard title="Page views over time">
-          <NivoLine points={linePoints} />
+          <PageViewsChart days={viewDays} />
         </CollapsibleCard>
         <section className={`${styles.card} ${styles.visitorsCard}`}>
           <h2 className={styles.cardTitle}>Visitors overview</h2>
-          <div className={styles.donutRow}>
-            <NivoPie
-              segments={donutSegments}
-              total={donutTotal}
-              centerLabel="Visitors"
-            />
-            <ul className={styles.legend}>
-              <li>
-                <span className={styles.legendDot} style={{ background: "#f5a25d" }} />
-                <span className={styles.legendText}>
-                  Anonymous
-                  <small>visitors</small>
-                </span>
-                <b>
-                  {anonVisitors.toLocaleString()}
-                  <small>{pct(anonVisitors)}</small>
-                </b>
-              </li>
-              <li>
-                <span className={styles.legendDot} style={{ background: "#34d399" }} />
-                <span className={styles.legendText}>
-                  Signed-in
-                  <small>users</small>
-                </span>
-                <b>
-                  {signedInUsers.toLocaleString()}
-                  <small>{pct(signedInUsers)}</small>
-                </b>
-              </li>
-            </ul>
-          </div>
+          <VisitorsOverview
+            totalVisitors={Number(totals.unique_visitors) || 0}
+            signedInVisitors={Number(totals.logged_in_visitors) || 0}
+            accounts={Number(totals.unique_users) || 0}
+          />
         </section>
       </div>
 
-      <div className={styles.chartsRow}>
+      {/* Daily views follows the height of Users per day and scrolls inside. */}
+      <EqualHeightRow className={styles.chartsRow}>
         <CollapsibleCard title="Daily views">
           <Table
             columns={[
               { key: "day", label: "Day" },
-              { key: "views", label: "Views" },
+              // Running total (see viewDays above); the other two are per day.
+              { key: "views", label: "Total views" },
               { key: "unique_visitors", label: "Unique visitors" },
               { key: "unique_users", label: "Unique users" },
             ]}
-            rows={dailyRows.map((r) => ({
-              ...r,
-              // Show the day as day/month/year (en-GB) instead of the default
-              // US month/day/year.
-              day: new Date(String(r.day)).toLocaleDateString("en-GB"),
-            }))}
+            rows={dailyRows}
+            // Show the day as day/month/year (en-GB) instead of the default
+            // US month/day/year; it still sorts by the real date.
+            display={(key, r) =>
+              key === "day" ? new Date(String(r.day)).toLocaleDateString("en-GB") : undefined
+            }
+            wrapClassName={`${styles.tableWrap} ${styles.scrollTable}`}
+            wrapAttrs={{ "data-equal-fill": true }}
           />
         </CollapsibleCard>
 
         <section className={styles.card}>
           <h2 className={styles.cardTitle}>Users per day</h2>
-          <NivoStackedBar
-            data={stackData}
-            keys={stackKeys}
-            colors={stackColors}
-          />
-          {stackKeys.length > 0 && (
-            <ul className={styles.barLegend}>
-              {stackKeys.map((c, i) => (
-                <li key={c}>
-                  <span
-                    className={styles.legendDot}
-                    style={{ background: stackColors[i] }}
-                  />
-                  <span>{`${countryFlag(c)} ${c}`}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <UsersPerDayChart days={chartDays} countries={chartCountries} />
         </section>
-      </div>
+      </EqualHeightRow>
 
       <EqualHeightRow className={styles.chartsRow}>
       <CollapsibleCard title="By page">
@@ -343,62 +395,84 @@ export default async function AdminPage({
             { key: "anon_views", label: "Anonymous" },
           ]}
           rows={(byPath.data ?? []) as Row[]}
+          // Follows the By country card's height (map + its capped table) and
+          // scrolls inside, instead of stretching both cards to 100 rows.
+          wrapClassName={`${styles.tableWrap} ${styles.scrollTable}`}
+          wrapAttrs={{ "data-equal-fill": true }}
         />
       </CollapsibleCard>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By country</h2>
-          <div className={styles.mapWrap}>
-            <NivoChoropleth
-              data={countryRows.map((c) => ({
-                name: String(c.country),
-                value: Number(c.views) || 0,
-              }))}
-            />
-          </div>
-          <div
-            className={`${styles.tableWrap} ${styles.scrollTable}`}
-            data-equal-fill
-          >
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>Country</th>
-                  <th>Views</th>
-                  <th>Unique visitors</th>
-                  <th>Unique users</th>
-                </tr>
-              </thead>
-              <tbody>
-                {countryRows.map((c, i) => (
-                  <tr key={i}>
-                    <td>
-                      <span className={styles.flag}>
-                        {countryFlag(String(c.country))}
-                      </span>
-                      {String(c.country)}
-                    </td>
-                    <td>{fmt(c.views)}</td>
-                    <td>{fmt(c.unique_visitors)}</td>
-                    <td>{fmt(c.unique_users)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <CountryMap
+            data={knownCountries.map((c) => ({
+              name: String(c.country),
+              flag: countryFlag(String(c.country)),
+              visitors: Number(c.unique_visitors) || 0,
+              views: Number(c.views) || 0,
+              isNew: isNewCountry(c),
+            }))}
+          />
+          {newCountries.length > 0 && (
+            <p className={styles.newCountries}>
+              <span className={styles.newBadge}>NEW</span>
+              {newCountries.length} new{" "}
+              {newCountries.length === 1 ? "country" : "countries"} in the last{" "}
+              {NEW_COUNTRY_DAYS} days:{" "}
+              {newCountries
+                .map((c) => `${countryFlag(String(c.country))} ${c.country}`)
+                .join(", ")}
+            </p>
+          )}
+          <Table
+            columns={[
+              { key: "country", label: "Country" },
+              { key: "views", label: "Views" },
+              { key: "unique_visitors", label: "Unique visitors" },
+              { key: "unique_users", label: "Unique users" },
+              { key: "first_seen", label: "First seen" },
+            ]}
+            rows={countryRows}
+            // Capped at the .scrollTable height; By page matches this card.
+            wrapClassName={`${styles.tableWrap} ${styles.scrollTable}`}
+            rowAttrs={(c) => ({ "data-new": isNewCountry(c) || undefined })}
+            display={(key, c) => {
+              if (key === "first_seen")
+                return <span className={styles.muted}>{shortDate(c.first_seen)}</span>;
+              if (key === "unique_visitors") {
+                const v = Number(c.unique_visitors) || 0;
+                // Bar relative to the busiest country, so the ranking reads at a glance.
+                return (
+                  <span className={styles.shareCell}>
+                    <span className={styles.shareBar}>
+                      <span style={{ width: `${(v / maxCountryVisitors) * 100}%` }} />
+                    </span>
+                    {v.toLocaleString()}
+                  </span>
+                );
+              }
+              if (key !== "country") return undefined;
+              return (
+                <>
+                  <span className={styles.flag}>{countryFlag(String(c.country))}</span>
+                  {String(c.country)}
+                  {isNewCountry(c) && <span className={styles.newBadge}>NEW</span>}
+                </>
+              );
+            }}
+          />
         </section>
       </EqualHeightRow>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By device</h2>
-        <Table
-          columns={[
-            { key: "device", label: "Device" },
-            { key: "views", label: "Views" },
-            { key: "unique_visitors", label: "Unique visitors" },
-            { key: "unique_users", label: "Unique users" },
-          ]}
-          rows={(byDevice.data ?? []) as Row[]}
+        <DeviceBreakdown
+          rows={((byDevice.data ?? []) as Row[]).map((r) => ({
+            device: String(r.device ?? "unknown"),
+            views: Number(r.views) || 0,
+            visitors: Number(r.unique_visitors) || 0,
+            users: Number(r.unique_users) || 0,
+          }))}
         />
       </section>
 
@@ -414,14 +488,19 @@ export default async function AdminPage({
             { key: "active_days", label: "Active days" },
             { key: "last_seen", label: "Last seen" },
           ]}
-          rows={(users.data ?? []).map((u) => ({
-            ...(u as Row),
-            // Most recent country (from user_activity), shown with its flag to
-            // match the "By country" table.
-            country: u.country
-              ? `${countryFlag(String(u.country))} ${u.country}`
-              : "-",
-          }))}
+          rows={(users.data ?? []) as Row[]}
+          // Most recent country (from user_activity), shown with its flag to
+          // match the "By country" table; sorts by the country name.
+          sortBy={(key, u) =>
+            key === "country" && u.country ? canonicalCountryName(String(u.country)) : undefined
+          }
+          display={(key, u) =>
+            key === "country"
+              ? u.country
+                ? `${countryFlag(String(u.country))} ${canonicalCountryName(String(u.country))}`
+                : "-"
+              : undefined
+          }
         />
       </section>
 

@@ -15,6 +15,9 @@ import React, { ReactNode, useEffect, useRef } from "react";
  * reference card (equal-height grid row), so the reference height comes back wrong
  * and the cap is left at its CSS default. Stacked / single-column layouts are left
  * at the CSS default.
+ *
+ * The reference is also watched for size changes, since it can change height
+ * without a window resize (e.g. a chart's range toggle re-wrapping its legend).
  */
 export default function EqualHeightRow({
   className,
@@ -81,10 +84,28 @@ export default function EqualHeightRow({
     };
     window.addEventListener("resize", onResize);
 
+    // Watch the reference card(s) only: measure() resizes the fill card, so
+    // observing that one too would feed back into itself.
+    let lastRefHeight = 0;
+    const observer =
+      typeof ResizeObserver === "undefined"
+        ? null
+        : new ResizeObserver((entries) => {
+            const h = Math.round(entries[0]?.contentRect.height ?? 0);
+            if (h === lastRefHeight) return;
+            lastRefHeight = h;
+            onResize();
+          });
+    const fill = el.querySelector("[data-equal-fill]");
+    (Array.from(el.children) as HTMLElement[])
+      .filter((c) => !fill || !c.contains(fill))
+      .forEach((c) => observer?.observe(c));
+
     return () => {
       timers.forEach((t) => window.clearTimeout(t));
       window.clearTimeout(resizeTimer);
       window.removeEventListener("resize", onResize);
+      observer?.disconnect();
     };
   }, [children]);
 
