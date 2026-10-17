@@ -4,6 +4,7 @@
 -- carried-over counts no longer appear in the view (the underlying data was not
 -- deleted). Restore them by merging the previous live definition with the
 -- first_seen/last_seen columns below; do not re-run this file as it stands.
+-- 0011_usage_by_country_restore_seed.sql does that (adds public.country_seed back).
 --
 -- Add when each country was first and last seen to the per-country summary, so
 -- the admin "By country" table can flag countries that started visiting
