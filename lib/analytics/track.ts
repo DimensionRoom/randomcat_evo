@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { getVisitorId } from "./visitor";
+import { isIgnoredReferrer } from "./sources";
 
 /**
  * The ISO country code set by middleware in the tt_country cookie (e.g. "TH").
@@ -38,6 +39,53 @@ function getDeviceType(): string {
   return "desktop";
 }
 
+const ENTRY_KEY = "tt_entry_recorded";
+
+/**
+ * Where this visit came from, returned once per browser tab session — on the
+ * first page view — and null after that.
+ *
+ * Only the first page counts because client-side navigation keeps
+ * document.referrer at whatever site first sent the visitor, so reading it on
+ * every page would credit that site with the whole visit, again and again.
+ * Only the referrer's host is kept (browsers usually send no more than that
+ * anyway); referrers from this site, and from the sign-in round trip, are not
+ * sources.
+ */
+function takeEntrySource(): {
+  entry: true;
+  referrer_host: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+} | null {
+  try {
+    if (sessionStorage.getItem(ENTRY_KEY)) return null;
+    sessionStorage.setItem(ENTRY_KEY, "1");
+  } catch {
+    // Storage blocked: no way to tell the first page from the rest, so skip
+    // the source rather than count it on every page.
+    return null;
+  }
+
+  let host: string | null = null;
+  try {
+    const ref = document.referrer ? new URL(document.referrer).hostname : "";
+    if (ref && ref !== window.location.hostname && !isIgnoredReferrer(ref)) host = ref;
+  } catch {
+    host = null;
+  }
+  const params = new URLSearchParams(window.location.search);
+  const tag = (name: string) => params.get(name)?.trim().slice(0, 100) || null;
+  return {
+    entry: true,
+    referrer_host: host,
+    utm_source: tag("utm_source"),
+    utm_medium: tag("utm_medium"),
+    utm_campaign: tag("utm_campaign"),
+  };
+}
+
 export interface TrackEventInput {
   eventType: "page_view" | "sign_in";
   path?: string;
@@ -56,19 +104,25 @@ export function trackEvent(input: TrackEventInput): void {
   const visitorId = getVisitorId();
   if (!visitorId) return;
 
+  const row = {
+    event_type: input.eventType,
+    path: input.path ?? null,
+    locale: input.locale ?? null,
+    user_id: input.userId ?? null,
+    visitor_id: visitorId,
+    country: getCountry(),
+    device: getDeviceType(),
+  };
+  const source = input.eventType === "page_view" ? takeEntrySource() : null;
+
   const supabase = createClient();
   void supabase
     .from("usage_events")
-    .insert({
-      event_type: input.eventType,
-      path: input.path ?? null,
-      locale: input.locale ?? null,
-      user_id: input.userId ?? null,
-      visitor_id: visitorId,
-      country: getCountry(),
-      device: getDeviceType(),
-    })
-    .then(({ error }) => {
+    .insert(source ? { ...row, ...source } : row)
+    .then(async ({ error }) => {
+      // A database without migration 0012 rejects the source columns; keep the
+      // page view itself rather than lose it.
+      if (error && source) ({ error } = await supabase.from("usage_events").insert(row));
       if (error && process.env.NODE_ENV === "development") {
         // eslint-disable-next-line no-console
         console.debug("usage track failed:", error.message);

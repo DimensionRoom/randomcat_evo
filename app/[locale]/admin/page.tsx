@@ -7,6 +7,7 @@ import { countryFlag } from "@/lib/countryFlag";
 import { canonicalCountryName } from "@/lib/countryCodes";
 import PageViewsChart, { type DayViews } from "@/components/Admin/PageViewsChart";
 import DeviceBreakdown from "@/components/Admin/DeviceBreakdown";
+import TrafficSources, { type SourceRow } from "@/components/Admin/TrafficSources";
 import UsersPerDayChart, { type DayUsers } from "@/components/Admin/UsersPerDayChart";
 import CollapsibleCard from "@/components/Admin/CollapsibleCard";
 import SortableTable, { type SortValue } from "@/components/Admin/SortableTable";
@@ -159,7 +160,7 @@ export default async function AdminPage({
     .single();
   if (!profile?.is_admin) redirect(`/${locale}`);
 
-  const [daily, byPath, byCountry, byDevice, users, totalsRes, byDayCountry] =
+  const [daily, byPath, byCountry, byDevice, users, totalsRes, byDayCountry, bySource] =
     await Promise.all([
       admin.from("usage_daily").select("*").limit(CHART_DAYS),
       admin.from("usage_by_path").select("*").limit(100),
@@ -183,6 +184,17 @@ export default async function AdminPage({
           .gte("day", new Date(Date.now() - CHART_DAYS * 24 * 60 * 60 * 1000).toISOString())
           .order("day", { ascending: false })
           .order("country", { ascending: true })
+          .range(from, to)
+      ),
+      // Traffic sources (migration 0012). Without that view this returns no
+      // rows and the card says nothing has been recorded yet.
+      fetchAllRows((from, to) =>
+        admin
+          .from("usage_by_source")
+          .select("*")
+          .gte("day", new Date(Date.now() - CHART_DAYS * 24 * 60 * 60 * 1000).toISOString())
+          .order("day", { ascending: false })
+          .order("entries", { ascending: false })
           .range(from, to)
       ),
     ]);
@@ -301,8 +313,21 @@ export default async function AdminPage({
     date: dayKey(r),
     values: dayBuckets.get(dayKey(r)) ?? {},
   }));
+  const sourceRows: SourceRow[] = bySource.data.map((r) => ({
+    date: dayKey(r),
+    referrer_host: r.referrer_host ? String(r.referrer_host) : null,
+    utm_source: r.utm_source ? String(r.utm_source) : null,
+    utm_medium: r.utm_medium ? String(r.utm_medium) : null,
+    utm_campaign: r.utm_campaign ? String(r.utm_campaign) : null,
+    entries: Number(r.entries) || 0,
+  }));
+  const firstSourceDay = sourceRows.reduce<string | null>(
+    (min, r) => (!min || r.date < min ? r.date : min),
+    null
+  );
   const shortDate = (v: unknown) =>
     v ? new Date(String(v)).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "-";
+  const sourcesSince = firstSourceDay ? shortDate(firstSourceDay) : null;
 
   return (
     <main className={styles.main}>
@@ -463,6 +488,11 @@ export default async function AdminPage({
           />
         </section>
       </EqualHeightRow>
+
+      <section className={styles.card}>
+        <h2 className={styles.cardTitle}>Traffic sources</h2>
+        <TrafficSources rows={sourceRows} since={sourcesSince} />
+      </section>
 
       <section className={styles.card}>
         <h2 className={styles.cardTitle}>By device</h2>
