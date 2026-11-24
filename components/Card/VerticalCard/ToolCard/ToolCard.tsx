@@ -1,12 +1,10 @@
 "use client";
-import React, { forwardRef } from "react";
-import { useRouter } from "next/navigation";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import ImageWithSkeleton from "@/components/Media/ImageWithSkeleton/ImageWithSkeleton";
 import FlatBtn from "@/components/Button/FlatBtn/FlatBtn";
 import styles from "./ToolCard.module.scss";
 import { mitr } from "@/lib/fonts";
-import { hasToolDetails } from "@/public/data/toolDetails";
 
 export type Props = {
   color?: string;
@@ -18,7 +16,7 @@ export type Props = {
   contentSecond: string;
   onlineLink: string;
   productLink: string;
-  /** Key in toolsListData.json; opens the shared details page when one exists. */
+  /** Key in toolsListData.json (unused while Explore shows "Coming soon"). */
   toolKey?: string;
   // onClick?: () => void;
   // onClickMore?: () => void;
@@ -36,14 +34,25 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
       contentSecond = "",
       onlineLink = "",
       productLink = "",
-      toolKey = "",
+      toolKey: _toolKey = "",
       // onClick,
       // onClickMore,
       ...props
     },
     ref
   ): JSX.Element => {
-    const router = useRouter();
+    const [isComingSoonOpen, setComingSoonOpen] = useState(false);
+
+    useEffect(() => {
+      if (!isComingSoonOpen) return;
+
+      const timer = setTimeout(() => {
+        setComingSoonOpen(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }, [isComingSoonOpen]);
+
     const onClick = () => {
       window.open(onlineLink, "_blank");
     };
@@ -54,13 +63,8 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
     const actionText = onlineLink ? "Try online" : productLink ? "Buy" : "Upcoming";
     const actionHandler = onlineLink ? onClick : onClickMore;
     const hasAction = Boolean(onlineLink || productLink);
-    // Temporarily disabled for every tool; set to true to re-enable.
-    const EXPLORE_ENABLED = false;
-    // Only tools with a details page can be explored; the rest stay disabled.
-    const canExplore =
-      EXPLORE_ENABLED && Boolean(toolKey) && hasToolDetails(toolKey);
     const onExploreClick = () => {
-      if (canExplore) router.push(`/${locale}/onlinetools/details/${toolKey}`);
+      setComingSoonOpen(true);
     };
 
     return (
@@ -106,9 +110,8 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
         </div>
         <div className={styles.itemAction}>
           <FlatBtn
-            className={canExplore ? styles.exploreBtn : styles.secondaryBtn}
+            className={styles.secondaryBtn}
             text="Explore more"
-            disabled={!canExplore}
             onClick={onExploreClick}
           />
           <FlatBtn
@@ -118,6 +121,29 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
             onClick={actionHandler}
           />
         </div>
+        {isComingSoonOpen && (
+          <div
+            className={styles.cardOverlay}
+            onClick={() => setComingSoonOpen(false)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                setComingSoonOpen(false);
+              }
+            }}
+          >
+            <div
+              className={styles.comingSoonModal}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <p className={styles.comingSoonTitle}>Coming soon</p>
+              <p className={styles.comingSoonDetail}>
+                We are preparing the Explore details for this tool.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
