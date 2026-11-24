@@ -54,8 +54,11 @@ const ToolCard = forwardRef<HTMLDivElement, Props>(
     const actionText = onlineLink ? "Try online" : productLink ? "Buy" : "Upcoming";
     const actionHandler = onlineLink ? onClick : onClickMore;
     const hasAction = Boolean(onlineLink || productLink);
+    // Temporarily disabled for every tool; set to true to re-enable.
+    const EXPLORE_ENABLED = false;
     // Only tools with a details page can be explored; the rest stay disabled.
-    const canExplore = Boolean(toolKey) && hasToolDetails(toolKey);
+    const canExplore =
+      EXPLORE_ENABLED && Boolean(toolKey) && hasToolDetails(toolKey);
     const onExploreClick = () => {
       if (canExplore) router.push(`/${locale}/onlinetools/details/${toolKey}`);
     };
